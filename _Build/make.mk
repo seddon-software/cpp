@@ -4,7 +4,7 @@
 # To inhibit "return value optimization" in demos, use -fno-elide-constructors  
 
 WARNINGS = -Wall
-CC = clang++
+CC = g++
 CFLAGS = -g -O0 $(WARNINGS) -std=c++17
 LFLAGS := $(LFLAGS)   
 SOURCES = $(wildcard *.cpp)
