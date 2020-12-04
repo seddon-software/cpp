@@ -1,0 +1,6 @@
+for f in *.py
+do
+    g=$(basename $f .py)
+    mv $f $g.cpp
+done
+

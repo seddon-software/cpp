@@ -1,0 +1,20 @@
+To setup Boost in Eclipse you need to:
+
+1) Set path and symbols to include directory
+2) Set path and symbols to library directory
+
+MACOS prefers to use dynamic link libraries and these are near impossible to
+run from Eclipse (each exe has to have DYLD_LIBRARY_PATH set up).  So I use
+static linking.  For this to work I have to put the statically linked Boost
+libraries in a different folder, otherwise MAC dynamically links.  Look at
+the Boost build directory and notice the folder "static".  I ran
+
+    mkdir static
+    mv *.a static
+    
+to get static linking working.
+
+To launch executables you have to add an entry to EACH executable's run configuration:
+	DYLD_LIBRARY_PATH=/Users/seddon/work/boost_1_57_0/stage/lib
+You can set this up as an exported environment file on the command line, but it doesn't
+work in Eclipse.

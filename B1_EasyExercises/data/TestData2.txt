@@ -1,0 +1,12 @@
+5
+This line contains the number 10
+15  20
+There are no numbers on this line
+>> 25
+30 and 35
+blank lines follow this line
+
+
+
+40
+

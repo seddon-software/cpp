@@ -1,0 +1,22 @@
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+Magic line
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
+This is a text file.
