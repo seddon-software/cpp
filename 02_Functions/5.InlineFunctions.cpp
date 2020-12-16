@@ -1,6 +1,0 @@
-// TO DO
-
-int main()
-{
-
-}
