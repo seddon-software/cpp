@@ -15,14 +15,10 @@ using namespace std;
 int main()
 {
     vector<string> collection;
-
-    collection.push_back("London");
-    collection.push_back("Madrid");
-    collection.push_back("New York");
-    collection.push_back("Tokyo");
+    cout << "started" << endl;
     collection.push_back("Rome");
 
-    for (int i = 0; i < collection.size(); i++)
+    for (unsigned i = 0; i < collection.size(); i++)
     {
         cout << collection[i] << endl;
     }
