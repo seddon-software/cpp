@@ -4,7 +4,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "Point.hpp"
+#include "Point.h"
 
 void Point::Initialise(int theX, int theY)  // method OR member function
 {

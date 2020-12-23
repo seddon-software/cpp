@@ -1,8 +1,15 @@
 ////////////////////////////////////////////////////////////
 //
-//      Aggregation
+//      Composition
 //
 ////////////////////////////////////////////////////////////
+
+/*
+ * Composition is where an object is made up of other child objects.
+ * Unlike Aggregation, the child objects cannot exist independently of the parent.
+ * So in this example the person has a name, birthday and height which only make
+ * sense when they are part of another object (Person).
+ */
 
 #include <string>
 using namespace std;
@@ -26,8 +33,8 @@ class Person
 public:
     Person(const string&, const Date&, double);
 private:
-    string name;        // aggregate
-    Date   birthday;    // aggregate
+    string name;        // component
+    Date   birthday;    // component
     double height;
 };
 

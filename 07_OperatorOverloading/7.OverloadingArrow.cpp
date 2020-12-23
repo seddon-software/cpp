@@ -8,7 +8,7 @@ public:
 	Time(int h, int m):hrs(h), min(m) {}
 	~Time()
 	{
-		cout << "DTOR" << endl;
+		cout << "Time DTOR" << endl;
 	}
 	void display()
 	{
@@ -19,11 +19,11 @@ private:
 	int min;
 };
 
-class Smart
+class SmartPtr
 {
 public:
-	Smart(Time* p) : ptr(p) {}
-	~Smart()
+	SmartPtr(Time* p) : ptr(p) {}
+	~SmartPtr()
 	{
 		delete ptr;
 	}
@@ -35,19 +35,22 @@ private:
     Time* ptr;
 };
 
-void f(Smart& s)
+void useSmartPtr(SmartPtr& s)
 {
-	s->display();				// ptr = s.operator->()
+	s->display();			// ptr = s.operator->()
 	                        // ptr->hello()
-	throw "problems";
+	// if we throw then the DTOR for s is called
+	// this in turn calls the DTOR for the Time object ...
+	// 	... and the heap is cleaned up correctly
+	throw "was the heap cleaned up when we throw?";
 }
 
 int main()
 {
 	try
 	{
-		Smart s(new Time(2,15));
-		f(s);
+		SmartPtr s(new Time(2,15));
+		useSmartPtr(s);
 	} catch(const char* e) {
 		cout << e << endl;
 	}
