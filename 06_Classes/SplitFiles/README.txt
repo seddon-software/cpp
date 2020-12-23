@@ -1,0 +1,3 @@
+Build with:
+	make Test
+

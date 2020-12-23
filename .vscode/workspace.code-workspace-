@@ -12,12 +12,7 @@
 		"debug.console.historySuggestions": false,
 		"editor.snippetSuggestions": "none",
                 "files.exclude": {
-					"**/*.exe": true,
-					"**/.project": true,
-					"**/.cproject": true,
-					"**/.settings": true,
-					"**/.metadata": true,
-					"**/.ipynb_checkpoints": true,
+                    "**/*.exe": true
         },	"launch": {
 		"version": "0.2.0",
 		"configurations": [
