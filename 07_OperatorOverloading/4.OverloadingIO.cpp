@@ -46,7 +46,6 @@ ostream& operator<<(ostream& os, const Time& t)
 int main()
 {
     Time t(6, 12);
-
     cout << t       // operator<<(cout, t);
          << endl;
 }

@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////
 //
-//      List - iterators
+//      Iterators
 //
 ////////////////////////////////////////////////////////////
 
@@ -21,9 +21,9 @@ int main()
     collection.push_back("Tokyo");
     collection.push_back("Rome");
     
-    list<string>::iterator i;
+    // vector<string>::iterator i;
 
-    for (i = collection.begin(); i != collection.end() ;  i++)
+    for (auto i = collection.begin(); i != collection.end() ;  i++)
     {
         cout << *i << endl;
     }

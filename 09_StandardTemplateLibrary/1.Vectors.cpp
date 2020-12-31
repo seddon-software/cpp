@@ -1,12 +1,12 @@
 #include <iostream>
-#include <list>
+#include <vector>
 #include <string>
 
 using namespace std;
 
 int main()
 {
-    list<int> v;
+    vector<int> v;
 
     v.push_back(10);
     v.push_back(20);

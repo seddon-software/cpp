@@ -1,1 +1,0 @@
-This text will now be inside of example.txt

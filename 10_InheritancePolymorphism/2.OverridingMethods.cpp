@@ -22,6 +22,7 @@ class ColoredPoint: public Point
 {
 public:
 	ColoredPoint(int x0, int y0, int color) : Point(x0, y0), color(color) {}
+	// note: return type doesn't have to be the same as in base class
 	void print()
 	{
 		cout << Point::print() << " color= " << color << endl;

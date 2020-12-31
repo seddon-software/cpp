@@ -1,8 +1,13 @@
 ////////////////////////////////////////////////////////////
 //
-//      Polymorphism
+//      Binding
 //
 ////////////////////////////////////////////////////////////
+
+/* 
+ * Early binding is when the compiler decides which method to call at compile time
+ * Late binding is when the compiler defers the decision until run time
+ */
 
 #include <vector>
 
@@ -47,10 +52,6 @@ public:
 
 //////
 
-void HideControl(Control* p)
-{
-    p->Hide();
-}
 
 int main()
 {
@@ -61,17 +62,7 @@ int main()
     TextBox   t1;
     TextBox   t2;
 
-    vector<Control*> theList;
-    theList.push_back(&s1);
-    theList.push_back(&s2);
-    theList.push_back(&b1);
-    theList.push_back(&b2);
-    theList.push_back(&t1);
-    theList.push_back(&t2);
-
-    for (unsigned i = 0; i < theList.size(); ++i)
-    {
-        HideControl(theList[i]);
-    }
+    s1.Control::Hide();  // early binding
+    s1.Hide();           // late binding
 }
 
