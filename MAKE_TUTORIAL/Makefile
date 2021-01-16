@@ -6,12 +6,10 @@ SOURCES = $(wildcard *.cpp)
 EXECUTABLES = $(SOURCES:.cpp=.exe)
 
 
-all:: $(EXECUTABLES)
+all: $(EXECUTABLES)
 
 
-$(EXECUTABLES): %.exe: %.cpp
-	@echo '$$@' = $@
-	@echo '$$<' = $<
+example.exe: %.cpp
 	$(CC) $(CFLAGS) $< -o $@ $(LFLAGS)
 
 
