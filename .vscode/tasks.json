@@ -18,6 +18,20 @@
             }
         },
         {
+            "label": "make clean",
+            "type": "shell",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "command": "make",
+            "args": ["clean"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
           "label": "master make",
           "type": "shell",
           "options": {
