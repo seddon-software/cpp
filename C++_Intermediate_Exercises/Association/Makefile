@@ -1,15 +1,15 @@
 CC := g++
 WARNINGS := -Wall -Wno-sign-compare
-CFLAGS := -g -O0 $(WARNINGS) -std=c++17 -fno-elide-constructors
+CFLAGS := -g -O0 $(WARNINGS) -std=c++17
 SOURCES := $(wildcard *.cpp)
 EXECUTABLES := $(SOURCES:.cpp=.exe)
 
 
-all: $(EXECUTABLES)
+all: Association.exe
 
 
-$(EXECUTABLES): %.exe: %.cpp
-	$(CC) $(CFLAGS) $< -o $@ $(LFLAGS)
+Association.exe: $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) -o $@ $(LFLAGS)
 
 
 
