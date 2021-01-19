@@ -1,25 +1,34 @@
+// Tutorial on filesystem: 
+//		https://www.bfilipek.com/2017/08/cpp17-details-filesystem.html
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <iterator>
 #include <algorithm>
-#include <boost/filesystem.hpp>
-namespace fs = boost::filesystem;
+#include <fstream>
+// gcc has not added filesystem head to the library as of version 9.2.0
+// so use the following instead
+#include <experimental/filesystem>
+// note we must also link with LFLAGS = -lstdc++fs
+
 using namespace std;
+namespace fs = std::experimental::filesystem;
 
 
-
-bool search_for_string(fs::path & pfound, const string& word)
+bool search_for_string(const fs::path & pfound, const string& word)
 {
-	string filename= boost::filesystem::canonical(pfound).string();
-	ifstream inputFile(filename);
+	ifstream inputFile(pfound);
 
-	// istreambuf_iterator uses low level routine to read every character
+	// in the following the extra set of brackets are necessary because of
+	// C++ most vexing parse.  Refer to:
+	//		https://www.fluentcpp.com/2018/01/30/most-vexing-parse/
 	string dataFromFile((istreambuf_iterator<char>(inputFile)),
 					    istreambuf_iterator<char>());
 	inputFile.close();
 
-	size_t n = dataFromFile.find(word);
+	size_t n = dataFromFile.find(word); // returns -1 (string::npos) on failure
+
 	if(n != string::npos)
 		return true;
 	else
@@ -40,15 +49,15 @@ vector<fs::path> findFiles(const fs::path& root, const string& ext)
 	{
 		if (is_directory(*iter))
 		{
-			// recurse
+			// recurse if *iter is a directory
 			vector<fs::path> r = findFiles(*iter, ext);
 			// add paths to result
 			result.insert(result.end(), r.begin(), r.end());
 		}
 		else
 		{
-			// check file extension matches
-			if(fs::extension(*iter) == ext)	result.push_back(*iter);
+			// check if file extension matches
+			if(fs::path(*iter).extension() == ext) result.push_back(*iter);
 		}
 		++iter;
 	}
@@ -62,13 +71,14 @@ int main()
 	fs::path root_path("resources");
 	vector<fs::path> result = findFiles(root_path, extension);
 
-	for(unsigned i = 0; i < result.size(); i++)
+//	for(unsigned i = 0; i < result.size(); i++)
+	for(auto r : result)
 	{
-		bool found = search_for_string(result[i], textToFind);
+		bool found = search_for_string(r, textToFind);
 		if(found)
 		{
 			cout << "Found: " << textToFind << " in file: "
-				 << boost::filesystem::canonical(result[i]).string() << endl;
+				 << r << endl;
 		}
 	}
 }

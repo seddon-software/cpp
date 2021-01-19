@@ -8,5 +8,5 @@ int main()
 
 int f()
 {
-    // return 0;
+    return 0;
 }

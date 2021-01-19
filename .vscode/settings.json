@@ -1,3 +1,7 @@
 {
-    "git.enabled": false
+    "git.enabled": false,
+    "files.associations": {
+        "*.exe": "nm",
+        "string": "cpp"
+    }
 }
