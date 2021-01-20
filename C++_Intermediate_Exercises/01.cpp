@@ -12,7 +12,7 @@
 #include <string>
 #include <map>
 #include <iostream>
-#include <filesystem>
+//#include <filesystem>
 #include <algorithm>
 #include <iterator>
 #include <sstream>
@@ -52,9 +52,9 @@ struct Record
 
 int main()
 {
-	namespace fs = std::filesystem;
-    std::cout << "Current path is " << fs::current_path() << '\n';
-	auto lines = openTestData("C++/sales.csv");
+//	namespace fs = std::filesystem;
+//    std::cout << "Current path is " << fs::current_path() << '\n';
+	auto lines = openTestData("sales.csv");
 	for (auto& line : lines)
 	{
 		cout << line << endl;
