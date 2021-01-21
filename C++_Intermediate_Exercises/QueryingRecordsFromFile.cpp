@@ -20,6 +20,7 @@
 
 using namespace std;
 
+#define PRINT_WIDTH 8
 
 list<string> openTestData(const string& fileName)
 {
@@ -42,7 +43,7 @@ void print(const vector<pair<string, string>>& fields)
 {
 	for(auto field:fields)
 	{
-		cout << setw(16) << field.second << ","; 
+		cout << setw(PRINT_WIDTH) << field.second << ","; 
 	}
 	cout << endl;
 }
@@ -55,7 +56,7 @@ void query(const vector<vector<pair<string, string>>>& records,
 	cout << "\nQuerying for:" << column << "=" << value << endl << endl;
 	for(auto columnName: header)
 	{
-		cout << setw(17) << columnName;
+		cout << setw(PRINT_WIDTH+1) << columnName;
 	}
 	cout << endl;
 
