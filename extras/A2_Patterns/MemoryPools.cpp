@@ -41,22 +41,22 @@ private:
 	int year;
 };
 
-class Point
+class Triangle
 {
 public:
-	Point(int x0, int y0) : x(x0),y(y0) {}
-	~Point() {}
+	Triangle(int x0, int y0) : x(x0),y(y0) {}
+	~Triangle() {}
 	
 	void WhereAreYou()
 	{
 		cout << "Point is at: " << x << ", " << y << endl;
 	}
 
-	static Point* AllocateMemory()
+	static Triangle* AllocateMemory()
 	{
-		Point* array = (Point*) VirtualAlloc(
+		Triangle* array = (Triangle*) VirtualAlloc(
 							0, 
-							100 * sizeof(Point), 
+							100 * sizeof(Triangle), 
 							MEM_COMMIT, 
 							PAGE_READWRITE);
 		return array;
@@ -77,15 +77,15 @@ private:
 int main()
 {
 	// pre-allocate raw memory for objects
-	Point* points = Point::AllocateMemory();  // space for 100 objects
+	Triangle* points = Triangle::AllocateMemory();  // space for 100 objects
 	Date*  dates  = Date ::AllocateMemory();  // space for 100 objects
 
 	// place objects in raw memory
 
-	new (&points[0]) Point(10, 20);
-	new (&points[1]) Point(11, 21);
-	new (&points[2]) Point(12, 22);
-	new (&points[3]) Point(13, 23);
+	new (&points[0]) Triangle(10, 20);
+	new (&points[1]) Triangle(11, 21);
+	new (&points[2]) Triangle(12, 22);
+	new (&points[3]) Triangle(13, 23);
 
 	new (&dates[0]) Date(12,  8, 1999);
 	new (&dates[1]) Date(22,  5, 2000);
@@ -103,7 +103,7 @@ int main()
 	// objects are not on the heap so delete must not be called
 	for(int i = 0; i < 4; i++)
 	{
-		points[i].~Point();
+		points[i].~Triangle();
 		dates[i].~Date();
 	}
 

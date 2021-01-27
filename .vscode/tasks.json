@@ -35,7 +35,7 @@
           "label": "master make",
           "type": "shell",
           "options": {
-              "cwd": "${workspaceFolder}/_Build"
+              "cwd": "${workspaceFolder}/Build"
           },
           "command": "make",
           "args": [],
@@ -49,7 +49,7 @@
         "label": "master make clean",
         "type": "shell",
         "options": {
-            "cwd": "${workspaceFolder}/_Build"
+            "cwd": "${workspaceFolder}/Build"
         },
         "command": "make",
         "args": ["clean"],

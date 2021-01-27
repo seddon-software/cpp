@@ -2,6 +2,7 @@
     "git.enabled": false,
     "files.associations": {
         "*.exe": "nm",
-        "string": "cpp"
+        "string": "cpp",
+        "*.tcc": "cpp"
     }
 }

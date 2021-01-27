@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
+void f3()
 {
     cout << "This is f3.cpp" << endl;
 }

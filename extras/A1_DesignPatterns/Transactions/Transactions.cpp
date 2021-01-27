@@ -9,10 +9,10 @@
 #include <exception>
 using namespace std;
 
-class Point
+class Triangle
 {
 public:
-    Point(int x0 = 0, int y0 = 0) : x(x0), y(y0) {}
+    Triangle(int x0 = 0, int y0 = 0) : x(x0), y(y0) {}
     void MoveBy(int dx, int dy)
     {
         x += dx;
@@ -28,16 +28,16 @@ private:
 class Transaction
 {
 public:
-    void Join(Point& p);
+    void Join(Triangle& p);
     void Begin();
     void Commit();
     void Rollback();
 private:
-    vector<Point*> participants;
-    vector<Point> snapshot;
+    vector<Triangle*> participants;
+    vector<Triangle> snapshot;
 };
 
-void Transaction::Join(Point& p)
+void Transaction::Join(Triangle& p)
 {
     participants.push_back(&p);
 }
@@ -66,9 +66,9 @@ void Transaction::Rollback()
 
 int main()
 {
-    Point p1(10, 10);
-    Point p2(20, 10);
-    Point p3(30, 10);
+    Triangle p1(10, 10);
+    Triangle p2(20, 10);
+    Triangle p3(30, 10);
     Transaction t;
 
     t.Join(p1);

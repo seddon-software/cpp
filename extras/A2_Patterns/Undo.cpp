@@ -11,42 +11,42 @@
 using namespace std;
 
 
-class Point
+class Triangle
 {
 public:
-    Point(double x0 = 0, double y0 = 0) 
+    Triangle(double x0 = 0, double y0 = 0) 
         : x(x0), y(y0), distance(0) {}
     void MoveBy(double dx, double dy);
     void Print();
     void Undo();
 private:
-    static double Distance(Point p1, Point p2);
+    static double Distance(Triangle p1, Triangle p2);
     double x;
     double y;
     double distance;
-    vector<Point> history;
+    vector<Triangle> history;
 };
 
-double Point::Distance(Point p1, Point p2)
+double Triangle::Distance(Triangle p1, Triangle p2)
 {
     double dx = p1.x - p2.x;
     double dy = p1.y - p2.y;
     return sqrt(dx * dx + dy * dy);
 }
 
-void Point::MoveBy(double dx, double dy)
+void Triangle::MoveBy(double dx, double dy)
 {
     history.push_back(*this);
 
-    Point original(*this);
+    Triangle original(*this);
     x += dx;
     y += dy;
     distance += Distance(*this, original);
 }
 
-void Point::Undo()
+void Triangle::Undo()
 {
-    Point p = history.back();
+    Triangle p = history.back();
     // copy p to *this, but don't overwrite history
     x = p.x;
     y = p.y;
@@ -54,7 +54,7 @@ void Point::Undo()
     history.pop_back();
 }
 
-void Point::Print()
+void Triangle::Print()
 {
     cout << "x=" << x 
          << ",y=" << y 
@@ -65,7 +65,7 @@ void Point::Print()
 
 int main()
 {
-    Point p(27, 31); p.Print();
+    Triangle p(27, 31); p.Print();
     p.MoveBy(10, 20); p.Print();
     p.MoveBy(10, 20); p.Print();
     p.MoveBy(10, 20); p.Print();
