@@ -5,8 +5,8 @@
 
 WARNINGS = -Wall
 CC = g++
-CFLAGS := $(CFLAGS) -g -O0 $(WARNINGS) -std=c++20
-#CFLAGS = -g -O0 $(WARNINGS) -std=c++17
+#CFLAGS := $(CFLAGS) -g -O0 $(WARNINGS) -std=c++20
+CFLAGS = -g -O0 $(WARNINGS) -std=c++17
 LFLAGS := $(LFLAGS)   
 SOURCES = $(wildcard *.cpp)
 EXECUTABLES = $(SOURCES:.cpp=.exe)
