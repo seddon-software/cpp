@@ -25,9 +25,9 @@ int main()
 	// if you are not too sure of a type, let the compile figure it out for you
 	auto functionPointer = bind(&f, _1, _2);
 	int result = functionPointer(x, y);
+	cout << result << endl;
 
 	auto fp = &f;			// int (*fp)(int, int) = &f;
 	result = fp(10, 20);
-
-	return 0;
+	cout << result << endl;
 }

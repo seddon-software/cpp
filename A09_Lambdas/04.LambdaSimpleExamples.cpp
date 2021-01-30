@@ -18,6 +18,9 @@ int main()
     result = [](int x, int y) -> int
 			 {
 			     return x + y;
-			 }(10, 200);
-	return 0;
+			 }(10, 200);    cout << result << endl;
+    result = [](int x, int y) // auto return (c++17)
+			 {
+			     return x + y;
+			 }(10, 200);    cout << result << endl;
 }

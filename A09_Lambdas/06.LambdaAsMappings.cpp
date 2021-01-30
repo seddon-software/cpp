@@ -3,32 +3,20 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> range(int lower, int upper, int increment = 1) {
-	vector<int> values;
-
-	for (int i = lower; i < upper; i += increment) {
-		values.push_back(i);
-	}
-	return values;
+auto range(int lower, int upper) {
+	vector<int> v(upper - lower);
+	generate(v.begin(), v.end(), [=]() mutable { return lower++; });
+	return v;
 }
 
 int main()
 {
-	vector<int> mylist = range(1, 200);
+	vector<int> mylist = range(1, 20);
 
 	for_each(mylist.begin(), mylist.end(),
-			 [] (int& x) -> void
-			 {
-				x = x * x;
-			 });
+			 [] (int& x) { x = x * x; });
 
 	for_each(mylist.begin(), mylist.end(),
-			 [] (int item) -> void
-			 {
-		         cout << " " << item << ",";
-			 });
-
+			 [] (int item) { cout << " " << item << ","; });
 	cout << " " << endl;
-
-	return 0;
 }

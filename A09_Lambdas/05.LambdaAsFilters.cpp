@@ -3,13 +3,10 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> range(int lower, int upper, int increment = 1) {
-	vector<int> values;
-
-	for (int i = lower; i < upper; i += increment) {
-		values.push_back(i);
-	}
-	return values;
+auto range(int lower, int upper) {
+	vector<int> v(upper - lower);
+	generate(v.begin(), v.end(), [=]() mutable { return lower++; });
+	return v;
 }
 
 int main()
@@ -21,8 +18,8 @@ int main()
 	while (true)
 	{
 		i = find_if(
-            i,
-			mylist.end(),
+            i,					// start
+			mylist.end(),       // end
 			[] (const int& item) -> bool
 			{
 			    if ((item % 2) == 0) {return false;}
@@ -40,7 +37,7 @@ int main()
 
 	cout << "Primes in range [15, 200)" << endl;
 	for_each(primes.begin(), primes.end(),
-			 [] (const int& item) -> void
+			 [] (const int& item)
 			 {
 		         cout << " " << item << ",";
 			 });

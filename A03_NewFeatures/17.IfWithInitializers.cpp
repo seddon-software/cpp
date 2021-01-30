@@ -2,7 +2,7 @@
 using namespace std;
 
 /*
- *
+ *	if statements can now havean initialization clause
  */
 
 

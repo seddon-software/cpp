@@ -9,6 +9,7 @@ int main()
 {
 	cout << f(5, 10) << endl;
 	cout << g(20, 25) << endl;
+	cout << g(35, 40) << endl;
 }
 
 auto f(int a, int b) -> int
@@ -21,4 +22,8 @@ auto g(int a, int b) -> decltype(a + b)
 	return a + b;
 }
 
-
+// compiler can automatically detect return type
+auto h(int a, int b)
+{
+	return a + b;
+}

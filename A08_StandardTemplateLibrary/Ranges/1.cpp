@@ -5,7 +5,6 @@
 #include <ranges>
 using namespace std;
 
-// https://www.walletfox.com/course/quickref_range_v3.php
 
 int main()
 {

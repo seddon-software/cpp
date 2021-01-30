@@ -15,7 +15,7 @@ ostream& operator<<(ostream& os, std::byte b)
 
 int main()
 {
-	std::byte b{0x41};
+	byte b{0x41};
 	char c;
 
 	c = static_cast<unsigned char>(b);
@@ -25,15 +25,15 @@ int main()
     b = byte(2);
 	cout << b << endl;
 
-	// 2-bit left shift
-	b <<= 2;
+	// left shift
+	b <<= 5;
 	cout << b << endl;
 
 	// binary literals
-	byte byte1{ 0b0011 };
-	byte byte2{ 0b1010 };
-	cout << byte1 << endl;
-	cout << byte2 << endl;
+	byte byte1{ 0b00110011 };
+	byte byte2{ 0b10101010 };
+	cout << hex << byte1 << endl;
+	cout << hex << byte2 << endl;
 
 	// bit-wise OR and AND operations
 	byte byteOr = byte1 | byte2;

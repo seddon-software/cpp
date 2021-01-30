@@ -5,8 +5,7 @@ class X
 {
 public:
 	X(int i) : i(i) {}
-	// CTOR calling another CTOR
-	X(): X(42) {}
+	X(): X(42) {}   // CTOR calling another CTOR
 	int get() { return i; }
 private:
 	int i;
@@ -18,5 +17,4 @@ int main()
 	X x2(25);
 	cout << x1.get() << endl;
 	cout << x2.get() << endl;
-	return 0;
 }

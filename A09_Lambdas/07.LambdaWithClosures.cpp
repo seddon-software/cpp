@@ -10,11 +10,7 @@ int main()
 
 	for_each(mylist.begin(),
 			 mylist.end(),
-			 [&total] (int x) -> void
-			          {
-						total += x;
-			          }
-	);
+			 [&total] (int x) { total += x; });
 	cout << total << endl;
 	return 0;
 }

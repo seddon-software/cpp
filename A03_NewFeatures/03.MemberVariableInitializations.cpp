@@ -38,14 +38,14 @@ private:
 };
 
 // still can't initialize static in class declaration
+// C++ only allows static const integral types to be initialized in the class
 int NewPoint::count = 0;
 
 int main()
 {
 	Triangle p1;
 	Triangle p2(5,8);
-	NewPoint p3{};
+	NewPoint p3{};		// calls the default CTOR
 	NewPoint p4(5,8);
-
 }
 

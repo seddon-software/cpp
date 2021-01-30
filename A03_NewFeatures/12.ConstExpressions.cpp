@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+//  constexpr defines a compile time constant in terms of various constructs
+// and allows compiler optimizations
+
 //	A constexpr function has some very rigid rules it must follow:
 //
 //	It must consist of single return statement (with a few exceptions)
@@ -38,6 +41,4 @@ int main()
 	const int minutes = 10000;
 	if constexpr(minutes/(24*60) > 1)
 		cout << "10000 minutes > 1 day" << endl;
-
-	return 0;
 }
