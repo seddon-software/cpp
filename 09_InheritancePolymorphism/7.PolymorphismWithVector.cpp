@@ -9,8 +9,9 @@ public: // interface
 	virtual void draw() = 0;
 	virtual void show() = 0;
 	virtual void hide() = 0;
-	// virtual ~Shape() { cout << "Shape::DTOR()" << endl; }
-	~Shape() { cout << "Shape::DTOR()" << endl; }
+	// comment out virtual DTOR to see what happens
+	// ~Shape() { cout << "Shape::DTOR()" << endl; }
+	virtual ~Shape() { cout << "Shape::DTOR()" << endl; }
 };
 
 class Rectangle : public Shape

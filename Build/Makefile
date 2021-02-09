@@ -1,7 +1,8 @@
 all: subsystems
 
 descend = @echo "\n\n$(1)\n"; cd ../$(1) && pwd && $(MAKE)
-clobber = @echo "\n\n$(1)\n"; cd ../$(1) && $(MAKE) clean
+#clobber = @echo "\n\n$(1)\n"; cd ../$(1) && $(MAKE) clean
+clobber = cd ../$(1) && $(MAKE) clean
 
 subsystems:
 	$(call descend,01_GettingStarted)

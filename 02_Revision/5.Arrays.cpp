@@ -24,7 +24,7 @@ void cpp_version()
 {
     // C++ vectors are variable size
     vector<int> numbers = {2, 5, 7, 3, 9};
-    for(int i = 0; i < numbers.size(); i++)
+    for(unsigned i = 0; i < numbers.size(); i++)
     {
         cout << numbers[i] << ",";
     }

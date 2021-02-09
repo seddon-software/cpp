@@ -2,12 +2,12 @@ LFLAGS = -lpthread
 export LFLAGS
 include ../Build/make.mk
 
-all:: subsystems
+all: subsystems
 
 subsystems:
 	cd RandomNumbers && $(MAKE)
 
-clean::
+clean:
 	cd RandomNumbers && $(MAKE) clean
 	
 

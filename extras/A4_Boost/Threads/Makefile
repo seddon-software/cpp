@@ -1,10 +1,6 @@
-BOOST_LIBS := -lboost_thread -lboost_system
-SHARED_LIBS := stage/lib/static
+include ../../../Build/make.mk
 
-
-export SHARED_LIBS
-export BOOST_LIBS
-include ../make.mk
-include ../../_Build/make.mk
+# LFLAGS := -shared -fPIC -lboost_thread -lboost_system
+LFLAGS := -static -lboost_thread -lboost_system
 
 

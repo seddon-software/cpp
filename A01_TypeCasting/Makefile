@@ -1,5 +1,5 @@
-WARNINGS := -Wno-unused-variable -Wno-unused-private-field
-export WARNINGS
+override WARNINGS = -w
+#export WARNINGS
 include ../Build/make.mk
 
 

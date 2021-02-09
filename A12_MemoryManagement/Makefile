@@ -1,4 +1,4 @@
-WARNINGS := -Wno-unused-private-field
+WARNINGS := -Wno-unused-private-field -Wno-uninitialized
 export WARNINGS
 include ../Build/make.mk
 

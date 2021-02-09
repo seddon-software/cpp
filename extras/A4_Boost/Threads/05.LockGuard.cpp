@@ -39,7 +39,7 @@ public:
 				int delay = dist(gen);
 				boost::this_thread::sleep(boost::posix_time::milliseconds(delay));
 			}
-			catch(exception e)
+			catch(const exception& e)
 			{
 				cout << "Bad boy" << endl;
 			}

@@ -1,12 +1,16 @@
-BOOST_LIBS := -lboost_regex
-SHARED_LIBS := stage/lib/static
+include ../../../Build/make.mk
+# LFLAGS := -static -lboost_regex
+LFLAGS := -v -shared -fPIC -L/usr/lib -Wl,libboost_regex.so # -Wl,--export-dynamic
+CFLAGS := -I /home/chris/Downloads/boost_1_75_0
 
 
-export SHARED_LIBS
-export BOOST_LIBS
-include ../make.mk
-include ../../_Build/make.mk
-
-
-
+# The Boost C++ Libraries were successfully built!
+# 
+# The following directory should be added to compiler include paths:
+# 
+    # /home/chris/Downloads/boost_1_75_0
+# 
+# The following directory should be added to linker library paths:
+# 
+    # /home/chris/Downloads/boost_1_75_0/stage/lib
 

@@ -1,9 +1,9 @@
 include ../Build/make.mk
 
-all:: subsystems
+all: subsystems
 
 subsystems:
 	cd SplitFiles && $(MAKE) Test
 
-clean::
+clean:
 	cd SplitFiles && $(MAKE) clean

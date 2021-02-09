@@ -1,18 +1,19 @@
-# This makefile is called from elsewhere and the macro LFLAGS
+# This makefile is called from elsewhere and various macros (e.g. LFLAGS)
 # may be defined already in another makefile, hence the use of recursive assignment
 # 	LFLAGS :=  $(LFLAGS)
 # To inhibit "return value optimization" in demos, use -fno-elide-constructors  
 
-WARNINGS = -Wall
+WARNINGS := -Wall
 CC = g++
-CFLAGS := $(CFLAGS) -g -O0 $(WARNINGS) -std=c++20
-#CFLAGS = -g -O0 $(WARNINGS) -std=c++17
+CFLAGS := -g -O0
+CFLAGS := $(CFLAGS) $(WARNINGS) -std=c++20
+# CFLAGS := $(CFLAGS) $(WARNINGS) -std=c++17
 LFLAGS := $(LFLAGS)   
 SOURCES = $(wildcard *.cpp)
 EXECUTABLES = $(SOURCES:.cpp=.exe)
 
 
-all:: $(EXECUTABLES)
+all: $(EXECUTABLES)
 
 
 $(EXECUTABLES): %.exe: %.cpp
@@ -20,7 +21,7 @@ $(EXECUTABLES): %.exe: %.cpp
 
 
 
-clean::
+clean:
 	- rm -f *.exe
 	
 	

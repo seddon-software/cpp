@@ -13,7 +13,7 @@ using namespace std;
 class A
 {
 public:
-	A() 
+	A()
 	{
     	if(x > y) throw string("x > y");
 	}
