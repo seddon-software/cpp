@@ -9,7 +9,7 @@
 
 # $1 = base of filename
 set -x
-incFile=/home/chris/anaconda3/include/python3.7m
+incFile=/opt/anaconda3/include/python3.8
 libFlags="-lboost_python3 -fPIC -shared -Wl,--export-dynamic"
 g++ -g -std=c++20 ${1}.cpp $libFlags -I $incFile -o ${1}_lib.so
 

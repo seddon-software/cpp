@@ -2,8 +2,10 @@
 #include <algorithm>
 #include <iterator>
 #include <vector>
-#include <ranges>
-using namespace std;
+#include <range/v3/all.hpp>
+//using namespace std;
+//using namespace ranges;
+//using ranges::views::transform;
 
 int main()
 {
@@ -11,5 +13,5 @@ int main()
     auto range = v | ranges::views::transform(
                          [](int x){return 2*x;}); // [6,4,2]
     for (auto v: range) std::cout << v << " ";
-    cout << endl;
+    std::cout << std::endl;
 }

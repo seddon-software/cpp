@@ -1,0 +1,39 @@
+#include "card.h"
+using namespace std;
+
+// class Card
+// {
+// private:
+//     char suit;
+//     char pip;
+//     bool played;
+//     int rank;
+// public:
+//ostream& operator<<(ostream& os, Card& card);
+Card::Card(int rank): rank(rank)   // rank=0 (2C), rank=1 (3C), rank = 13 (2D)
+{
+    const char pips[] = "23456789TJQKA";
+    if(rank/13 == 0) this->suit = 'c';
+    if(rank/13 == 1) this->suit = 'd';
+    if(rank/13 == 2) this->suit = 'h';
+    if(rank/13 == 3) this->suit = 's';
+    pip = pips[rank % 13];
+    played = false;
+}
+
+string Card::id()
+{
+    stringstream id;
+    id << pip << ", " << suit << ", " << boolalpha << played;
+    return id.str();
+}
+// };
+    // friend ostream& operator<<(ostream& os, Card& card);
+    // Card(int rank);
+    // string id();
+
+ostream& operator<<(ostream& os, Card& card)
+{
+    os << card.id(); 
+    return os;
+}

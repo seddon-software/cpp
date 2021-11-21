@@ -1,3 +1,12 @@
+// https://www.cppstories.com/2021/concepts-intro/
+
+
+/*
+    A concept is a set of constraints on template parameters evaluated at compile time. 
+    You can use them for class templates and function templates to control function overloads 
+    and partial specialization.
+*/
+
 #include<iostream>
 
 template<class U>

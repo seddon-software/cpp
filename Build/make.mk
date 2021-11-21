@@ -5,7 +5,7 @@
 
 WARNINGS := -Wall
 CC = g++
-CFLAGS := -g -O0
+CFLAGS := -g
 CFLAGS := $(CFLAGS) $(WARNINGS) -std=c++20
 # CFLAGS := $(CFLAGS) $(WARNINGS) -std=c++17
 LFLAGS := $(LFLAGS)   

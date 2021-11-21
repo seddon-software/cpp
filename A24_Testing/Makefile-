@@ -1,0 +1,12 @@
+#include ../Build/make.mk
+
+CC=g++
+CFLAGS=-g
+SOURCES = $(wildcard *.cpp)
+all: $(SOURCES)
+	$(info SOURCES is $(SOURCES))
+	$(CC) $(CFLAGS) $(SOURCES) -o main.exe
+	main.exe
+	
+clean:
+	rm main.exe

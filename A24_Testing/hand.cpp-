@@ -1,0 +1,22 @@
+#include "card.h"
+#include "hand.h"
+using namespace std;
+
+Card& Hand::operator[](int i)
+{
+    return hand[i];        
+}
+
+void Hand::dealHand()
+{
+// setup engine
+	static std::random_device rdev{};
+	static std::default_random_engine engine{rdev()};
+
+// Manufacture a deck of cards:
+	// std::array<Card, 52> deck;
+	// std::iota(deck.begin(), deck.end(), 0);
+
+// Shuffle the deck:
+	// std::shuffle(deck.begin(), deck.end(), engine);
+}

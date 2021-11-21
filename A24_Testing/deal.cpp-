@@ -1,0 +1,9 @@
+HAND north;
+HAND east;
+HAND south;
+HAND west;
+
+class Deal
+{
+
+};

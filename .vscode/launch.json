@@ -34,7 +34,7 @@
     },
     {
       "name": "C++",
-      "type": "cppdbg",
+      "type": "cppdbg","cppStandard":"c++20",
       "request": "launch",
       "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
       "args": [],

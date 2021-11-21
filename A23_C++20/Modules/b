@@ -1,0 +1,4 @@
+#! /bin/sh
+
+g++ -E -std=c++20 -fmodules-ts 01.helloWorld.cpp
+g++ -E -std=c++20 -fmodules-ts 01.main.cpp
