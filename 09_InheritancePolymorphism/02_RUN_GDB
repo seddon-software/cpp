@@ -1,0 +1,3 @@
+# run gdb
+# gdb -q -n -ex "b main" -ex "bt" -tui -se=polymorphism_using_the_stack.exe
+gdb -q -n -ex "b main" -ex "bt" -tui polymorphism_using_the_stack.cpp

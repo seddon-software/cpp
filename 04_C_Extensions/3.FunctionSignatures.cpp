@@ -6,7 +6,8 @@
 
 
 /*
- *  We can have several functions with the same name as long as they have different signatures
+ * We can have several functions with the same name as long as they 
+ * have different signatures
  */
 
 #include <iostream>

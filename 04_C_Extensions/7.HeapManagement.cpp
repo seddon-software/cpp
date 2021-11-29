@@ -12,11 +12,11 @@ using namespace std;
 
 void old_method()
 {
-    char* ptr1;
-    ptr1 = (char*) malloc(sizeof(char)*4);
-    strcpy(ptr1, "ABC");
-    printf("%s\n", ptr1);
-    free(ptr1);
+    char* ptr;
+    ptr = (char*) malloc(sizeof(char)*4);
+    strcpy(ptr, "ABC");
+    printf("%s\n", ptr);
+    free(ptr);
     
     const int max = 10;
     int* array = (int*) malloc(sizeof(int) * max);
@@ -31,10 +31,10 @@ void old_method()
 
 void new_method()
 {
-    string* ptr1;
-    ptr1 = new string("ABC");       // allocate with new
-    cout << *ptr1 << endl;
-    delete ptr1;                    // deallocate with delete
+    string* ptr;
+    ptr = new string("ABC");       // allocate with new
+    cout << *ptr << endl;
+    delete ptr;                    // deallocate with delete
 
     const int max = 10;
     int* array = new int[max];      // allocate with new[]

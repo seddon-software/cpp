@@ -8,10 +8,11 @@
 using namespace std;
 
 /*
- *  Functions can have default parameters.  The only restrictions is that defaults must
- *  all be defined from the right side of the function.
+ *  Functions can have default parameters.  The only restrictions is that 
+ *  defaults must all be defined from the right side of the function.
  */
 
+// defaults should be declared in the prototype
 void f(int, int = 99, int = 999);  // prototype doesn't need to specify 
                                    // variable names
 
