@@ -22,7 +22,7 @@ class ColoredPoint: public Triangle
 {
 public:
 	ColoredPoint(int x0, int y0, int color) : Triangle(x0, y0), color(color) {}
-	// note: return type doesn't have to be the same as in base class
+	// note: return type doesn't have to be the same as in the base class
 	void print()
 	{
 		cout << Triangle::print() << " color= " << color << endl;

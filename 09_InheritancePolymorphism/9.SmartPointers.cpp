@@ -52,10 +52,11 @@ void show_all(VECTOR& v)
 
 int main()
 {
+	// use unique pointers to avoid having to clean up the heap manually
 	vector<unique_ptr<Shape>> v;
-	v.push_back(SHAPE(new Rectangle()));
-	v.push_back(SHAPE(new Ellipse()));
-	v.push_back(SHAPE(new Polygon()));
+	v.push_back(unique_ptr<Shape>(new Rectangle()));
+	v.push_back(unique_ptr<Shape>(new Ellipse()));
+	v.push_back(unique_ptr<Shape>(new Polygon()));
 	show_all(v);
 }
 

@@ -39,7 +39,7 @@ public:
         Triangle(x0, y0),
         colour(c)
     {
-        SnapToGrid();       // can access protected method
+        SnapToGrid();       // can only access protected method from here 
     }
     void ChangeColour(int newColour)
     {
@@ -56,6 +56,6 @@ int main()
     Triangle         p(45, 67);
     ColouredPoint c(33, 44, 5);
 
-    // p.SnapToGrid();          // can't access protected method
-    // c.SnapToGrid();          // can't access protected method
+    // p.SnapToGrid();          // can't access protected method here
+    // c.SnapToGrid();          // can't access protected method here
 }

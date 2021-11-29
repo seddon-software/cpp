@@ -6,7 +6,9 @@
 
 /* 
  * Note: to view VTables in vscode you need to use the Debug Console:
- *      -exec p s1
+ *      -exec vtbl s1
+ *      -exec vtbl s2
+ *      -exec vtbl b1 etc
  */
 
 #include <vector>
