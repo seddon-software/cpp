@@ -9,8 +9,7 @@ public: // interface
 	virtual void draw() = 0;
 	virtual void show() = 0;
 	virtual void hide() = 0;
-	// comment out virtual DTOR to see what happens
-	// ~Shape() { cout << "Shape::DTOR()" << endl; }
+	// comment out the virtual keyword in the DTOR to see what happens
 	virtual ~Shape() { cout << "Shape::DTOR()" << endl; }
 };
 
