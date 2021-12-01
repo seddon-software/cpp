@@ -16,14 +16,16 @@ public:
         min(0)
     {
     }
-    Time(int h, int m)
-    :
-        hrs(h),
-        min(m)
+    Time(int h, int m): hrs(h), min(m) {}
+    // friend functions can access private members
+    // they have no this pointer
+    friend ostream& operator<<(ostream& os, const Time& t)
     {
+        os << "Hours = "   << t.hrs << ", "
+        << "Minutes = " << t.min;
+
+        return os;
     }
-    int GetHours()   const { return hrs; }
-    int GetMinutes() const { return min; }
 private:
     int hrs;
     int min;
@@ -31,15 +33,6 @@ private:
 
 // prototype
 ostream& operator<<(ostream& os, const Time& t);
-
-// global function (not a friend!!)
-ostream& operator<<(ostream& os, const Time& t)
-{
-    os << "Hours = "   << t.GetHours()
-       << "Minutes = " << t.GetMinutes();
-
-    return os;
-}
 
 /////
 

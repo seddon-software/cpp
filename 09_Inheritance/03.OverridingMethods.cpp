@@ -18,6 +18,7 @@ private:
 	int y;
 };
 
+// derived classes can override methods (print)
 class ColoredPoint: public Triangle
 {
 public:

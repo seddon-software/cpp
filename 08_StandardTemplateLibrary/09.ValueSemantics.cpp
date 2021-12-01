@@ -6,14 +6,9 @@ using namespace std;
 struct Triangle
 {
     int x, y;
-    void update()
-    {
-        x *= 10;
-        y *= 10;
-    }
     void display()
     {
-        cout << x << "," << y << endl;
+        cout << this << ": " << x << "," << y << endl;
     }
 };
 
@@ -28,11 +23,22 @@ int main()
     v.push_back(p2);
     v.push_back(p3);
 
+    cout << "triangles in vector" << endl;
     for(auto i = v.begin(); i != v.end(); ++i)
     {
-    	i->update();
         i->display();
     }
+    cout << "references to triangles in vector" << endl;
+    for(auto& x : v) // C++11 new loop syntax
+    {
+        x.display();
+    }
+    cout << "copies of triangles in vector" << endl;
+    for(auto x : v) // C++11 new loop syntax
+    {
+        x.display();
+    }
+    cout << "original triangles" << endl;
     p1.display();
     p2.display();
     p3.display();

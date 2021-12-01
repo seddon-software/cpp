@@ -15,13 +15,13 @@ public:
     void refuel() {}
 };
 
-class Bus : public Vehicle
+class Bus : public Vehicle // inherits 3 methods from Vehicle
 {};
 
-class Car : public Vehicle
+class Car : public Vehicle // inherits 3 methods from Vehicle
 {};
 
-class Van : public Vehicle
+class Van : public Vehicle // inherits 3 methods from Vehicle
 {};
 
 int main()
@@ -42,7 +42,9 @@ int main()
     v.refuel();
     v.stop();
 
-    // note the following is possible, but doesn't make sense:
+    // note the following is possible, but doesn't make sense
+    // because Vehicle is abstract:
+
     // Vehicle vehicle;
     // vehicle.start();
     // vehicle.refuel();
