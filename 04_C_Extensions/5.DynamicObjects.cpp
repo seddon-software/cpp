@@ -8,10 +8,10 @@
 using namespace std;
 
 
-class Triangle
+class Point
 {
 public:
-    Triangle()        // default CTOR
+    Point()        // default CTOR
     :
         x(0),
         y(0)
@@ -19,7 +19,7 @@ public:
         cout << "Default CTOR" << endl;
     }
 
-    Triangle(int x0, int y0)
+    Point(int x0, int y0)
     :
         x(x0),
         y(y0)
@@ -27,7 +27,7 @@ public:
         cout << "int int CTOR" << endl;
     }
 
-    ~Triangle()
+    ~Point()
     {
         cout << "DTOR" << endl;
     }
@@ -39,10 +39,10 @@ private:
 
 int main()
 {
-    Triangle* ptr;
+    Point* ptr;
 
     // do something
-    ptr = new Triangle(10, 10);
+    ptr = new Point(10, 10);
     // do something
 
     delete ptr;
