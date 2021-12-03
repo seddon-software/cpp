@@ -24,7 +24,7 @@ public:
     Control() {}
     virtual void show() { cout << "Control::show()" << endl; }  // dummy implementation for demo
     virtual void hide() { cout << "Control::hide()" << endl; }
-    virtual void update() { cout << "Control::update()" << endl; }
+    virtual void draw() { cout << "Control::draw()" << endl; }
     virtual ~Control() { cout << "Control::DTOR" << endl; }
 };
 
@@ -34,7 +34,7 @@ public:
     ScrollBar() {}
     virtual void show() { cout << "ScrollBar::show()" << endl; }
     virtual void hide() { cout << "ScrollBar::hide()" << endl; }
-    virtual void update() { cout << "ScrollBar::update()" << endl; }
+    virtual void draw() { cout << "ScrollBar::draw()" << endl; }
     virtual ~ScrollBar() { cout << "ScrollBar::DTOR" << endl; }
 };
 
@@ -44,7 +44,7 @@ public:
     Button() {}
     virtual void show() { cout << "Button::show()" << endl; }
     virtual void hide() { cout << "Button::hide()" << endl; }
-    virtual void update() { cout << "Button::update()" << endl; }
+    virtual void draw() { cout << "Button::draw()" << endl; }
     virtual ~Button() { cout << "Button::DTOR" << endl; }
 };
 
@@ -54,7 +54,7 @@ public:
     TextBox() {}
     virtual void show() { cout << "TextBox::show()" << endl; }
     virtual void hide() { cout << "TextBox::hide()" << endl; }
-    virtual void update() { cout << "TextBox::update()" << endl; }
+    virtual void draw() { cout << "TextBox::draw()" << endl; }
     virtual ~TextBox() { cout << "TextBox::DTOR" << endl; }
 };
 
@@ -65,6 +65,43 @@ void HideControl(Control& p)
     p.hide();
 }
 
+/*
+    If a method is marked as virtual in the base class, the compiler creates
+    one V-Table per class and places a pointer to the V-Table in every object:
+
+          s1                   ScrollBar V-Table
+     ┌──────────┐      ┌───────────────────────────────┐
+     │  _vptr   │----->│ ScrollBar::show() {...}       │
+     │   ...    │  │   │ ScrollBar::hide() {...}       │
+     └──────────┘  │   │ ScrollBar::draw() {...}       │
+          s2       │   │ ScrollBar::~ScrollBar() {...} │
+     ┌──────────┐  │   └───────────────────────────────┘
+     │  _vptr   │--┘
+     │   ...    │ 
+     └──────────┘
+
+          b1                   Button V-Table
+     ┌──────────┐      ┌───────────────────────────────┐
+     │  _vptr   │----->│ Button::show() {...}          │
+     │   ...    │  │   │ Button::hide() {...}          │
+     └──────────┘  │   │ Button::draw() {...}          │
+          b2       │   │ Button::~Button() {...}       │
+     ┌──────────┐  │   └───────────────────────────────┘
+     │  _vptr   │--┘
+     │   ...    │ 
+     └──────────┘
+
+          t1                   TextBox V-Table
+     ┌──────────┐      ┌───────────────────────────────┐
+     │  _vptr   │----->│ TextBox::show() {...}         │
+     │   ...    │  │   │ TextBox::hide() {...}         │
+     └──────────┘  │   │ TextBox::draw() {...}         │
+          t2       │   │ TextBox::~TextBox() {...}     │
+     ┌──────────┐  │   └───────────────────────────────┘
+     │  _vptr   │--┘
+     │   ...    │ 
+     └──────────┘
+*/
 int main()
 {
     ScrollBar s1;
