@@ -16,7 +16,9 @@ typedef map<string, int, less<string> > Map;
 
 void Print(const Pair& p) 
 { 
-    cout << p.first << ", " << p.second << endl; 
+    auto& key = p.first;
+    auto& value = p.second;
+    cout << key << ", " << value << endl; 
 }
 
 /////

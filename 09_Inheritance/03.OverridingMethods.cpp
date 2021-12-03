@@ -3,10 +3,10 @@
 #include <string>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
-	Triangle(int x0, int y0):x(x0), y(y0) {}
+	Point(int x0, int y0):x(x0), y(y0) {}
 	string print()
 	{
 		stringstream s;
@@ -19,14 +19,21 @@ private:
 };
 
 // derived classes can override methods (print)
-class ColoredPoint: public Triangle
+class ColoredPoint: public Point
 {
 public:
-	ColoredPoint(int x0, int y0, int color) : Triangle(x0, y0), color(color) {}
+	ColoredPoint(int x0, int y0, int color) : Point(x0, y0), color(color) {}
 	// note: return type doesn't have to be the same as in the base class
-	void print()
+	string print()
 	{
-		cout << Triangle::print() << " color= " << color << endl;
+		stringstream s;
+		s << Point::print() << ", color:" << color << endl;
+		return s.str();
+	}
+
+	void print2()
+	{
+		cout << Point::print() << " color= " << color << endl;
 	}
 private:
 	int color;
@@ -34,8 +41,9 @@ private:
 
 int main()
 {
-	Triangle p(5, 8);
+	Point p(5, 8);
 	ColoredPoint cp(10, 20, 25);
-	cout << p.print() << endl;
+	Point& ccp = cp;
+	cout << ccp.print() << endl;
 	cp.print();
 }

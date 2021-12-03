@@ -54,7 +54,13 @@ public:
 };
 
 //////
-
+// pass c by reference
+// the compiler can't tell if its a ScrollBar, Button, or TextBox
+// hence c and hide() are bound at runtime
+void hideAnyControl(Control& c)
+{
+    c.hide();    // late binding, runtime binding, dynamic binding
+}
 
 int main()
 {
@@ -64,8 +70,16 @@ int main()
     Button    b2;
     TextBox   t1;
     TextBox   t2;
+    Control c;
+    
+    hideAnyControl(s1);
+    hideAnyControl(s2);
+    hideAnyControl(b1);
+    hideAnyControl(b2);
+    hideAnyControl(t1);
+    hideAnyControl(t2);
 
-    s1.Control::hide();  // early binding
-    s1.hide();           // late binding
+    s1.hide();           // early binding, compile time binding, static binding
+    s1.Control::hide();  // early binding, compile time binding, static binding
 }
 

@@ -4,10 +4,10 @@
 //
 //////////////////////////////////////////////////////
 
-class Triangle
+class Point
 {
 public:
-    Triangle(int x0 = 0, int y0 = 0) 
+    Point(int x0 = 0, int y0 = 0) 
     :
         x(x0),
         y(y0)
@@ -31,12 +31,12 @@ private:
 
 /////
 
-class ColouredPoint : public Triangle
+class ColouredPoint : public Point
 {
 public:
     ColouredPoint(int x0 = 0, int y0 = 0, int c = 0)
     :
-        Triangle(x0, y0),
+        Point(x0, y0),
         colour(c)
     {
         SnapToGrid();       // can only access protected method from here 
@@ -53,7 +53,7 @@ private:
 
 int main()
 {
-    Triangle         p(45, 67);
+    Point         p(45, 67);
     ColouredPoint c(33, 44, 5);
 
     // p.SnapToGrid();          // can't access protected method here

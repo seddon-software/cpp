@@ -29,6 +29,6 @@ int main()
     // overloading as an r-value
     cout << m[2] << endl;
     // overloading as an l-value (necessitates reference return)
-    m[2] = "Jim";
+    m[2] = "Jim";   // m.operator[](2) = string("Jim")
     cout << m[2] << endl;
 }

@@ -7,6 +7,7 @@
  *  parameters (I've left them out in this example to keep things simple).
  */
 
+
 class Vehicle
 {
 public:
@@ -15,8 +16,16 @@ public:
     void refuel() {}
 };
 
+void refuelAnyVehicle(Vehicle& x)
+{
+    x.refuel();
+}
+
 class Bus : public Vehicle // inherits 3 methods from Vehicle
-{};
+{
+public:
+    void refuel() {}
+};
 
 class Car : public Vehicle // inherits 3 methods from Vehicle
 {};
@@ -29,7 +38,9 @@ int main()
     Bus b;
     Car c;
     Van v;
-
+    refuelAnyVehicle(b);
+    refuelAnyVehicle(c);
+    refuelAnyVehicle(v);
     b.start();
     b.refuel();
     b.stop();

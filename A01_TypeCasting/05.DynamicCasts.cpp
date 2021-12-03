@@ -85,15 +85,42 @@ int main()
 	BBB* pb;
 	CCC* pc;
 
-/// Casting Component objects using conventional casts
 	Component x;
+/*
+	How the x object is laid out in memory is compiler dependent.  However, most compilers
+	will lay ot this object as below.  Note the compiler creates 3 V-Table pointers inside
+	the object:
 
-	// note that the pa pb and pc will point at their respective v-tables ptrs and
-	// hence will be all different
+                Component           V-Tables
+               ┌──────────┐      ┌───────────┐
+    pa, x ---> │_vptr.AAA │----->│fa1() {...}│
+               │a1        │      │fa2() {...}│
+               │a2        │      │fa3() {...}│
+               │a3        │      │           │
+               ├──────────┤      ├───────────┤
+    pb ------> │_vptr.BBB │----->│fb1() {...}│
+               │b1        │      │fb2() {...}│
+               │b2        │      │fb3() {...}│
+               │b3        │      │           │
+               ├──────────┤      ├───────────┤
+    pc-------> │_vptr.CCC │----->│fc1() {...}│
+               │b1        │      │fc2() {...}│
+               │b2        │      │fc3() {...}│
+               │b3        │      │           │
+               │d1        │      └───────────┘
+               │d2        │
+               │d3        │
+               └──────────┘
+
+*/
+/// Casting Component objects using conventional casts
+	// note that the pa pb and pc will point at their respective v-tables ptrs (see above diagram)
+	// and hence will be all different
+
 	pa = (AAA*) &x;
 	pb = (BBB*) &x;
 	pc = (CCC*) &x;
-
+	cout << "pa=" << pa << ": pb=" << pb << ": pc=" << pc << endl;
 	pa->fa2();
 	pb->fb2();
 	pc->fc2();
@@ -103,6 +130,7 @@ int main()
 	pa = dynamic_cast<AAA*> (&x);
 	pb = dynamic_cast<BBB*> (&x);
 	pc = dynamic_cast<CCC*> (&x);
+	cout << "pa=" << pa << ": pb=" << pb << ": pc=" << pc << endl;
 
 	pa->fa2();
 	pb->fb2();
@@ -111,12 +139,24 @@ int main()
 // Casting BBB objects using conventional, dynamic and static casts
 	// note that BBB has only one v-table
 	BBB  b;
+/*
+	The b object has only one V-Table and is probably laid out as below:
+
+                    BBB                 V-Table
+                   ┌──────────┐      ┌───────────┐
+    pa,pb,pc ----> │_vptr.BBB │----->│fb1() {...}│
+                   │b1        │      │fb2() {...}│
+                   │b2        │      │fb3() {...}│
+                   │b3        │      └───────────┘
+                   └──────────┘
+*/
 
 // Conventional casts
 	// pa pb and pc all point to the one and only v-table (the are all equal)
 	pa = (AAA*) &b;
 	pb = (BBB*) &b;
 	pc = (CCC*) &b;
+	cout << "pa=" << pa << ": pb=" << pb << ": pc=" << pc << endl;
 
 	// Dispatch is by the v-table pointer witch is incorrect for pa and pc
 	pa->fa2();		// calls fb2() by mistake
