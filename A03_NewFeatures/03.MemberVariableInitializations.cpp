@@ -1,51 +1,48 @@
 // instance variable can be initialized in class definition,
-// but static still must be allocated and initialized outside the class
+// static variables can be initialized in class definition if declared inline (since C++17)
 
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
-	Triangle(int x = 0, int y = 0) : x(x), y(y)
+	Point(int x = 0, int y = 0) : x(x), y(y)
 	{
-		count++;
+		Point::count++;
 	}
+	friend ostream& operator<<(ostream& os, Point p)
+	{
+		return os << p.x << ":" << p.y << "(" << count << ")";
+	}
+protected:
+	inline static int count = 10;
 private:
-	static int count;
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 };
 
-int Triangle::count = 0;
-
-class NewPoint
+class NewPoint : public Point
 {
 public:
-	NewPoint()
-	{
-		count++;
-	}
-	NewPoint(int x, int y) : x(x), y(y)
-	{
-		count++;
-	}
+    NewPoint() {}
+	NewPoint(int x, int y) : x(x), y(y) {}
 private:
-	static int count;
 	// no need for default CTOR
 	int x = 0;
 	int y = 0;
 };
 
-// still can't initialize static in class declaration
-// C++ only allows static const integral types to be initialized in the class
-int NewPoint::count = 0;
-
 int main()
 {
-	Triangle p1;
-	Triangle p2(5,8);
+	Point p1;
+	cout << "p1=" << p1 << endl;
+	Point p2(5,8);
+	cout << "p2=" << p2 << endl;
+	
 	NewPoint p3{};		// calls the default CTOR
+	cout << "p3=" << p3 << endl;
 	NewPoint p4(5,8);
+	cout << "p4=" << p4 << endl;
 }
 
