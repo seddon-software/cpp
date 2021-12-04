@@ -7,7 +7,8 @@ using namespace std;
 class Point
 {
 public:
-	Point(int x = 0, int y = 0) : x(x), y(y)
+	Point() {}  // required, but x and y initialized to 5 and 7 elsewhere
+	Point(int x, int y) : x(x), y(y)
 	{
 		Point::count++;
 	}
@@ -18,29 +19,27 @@ public:
 protected:
 	inline static int count = 10;
 private:
-	int x = 0;
-	int y = 0;
+	int x = 5;
+	int y = 7;
 };
 
 class NewPoint : public Point
 {
 public:
     NewPoint() {}
-	NewPoint(int x, int y) : x(x), y(y) {}
+	NewPoint(int x, int y) : Point(x, y) {}
 private:
-	// no need for default CTOR
-	int x = 0;
-	int y = 0;
+	int z = 50;
 };
 
 int main()
 {
-	Point p1;
+	Point p1{};   // calls default CTOR
 	cout << "p1=" << p1 << endl;
-	Point p2(5,8);
+	Point p2(15,18);
 	cout << "p2=" << p2 << endl;
 	
-	NewPoint p3{};		// calls the default CTOR
+	NewPoint p3;		// calls the default CTOR
 	cout << "p3=" << p3 << endl;
 	NewPoint p4(5,8);
 	cout << "p4=" << p4 << endl;
