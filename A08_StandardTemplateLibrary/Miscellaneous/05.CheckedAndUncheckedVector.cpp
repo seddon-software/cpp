@@ -13,8 +13,8 @@ int main()
 
     try
     {
-        cout << v[55] << endl;
-        cout << v.at(55) << endl;
+        cout << v[55] << endl;    // doesn't throw
+        cout << v.at(55) << endl; // does throw
     }
     catch(out_of_range& e)
     {

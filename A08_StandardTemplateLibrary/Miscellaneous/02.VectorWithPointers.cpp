@@ -26,7 +26,7 @@ private:
 
 void pushObjects()
 {
-	cout << "\nusing objects" << endl;
+	cout << endl << "using objects" << endl;
 	cout << "=============" << endl;
 	vector<Point> v;
 	v.push_back(Point(2,1));
@@ -39,7 +39,7 @@ void pushObjects()
 
 void pushPointers()
 {
-	cout << "\nusing pointers" << endl;
+	cout << endl << "using pointers" << endl;
 	cout << "==============" << endl;
 	vector<Point*> v;
 	v.push_back(new Point(2,1));

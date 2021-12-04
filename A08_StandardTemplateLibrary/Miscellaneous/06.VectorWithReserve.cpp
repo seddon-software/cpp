@@ -17,12 +17,15 @@ template <typename T>
 void allocate(vector<T>& v, const T& t)
 {
 	v.push_back(t);
-	cout << v.size() << "\t" << v.capacity() << endl;
+	cout << "size=" << v.size() << "\t" << "capacity=" << v.capacity() << endl;
 }
+
 
 int main()
 {
+// note how capacity doubles when vector is full
 	{
+		// use reserve
 		vector<Point> v;
 		v.reserve(10);
 		for(int i = 0; i < 33; i++)
@@ -30,6 +33,7 @@ int main()
 	}
 	cout << "--------" << endl;
 	{
+		// use default
 		vector<Point> v;
 		// no reserve
 		for(int i = 0; i < 33; i++)

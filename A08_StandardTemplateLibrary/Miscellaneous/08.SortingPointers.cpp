@@ -49,7 +49,7 @@ int main()
 
 	sort(v.begin(),
 		 v.end(),
-		 [](Point* lhs, Point* rhs) { return *lhs < *rhs; });
+		 [](Point* lhs, Point* rhs) { return *lhs < *rhs; }); // v contains Point*
 
 	for(auto i : v)
 	{
@@ -57,9 +57,9 @@ int main()
 	}
 
 	// clean up memory
-	for(unsigned i = 0; i < v.size(); i++)
+	for(auto i : v)
 	{
-		delete v[i];
+		delete i;
 	}
 }
 

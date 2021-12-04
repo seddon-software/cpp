@@ -8,24 +8,33 @@ using namespace std;
  * istreambuf_iterator is an iterator for unformatted extraction.
  * istream_iterator is designed for formatted extraction and removes
  *     white space by default
+ * 
+ * This example include the "most vexing parse":
+ *
+ *      A a( A() );         // this is a function declaration
+ *      A a( (A()) );       // this is a variable definition
  */ 
 
 string fileName("resources/myfile.txt");
 
+struct Args
+{
+    bool ignoreWhiteSpace;
+};
 
-void read_file_using_istream_iterator()
+void read_file_using_istream_iterator(Args args)
 {
     // using string CTOR template
     // template<class InputIterator> string (InputIterator begin, InputIterator end);
     ifstream inputFile(fileName);
-    noskipws(inputFile);
+    if(!args.ignoreWhiteSpace) noskipws(inputFile);
     string dataFromFile((istream_iterator<char>(inputFile)), // iterator for inputFile
                                                              // note extra brackets
                                                              // "most vexing parse"
                          istream_iterator<char>());          // special EOF iterator
 
     inputFile.close();
-    cout << dataFromFile << endl;
+    cout << dataFromFile << endl << endl;
 }
 
 void read_file_using_istreambuf_iterator()
@@ -41,6 +50,7 @@ void read_file_using_istreambuf_iterator()
 
 int main()
 {
-    read_file_using_istream_iterator();
+    read_file_using_istream_iterator({.ignoreWhiteSpace = false});  // using  designated initializers
+    read_file_using_istream_iterator({.ignoreWhiteSpace = true});
     read_file_using_istreambuf_iterator();
 }

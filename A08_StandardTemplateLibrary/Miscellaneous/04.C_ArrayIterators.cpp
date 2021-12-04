@@ -9,13 +9,15 @@ int main()
 {
 	const float cost[4] = { 4.78, 6.97, 8.81, 9.02 };
 	vector<float> v(4);
-	copy(cost, cost+4, ostream_iterator<float>(cout, ","));
+	
+	copy(cost, cost+4, ostream_iterator<float>(cout, ","));  // "," is delimeter
 	cout << endl;
 
 	copy(cost, cost + 4, v.begin());
 
-	for(unsigned i = 0; i < v.size(); ++i)
+	for(auto x : v)
 	{
-		cout << v[i] << endl;
+		cout << x << " ";
 	}
+	cout << endl;
 }

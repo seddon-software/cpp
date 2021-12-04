@@ -1,0 +1,1 @@
+g++ -g -Wall -std=c++20 10.MapInserts.cpp -o 10.MapInserts.exe    

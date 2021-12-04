@@ -7,7 +7,6 @@ using namespace std;
 // use accumulate algorithm from numerics library
 // accumulate performs a left fold
 
-
 struct Point
 {
 	Point(double x, double y) : x(x), y(y) {}

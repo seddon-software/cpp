@@ -7,13 +7,17 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <typeinfo>
+
+
 
 using namespace std;
 
-// typedef pair<string, int> PAIR;
-// typedef map<string, int, less<string>> MAP;
-using PAIR = pair<string, int>;
-using MAP = map<string, int, less<string>>;
+// using can replace typedefs:
+//      typedef pair<const string, int> PAIR;
+//      typedef map<const string, int, less<string>> MAP;
+using PAIR = pair<const string, int>;
+using MAP = map<const string, int, less<string>>;
 
 
 ostream& operator<<(ostream& os, const PAIR& p)
@@ -24,20 +28,20 @@ ostream& operator<<(ostream& os, const PAIR& p)
 
 /////
 
-
 int main()
 {
+/*
+    map::insert does not modify the map if key exists
+    map::operator[] always overwrites even if the key exists
+*/
     MAP theList;
-    MAP::iterator i;
-
     // use insert for new entries
     // we need to insert pair<string, int>
-    //   so can also use value_type or make_pair 
-    theList.insert(PAIR("Mary", 18000));
-    theList.insert(MAP::value_type("John", 20000));
-    theList.insert(MAP::value_type("Susan", 36500));
-    theList.insert(make_pair("Rose", 17500));
-    theList.insert(make_pair("Steven", 26000));
+    theList.insert(PAIR("Mary", 18000));        // C++17: compiler infers pair types(const char*, int) from CTOR
+    theList.insert(PAIR("John", 20000));
+    theList.insert(PAIR("Susan", 36500));
+    theList.insert(PAIR("Rose", 17500));
+    theList.insert(PAIR("Steven", 26000));
 
     // use operator[ ] to update elentries
     theList["Mary"]   = 18050;

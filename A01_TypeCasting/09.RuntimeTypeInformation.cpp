@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include <typeinfo>
+#include <cxxabi.h>    // gcc specific header to demangle names
+
 using namespace std;
 
 /*
@@ -43,5 +45,8 @@ int main()
 
 void determineClass(const RTTI::Person& p)
 {
-	cout << typeid(p).name() << endl;
+	int     status;
+
+	char* realname = abi::__cxa_demangle(typeid(p).name(),0,0,&status);  // gcc specific code (see Makefile)
+    cout << realname << endl;
 }

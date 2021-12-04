@@ -59,10 +59,8 @@ int main()
 	mymap[Triangle(9,40)] = "9-40-41";
 	mymap[Triangle(7,24)] = "7-24-25";
 
-	map<Triangle, string, less<Triangle>>::iterator i;
-
 	// search for triangle using functor
-	i = find_if(mymap.begin(), mymap.end(), Query("7-24-25"));
+	auto i = find_if(mymap.begin(), mymap.end(), Query("7-24-25"));
 	if(i != mymap.end())
 		cout << "Found: " << i->first << "," << i->second << endl;
 	else
