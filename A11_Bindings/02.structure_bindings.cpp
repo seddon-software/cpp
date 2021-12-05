@@ -1,18 +1,24 @@
-#include <bits/stdc++.h> 
+#include <string> 
+#include <tuple> 
+#include <iostream> 
 using namespace std; 
   
 struct Point 
 { 
-    int x; 
+    double x; 
     int y; 
-    int z; 
+    string z;
+    auto f()
+    {
+        return tuple(x, y, z);
+    } 
 }; 
   
 int main() 
 { 
-    Point p = { 1,2,3 }; 
-      
+    Point p = {  3.14159, 2, "hello"s }; 
+
     // Structure binding 
-    auto [x, y, z] = p;
+    auto [x, y, z] = p.f();
     cout << "p = " << x << "," << y << "," << z << endl; 
 }

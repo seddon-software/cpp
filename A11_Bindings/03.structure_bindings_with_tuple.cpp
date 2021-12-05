@@ -1,9 +1,11 @@
-#include <bits/stdc++.h> 
+#include <tuple> 
+#include <string> 
+#include <iostream> 
 using namespace std; 
   
 int main() 
 { 
-    auto t = make_tuple(string("Hello"), 5, 10.7); 
+    auto t = tuple(string("Hello"), 5, 10.7); 
       
     // Structure binding with l-values (references)
     auto& [t1, t2, t3] = t;

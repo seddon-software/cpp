@@ -1,25 +1,32 @@
 #include <iostream>
-#include <bits/stdc++.h> 
+#include <tuple>
+#include <string>
+
 using namespace std; 
   
 struct Point 
 { 
-    int x; 
+    double x; 
     int y; 
-    int z;
-    auto operator()() 
+    string z;
+    auto f() 
     { 
         // returns a tuple to make it work with std::tie 
-        return make_tuple(x, y, z);  
+        // tie constructs a tuple object whose elements are references to the arguments in args 
+        // and in the same order.  This allows a set of objects to act as a tuple, which is 
+        // especially useful when returning multiple objects.
+        return tuple(x, y, z);  
     }  
 }; 
   
 int main() 
 { 
-    Point p = { 1,2,3 }; 
-    int x, y, z;
+    Point p = { 3.14159, 2, "hello" }; 
+    double x; 
+    int y; 
+    string z;
     // return a tied tuple 
-    tie (x, y, z) = p();   // overloaded () operator
+    tie (x, y, z) = p.f(); // unpack the tuple
       
     cout << "p = " << x << "," << y << "," << z << endl; 
 } 

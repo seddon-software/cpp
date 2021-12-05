@@ -1,7 +1,0 @@
-Trick 1: N Leads a club, (4 possibilities) E follows (3) then S (4) then W (2)
-=> 4*3*4*2 possibilities = 96 combinations
-
-N = 4678
-E = 2TJ
-W = 59
-S = 3QKA
