@@ -43,14 +43,14 @@ public:
     virtual ~Button() { cout << "Button::DTOR" << endl; }
 };
 
-class TextBox : public Control
+class Polygon : public Control
 {
 public:
-    TextBox() {}
+    Polygon() {}
     virtual void show() { cout << "TextBox::show()" << endl; }
     virtual void hide() { cout << "TextBox::hide()" << endl; }
     virtual void update() { cout << "TextBox::update()" << endl; }
-    virtual ~TextBox() { cout << "TextBox::DTOR" << endl; }
+    virtual ~Polygon() { cout << "TextBox::DTOR" << endl; }
 };
 
 //////
@@ -68,8 +68,8 @@ int main()
     ScrollBar s2;
     Button    b1;
     Button    b2;
-    TextBox   t1;
-    TextBox   t2;
+    Polygon   t1;
+    Polygon   t2;
     Control c;
     
     hideAnyControl(s1);

@@ -26,11 +26,11 @@ private:
 	int y;
 };
 
-class Rectangle
+class Polygon
 {
 public:
-	Rectangle(int x0, int y0, int x1, int y1): topLeft(x0, y0), bottomRight(x1, y1) {}
-	Rectangle(const Triangle& p1, const Triangle& p2) : topLeft(p1), bottomRight(p2) {}
+	Polygon(int x0, int y0, int x1, int y1): topLeft(x0, y0), bottomRight(x1, y1) {}
+	Polygon(const Triangle& p1, const Triangle& p2) : topLeft(p1), bottomRight(p2) {}
 	void display()
 	{
 		topLeft.display();
@@ -45,10 +45,10 @@ private:
 
 int main()
 {
-	Rectangle r(10, 20, 100, 110);
+	Polygon r(10, 20, 100, 110);
 	Triangle tl(10, 20);
 	Triangle br(100, 110);
-	Rectangle(tl, br);
+	Polygon(tl, br);
 	r.display();
 }
 

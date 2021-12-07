@@ -48,14 +48,14 @@ public:
     virtual ~Button() { cout << "Button::DTOR" << endl; }
 };
 
-class TextBox : public Control
+class Polygon : public Control
 {
 public:
-    TextBox() {}
+    Polygon() {}
     virtual void show() { cout << "TextBox::show()" << endl; }
     virtual void hide() { cout << "TextBox::hide()" << endl; }
     virtual void update() { cout << "TextBox::update()" << endl; }
-    virtual ~TextBox() { cout << "TextBox::DTOR" << endl; }
+    virtual ~Polygon() { cout << "TextBox::DTOR" << endl; }
 };
 
 //////
@@ -73,8 +73,8 @@ int main()
     theList.push_back(new ScrollBar());
     theList.push_back(new Button());
     theList.push_back(new Button());
-    theList.push_back(new TextBox());
-    theList.push_back(new TextBox());
+    theList.push_back(new Polygon());
+    theList.push_back(new Polygon());
 
     for (unsigned i = 0; i < theList.size(); ++i)
     {

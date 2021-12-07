@@ -45,10 +45,10 @@ public:
     virtual void Update() {}
 };
 
-class TextBox : public Control
+class Polygon : public Control
 {
 public:
-    TextBox() {}
+    Polygon() {}
     virtual void Show() {}
     virtual void Hide() {}
     virtual void Update() {}
@@ -104,8 +104,8 @@ int main()
     ScrollBar s2;
     Button    b1;
     Button    b2;
-    TextBox   t1;
-    TextBox   t2;
+    Polygon   t1;
+    Polygon   t2;
 
     vector<Control*> theList;
     theList.push_back(&s1);

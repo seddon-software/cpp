@@ -13,22 +13,22 @@ public: // interface
 	virtual ~Shape() { cout << "Shape::DTOR()" << endl; }
 };
 
-class Rectangle : public Shape
+class Polygon : public Shape
 {
 public:
 	virtual void draw() { cout << "Rectangle::draw()" << endl; }
 	virtual void show()	{ cout << "Rectangle::show()" << endl; }
 	virtual void hide() { cout << "Rectangle::hide()" << endl; }
-	virtual ~Rectangle() { cout << "Rectangle::DTOR()" << endl; }
+	virtual ~Polygon() { cout << "Rectangle::DTOR()" << endl; }
 };
 
-class Polygon : public Shape
+class Rectangle : public Shape
 {
 public:
 	virtual void draw() { cout << "Polygon::draw()" << endl; }
 	virtual void show() { cout << "Polygon::show()" << endl; }
 	virtual void hide() { cout << "Polygon::hide()" << endl; }
-	virtual ~Polygon() { cout << "Polygon::DTOR()" << endl; }
+	virtual ~Rectangle() { cout << "Polygon::DTOR()" << endl; }
 };
 
 class Ellipse : public Shape
@@ -54,9 +54,9 @@ void show_all(const VECTOR& v)
 int main()
 {
 	vector<Shape*> v;
-	v.push_back(new Rectangle());
-	v.push_back(new Ellipse());
 	v.push_back(new Polygon());
+	v.push_back(new Ellipse());
+	v.push_back(new Rectangle());
 	show_all(v);
 	for(auto& ptr:v)
 	{

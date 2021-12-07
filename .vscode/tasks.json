@@ -24,7 +24,7 @@
                 "cwd": "${fileDirname}"
             },
             "command": "make",
-            "args": [],
+            "args": ["-i"],
             "problemMatcher": [],
             "group": {
                 "kind": "build",

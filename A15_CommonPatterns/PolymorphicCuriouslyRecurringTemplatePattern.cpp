@@ -35,22 +35,22 @@ public:
 };
 
 
-class Rectangle : public Shape<Rectangle>
+class Polygon : public Shape<Polygon>
 {
 public:
 	void draw() { cout << "Rectangle::draw()" << endl; }
 	void show()	{ cout << "Rectangle::show()" << endl; }
 	void hide() { cout << "Rectangle::hide()" << endl; }
-	~Rectangle() { cout << "Rectangle::DTOR()" << endl; }
+	~Polygon() { cout << "Rectangle::DTOR()" << endl; }
 };
 
-class Polygon : public Shape<Polygon>
+class Rectangle : public Shape<Rectangle>
 {
 public:
 	void draw() { cout << "Polygon::draw()" << endl; }
 	void show() { cout << "Polygon::show()" << endl; }
 	void hide() { cout << "Polygon::hide()" << endl; }
-	~Polygon() { cout << "Polygon::DTOR()" << endl; }
+	~Rectangle() { cout << "Polygon::DTOR()" << endl; }
 };
 
 class Ellipse : public Shape<Ellipse>

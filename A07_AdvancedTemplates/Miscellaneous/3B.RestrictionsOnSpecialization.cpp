@@ -1,5 +1,4 @@
 #include <type_traits>
-#include <concepts>
 using namespace std;
 
 // This example shows how to apply Java style restriction on any class
@@ -13,20 +12,26 @@ class Ellipse: public Graphic {};
 class Rectangle: public Polygon {};
 class TextBox {};
 
+// traits used later
+template<typename T>
+using isSubclassOfGraphic = std::is_convertible<T,Graphic>;
+
+template <typename T>
+using enable_if_subclassOfGraphic = std::enable_if<isSubclassOfGraphic<T>::value>;
 
 ////////////////////////////////////////////////////////////
 // the generic template
-template<typename T>
+template<typename T, typename U = void>
 class Canvas {};
 
-// specialization for T = subclasses of Animal
+// specialization for T = subclasses of Graphic
 // fails for other classes
-template<typename  T>requires std::derived_from<T, Graphic>
-class Canvas<T>
+template<typename T>
+class Canvas<T, typename enable_if_subclassOfGraphic<T>::type>
 {
 public:
 	T getFrame() { return frame; }
-	void setFrame(T& animal) { this->frame = animal; }
+	void setFrame(T& frame) { this->frame = frame; }
 private:
 	T frame;
 };
@@ -36,7 +41,7 @@ private:
 int main()
 {
 	// The generic Canvas template can take any class, but
-	// only Animal and its subclasses can use the
+	// only Graphic and its subclasses can use the
 	// specialization defining the getter and setter
 
 	Canvas<Polygon> canvas1;
@@ -55,8 +60,8 @@ int main()
 	Ellipse ellipse = canvas3.getFrame();
 
 	// no getters and setters for textBox
-	[[maybe_unused]] Canvas<TextBox> canvas4;
-	canvas4.setAnimal(*new TextBox);
-	[[maybe_unused]] TextBox textBox = canvas.getAnimal();
+	// [[maybe_unused]] Canvas<TextBox> canvas4;
+	// canvas4.setFrame(*new TextBox);
+	// [[maybe_unused]] TextBox textBox = canvas4.getFrame();
 }
 
