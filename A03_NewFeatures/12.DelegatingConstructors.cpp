@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// one constructor can call another to avoid repeating code
 class X
 {
 public:

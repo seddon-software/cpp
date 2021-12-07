@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 
+// explicit implies implicit casts are not allowed
 class Time1		// explicit casts
 {
 public:
 	Time1() :hrs(0), min(0) {}
 	Time1(int h, int m) : hrs(h), min(m) {}
-	explicit Time1(int m) : hrs(m/60), min(m%60) {}
-	explicit operator int() { return hrs * 60 + min; }
+	explicit Time1(int m) : hrs(m/60), min(m%60) {}    // can't implicitly cast from int to Time
+	explicit operator int() { return hrs * 60 + min; } // can't implicitly cast from Time to int
 private:
 	int hrs;
 	int min;

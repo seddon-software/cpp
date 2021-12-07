@@ -27,6 +27,7 @@ private:
 	int minute;
 };
 
+// typesafe literals are used for readability
 int main()
 {
 	// without typesafe literals

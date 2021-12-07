@@ -4,7 +4,8 @@
 using namespace std;
 
 /*
- *
+ *  byte is an enum class. A byte is only a collection of bits, and the only operators defined 
+ *  for it are the bitwise operators. 
  */
 
 ostream& operator<<(ostream& os, std::byte b)
@@ -40,4 +41,6 @@ int main()
 	byte byteAnd = byte1 & byte2;
 	cout << byteOr << endl;
 	cout << byteAnd << endl;
+
+	// int x = b;  // error: bytes can be cat to integral types
 }

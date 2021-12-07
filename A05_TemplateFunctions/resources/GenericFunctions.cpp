@@ -56,12 +56,38 @@ There are 4 main memory regions:
 	        0x45828534: "Red"
 			0x45828538: "Blue"
 			...
+	
+	Note that when we use a template, the template parameter T will be of type const char*.
+	This, in turn, means the template will compare pointers rather than the C-Strings. So, if
+	the C-Strings are as above, then the templated Max function:
+			template <typename T>
+			T Max(T a, T b)
+			{
+				if (a > b)
+			    	return a;
+				else
+				    return b;
+			}
+	when a is "Red" and b is "Blue" will translate to:
+			if (0x45828534 > 0x45828538)
+				return 0x45828534;
+			else
+				return 0x45828538
+	when the parameters are the other way round will translate to: 
+			if (0x45828538 > 0x45828534)
+				return 0x45828538;
+			else
+				return 0x45828534
+	Both cases return the larger address, namely 0x45828538 and not necessarily the greater 
+	C-String.  It depends which string is stored in the higher memory location and not on the 
+	content of the C-String, which is obviously incorrect.  That means the template won't work.
+	We'll need to find a work around!	  
 */
 int main()
 {
 	cout << Max(5, 8) << endl;
 	cout << Max(5.1, 8.3) << endl;
-	cout << Max("Blue", "Red") << endl;	  // "Blue" is a const char* 
+	cout << Max("Blue", "Red") << endl;	  // "Blue" and "Red" are of type = const char* 
 	cout << Max("Red", "Blue") << endl;
 }
 

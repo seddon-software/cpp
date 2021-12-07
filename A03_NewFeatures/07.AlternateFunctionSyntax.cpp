@@ -1,15 +1,16 @@
 #include <iostream>
 using namespace std;
 
-// auto introduces trailing-return-type syntax
+// Functions using trailing-return-type syntax behave as normal functions
+// auto return type; often computed by compiler from decltype
 auto f(int, int) -> int;
-auto g(int a, int b) -> decltype(a + b);
+auto g(auto a, auto b) -> decltype(a + b);
 
 int main()
 {
 	cout << f(5, 10) << endl;
 	cout << g(20, 25) << endl;
-	cout << g(35, 40) << endl;
+	cout << g(35, 40.3) << endl;
 }
 
 auto f(int a, int b) -> int
@@ -17,7 +18,8 @@ auto f(int a, int b) -> int
 	return a + b;
 }
 
-auto g(int a, int b) -> decltype(a + b)
+// the auto parameters get converted to template args
+auto g(auto a, auto b) -> decltype(a + b)
 {
 	return a + b;
 }

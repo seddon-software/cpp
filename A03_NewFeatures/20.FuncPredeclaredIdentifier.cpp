@@ -4,7 +4,7 @@
 using namespace std;
 
 /*
- *
+ *  __func__ is useful for diagnostics 
  */
 
 struct MyClass {

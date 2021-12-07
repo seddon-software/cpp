@@ -3,6 +3,8 @@
 using namespace std;
 
 
+// long long introduced in 2011 when many implementations were 32 bit (long was only 4 bytes)
+
 int main()
 {
 	unsigned long long very_big = numeric_limits<int>::max();

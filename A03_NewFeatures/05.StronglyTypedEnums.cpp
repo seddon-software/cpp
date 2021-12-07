@@ -9,7 +9,7 @@ using namespace std;
  * they don’t allow implicit conversion to int
  * and don’t allow comparisons from different enumerations
  */ 
-enum class E : unsigned long
+enum class E : unsigned long  // any integral type (base class is optional)
 {
 	E1 = 1,
 	E2 = 2,
