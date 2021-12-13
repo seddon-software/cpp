@@ -2,10 +2,14 @@
 #include <iostream>
 
 /*
-  Example to illustrate hoe sentinels are used in ranges
+  Example to illustrate how sentinels are used in ranges.
+
+  Whenever you have a range where the end is some dynamic condition instead of a fixed position, 
+  use an iterator and sentinel pair instead.  Ranges are simpler to use than iterator pairs
+  and this is why the STL algorithms have been extended to support ranges.
  */
 
-// our collection class
+// our example collection class
 class String
 {
 public:
@@ -70,6 +74,7 @@ private:
     };
 };
 
+// oue example algorithms, one taking a pair of iterators, onr taking a range
 template <typename I, typename S>
 void printAlgorithm(I begin, S end) // this takes an iterator-sentinel pair
 {
