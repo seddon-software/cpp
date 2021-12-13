@@ -3,11 +3,11 @@
     "configurations": [
         {
             "name": "Linux",
-            "includePath": [
-                "${myDefaultIncludePath}",
-                "../../vcpkg/packages/range-v3_x64-linux/include",
-                "${workspaceFolder}/vcpkg/installed/x64-linux/include"
-            ],
+//            "includePath": [
+//                "${myDefaultIncludePath}",
+//                "../../vcpkg/packages/range-v3_x64-linux/include",
+//                "${workspaceFolder}/vcpkg/installed/x64-linux/include"
+//            ],
             "cStandard": "c11",
             "cppStandard": "c++20"
         }

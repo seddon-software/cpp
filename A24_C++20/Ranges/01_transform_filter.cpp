@@ -6,6 +6,8 @@
 using namespace std;
 using namespace std::ranges::views;
 
+// The range concept defines the requirements of a type that allows iteration over its 
+// elements by providing an iterator and sentinel that denote the elements of the range.
 
 int main()
 {

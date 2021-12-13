@@ -22,3 +22,9 @@ To install g++11:
 
 Leanpub:
     https://leanpub.com/user_dashboard/library
+
+Notes:
+1) But C++17 introduces a new feature to the language: guaranteed copy elision.
+2) https://github.com/isocpp/CppCoreGuidelines
+3) Traits can be trait classes or type traits. These can be user-defined or standard-library ones. Prefer the standard-library ones.
+4) https://thecodepad.com/cpp/c20-concepts-the-definitive-guide/

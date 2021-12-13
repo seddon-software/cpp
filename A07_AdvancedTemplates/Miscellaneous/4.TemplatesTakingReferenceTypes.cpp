@@ -5,7 +5,8 @@ using namespace std;
 /*
  *  Although the STL Containers do not accept reference types as template parameters
  *  in general templates can accept reference types.  The STL Containers are designed
- *  as "value" containers and as such ...
+ *  as "value" containers and as such do not accept items by reference, but other templates
+ *  are perfectly happy with reference types.
  *
  */
 
@@ -19,7 +20,7 @@ void f(T t)
 {
 	// modify a copy of t if T is not a reference type
 	// modify t if T is a reference type
-	t.x = 0;
+	t.x = 77;
 }
 
 int main()

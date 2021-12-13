@@ -14,6 +14,7 @@
     {
       "name": "several C++ files",
       "type": "cppdbg",
+      "cppStandard":"c++20",
       "request": "launch",
       "program": "${fileDirname}/main",
       "args": [],
@@ -34,7 +35,8 @@
     },
     {
       "name": "C++",
-      "type": "cppdbg","cppStandard":"c++20",
+      "type": "cppdbg",
+      "cppStandard":"c++20",
       "request": "launch",
       "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
       "args": [],
