@@ -1,8 +1,0 @@
-#! /bin/sh
-
-set -v
-g++ -c -g -std=c++20 -fmodules-ts -x c++-system-header iostream
-g++ -c -g -std=c++20 -fmodules-ts -x c++-system-header vector
-g++ -c -g -std=c++20 -fmodules-ts mylib.cpp
-g++ -c -g -std=c++20 -fmodules-ts 02.main.cpp
-g++ -std=c++20 -fmodules-ts -g mylib.o 02.main.o -o main.exe

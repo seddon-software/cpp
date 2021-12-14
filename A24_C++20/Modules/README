@@ -1,3 +1,0 @@
-Modules are one of the four big features of C++20: concepts, modules, ranges, and coroutines. Modules
-promise a lot: shorter compile times, macro isolation, abolishing header files, and avoiding ugly
-workarounds.

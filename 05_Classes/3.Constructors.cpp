@@ -7,10 +7,10 @@
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
-    Triangle(int, int);
+    Point(int, int);
     void MoveBy(int, int);
     void WhereAreYou();
 private:
@@ -18,20 +18,20 @@ private:
     int y;
 };
 
-Triangle::Triangle(int theX, int theY)
+Point::Point(int theX, int theY)
 :                   // Initialisation List
     x(theX),
     y(theY)
 {
 }
 
-void Triangle::MoveBy(int dx, int dy)
+void Point::MoveBy(int dx, int dy)
 {
     x = x + dx;
     y = y + dy;
 }
 
-void Triangle::WhereAreYou()
+void Point::WhereAreYou()
 {
     cout << "Point is at: " << x
          << ", "            << y
@@ -40,9 +40,9 @@ void Triangle::WhereAreYou()
 
 int main()
 {
-    Triangle p1(700, 100);       // implicit call to a CTOR
-    Triangle p2(100, 300);
-    Triangle p3(600, 600);
+    Point p1(700, 100);       // implicit call to a CTOR
+    Point p2(100, 300);
+    Point p3(600, 600);
 
     p1.WhereAreYou();
     p2.WhereAreYou();

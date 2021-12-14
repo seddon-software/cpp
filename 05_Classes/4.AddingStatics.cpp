@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
 
@@ -12,11 +12,11 @@ public:
 		y += dy;
 	}
 	// CTOR
-	Triangle(const string& name, int x0, int y0): name(name), x(x0), y(y0)
+	Point(const string& name, int x0, int y0): name(name), x(x0), y(y0)
 	{
 		count++;
 	}
-	~Triangle()
+	~Point()
 	{
 		count--;
 		cout << "DTOR called" << this << endl;
@@ -32,15 +32,15 @@ private:
 	int x;
 	int y;
 };
-int Triangle::count = 0;
+int Point::count = 0;
 
 int main()
 {
 	// create 3 objects
-	Triangle p1("point-p1", 100, 200);
-	Triangle p2("point-p2", 110, 300);
-	Triangle p3("point-p3", 150, 700);
-	cout << Triangle::getCount() << endl;
+	Point p1("point-p1", 100, 200);
+	Point p2("point-p2", 110, 300);
+	Point p3("point-p3", 150, 700);
+	cout << Point::getCount() << endl;
 	p1.moveBy(1, 1);
 	p2.moveBy(10, 100);
 	p3.moveBy(1, -1);

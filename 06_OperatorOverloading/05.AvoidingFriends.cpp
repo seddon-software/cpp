@@ -22,6 +22,7 @@ public:
         min(m)
     {
     }
+    // getters and setters effectively make hrs and min public!
     int getHours()   const { return hrs; }
     int getMinutes() const { return min; }
 private:

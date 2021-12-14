@@ -12,11 +12,11 @@
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
-	Triangle(int x0=0, int y0=0):x(x0), y(y0) {}
-	Triangle(const Triangle& original) : x(original.x), y(original.y) {}
+	Point(int x0=0, int y0=0):x(x0), y(y0) {}
+	Point(const Point& original) : x(original.x), y(original.y) {}
 	void display() { 
 		cout << "x,y=" << x << "," << y;
 		cout.flush();
@@ -30,7 +30,7 @@ class Polygon
 {
 public:
 	Polygon(int x0, int y0, int x1, int y1): topLeft(x0, y0), bottomRight(x1, y1) {}
-	Polygon(const Triangle& p1, const Triangle& p2) : topLeft(p1), bottomRight(p2) {}
+	Polygon(const Point& p1, const Point& p2) : topLeft(p1), bottomRight(p2) {}
 	void display()
 	{
 		topLeft.display();
@@ -39,15 +39,15 @@ public:
 		cout << endl;
 	}
 private:
-	Triangle topLeft;
-	Triangle bottomRight;
+	Point topLeft;
+	Point bottomRight;
 };
 
 int main()
 {
 	Polygon r(10, 20, 100, 110);
-	Triangle tl(10, 20);
-	Triangle br(100, 110);
+	Point tl(10, 20);
+	Point br(100, 110);
 	Polygon(tl, br);
 	r.display();
 }

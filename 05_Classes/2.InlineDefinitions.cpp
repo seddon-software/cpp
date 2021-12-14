@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
     void Initialise(int theX, int theY)  // implicit inline
@@ -36,9 +36,9 @@ private:
 
 int main()
 {
-    Triangle p1;       // p1 IS AN object
-    Triangle p2;
-    Triangle p3;
+    Point p1;       // p1 IS AN object
+    Point p2;
+    Point p3;
 
     p1.Initialise(700, 100);
     p2.Initialise(100, 300);

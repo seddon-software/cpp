@@ -1,0 +1,82 @@
+////////////////////////////////////////////////////////////
+//
+//		Any
+//
+////////////////////////////////////////////////////////////
+
+
+#include <iostream>
+#include <string>
+#include <list>
+#include <algorithm>
+#include <boost/any.hpp>
+#include <boost/bind.hpp>
+using namespace std;
+using boost::any_cast;
+
+template <typename T>
+bool contains(const boost::any& a)
+{
+    return a.type() == typeid(T);
+}
+
+// alternative implementation
+template <typename T>
+bool contains2(const boost::any& a)
+{
+	try 
+	{
+		any_cast<T>(a);
+		return true;
+	}
+	catch(const boost::bad_any_cast &) 
+	{
+	    return false;
+	}
+}
+
+
+
+
+class Person 
+{
+private: 
+    string name;
+public: 
+    Person() {}
+    Person(string name) : name(name) {}
+    string getName() const { return name; }
+};
+
+
+/////
+
+int main()
+{
+// build list of mixed types
+	std::list<boost::any> myList;
+	myList.push_back(100);
+	myList.push_back(Person("Susan"));
+	myList.push_back(4.53);
+	myList.push_back(Person("Peter"));
+	myList.push_back(string("ABC"));
+	myList.push_back(Person("John"));
+    
+    list<boost::any>::iterator i = myList.begin();
+	
+	while(true)
+	{
+	    // find all the Person objects
+	    i = find_if(i, myList.end(), 
+	            boost::bind(&contains<Person>, _1));
+
+        if(i == myList.end()) break;
+        
+        Person p = any_cast<Person>(*i);
+        cout << p.getName() << endl;
+        
+        ++i;
+    }
+    
+	return 0;
+}

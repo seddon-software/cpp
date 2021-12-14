@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
     void Initialise(int, int);
@@ -18,13 +18,13 @@ private:
     int y;
 };
 
-void Triangle::Initialise(int theX, int theY)  // method OR member function
+void Point::Initialise(int theX, int theY)  // method OR member function
 {
     x = theX;
     y = theY;
 }
 
-void Triangle::MoveBy(int dx, int dy)
+void Point::MoveBy(int dx, int dy)
 {
     // (*this).x = (*this).x + dx;
     // this->x = this->x + dx;
@@ -32,7 +32,7 @@ void Triangle::MoveBy(int dx, int dy)
     y = y + dy;
 }
 
-void Triangle::WhereAreYou()
+void Point::WhereAreYou()
 {
     cout << "Point is at: " << x
          << ", "            << y
@@ -41,9 +41,9 @@ void Triangle::WhereAreYou()
 
 int main()
 {
-    Triangle p1;       // p1 IS AN object
-    Triangle p2;
-    Triangle p3;
+    Point p1;       // p1 IS AN object
+    Point p2;
+    Point p3;
 
     p1.Initialise(700, 100);
     p2.Initialise(100, 300);

@@ -24,6 +24,8 @@ private:
 	int x = 5;
 	int y = 7;
 };
+
+// statics had to be declared and initialized outside the class prior to C++17
 int Point::count2 = 20; // linker error if this line is not present
 
 int main()
