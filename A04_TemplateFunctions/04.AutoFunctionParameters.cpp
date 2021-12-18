@@ -7,9 +7,9 @@ auto f(auto x, auto y)
     return result;
 }
 
-ostream& operator<<(ostream& os, auto z)
+ostream& operator<<(ostream& os, auto x)
 {
-    os << z;
+    os << x;
     return os;
 }
 int main()
