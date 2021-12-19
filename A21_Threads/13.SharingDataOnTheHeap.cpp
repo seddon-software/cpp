@@ -8,15 +8,15 @@ mutex theMutex;
 
 int main()
 {
-	// set up a buffer of ints
+	// set up a buffer of ints on the heap
 	const int size = 10;
 	int* buffer = new int[size];
 	for(int i = 0; i < 10; i++) buffer[i] = 0;
 
-	// task to add 100,000 to each element of buffer
+	// task to loop 1,000,000 times, adding to each element of buffer
 	auto task = [buffer]()
 		{
-			for(int i = 0; i < 100 * 1000; i++)
+			for(int i = 0; i < 1000 * 1000; i++)
 			{
 				std::lock_guard<mutex> theGuard(theMutex);
 				for(int i = 0; i < size; i++) buffer[i] += 1;
