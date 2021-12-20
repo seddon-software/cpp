@@ -3,7 +3,7 @@
 # 	LFLAGS :=  $(LFLAGS)
 # To inhibit "return value optimization" in demos, use -fno-elide-constructors  
 
-WARNINGS := -Wall
+WARNINGS := -Wall $(WARNINGS)
 CC = g++
 CFLAGS := -g
 CFLAGS := $(CFLAGS) $(WARNINGS) -std=c++20

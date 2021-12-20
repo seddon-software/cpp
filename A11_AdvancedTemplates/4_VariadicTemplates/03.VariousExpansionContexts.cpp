@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// __PRETTY_FUNCTION__ is a gcc extension demangles a function name
+
 ////////////////////////////////////////////////////////////
 // Function argument lists
 template <typename ...Ts>
@@ -34,7 +36,9 @@ template <typename ...Ts>
 void expansionC(Ts ...args)
 {
 	int array[] = {0, args...};
-	for(auto a:array) cout << a << ","; cout << endl;
+	for(auto a:array) 
+	   cout << a << ","; 
+	cout << endl;
 }
 
 ////////////////////////////////////////////////////////////

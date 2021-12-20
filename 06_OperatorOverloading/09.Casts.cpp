@@ -42,7 +42,9 @@ int main()
     Time t;
     Time t1(4, 30);
     Time t2(3, 15);
+    [[maybe_unused]]
     int y1 = (int)t1;  // explicit conversion
+    [[maybe_unused]]
     int y2 = t2;       // implicit conversion
     t = (Time)100;     // explicit conversion
     t = 110;           // implicit conversion

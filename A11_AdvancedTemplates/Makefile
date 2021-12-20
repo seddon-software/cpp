@@ -4,21 +4,15 @@ export WARNINGS
 all: subsystems
 
 subsystems:
-	cd ExpressionTemplates && $(MAKE)
-	cd MetaPrograms && $(MAKE)
-	cd Miscellaneous && $(MAKE)
-	cd SFINAE && $(MAKE)
-	cd TemplateTemplateParameters && $(MAKE)
-	cd Traits && $(MAKE)
-	cd Typelists && $(MAKE)
+	cd 1_MetaPrograms && $(MAKE)
+	cd 2_Specialization && $(MAKE)
+	cd 3_Traits && $(MAKE)
+	cd 4_VariadicTemplates && $(MAKE)
+	cd 5_Miscellaneous && $(MAKE)
 	
 clean:
-	@cd ExpressionTemplates && $(MAKE) clean
-	@cd MetaPrograms && $(MAKE) clean
-	@cd Miscellaneous && $(MAKE) clean
-	@cd SFINAE && $(MAKE) clean
-	@cd TemplateTemplateParameters && $(MAKE) clean
-	@cd Traits && $(MAKE) clean
-	@cd Typelists && $(MAKE) clean
-	
-	
+	@cd 1_MetaPrograms && $(MAKE) clean
+	@cd 2_Specialization && $(MAKE) clean
+	@cd 3_Traits && $(MAKE) clean
+	@cd 4_VariadicTemplates && $(MAKE) clean
+	@cd 5_Miscellaneous && $(MAKE) clean

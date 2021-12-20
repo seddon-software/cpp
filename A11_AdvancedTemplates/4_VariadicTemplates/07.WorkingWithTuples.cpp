@@ -1,25 +1,30 @@
 #include <iostream>
+#include <tuple>
 #include <stdexcept>
 #include <string>
 using namespace std;
 
-/*
- *  By unpacking a variadic list into a tuple we can get access to each individual argument.
- */
+// generic template
+template <typename T>
+void f(T t) 
+{ 
+	cout << t << endl;
+}
 
-template <class... Args>
-void f(int i, Args... args) {  // parameter pack is usually at end of parameter list
-	tuple<Args...> t{args...};
-
-	cout << i << endl;
-	cout << get<0>(t) << endl;
-	cout << get<1>(t) << endl;
-	cout << get<2>(t) << endl;
+// specialization
+template <typename T, typename ...P>		// P is a parameter pack
+void f(T t, P... p)
+{
+	if (sizeof...(p) > 0)	// if size of parameter pack non zero
+	{
+		cout << t << ", ";
+		f(p...);			// recurse with one less parameter
+	}
 }
 
 
 int main()
 {
-	string cyan("Cyan");
-	f(100, 3.14159, "Red", cyan);
+	f(3.14159, "Red", "Cyan"s);
+	f(100, 200, "Yellow", "Blue", "January"s);
 }

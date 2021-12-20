@@ -2,7 +2,7 @@ all: subsystems
 
 subsystems:
 	@cd NamespaceExamples && $(MAKE)
-	@cd NamespacesInLibraries && $(MAKE) Test
+	@cd NamespacesInLibraries && $(MAKE)
 
 clean:
 	@cd NamespaceExamples && $(MAKE) clean

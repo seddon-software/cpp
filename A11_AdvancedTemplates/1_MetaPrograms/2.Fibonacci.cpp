@@ -4,28 +4,27 @@
 //
 ////////////////////////////////////////////////////////////
 
-#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 #include <iostream>
 using namespace std;
 
 template<int N>
 class Fibonacci {
 public:
-    enum { value = Fibonacci<N-1>::value + Fibonacci<N-2>::value };
+    constexpr static int value = Fibonacci<N-1>::value + Fibonacci<N-2>::value; 
 };
 
 template<>
 class Fibonacci<2> 
 {
 public:
-    enum { value = 1 };
+    const static int value = 1; 
 };
-template<>
 
+template<>
 class Fibonacci<1> 
 {
 public:
-    enum { value = 1 };
+    const static int value = 1; 
 };
 
 
@@ -40,7 +39,10 @@ int main()
 	x[5] = Fibonacci<6>::value;
 	x[6] = Fibonacci<7>::value;
 	x[7] = Fibonacci<8>::value;
-
-    return 0;
+	for(auto i : x)
+	{
+		cout << i << ", ";
+	}
+	cout << endl;
 }
 

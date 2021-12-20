@@ -37,6 +37,7 @@ class Y {};
 int main()
 {
 	X x;
+	[[maybe_unused]]
 	Y y;
 	A<X,Y> a1(x);
 	a1.f3();
