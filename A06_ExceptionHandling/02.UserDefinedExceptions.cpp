@@ -1,28 +1,27 @@
 #include <iostream>
+#include <string>
 #include <exception>
 using namespace std;
 
 struct MyException : public exception
 {
-    virtual const char* what() const noexcept
+	MyException(string message):message(message) {}
+    virtual const char* what() const noexcept		// note the signiture (defined by exception)
     {
-        return "my message";
+        return message.c_str();
     }
+	const string message;
 };
 
 int main()
 {
 	try
 	{
-	    throw MyException();
+	    throw MyException("oops");
 	}
-	catch(MyException& e)
+	catch(const MyException& e)
 	{
 	     cout << "MyException caught" << endl;
 	     cout << e.what() << endl;
-	}
-	catch(exception& e)
-	{
-	     // Other errors
 	}
 }

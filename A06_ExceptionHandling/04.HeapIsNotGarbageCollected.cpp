@@ -12,7 +12,10 @@ using namespace std;
 class Person
 {
 public:
-	Person(string n) : name(n) {}
+	Person(const string& n) : name(n) 
+	{
+		cout << "CTOR for " << name << endl;
+	}
 
 	~Person()
 	{
@@ -57,5 +60,4 @@ int main()
 	{
 		cout << "Exception caught" << endl;
 	}
-	return 0;
 }

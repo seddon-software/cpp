@@ -58,7 +58,5 @@ int main()
 	cout << a3.get() << endl;
 	cout << b3.get() << endl;
 	cout << c3.get() << endl;
-
-	return 0;
 }
 

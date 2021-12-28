@@ -45,7 +45,7 @@ int main()
 {	
 	[[ maybe_unused ]] unsigned int x[8] =
 	{
-		Binary<1010101>::value,
+		Binary<1010101>::value, // 64 + 16 + 4 + 1 = 85
 		Binary<1010110>::value,
 		Binary<1010111>::value,
 		Binary<1011000>::value,
@@ -55,6 +55,10 @@ int main()
 		Binary<1011100>::value,
 	};
 
-    return 0;
+	for(auto b : x)
+	{
+		cout << b << ", ";
+	}
+	cout << endl;
 }
 

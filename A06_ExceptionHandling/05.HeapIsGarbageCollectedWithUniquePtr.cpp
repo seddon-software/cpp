@@ -13,7 +13,10 @@ using namespace std;
 class Person
 {
 public:
-	Person(const string& n) : name(n) {}
+	Person(const string& n) : name(n) 
+	{
+		cout << "CTOR for " << name << endl;
+	}
 
 	~Person()
 	{

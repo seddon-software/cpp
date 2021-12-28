@@ -4,7 +4,6 @@
 //
 ////////////////////////////////////////////////////////////
 
-#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 #include <iostream>
 using namespace std;
 
@@ -27,6 +26,6 @@ int main()
 {	
 	int x;
 	x = Factorial<6>::value;
-    return 0;
+    cout << x << endl;
 }
 

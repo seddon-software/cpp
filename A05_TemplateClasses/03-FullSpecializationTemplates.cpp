@@ -4,6 +4,12 @@
 //
 ////////////////////////////////////////////////////////////
 
+/*
+ *  When providing specialisations for template classes you must start by
+ *  defining a generic template.  Specialisations must have the same name,
+ *  but some (partial specialization) or all (full specialization) of the 
+ *  template parameters will have constraint applied.
+ */
 
 #include <iostream>
 #include <string>
@@ -20,8 +26,8 @@ public:
 };
 
 
-// specialisation for bool
-template <>
+// full specialization for T=bool
+template <>					// note the <> are required
 class collection<bool>
 {
 public:
@@ -34,14 +40,12 @@ public:
 
 int main()
 {
-	collection<string> list1;
-	collection<int>    list2;
-	collection<bool>   list3;
+	collection<string> list1;		// calls the generic template
+	collection<int>    list2;		// calls the generic template
+	collection<bool>   list3;		// calls the specialized template
 
 	list1.f1();
 	list2.f1();
 	list3.f1();
-
-	return 0;
 }
 

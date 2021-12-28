@@ -2,33 +2,33 @@
 #include <exception>
 using namespace std;
 
-struct MyExceptionA : exception {};
-struct MyExceptionB : exception {};
-struct MyExceptionC : exception {};
+struct A : exception {};
+struct B : exception {};
+struct C : exception {};
 
 int main()
 {
 	try
 	{
-	    throw MyExceptionA();
+	    throw A();
 	}
-	catch(MyExceptionA& e) { cout << "A" << endl; }
-	catch(MyExceptionB& e) { cout << "B" << endl; }
-	catch(MyExceptionC& e) { cout << "C" << endl; }
+	catch(const A& e) { cout << "A" << endl; }
+	catch(const B& e) { cout << "B" << endl; }
+	catch(const C& e) { cout << "C" << endl; }
 
 	try
 	{
-	    throw MyExceptionB();
+	    throw B();
 	}
-	catch(MyExceptionA& e) { cout << "A" << endl; }
-	catch(MyExceptionB& e) { cout << "B" << endl; }
-	catch(MyExceptionC& e) { cout << "C" << endl; }
+	catch(const A& e) { cout << "A" << endl; }
+	catch(const B& e) { cout << "B" << endl; }
+	catch(const C& e) { cout << "C" << endl; }
 
 	try
 	{
-	    throw MyExceptionC();
+	    throw C();
 	}
-	catch(MyExceptionA& e) { cout << "A" << endl; }
-	catch(MyExceptionB& e) { cout << "B" << endl; }
-	catch(MyExceptionC& e) { cout << "C" << endl; }
+	catch(const A& e) { cout << "A" << endl; }
+	catch(const B& e) { cout << "B" << endl; }
+	catch(const C& e) { cout << "C" << endl; }
 }

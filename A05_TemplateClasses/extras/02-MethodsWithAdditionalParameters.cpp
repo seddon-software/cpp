@@ -6,7 +6,7 @@
 
 
 // in the templated class X, the function display takes 2 template parameters, but
-// other methods take 1 template parameter
+// other methods only take 1 template parameter
 
 #include <iostream>
 using namespace std;
@@ -44,13 +44,14 @@ private:
 
 
 // this class normally has 1 template parameter, but
-// the method display takes an additional parameter
+// the display method takes an additional parameter
 template <typename T>
 class X
 {
 public:
-    X() {}
+    X(T t0):t0(t0) {}
 
+	// this template has an additional template parameter
     template <typename U>
     void display(T t, U u)
     {
@@ -63,6 +64,14 @@ public:
     {
     	cout << u << endl;
     }
+    
+	// non templated method
+    void print()
+    {
+    	cout << t0 << endl;
+    }
+private:
+	T t0;
 };
 
 
@@ -70,12 +79,12 @@ public:
 
 int main()
 {
-	X<A> xa;
+	X<A> xa(33);
 	A a(55);
 	B b(77);
-
+	cout << a << endl;
+	cout << b << endl;
+	xa.print();
 	xa.display(a, b);
-
-    return 0;
 }
 

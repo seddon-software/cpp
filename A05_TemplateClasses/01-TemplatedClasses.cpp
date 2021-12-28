@@ -33,15 +33,15 @@ template <typename T, int N>
 void Array<T,N>::Print()
 {
     for(int i = 0; i < N; i++)
-        std::cout << array[i] << "\t";
-    std::cout << endl;
+        cout << array[i] << "\t";
+    cout << endl;
 }
 
 /////
 
 int main()
 {
-    Array<int, 3> a(15);
+    Array<> a(15);  // use defaults for T and N
     Array<double,6> b(27.96);
 
     a.Print();

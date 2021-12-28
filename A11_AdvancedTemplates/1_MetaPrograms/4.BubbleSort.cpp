@@ -87,6 +87,10 @@ int main()
 	int a[] = { 21, 2, 33, 44, 25 };
 	IntBubbleSort<5>::sort(a);
 	
-    return 0;
+	for(auto b : a)
+	{
+		cout << b << ", ";
+	}
+	cout << endl;
 }
 
