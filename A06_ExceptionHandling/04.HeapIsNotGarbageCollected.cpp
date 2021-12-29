@@ -4,7 +4,17 @@
 //
 ////////////////////////////////////////////////////////////
 
+/* The biggest problem when using exception handling is that heap based objects
+ * don't get cleaned up.  In this example we create 3 stack based Person objects
+ * and one heap based object in functions calle from "main".  Finally we throw an 
+ * exception to find that all the stack based objects get cleaned up (their DTORs
+ * are called), but the heap based object is not cleaned up.
+ * 
+ * To overcome this problem we need to use smart pointers (see next example).
+ */
+
 #include <iostream>
+#include <exception>
 #include <string>
 using namespace std;
 
@@ -31,7 +41,7 @@ private:
 void f3()
 {
 	Person hilda("Hilda");
-	throw "some kind of problem";
+	throw exception();
 }
 
 void f2()
@@ -56,7 +66,7 @@ int main()
 		Person john("John");
 		f1();
 	}
-	catch(...)
+	catch(const exception&)
 	{
 		cout << "Exception caught" << endl;
 	}
