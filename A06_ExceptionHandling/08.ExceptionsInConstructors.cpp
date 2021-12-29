@@ -9,7 +9,11 @@
 #include <stdexcept>
 using namespace std;
 
-bool trace = false;
+/*  CTORs may throw exceptions.  If a composite object throws, then DTORs are only called on the 
+ *  parts that were constructed without throwing.  In this example we have a Person object consisting
+ *  of two MyStrings and two Dates.  The example shows what happens when various CTORs throw.
+ */
+bool trace = false;   // used to inhib unnecessary output
 
 void print(const string& s)
 {
@@ -102,6 +106,7 @@ void createExceptionInPersonCTOR(const MyString& firstName, const MyString& last
     }
 }
 
+// 
 void createExceptionInStringCTOR(const MyString& firstName, const MyString& lastName, const Date& born, const Date& died)
 {
     cout << firstName << "," << lastName << "," << born << "," << died << endl;

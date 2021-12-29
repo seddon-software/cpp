@@ -46,11 +46,18 @@ public:
     Widget(const T& t1, const T& t2): t1(t1), t2(t2) {}
     Widget& operator+=(int)  // this might throw
     {
-        Widget temp;
-        temp = *this;
-        temp.t1 += 1;
-        temp.t2 += 1;
-        Swap(temp);       // Swap temp and *this
+        try
+        {
+            Widget temp;
+            temp = *this;
+            temp.t1 += 1;
+            temp.t2 += 1;
+            Swap(temp);       // Swap temp and *this
+        }
+        catch(...)
+        {
+            cout << "operator+=() failed, so performing rollback" << endl;
+        }
         return *this;
     }
     void print(const string& id)
@@ -76,9 +83,11 @@ int main()
     Widget<X> w1(X(1), X(2));
     Widget<X> w2(X(3), X(4));
     w1.print("w1"); w2.print("w2");
-    try {
-        w2 += 1;        // this will throw, but w2 should not change
-    } catch(const MyException& e) 
+    try 
+    {
+        w2 += 1;        // this will throw, because component w2 > 4, but swap ensures rollback
+    } 
+    catch(const MyException& e) 
     {
         cout << e.what() << endl;
     }

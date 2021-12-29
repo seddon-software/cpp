@@ -3,6 +3,9 @@
 #include <stdexcept>
 using namespace std;
 
+/* 
+ *  It is possible to enquire if a function throws exceptions as shown below
+ */
 auto f1 = []() { throw exception(); };
 auto f2 = []() noexcept {};
 //	auto f3 = []() noexcept { throw Exception(); };  // doesn't compile

@@ -2,6 +2,10 @@
 #include <stdexcept>
 using namespace std;
 
+/*  This example shows how RAII (resourse acquisition is initialization) still works in the 
+ *  presence of exceptions.
+ */
+
 class Lock
 {
 public:
@@ -36,7 +40,7 @@ int main()
 	try
 	{
 		MyClass m(lock);
-		cout << "exception!" << endl;
+		cout << "exception!" << endl;   // the lock still gets released
 		throw exception();
 	}
 	catch(const exception& e)

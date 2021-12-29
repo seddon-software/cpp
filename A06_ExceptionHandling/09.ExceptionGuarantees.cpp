@@ -1,23 +1,30 @@
-// Basic guarantee
-//		The object is left in a valid state	and no resources, such as memory, are leaked.
-//
-// Strong guarantee
-//		Provides the basic guarantee and is transactional (either the operation succeeds,
-//      or has no effects)
-//
-// Nothrow guarantee
-//		Guaranteed not to throw an exception
-//
+/*  Code using exceptions can utilise guarantees provided by the programmer as to the state of
+ *  objects.  THe following guarantees are defined:
+ *
+ * Basic guarantee
+ *		The object is left in a valid state	and no resources, such as memory, are leaked.
+ *
+ * Strong guarantee
+ *		Provides the basic guarantee and is transactional (either the operation succeeds,
+ *      or has no effects)
+ *
+ * None
+ * 		The program may leave the object in an invalid state
+ * 
+ * Nothrow guarantee (use noexcept keyword)
+ *		Guaranteed not to throw an exception
+ */
 
 #include <stdexcept>
 #include <iostream>
 using namespace std;
 
+// this class defines Time from 0:00 to 23:59.  Outside this range is an error
 class Time
 {
 public:
 	Time(int h = 0, int m = 0) : hrs(h), min(m) {}
-	void f3()
+	void strong()
 	{
 		Time snapshot(*this);
 		min += 1;
@@ -32,7 +39,7 @@ public:
 			throw runtime_error("strong guarantee");
 		}
 	}
-	void f2()
+	void basic()
 	{
 		min += 1;
 		if(min >= 60)
@@ -46,7 +53,7 @@ public:
 			throw runtime_error("basic guarantee");
 		}
 	}
-	void f1()
+	void none()
 	{
 		min += 1;
 		if(min >= 60)
@@ -73,7 +80,7 @@ int main()
 	try
 	{
 		t = Time(23, 59);
-		t.f3();
+		t.strong();		// add 1 min
 	}
 	catch(runtime_error&)
 	{
@@ -82,7 +89,7 @@ int main()
 	try
 	{
 		t = Time(23, 59);
-		t.f2();
+		t.basic();		// add 1 min
 	}
 	catch(runtime_error&)
 	{
@@ -91,7 +98,7 @@ int main()
 	try
 	{
 		t = Time(23, 59);
-		t.f1();
+		t.none();		// add 1 min
 	}
 	catch(runtime_error&)
 	{

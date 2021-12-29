@@ -1,7 +1,16 @@
 #include <iostream>
 #include <exception>
+#include <execinfo.h>  // for backtrace
 #include <cstdlib>
 using namespace std;
+
+
+/*  If you fail to catch an exception the program will terminate.  You can install a handler to
+ *  catch this scenario.  This is useful on an older code base that doesn't catch all exceptions
+ *  and it is difficult to pinpoint where the exception occurs.
+ * 
+ *  See https://panthema.net/2008/0901-stacktrace-demangled/ for info on stack traces with g++.
+ */
 
 struct MyException : public exception
 {
@@ -14,7 +23,22 @@ struct MyException : public exception
 
 void terminator()
 {
-	cout << "terminate handler called" << endl;
+  	cout << "terminate handler called" << endl;
+
+   // storage array for stack trace address data
+    void* addrlist[64];
+
+    // retrieve current stack addresses
+    int size = backtrace(addrlist, sizeof(addrlist) / sizeof(void*));
+
+    // resolve addresses into strings containing "filename(function+address)",
+    // this array must be free()-ed
+    char** symbolList = backtrace_symbols(addrlist, size);
+
+	for(int i = 0; i < size; i++)
+	    cout << symbolList[i] << endl;
+
+	free(symbolList);
 	exit(1);
 }
 
