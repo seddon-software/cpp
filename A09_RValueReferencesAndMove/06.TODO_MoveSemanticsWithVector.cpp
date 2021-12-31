@@ -9,7 +9,7 @@ class MyVector : public vector<T>
 {
 public:
 	// Notes:
-	// 1. It is not usually safe to derive from STL classes
+	// 1. It is usually NOT safe to derive from STL classes such as vector
 	//		because vector<T> does NOT have a virtual DTOR
 	// 2. Note the move CTOR must call std::move to invoke the base class move CTOR
 	//      or else the vector<T> copy CTOR will be called

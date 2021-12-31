@@ -63,11 +63,11 @@ private:
     int year;
 };
 
-class Triangle
+class Point
 {
 public:
-    Triangle(int x0, int y0) : x(x0), y(y0) {}
-    ~Triangle() {}
+    Point(int x0, int y0) : x(x0), y(y0) {}
+    ~Point() {}
 
     void display()
     {
@@ -89,14 +89,14 @@ private:
 int main()
 {
     // pre-allocate raw memory for objects
-    Triangle* points = memoryAllocator<Triangle>(100); // space for 100 Point objects
+    Point* points = memoryAllocator<Point>(100); // space for 100 Point objects
     Date* dates = memoryAllocator<Date>(100); // space for 100 Date objects
 
     // place objects in memory pools
-    new (&points[0]) Triangle(10, 20);
-    new (&points[1]) Triangle(11, 21);
-    new (&points[2]) Triangle(12, 22);
-    new (&points[3]) Triangle(13, 23);
+    new (&points[0]) Point(10, 20);
+    new (&points[1]) Point(11, 21);
+    new (&points[2]) Point(12, 22);
+    new (&points[3]) Point(13, 23);
 
     new (&dates[0]) Date(12, 8, 2019);
     new (&dates[1]) Date(22, 5, 2020);
@@ -114,7 +114,7 @@ int main()
     // objects are not on the heap so delete must not be called
     for (int i = 0; i < 4; i++)
     {
-        points[i].~Triangle();
+        points[i].~Point();
         dates[i].~Date();
     }
 }

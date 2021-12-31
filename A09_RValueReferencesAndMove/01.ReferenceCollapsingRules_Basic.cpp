@@ -3,21 +3,22 @@
 #include <type_traits>
 using namespace std;
 
-/* Rvalue references were introduced C++11 to solve a number of problems.  However, it is not immediately 
- * obvious what problems they solve.
- 
-1. Rvalue references can be used to extend the lifetimes of temporary objects (note, lvalue references to const can extend the lifetimes of temporary objects too, but they are not modifiable through them): 
-2. More importantly, when a function has both rvalue reference and lvalue reference overloads, the rvalue reference overload binds to rvalues (including both prvalues and xvalues), while the lvalue reference overload binds to lvalues: 
-
-
-Rvalue references solve at least two problems:
-
-    Implementing move semantics
-    Perfect forwarding 
-*/
-
-// An rvalue reference to a temporary becomes (“collapses into”) stays an rvalue reference.
-// All rvalue references to named objects collapse into an lvalue reference.
+/* r-value references were introduced C++11 to solve a number of problems.  The most important of
+ * these are:
+ *
+ *   Implementing move semantics (e.g. to efficiently copy temporaries)
+ *   Perfect forwarding (reference types should not be altered when forwarding to another function) 
+ *
+ * r-value references indicate the item is a temporary and NOT a long lived object (l-value reference).
+ * r-value refs use the new notation T&&.  However this is meant to be used in function parameter lists
+ * where we give the temporary a name and effectively extend the lifetime of the temporary for the 
+ * duration of the function.  It is possible to use r-value references outside of a function to declare
+ * variables, but by doing so the variable, by definition, will not be temporary and the compiler will
+ * internally note the variable is really an l-value reference.  Thus an r-value reference to a temporary
+ * stays an rvalue reference, but rvalue references to named objects collapse into an l-value reference.
+ * 
+ * Some examples of the above are illustrated below:
+ */
 
 struct X {};  // dummy class for testing
 

@@ -9,14 +9,14 @@
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
-	Triangle() 
+	Point() 
 	{
 		cout << "CTOR called" << endl;
 	}
-	~Triangle()
+	~Point()
 	{
 		cout << "DTOR called" << endl;
 	}
@@ -32,25 +32,25 @@ private:
 
 /////
 
-void* Triangle::operator new (size_t size)
+void* Point::operator new (size_t size)
 {
 	cout << "Function operator new() called" << endl;
 	return malloc(size); 
 }
 
-void* Triangle::operator new[] (size_t size)
+void* Point::operator new[] (size_t size)
 {
 	cout << "Function operator new[]() called" << endl;
 	return malloc(size); 
 }
 
-void Triangle::operator delete(void* ptr)
+void Point::operator delete(void* ptr)
 {
 	cout << "Function operator delete() called" << endl;
 	free(ptr);
 }
 
-void Triangle::operator delete[](void* ptr)
+void Point::operator delete[](void* ptr)
 {
 	cout << "Function operator delete[]() called" << endl;
 	free(ptr);
@@ -60,18 +60,18 @@ void Triangle::operator delete[](void* ptr)
 
 int main()
 {
-	Triangle* p;
+	Point* p;
 
 // object
 	cout << "Allocate and deallocate an object" << endl;
-	p = new Triangle;
+	p = new Point;
 	delete p;
 
 	cout << endl;
 
 // arrays of objects
 	cout << "Allocate and deallocate an array of objects" << endl;
-	p = new Triangle[5];
+	p = new Point[5];
 	delete [] p;
 
 	return 0;

@@ -74,21 +74,21 @@ private:
 	int year;
 };
 
-class Triangle
+class Point
 {
 public:
-	Triangle(int x0, int y0) : x(x0),y(y0) {}
-	~Triangle() {}
+	Point(int x0, int y0) : x(x0),y(y0) {}
+	~Point() {}
 	
 	void WhereAreYou()
 	{
 		cout << "Point is at: " << x << ", " << y << endl;
 	}
 
-	static Triangle* AllocateMemory(int fd, int size)
+	static Point* AllocateMemory(int fd, int size)
 	{
 		ftruncate(fd, size);		// make sure file is right size to map
-		Triangle* array = (Triangle*) mmap(
+		Point* array = (Point*) mmap(
 			0, 	                    // void *addr,
 			size,                   // size_t len,
 			PROT_READ | PROT_WRITE, // int prot,
@@ -131,14 +131,14 @@ int main()
 	int fd2 = createFile("./mempool2");
 
 	// pre-allocate raw memory for objects
-	Triangle* points = Triangle::AllocateMemory(fd1, 100 * sizeof(Triangle));  // space for 100 objects
+	Point* points = Point::AllocateMemory(fd1, 100 * sizeof(Point));  // space for 100 objects
 	Date*  dates  = Date ::AllocateMemory(fd2, 100 * sizeof(Date));   // space for 100 objects
 
 	// place objects in raw memory
-	new (&points[0]) Triangle(10, 250);
-	new (&points[1]) Triangle(11, 21);
-	new (&points[2]) Triangle(12, 22);
-	new (&points[3]) Triangle(13, 23);
+	new (&points[0]) Point(10, 250);
+	new (&points[1]) Point(11, 21);
+	new (&points[2]) Point(12, 22);
+	new (&points[3]) Point(13, 23);
 
 	new (&dates[0]) Date(12,  8, 1999);
 	new (&dates[1]) Date(22,  5, 2000);
@@ -156,7 +156,7 @@ int main()
 	// objects are not on the heap so delete must not be called
 	for(int i = 0; i < 4; i++)
 	{
-		points[i].~Triangle();
+		points[i].~Point();
 		dates[i].~Date();
 	}
 }

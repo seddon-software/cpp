@@ -8,9 +8,9 @@
 
 int main()
 {
-    Triangle p1;
-    Triangle p2;
-    Triangle p3;
+    Point p1;
+    Point p2;
+    Point p3;
 
     p1.Initialise(700, 100);
     p2.Initialise(100, 300);

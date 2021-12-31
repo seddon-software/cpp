@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
     void Initialise(int, int);

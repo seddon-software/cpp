@@ -7,10 +7,10 @@
 #include <iostream>
 using namespace std;
 
-class Triangle
+class Point
 {
 public:
-	Triangle(int x0, int y0) : x(x0),y(y0), calls(0) {}
+	Point(int x0, int y0) : x(x0),y(y0), calls(0) {}
 
 	void Print() const
 	{
@@ -28,7 +28,7 @@ private:
 
 int main()
 {
-	const Triangle p(100, 200);
+	const Point p(100, 200);
 
 	p.Print();
 	p.Print();

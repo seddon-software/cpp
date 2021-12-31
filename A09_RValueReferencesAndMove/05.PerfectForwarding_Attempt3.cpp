@@ -8,10 +8,22 @@
 #include <algorithm>
 using namespace std;
 
+/*
+ *  The problem we are trying to solve with perfect forwarding is: How can we write a function template
+ *  that forwards calls to another function template without changing l-vaues into r-values.
+ *
+ *  In this third attempt we create every possible overload such that perfect forwarding occurs.  
+ *  However this solution is not scalable and there has to be a better way!
+ */
+
 template<class A1, class A2, class A3>
 void f(A1& a1, A2& a2, A3& a3)
 {
-	// put a breakpoint here and get the IDE to check types
+	// put a breakpoint here and get gdb to check types
+    // enter the following in the debug console:
+    //    -exec ptype a1
+    //    -exec ptype a2
+    //    -exec ptype a3    
 }
 
 template<class A1, class A2, class A3>

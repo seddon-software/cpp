@@ -11,13 +11,13 @@
 
 using namespace std;
 
-class Triangle
+class Point
 {
-friend ostream& operator<<(ostream& os, const Triangle& p);
+friend ostream& operator<<(ostream& os, const Point& p);
 public:
-	Triangle(int x, int y) : x(x), y(y) {}
-	Triangle() : x(0), y(0) {}
-	bool operator<(const Triangle& rhs) const
+	Point(int x, int y) : x(x), y(y) {}
+	Point() : x(0), y(0) {}
+	bool operator<(const Point& rhs) const
 	{
 		int lhsSquare = x * x + y * y;
 		int rhsSquare = rhs.x * rhs.x + rhs.y * rhs.y;
@@ -29,20 +29,20 @@ private:
 	int y;
 };
 
-ostream& operator<<(ostream& os, const Triangle& p)
+ostream& operator<<(ostream& os, const Point& p)
 {
 	os << "[" << p.x << "," << p.y << "]";
 	return os;
 }
 
-map<Triangle, string, less<Triangle>> mymap;
+map<Point, string, less<Point>> mymap;
 
 
 class Query
 {
 public:
 	Query(string name) : name(name) {}
-	bool operator() (const pair<Triangle, string>& p)
+	bool operator() (const pair<Point, string>& p)
 	{
 		return (p.second == name);
 	}
@@ -52,14 +52,14 @@ private:
 
 int main()
 {
-	// define set of right angled triangles
-	mymap[Triangle(8,15)] = "8-15-17";
-	mymap[Triangle(5,12)] = "5-12-13";
-	mymap[Triangle(3,4)]  = "3-4-5";
-	mymap[Triangle(9,40)] = "9-40-41";
-	mymap[Triangle(7,24)] = "7-24-25";
+	// define set of right angled Points
+	mymap[Point(8,15)] = "8-15-17";
+	mymap[Point(5,12)] = "5-12-13";
+	mymap[Point(3,4)]  = "3-4-5";
+	mymap[Point(9,40)] = "9-40-41";
+	mymap[Point(7,24)] = "7-24-25";
 
-	// search for triangle using functor
+	// search for Point using functor
 	auto i = find_if(mymap.begin(), mymap.end(), Query("7-24-25"));
 	if(i != mymap.end())
 		cout << "Found: " << i->first << "," << i->second << endl;
@@ -67,7 +67,7 @@ int main()
 		cout << "Entry not found" << endl;
 
 
-	// search for triangle using lambda
+	// search for Point using lambda
 	i = find_if(mymap.begin(), mymap.end(), 
 	            [](const auto& p){ return (p.second == "7-24-25"); });
 	if(i != mymap.end())

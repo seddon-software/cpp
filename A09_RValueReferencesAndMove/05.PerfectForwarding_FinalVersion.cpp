@@ -8,10 +8,22 @@
 #include <algorithm>
 using namespace std;
 
+/*
+ *  The problem we are trying to solve with perfect forwarding is: How can we write a function template
+ *  that forwards calls to another function template without changing l-vaues into r-values.
+ *
+ *  In this final attempt we use r-value references and rely on the collapsing rules discussed earlier
+ * to make sure l-value refs don't get changed to r-value refs.
+ */
+
 template<class A1, class A2, class A3>
 void f(A1&& a1, A2&& a2, A3&& a3)
 {
-	// put a breakpoint here and get the IDE to check types
+    // put a breakpoint here and get gdb to check types
+    // enter the following in the debug console:
+    //    -exec ptype a1
+    //    -exec ptype a2
+    //    -exec ptype a3    
 }
 
 

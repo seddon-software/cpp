@@ -3,7 +3,7 @@
 
 using namespace std;
 
-struct Triangle
+struct Point
 {
     int x, y;
     void display()
@@ -14,31 +14,31 @@ struct Triangle
 
 int main()
 {
-    Triangle p1{3,4};
-    Triangle p2{7,8};
-    Triangle p3{3,9};
+    Point p1{3,4};
+    Point p2{7,8};
+    Point p3{3,9};
 
-    vector<Triangle> v;
+    vector<Point> v;
     v.push_back(p1);    // pushes a copy of p1
     v.push_back(p2);
     v.push_back(p3);
 
-    cout << "triangles in vector" << endl;
+    cout << "Points in vector" << endl;
     for(auto i = v.begin(); i != v.end(); ++i)
     {
         i->display();
     }
-    cout << "references to triangles in vector" << endl;
+    cout << "references to Points in vector" << endl;
     for(auto& x : v) // C++11 new loop syntax
     {
         x.display();
     }
-    cout << "copies of triangles in vector" << endl;
+    cout << "copies of Points in vector" << endl;
     for(auto x : v) // C++11 new loop syntax
     {
         x.display();
     }
-    cout << "original triangles" << endl;
+    cout << "original Points" << endl;
     p1.display();
     p2.display();
     p3.display();

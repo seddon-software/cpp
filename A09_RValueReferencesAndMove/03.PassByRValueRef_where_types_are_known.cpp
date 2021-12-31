@@ -51,7 +51,7 @@ int main()
 	f(x);		 	// argument is lvalue: calls f(X&)
 	f(h());    		// argument is rvalue: calls f(X&&)
 	f(X());       	// argument is rvalue: calls f(X&&)
-	g(x);		 	// argument is lvalue: calls g(X&)
+	g(x);		 	// argument is lvalue: calls g(X&) // vscode incorrectly reporting an error
 	g(h());    		// argument is rvalue: calls g(X&&)
 	g(X());       	// argument is rvalue: calls g(X&&)
 }

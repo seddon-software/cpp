@@ -17,10 +17,10 @@ private:
 	short min;
 };
 
-class Triangle
+class Point
 {
 public:
-	Triangle(int x = 0, int y = 0) : x(x), y(y) {}
+	Point(int x = 0, int y = 0) : x(x), y(y) {}
 	ostream& operator<<(ostream& os) const
 	{
 		os << x << "," << y << endl;
@@ -31,7 +31,7 @@ private:
 	short y;
 };
 
-ostream& operator<<(ostream& os, const Triangle& p)
+ostream& operator<<(ostream& os, const Point& p)
 {
 	return p << os;
 }
@@ -40,11 +40,11 @@ ostream& operator<<(ostream& os, const Triangle& p)
 int main()
 {
 	Time t(5, 20);
-	Triangle p;
+	Point p;
 	int i;
 	// reinterpret_cast often is used as a kludge
 	i = *reinterpret_cast<int*>(&t);	// dubious cast
-	p = *reinterpret_cast<Triangle*>(&i);	// another dubious cast
+	p = *reinterpret_cast<Point*>(&i);	// another dubious cast
 	cout << p << endl;
 }
 
