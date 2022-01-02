@@ -36,11 +36,22 @@ int main()
 	X x;
 	const X cx;
 	auto& r = x;
-	auto&& rr1 = x;			// looks like a r-value ref, but is it?
-	auto&& rr2 = cx;		// looks like a r-value ref, but is it?
-
 	checkArg(r, "r");		// l-value ref
+
+	auto&& rr1 = x;			// looks like a r-value ref, but is it?
 	checkArg(rr1, "rr1");	// has a name, so l-value ref
+
+	auto&& rr2 = cx;		// looks like a r-value ref (cx is const), but is it?
 	checkArg(rr2, "rr2");	// has a name, so l-value ref
+
 	checkArg(X(), "X()");	// X() creates a temporary, so it is an r-value-ref
+	
+	// std::move(t) === static_cast<typename std::remove_reference<T>::type&&>(t) 
+	checkArg(std::move(r), "std::move(x)");  // move creates r-value
+	auto&& mv{std::move(r)};                 // mv is an l-value
+	checkArg(mv, "mv");
+
+	checkArg(std::forward<X>(r), "std::forward(x)");  // forward creates r-value
+	auto&& fwd{std::move(r)};                         // fwd is an l-value
+	checkArg(fwd, "fwd");
 }

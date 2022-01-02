@@ -10,11 +10,17 @@
 #include <algorithm>
 using namespace std;
 
-/*  In this example we write our own String class to illustrate the use of the move CTOR and 
+/*  The idea behing the move CTOR is to avoid an expensive copying operation when one of the objects
+ *  is about to go out of scope (i.e. a temporary).  The remaining object effectively steals the
+ *  temporary's resourses (usually from the heap), taking care not to let the temporary delete 
+ *  the resource it is stealing (ususually the temporary's pointer to the heap is set to a null 
+ *  pointer, so that its DTOR does nothing).
+ * 
+ *  In this example we write our own String class to illustrate the use of the move CTOR and 
  *  how you can use r-value refs in operator=().  Note that C++17 introduced mandatory copy
  *  elision with most copy operations, so move constructors are not now called when constructing
  *  from temporaries.
- *
+ * 
  *  Furthermore, note the use of the copy and swap idiom in the l-value reference version of the
  *  operator=() overload to make it exception safe.  We've also included and r-value reference 
  *  version for working with temporaries (which s efficient, but not exception safe).  If the

@@ -27,10 +27,11 @@ int main()
 {
 	A v;
 	v.x = 100;
+	cout << "original value of v.x = " << v.x << endl;
 
-	f<A>(v);			// pass v by value
-	cout << v.x << endl;
+	f<A>(v);			  // pass v by value
+	cout << "after passing by value, value of v.x = " << v.x << endl;
 
-	f<A&>(v);			// pass v by reference
-	cout << v.x << endl;
+	f<A&>(v);			  // pass v by reference
+	cout << "after passing by reference, value of v.x = " << v.x << endl;
 }

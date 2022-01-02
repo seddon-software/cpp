@@ -2,14 +2,14 @@
 using namespace std;
 
 /*
- *  "Using templates" create aliases for a family of existing types.  This is effectively
- *  a generic typedef.
+ *  A surprising use of templates is to create aliases for a family of existing types.  This is effectively
+ *  a generic typedef.  In this example we define an alias for pointer types.
  */
 
 
 // alias template
 template<class T>
-using ptr = T*;
+using ptr = T*;		// clearer than using a typedef
 // the name 'ptr<T>' is now an alias for pointer to T
 
 int main()
