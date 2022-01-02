@@ -2,7 +2,12 @@
 #include <type_traits>
 using namespace std;
 
-struct A {};
+/*  Here is a further example, where we use a trait to check if something is a function.
+ *  std::is_function<T>::value 
+ *      will return true or false depending on whether or not the type T represents a function.
+ */
+
+struct A {}; // for testing
 
 int f()
 {

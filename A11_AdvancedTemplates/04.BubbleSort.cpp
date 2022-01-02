@@ -4,8 +4,12 @@
 //
 ////////////////////////////////////////////////////////////
 
-// a detailed discussion of this meta-program can be found at
-// http://osl.iu.edu/~tveldhui/papers/Template-Metaprograms/meta-art.html
+/*  The bubble sort meta program is even more complicated than previous examples.  A detailed discussion 
+ *  of this meta-program can be found at:
+ *      http://osl.iu.edu/~tveldhui/papers/Template-Metaprograms/meta-art.html
+ *
+ *  Note: in practice you would use a run time version of this program, rather than use this meta-program.
+ */
 
 #include <iostream>
 #include <vector>

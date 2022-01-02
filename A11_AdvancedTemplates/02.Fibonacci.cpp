@@ -7,6 +7,11 @@
 #include <iostream>
 using namespace std;
 
+/* 
+ *  The Fibonacci meta program uses a template with two full specializations for the 
+ *  first two Fibonacci numbers.  All the Fibonacci numbers are computed at compile time.
+ */
+
 template<int N>
 class Fibonacci {
 public:

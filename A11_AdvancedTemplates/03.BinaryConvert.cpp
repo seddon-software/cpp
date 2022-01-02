@@ -1,12 +1,17 @@
 ////////////////////////////////////////////////////////////
 //
-//      Factorials
+//      Binary Convert
 //
 ////////////////////////////////////////////////////////////
 
 
 #include <iostream>
 using namespace std;
+
+/* 
+ *  This is a more complex meta program that calculates binary numbers and stores them in int array.
+ *  All the calculations are computed at compile time.
+ */
 
 template<unsigned int N>
 class Binary
