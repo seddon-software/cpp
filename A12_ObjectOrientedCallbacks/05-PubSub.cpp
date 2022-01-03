@@ -3,7 +3,15 @@
 #include <functional>
 using namespace std;
 
-using CALLBACK_TYPE = std::function<void(double)>;
+/*  
+ *  Another application of callbacks is in the software pattern Pub/Sub (publish and subscribe).
+ *  The pattern has a publisher (in our case a TemperaturMonitor) and a number of Observers.  The   
+ *  publisher notifies interested parties when an event occurs using a callback.  Typically all the 
+ *  observers register with the publisher with an optional condition (in our case the observer 
+ *  wants to be notified when the temperature has reached a threshold).
+ */
+
+using CALLBACK = std::function<void(double)>;
 
 class TemperatureMonitor
 {
@@ -20,12 +28,12 @@ public:
 			callback(temperature);
 		}
 	}
-	void Register(CALLBACK_TYPE& observerCallback)
+	void Register(CALLBACK& observerCallback)
 	{
 		observerCallbacks.push_back(observerCallback);
 	}
 private:
-	vector<CALLBACK_TYPE> observerCallbacks;
+	vector<CALLBACK> observerCallbacks;
 	double temperature;
 };
 
@@ -45,7 +53,7 @@ public:
 		tm.Register(callback);
 	}
 private:
-	CALLBACK_TYPE callback;
+	CALLBACK callback;
 };
 
 

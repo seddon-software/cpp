@@ -33,8 +33,8 @@
  *  method, with both selected at run time using the ->* operator.  We select the method and the object 
  *  sometime before the actual callback using Callback::load().  The callback is made with Callback::fire().
  * 
- *  Note that the syntax of a pointer to a member function requires use of the & operator; omitting the 
- *  & will cause a compilation error.
+ *  Note that the syntax rules for a pointer to a member function mandates the use of the & operator; 
+ *  omitting the & will cause a compilation error.
  */
 
 #include <iostream>

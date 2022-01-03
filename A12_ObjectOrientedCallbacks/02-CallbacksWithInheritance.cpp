@@ -8,6 +8,11 @@
 #include <vector>
 using namespace std;
 
+/*  
+ * C++s callback mechanism works alongside polymorphism with the compiler generating code to use
+ *  V-Tables. Note that specifying the base class pointer to method (&A::f) is sufficient and 
+ *  necessary to trigger the virtual calls.
+ */
 
 class A
 {
@@ -35,24 +40,25 @@ public:
 
 int main()
 {
-	void (A::*fp)();	// pointer to member of A with signature 'void f()'
+	void (A::*fp)();	// declaring a pointer to member of A (or B or C) with signature 'void f()'
 	A a;
 	B b;
 	C c;
-	fp = &A::f;		// point at polymorphic function
-	(a.*fp)();
+	fp = &A::f;		// point fp at polymorphic function f()
+	(a.*fp)();		// v-tables are used to dispatch these calls
 	(b.*fp)();
 	(c.*fp)();
 	
-	fp = &A::g;		// point at polymorphic function	
-	(a.*fp)();
+	fp = &A::g;		// point fp at polymorphic function g()	
+	(a.*fp)();      // v-tables are used to dispatch these calls
 	(b.*fp)();
 	(c.*fp)();
 
+	// now store pointers in a vector
 	vector<A*> pointers = { &a, &b, &c };
 	for(auto& ptr : pointers)
 	{
-		(ptr->*fp)();
+		(ptr->*fp)(); // v-tables are used to dispatch these calls
 	}
 }
 

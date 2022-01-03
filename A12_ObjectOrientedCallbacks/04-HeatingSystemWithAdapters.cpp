@@ -9,22 +9,25 @@
 #include <iostream>
 using namespace std;
 
-/*
-The previous example shows how the command pattern can be used to good effect, but it is unfortunate that each event is
-represented by a separate class.  Obviously, in some situations this could lead to an explosion of event classes.
-A refinement of this pattern is to use a CommandAdaptor which dynamically selects the action and thereby removes the
-necessity for having a separate class per event.  This is achieved by defining a Heating class for each event represented
-as a separate method, rather than having separate HeatingOff, HeatingOn and HeatingService classes.  The CommandAdaptor
-constructor records the Heating object and the action (on, off or service) and the callback is made with either an execute()
-method or with the operator()() method.  It has become a tradition in C++ to prefer the overloaded () for the command pattern.
-
-We can define separate CommandAdaptor objects to represent the callbacks.
-The object "on" represents a callback on the object system with the method Heating::turn_on()
-The object "off" represents a callback on the object system with the method Heating::turn_off()
-The object "service" represents a callback on the object system with the method Heating::turn_service()
-
-Clearly we can introduce further Heating objects if required.
-*/
+/* The previous Command Pattern example shows how this pattern can be used to good effect, but it is 
+ * unfortunate that each event is represented by a separate class.  Obviously, in some situations 
+ * this could lead to an explosion of event classes.
+ * 
+ * A refinement of this pattern is to use a CommandAdaptor which dynamically selects the action and 
+ * thereby removes the necessity for having a separate class per event.  This is achieved by defining
+ * a Heating class for each event represented as a separate method, rather than having separate 
+ * HeatingOff, HeatingOn and HeatingService classes.  The CommandAdaptor constructor records the 
+ * Heating object and the action (on, off or service) and the callback is made with either an 
+ * execute() method or with the operator()() method.  It has become a tradition in C++ to prefer 
+ * the overloaded () for the command pattern.
+ * 
+ * We can define separate CommandAdaptor objects to represent the callbacks:
+ *     object "on" represents a callback on the object system with the method Heating::turn_on()
+ *     object "off" represents a callback on the object system with the method Heating::turn_off()
+ *     object "service" represents a callback on the object system with the method Heating::turn_service()
+ * 
+ * Clearly we can introduce further Heating objects if required.
+ */
 
 class HeatingSystem
 {
@@ -59,19 +62,19 @@ public:
 class CommandAdapter : public Command
 {
 public:
-	typedef void (HeatingSystem::*CALLBACK)();
-	typedef HeatingSystem* DATA;
+	using FUNCTION_PTR = void (HeatingSystem::*)();
+	//typedef void (HeatingSystem::*FP)();
 
-	CommandAdapter(CALLBACK c, DATA d) : callback(c), data(d) {}
+	CommandAdapter(FUNCTION_PTR action, HeatingSystem* system) : action(action), system(system) {}
 
 	virtual void execute()
 	{
-		(data->*callback)();
+		(system->*action)();  // both object and method selected at runtime
 	}
 
 private:
-	CALLBACK callback;
-	DATA	 data;
+	FUNCTION_PTR action;
+	HeatingSystem* system;
 };
 
 
@@ -150,7 +153,5 @@ int main()
 	cout << "start of simulation";
 	while(controller.tick());
 	cout << endl << "end of simulation" << endl;
-
-	return 0;
 }
 
