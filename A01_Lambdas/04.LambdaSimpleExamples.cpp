@@ -1,7 +1,12 @@
 #include <iostream>
 using namespace std;
 
-
+/* 
+ *  In addition to closures, lambdas can take parameters.  These are self explanatory.  Several
+ *  examples are given below.  Note we are taking advantage of the new return type specification
+ *  (e.g. -> int) with these examples.  Some programmer like to space their lambdas out over several
+ *  lines whilst others are more succinct with their code.
+ */ 
 
 int main()
 {

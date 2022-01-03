@@ -1,4 +1,4 @@
-override WARNINGS = -w
+# override WARNINGS = -w
 include ../Build/make.mk
 # gcc's name demangling header is at /usr/include/c++/11/cxxabi.h
   

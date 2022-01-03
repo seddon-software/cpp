@@ -1,7 +1,6 @@
 # This makefile is called from elsewhere and various macros (e.g. LFLAGS)
 # may be defined already in another makefile, hence the use of recursive assignment
 # 	LFLAGS :=  $(LFLAGS)
-# To inhibit "return value optimization" in demos, use -fno-elide-constructors  
 
 WARNINGS := -Wall $(WARNINGS)
 CC = g++
