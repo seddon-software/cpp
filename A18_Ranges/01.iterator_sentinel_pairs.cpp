@@ -2,11 +2,14 @@
 #include <iostream>
 
 /*
-  Example to illustrate how sentinels are used in ranges.
-
-  Whenever you have a range where the end is some dynamic condition instead of a fixed position, 
-  use an iterator and sentinel pair instead.  Ranges are simpler to use than iterator pairs
-  and this is why the STL algorithms have been extended to support ranges.
+ * Many of the algorithms in the standard library work over a range defined by begin() 
+ * and end() iterators.  In most cases these iterators are of the same type.  However sometimes
+ * the end() has to be computed dynamically, for example with a null terminated C-string and end()
+ * has to be defined differently. These an end-only iterators are called a sentinels.
+ *
+ * So, whenever you have a range where the end is some dynamic condition instead of a fixed position, 
+ * we use an iterator and sentinel pair instead.  Ranges are simpler to use than iterator pairs
+ * and this is why the STL algorithms have been extended to support ranges.
  */
 
 // our example collection class
