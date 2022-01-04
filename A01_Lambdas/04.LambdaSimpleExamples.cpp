@@ -18,14 +18,23 @@ int main()
 				return x + y;
 			};
 
-	result = fp1(1, 2, 3);	cout << result << endl;
-	result = fp2(10, 20);	cout << result << endl;
-    result = [](int x, int y) -> int
+	result = fp1(1, 2, 3);	
+	cout << result << endl;
+	
+	result = fp2(10, 20);
+	cout << result << endl;
+
+	// execute lambda immediately
+	result = [](int x, int y) -> int
 			 {
 			     return x + y;
-			 }(10, 200);    cout << result << endl;
-    result = [](int x, int y) // auto return (c++17)
+			 }(10, 200);    
+	cout << result << endl;
+    
+	// execute lambda immediately (auto return since c++17)
+	result = [](int x, int y)
 			 {
 			     return x + y;
-			 }(10, 200);    cout << result << endl;
+			 }(10, 200);    
+	cout << result << endl;
 }

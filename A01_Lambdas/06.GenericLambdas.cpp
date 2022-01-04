@@ -2,8 +2,9 @@
 #include <string>
 using namespace std;
 
-/*  Generic lambdas were introduced in C++14.  By using auto as the closure type defined by the lambda 
- *  expression the lambda will be converted to a template automatically by the compiler.
+/*  
+ *  Generic lambdas were introduced in C++14.  By using auto as the closure type defined by the 
+ *  lambda expression the lambda will be converted to a template automatically by the compiler.
  *  This example uses an int, double, string and user defined class with the rsulting template.
  */
 

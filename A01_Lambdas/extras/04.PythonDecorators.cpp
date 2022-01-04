@@ -7,7 +7,7 @@
 #include <chrono>
 using namespace std;
 
-// decorators a la Python
+// decorators á la Python
 
 auto us =
     [] (std::function<string()> fn)

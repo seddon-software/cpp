@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-/*  lambdas were introduced with C++11 and define anonymous function objects.  Typically these function
+/*  
+ *  lambdas were introduced with C++11 and define anonymous function objects.  Typically these function
  *  objects are assigned to a variable, as with "add" below.  A lambda has 3 parts:
  *		[]		for captures
  *		()		for parameters

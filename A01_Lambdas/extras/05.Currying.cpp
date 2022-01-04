@@ -2,6 +2,11 @@
 #include <tuple>
 using namespace std;
 
+/*  Currying is the practice of simplifying the execution of a function that takes multiple arguments 
+ *  into executing sequential single-argument functions, i.e. currying is used to transform multiple 
+ *  argument function into set of single argument functions.
+ */
+
 using TUPLE = std::tuple<int, int, int, int, int>;
 
 auto f(int a)

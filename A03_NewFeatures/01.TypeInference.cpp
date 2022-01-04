@@ -3,12 +3,17 @@
 #include <typeinfo>
 #include <cxxabi.h>    // gcc specific header to demangle names
 
+/*  C++11 introduced many new featues to the language including type inference.  It is no
+ *  longer necessary to explicitly declare variable if the compiler already knows about the type.
+ *  You can use "auto" and "declspec" to get the compiler to work out your types.
+ * 
+ *  Unfortunately its difficult to see the types chosen by the compiler, because the compiler 
+ *  managles symbols.  However since we are exclusively using g++ we can make use of the specific
+ *  gcc routine to demangle names shown below.  This will not work with other compilers.
+ */
+
 using namespace std;
 
-int f(int a, int b)
-{
-    return a + b;
-}
 
 // this routine only works with gcc.  Note the extra include file <cxxabi.h> and changes to the Makefile.
 const char* demangle(auto p)
@@ -16,6 +21,11 @@ const char* demangle(auto p)
 	int status;  // did the demangle work?
 	const char* realname = abi::__cxa_demangle(typeid(p).name(),0,0,&status);  // gcc specific code (see Makefile)
 	return realname;
+}
+
+int f(int a, int b)
+{
+    return a + b;
 }
 
 int main()

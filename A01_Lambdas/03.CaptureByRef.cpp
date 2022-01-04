@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-/*  If you want to work with updated values of variables you can use [&] to capture by reference.
+/*  
+ *  If you want to work with updated values of variables you can use [&] to capture by reference.
  *  Note that the updated values of x and y are seen by the lambda when it is invoked.  Again, you
  *  don't have to capture everything, [&x, &y] only captures the named variables by reference. 
  *  You can mix captures; [&x, y] captures x by reference and y by value and you invoke the lambda
