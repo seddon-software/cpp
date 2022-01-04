@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <sstream>
 #include <string>
 #include <ctime>
@@ -40,8 +41,8 @@ auto getDate()
 	time_t now_c = chrono::system_clock::to_time_t(now);
 	struct tm t = *std::localtime(&now_c);
 	stringstream ss;
-	ss <<        t.tm_mday  << "/"
-	   << 1    + t.tm_mon   << "/"
+	ss << setfill('0') << setw(2) << t.tm_mday << "/"
+	   << setfill('0') << setw(2) << 1 + t.tm_mon  << "/"
 	   << 1900 + t.tm_year;
 	return ss.str();
 }
