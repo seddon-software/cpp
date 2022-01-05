@@ -1,8 +1,13 @@
-// instance variable can be initialized in class definition,
-// static variables can be initialized in class definition if declared inline (since C++17)
-
 #include <iostream>
 using namespace std;
+
+/*  
+ *  Although we can now initialize instance variables in the class definition (since C++11), static 
+ *  variables were exempt.  However C++17 now allows statics to be initialized in class definition
+  * provided they are declared as inline.  By declaring the static inline, the compiler will also
+  * allocate static storage, obviating the need to declare and initialize the static outside the 
+  * class, as was previously required.
+  */
 
 class Point
 {
@@ -15,7 +20,10 @@ public:
 	}
 	friend ostream& operator<<(ostream& os, Point p)
 	{
-		return os << p.x << ":" << p.y << "(" << count1 << "," << count2 << ")";
+		return os << "p.x = " << p.x << ", " 
+                  << "p.y = " << p.y << ", "
+                  << "Point::.count1 = " << Point::count1 << ", "
+                  << "Point::.count2 = " << Point::count2 << endl;
 	}
 protected:
 	inline static int count1 = 10;  // inline required if static declared inside class
@@ -25,14 +33,15 @@ private:
 	int y = 7;
 };
 
-// statics had to be declared and initialized outside the class prior to C++17
-int Point::count2 = 20; // linker error if this line is not present
+// statics had to be declared and initialized outside the class prior to C++17 and still have 
+// to be if not declared inline
+int Point::count2 = 20; // count2 not declared inline; linker error if this line is not present
 
 int main()
 {
 	Point p{};   // calls default CTOR
-	cout << "p=" << p << endl;
+	cout << p;
 	p.incrementCounts();
-	cout << "p=" << p << endl;
+	cout << p;
 }
 

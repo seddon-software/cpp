@@ -2,6 +2,12 @@
 #include <algorithm>
 using namespace std;
 
+/*  
+ *  The C++11 range based loop is a major addition to C++.  It makes looping through the values in a 
+ *  collection a breeze.  C++20 added the capability of providing an initialization statement before
+ *  the start of the loop.
+ */
+
 void print(int a[], int size)
 {
 	copy(a, a + size, ostream_iterator<int>(cout, ","));
@@ -26,7 +32,7 @@ int main()
 	}
 	print(a, 6);
     
-	// use an initializer with the loop
+	// use an initializer with the loop (C++20)
 	for (auto vec = std::vector{1, 2, 3, 4, 5, 6}; auto v : vec) 
     {
         std::cout << v << " ";
@@ -40,7 +46,6 @@ int main()
     }
     cout << endl;
 
-    using namespace std::string_literals;  // for operator""s 
     for (auto str = "Hello World"s; auto c: str)  // string literal type = std::string not const char* 
     {
         cout << c << ".";

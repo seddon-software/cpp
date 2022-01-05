@@ -1,37 +1,36 @@
 #include <iostream>
 
 /*
-constexpr: largely advisory; evaluate this function call at compile time 
-           if possible
+ *  C++ now allows constexpr and consteval:
+ *
+ *  constexpr: largely advisory; evaluate this function call at compile time if possible
+ *  consteval: generate an error if you cannot evaluate this function call at compile time
+ */
 
-consteval: generate an error if you cannot evaluate this function call 
-           at compile time
-*/
-
-// run-time function
+// this is a run-time function
 int square1(int n) 
 {
     return n * n;
 }
 
-// compile-time function
+// this is a compile-time function
 consteval int square2(int n) 
 {
     return n * n;
 }
 
-// compile-time or run-time function
+// this can be either a compile-time or run-time function
 constexpr int square3(int n) 
 {
     return n * n;
 }
 
-// constexpr functions can call other constexpr functions
 constexpr int secsInHour()
 {
 	return 60 * 60 * 24;
 }
 
+// constexpr functions can call other constexpr functions
 constexpr int secsInDay()
 {
 	return secsInHour() * 24;

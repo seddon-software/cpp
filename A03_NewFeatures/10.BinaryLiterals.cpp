@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+/*  You can now use ' in numbers and define binary literals */
+
 int main()
 {
 	auto integer_literal = 1'000'000;

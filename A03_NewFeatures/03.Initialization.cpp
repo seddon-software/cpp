@@ -3,8 +3,11 @@
 #include <algorithm>
 using namespace std;
 
-// instance variables can be set to an initial value directly
-// to save on duplication in constructors
+/*  
+ *  When a class has several attributes, its constructors may have duplicate initializations of these 
+ *  attributes.  With C++11 it is now possible to move commmon initialization to the instance variables
+ *  themselves, instead of using the constructor's initialization list.
+ */
 
 class A {
 public:
@@ -15,8 +18,8 @@ public:
     	cout << a << "," << b << "," << c << "," << d << endl;
     }
 private:
-    int a = 1;
-    int b = 2;
+    int a = 1;   // instead of initializing in CTOR
+    int b = 2;   // instead of initializing in CTOR
     int c;
     int d;
 };
@@ -26,8 +29,8 @@ private:
 /*
 class A {
 public:
-    A(int c) : c(c) : a(1), b(2), c(c) {}		// redundundant initialisers
-    A(int c, int d) : a(1), b(2), c(c), d(d) {}
+    A(int c) : c(c) : a(1), b(2), c(c) {}		
+    A(int c, int d) : a(1), b(2), c(c), d(d) {} // duplicate initialisers
 private:
     int a;
     int b;

@@ -3,25 +3,61 @@
 #include <string>
 using namespace std;
 
-// double is not allowed as input parameter here (banned by C++ standard)
-double operator "" _deg(long double d)
+/*
+ *  User-defined literals (since C++11) are used to produce objects of a defined type by defining
+ *  a user-defined suffix.  The idea to to make types more readable, for example:
+ *      10_h
+ *  Note that user-defined literals are now regular operator overloads, so you can also include any
+ *  additional code in the overload.
+ *  
+ *  The ""s operator overload is part of the std namespace and converts a const char* to a mutable
+ *  basic_string<char> automatically.
+ */
+
+ 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+constexpr long long int
+operator"" _h(unsigned long long h)
 {
-	// returns radians
-	return d * 3.14159 / 180.0;
-}
-const string operator "" _degrees(long double d)
-{
-	stringstream ss;
-	ss << d * 3.14159 / 180.0 << " radians";
-	return ss.str();
+	return h;
 }
 
-// operator "" examples to improve readability and/or perform conversions 
+constexpr long long int
+operator"" _m(unsigned long long m)
+{
+	return m;
+}
+
+class Time
+{
+public:
+	Time(int h, int m) : hour(h), minute(m) {}
+	void display()
+	{
+		cout << hour << ":" << minute << endl;
+	}
+private:
+	int hour;
+	int minute;
+};
+
+// typesafe literals are used for readability
 int main()
 {
-	double right_angle = 90.0_deg;
-	string full_circle = 360.0_degrees;
-	string s = "hello"s;    // built in coverts const char* to const string
-	cout << right_angle << endl;
-	cout << full_circle << endl;
+	// without typesafe literals
+	Time t1(10, 35);
+	t1.display();
+
+	// with typesafe literals
+	Time t2(10_h, 35_m);
+	t2.display();
+
+    // built in support for strings
+    auto hello = "Hello"s;   // s is a mutable string, not const char*
+    hello  += "-world"s;  // modify mutable string
+    cout << hello << endl;
 }

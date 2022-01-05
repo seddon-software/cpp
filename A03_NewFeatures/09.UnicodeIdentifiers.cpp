@@ -4,6 +4,14 @@
 #include <cmath>
 using namespace std;
 
+/*  Inline with C++ supporting Unicode, it is now possible to use Unicode identifiers in code.
+ *  Not everyone is happy with this facility, but it does allow, for instance the use of greek
+ *  letters familiar to Mathematicians when defining formulae.
+ * 
+ *  The actaul code in this example is unimportant (it performs a rotatation in 3D space), but 
+ *  rather the use of the variables θ and 𝜙 and the constant π in the code.
+ */
+
 using V = vector<double>;
 using M = vector<vector<double>>;
 

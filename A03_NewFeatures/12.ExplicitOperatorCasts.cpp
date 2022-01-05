@@ -1,6 +1,13 @@
 #include <iostream>
 using namespace std;
 
+/*  C++11 introduced explicit for converting constructors to avoid accidental conversions.  C++20
+ *  extended the concept to operator casts.
+ *
+ *  In this example we compire two similar classes to see the difference explicit makes.
+ */
+
+
 // explicit implies implicit casts are not allowed
 class Time1		// explicit casts
 {
@@ -19,8 +26,8 @@ class Time2		// implicit casts
 public:
 	Time2() :hrs(0), min(0) {}
 	Time2(int h, int m) : hrs(h), min(m) {}
-	Time2(int m) : hrs(m/60), min(m%60) {}
-	operator int() { return hrs * 60 + min; }
+	Time2(int m) : hrs(m/60), min(m%60) {}      // CAN implicitly cast from int to Time
+	operator int() { return hrs * 60 + min; }   // CAN implicitly cast from Time to int
 private:
 	int hrs;
 	int min;
