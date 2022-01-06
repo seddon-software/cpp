@@ -2,13 +2,20 @@
 #include <tuple> 
 #include <iostream> 
 using namespace std; 
-  
+
+/*
+ *  Structured bindings are very similar to tie bindings, but use a different syntax and can be used
+ *  with auto to automatically declare vaiables in the calling program.  
+ * 
+ *  Note: you can't use std::ignore with structured bindings.
+ */
+
 struct Point 
 { 
     double x; 
     int y; 
     string z;
-    auto f()
+    auto get()
     {
         return tuple(x, y, z);
     } 
@@ -16,9 +23,9 @@ struct Point
   
 int main() 
 { 
-    Point p = {  3.14159, 2, "hello"s }; 
+    Point p {.x = 3.14159, .y = 2, .z = "hello" }; 
 
-    // Structure binding 
-    auto [x, y, z] = p.f();
+    // structure binding 
+    auto [x, y, z] = p.get();   // x, y, z are declared implicitly and are copies of returned variables
     cout << "p = " << x << "," << y << "," << z << endl; 
 }

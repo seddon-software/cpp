@@ -3,30 +3,36 @@
 #include <string>
 
 using namespace std; 
-  
+
+/*  
+ *  std::tie was introduced to allow functions to return multiple return values.  Functions can
+ *  now return a tuple and the caller can use std::tie to unpack the return values.  std::tie 
+ *  constructs a tuple object whose elements are references to the returned arguments
+ *  and in the same order.  
+ * 
+ *  Notes: 
+ *      1) You can use std::ignore placeholder to skip an element when unpacking the returned tuple.
+ *      2) Structured bindings largely replace std::tie (see later examples). 
+ */
+
 struct Point 
 { 
     double x; 
     int y; 
     string z;
-    auto f() 
+    auto get() 
     { 
-        // returns a tuple to make it work with std::tie 
-        // tie constructs a tuple object whose elements are references to the arguments in args 
-        // and in the same order.  This allows a set of objects to act as a tuple, which is 
-        // especially useful when returning multiple objects.
         return tuple(x, y, z);  
     }  
 }; 
   
 int main() 
 { 
-    Point p = { 3.14159, 2, "hello" }; 
+    Point p {.x = 3.14159, .y = 2, .z = "hello" }; 
     double x; 
     int y; 
     string z;
-    // return a tied tuple 
-    tie (x, y, z) = p.f(); // unpack the tuple
-      
+    std::tie (x, y, z) = p.get(); // unpack the tied tuple  
     cout << "p = " << x << "," << y << "," << z << endl; 
+    std::tie(x, std::ignore, z) = p.get(); // ignore parameter 2  
 } 

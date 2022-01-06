@@ -9,7 +9,7 @@
 using namespace std;
 
 /*  
- * C++s callback mechanism works alongside polymorphism with the compiler generating code to use
+ *  C++'s callback mechanism works alongside polymorphism with the compiler generating code to use
  *  V-Tables. Note that specifying the base class pointer to method (&A::f) is sufficient and 
  *  necessary to trigger the virtual calls.
  */
