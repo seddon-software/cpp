@@ -4,6 +4,14 @@
 
 using namespace std;
 
+/*
+ *  vectors usually allocate more space than required to store the current items.  The additional space
+ *  is to cope with expansion.  You can check on the number of slots actually in use (size) and the 
+ *  number reserved (capacity).
+ * 
+ *  Note how the capacity changes as the vector fills up. 
+ */
+
 class Point
 {
 public:
@@ -33,9 +41,10 @@ int main()
 	}
 	cout << "--------" << endl;
 	{
-		// use default
+		// use default (no initial reserved space)
 		vector<Point> v;
-		// no reserve
+    	cout << "size=" << v.size() << "\t" << "capacity=" << v.capacity() << endl;
+
 		for(int i = 0; i < 33; i++)
 			allocate(v, Point(i, 2*i));
 	}

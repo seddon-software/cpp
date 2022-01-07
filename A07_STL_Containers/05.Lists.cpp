@@ -8,6 +8,13 @@
 #include <string>
 #include <list>
 
+/*
+ *  We can use iterators with other collection classes.  If we use List collection class, the header 
+ *  file has changed and vector has been replaced by list.   These are the only changes to the code, 
+ *  but the implementation is very different: we are now working with a doubly linked list instead of a 
+ *  dynamic array.
+ */
+
 using namespace std;
 
 int main()
@@ -20,9 +27,7 @@ int main()
     collection.push_back("Tokyo");
     collection.push_back("Rome");
     
-    list<string>::iterator i;
-
-    for (i = collection.begin(); i != collection.end() ;  i++)
+    for (auto i = collection.begin(); i != collection.end() ;  i++)
     {
         cout << *i << endl;
     }

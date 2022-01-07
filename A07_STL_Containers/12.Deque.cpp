@@ -3,6 +3,10 @@
 
 using namespace std;
 
+/*  
+ * The STL has many collection classes.  Here is an example with a double ended queue 
+ */
+
 int main()
 {
     // Create a deque containing integers
@@ -13,7 +17,8 @@ int main()
     d.push_back(55);
  
     // print deque
-    for(int n : d) {
+    for(int n : d) 
+    {
         std::cout << n << ", ";
     }
     cout << endl;

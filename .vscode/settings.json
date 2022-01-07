@@ -55,5 +55,6 @@
         "typeinfo": "cpp",
         "deque": "cpp",
         "chrono": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
