@@ -1,4 +1,9 @@
-Last updated 20 November 2021
+A04 not documented
+A05 not documented
+A06 not fully documented
+A15 onwards needs to be checked
+
+Last updated 8 January 2022
 
 
 To clone the repo use:
@@ -24,7 +29,7 @@ Leanpub:
     https://leanpub.com/user_dashboard/library
 
 Notes:
-1) But C++17 introduces a new feature to the language: guaranteed copy elision.
-2) https://github.com/isocpp/CppCoreGuidelines
-3) Traits can be trait classes or type traits. These can be user-defined or standard-library ones. Prefer the standard-library ones.
-4) https://thecodepad.com/cpp/c20-concepts-the-definitive-guide/
+1) https://github.com/isocpp/CppCoreGuidelines
+2) Traits can be trait classes or type traits. These can be user-defined or standard-library ones. 
+Prefer the standard-library ones.
+3) https://thecodepad.com/cpp/c20-concepts-the-definitive-guide/

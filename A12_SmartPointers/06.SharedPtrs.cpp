@@ -5,13 +5,12 @@ using namespace std;
 
 
 /*  
- *  REWORD
  *  As an alternative to unique_ptr, we can used shared_ptr.  The shared_ptr also uses the handle-body 
  *  paradigm, but in this case the handles use reference counting.  When the last reference expires, the
  *  body is deleted.  This makes managed heap based objects exception safe in the same way as with 
  *  unique_ptrs. 
  * 
- *  However, it is now same to pass these smart pointers by copy as this merely increments the reference 
+ *  However, it is now safe to pass these smart pointers by copy as this merely increments the reference 
  *  count.
  */
 

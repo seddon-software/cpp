@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-/*  C++11 introduced explicit for converting constructors to avoid accidental conversions.  C++20
+/*  
+ *  C++11 introduced explicit for converting constructors to avoid accidental conversions.  C++20
  *  extended the concept to operator casts.
  *
  *  In this example we compire two similar classes to see the difference explicit makes.

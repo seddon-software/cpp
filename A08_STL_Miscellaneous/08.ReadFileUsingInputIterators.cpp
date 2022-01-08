@@ -5,14 +5,18 @@
 using namespace std;
 
 /*
- * istreambuf_iterator is an iterator for unformatted extraction.
- * istream_iterator is designed for formatted extraction and removes
- *     white space by default
+ *  Here we investigate reading a text file from disk using the following iterators:
+ *      istreambuf_iterator: iterator for unformatted extraction.
+ *      istream_iterator:   iterator for formatted extraction (removes white space by default)
  * 
- * This example include the "most vexing parse":
+ *  This example includes the "most vexing parse".  This is where brackets differentiate between
+ *  function and variable declarations as in the following:
  *
  *      A a( A() );         // this is a function declaration
  *      A a( (A()) );       // this is a variable definition
+ * 
+ *  You can find a number of articles onn the web re: the most vexing parse.  Maybe you'll find 
+ *  them interesting.
  */ 
 
 string fileName("resources/myfile.txt");

@@ -5,11 +5,9 @@
 #include <iterator>
 
 /*  
- *  The partition algorithm splits a collection (e.g. vector) into two parts dependent on a filter
- *  defined by a lambda (or function pointer).  The partition algorithm is not guaranteed to preserve
- *  order of the original collection.
- * 
- *  If you need to preserve order, take a look at the example using stable_partition.
+ *  The stable_partition algorithm splits a collection (e.g. vector) into two parts dependent on a filter
+ *  defined by a lambda (or function pointer).  Unlike the partition algorithm, stable_partition is 
+ *  guaranteed to preserve order of the original collection.
  */
 
 using namespace std;
@@ -24,7 +22,7 @@ int main()
     auto evenOdd = [](const int& i){ return i%2 == 0; };
 
     // partition vector into odd and even numbers
-    partition(v.begin(), v.end(), evenOdd);
+    stable_partition(v.begin(), v.end(), evenOdd);
     cout << "is vector_partitioned? " 
          << is_partitioned(v.begin(), v.end(), evenOdd) << endl;
 

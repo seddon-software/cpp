@@ -12,7 +12,7 @@
 using namespace std;
 
 /*
- *  We are using the sort algorithm with several different comparators to sort
+ *  We are using the sort algorithm with a templated comparator function.  The ide is to sort
  *  a group of Person objects.  Note the use of the (C++11) enum class in the comparator.
  */
 
@@ -51,11 +51,11 @@ void printList(vector<T> v)
 	copy(v.begin(), v.end(), ostream_iterator<T>(cout));
 }
 
-
 /*
- * comparison function object (object that satisfies the requirements 
- * of Compare) returns ​true if the first argument is less than the second.  
- * The signature of the comparison function should be:
+ *  Comparison function object (object that satisfies the requirements of Compare) returns ​true if 
+ *  the first argument is less than the second.  
+ * 
+ *  The signature of the comparison function should be:
 		bool cmp(const T1 &t1, const T2 &t2);
  */
 
@@ -63,11 +63,11 @@ template <typename T, Field F>
 class Compare
 {
 public:
-	bool operator() (const T& _1, const T& _2)
+	bool operator() (const T& t1, const T& t2)
 	{
-		if(F == Field::name)    return _1.getName() < _2.getName();
-		if(F == Field::address) return _1.getAddress() < _2.getAddress();
-		if(F == Field::age)     return _1.getAge() < _2.getAge();
+		if(F == Field::name)    return t1.getName() < t2.getName();
+		if(F == Field::address) return t1.getAddress() < t2.getAddress();
+		if(F == Field::age)     return t1.getAge() < t2.getAge();
 		return false;
 	}
 };
