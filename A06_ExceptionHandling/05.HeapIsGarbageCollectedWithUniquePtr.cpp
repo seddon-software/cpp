@@ -14,6 +14,7 @@
  *  to the program.  Modern practice is to track every heap based object with a smart 
  *  pointer, because that means every object gets its DTOR called (e.g. no more memory leaks). 
  */
+
 #include <iostream>
 #include <string>
 #include <memory>

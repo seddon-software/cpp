@@ -4,8 +4,10 @@
 using namespace std;
 
 /* 
- *  It is possible to enquire if a function throws exceptions as shown below
+ *  The noexcept clause is important when it comes to exception safety.  But did you know it is
+ *  possible to enquire if a function throws exceptions(see below):
  */
+
 auto f1 = []() { throw exception(); };
 auto f2 = []() noexcept {};
 //	auto f3 = []() noexcept { throw Exception(); };  // doesn't compile

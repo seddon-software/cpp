@@ -10,9 +10,14 @@
 #include <type_traits>
 using namespace std;
 
+/*
+ *  The problem with const char* parameters can be overcome in a number of ways.  Perhaps the simplest
+ *  is to provide a specialized function for the type.  If the compiler has a choice between using a
+ *  template or a function, it will always prefer the function.
+ */
 
 template <typename T>
-auto Max(T a, T b) -> decltype(a + b)
+T Max(T a, T b)
 {
 	if (a > b)
 		return a;
@@ -33,18 +38,14 @@ const char* Max(const char* a, const char* b)
 
 int main()
 {
-	cout << boolalpha;
-	string s1("Red");
-	string s2("Blue");
-	 
-	// const char*
-	auto c = Max("Red", "Blue");
-    if(is_same<decltype(c), const char*>::value)
-	    cout << "return is const char*" << endl;
+	// these lines now compare the contents of the const char* and hence give the correct result
+	cout << Max("Red", "Blue") << endl;
+	cout << Max("Blue", "Red") << endl;
 
-	// string
-	auto s = Max(s1, s2);
-    if(is_same<decltype(s), string>::value)
-	    cout << "return is string" << endl;
+	// the string type will use the template
+	string s1("Red");
+	string s2("Blue");	 
+	cout << Max(s1, s2) << endl;
+	cout << Max(s2, s1) << endl;
 }
 

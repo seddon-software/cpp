@@ -47,6 +47,7 @@ void f3()
 void f2()
 {
 	// heap based objects are not cleaned up!
+    cout << "Person(\"Steve\") created on the heap; it will not get destroyed" << endl; 
 	Person* pSteve = new Person("Steve");
 	f3();
 	delete pSteve;

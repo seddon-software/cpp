@@ -1,6 +1,5 @@
 A04 not documented
 A05 not documented
-A06 not fully documented
 A15 onwards needs to be checked
 
 Last updated 8 January 2022
