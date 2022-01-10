@@ -5,8 +5,12 @@
 ////////////////////////////////////////////////////////////
 
 
-/* Some templates are not parameterized on types as in this example.
- * The template has one non-type parameter SIZE and no generic types defined.
+/* 
+ *  Some templates are not parameterized on types as in this example.  The template has one non-type 
+ *  parameter SIZE and no generic types defined.
+ * 
+ *  As a side issue, note we are using "runtime_error" to throw exceptions.  This is because the 
+ *  "exception" class doesn't have a CTOR that takes a string, but "runtime_error" does.
  */
 
 #include <iostream>
@@ -29,7 +33,7 @@ public:
 
     void set(int i, int value)
     {
-        if (i <  0)    throw runtime_error("Underflow");
+        if (i <  0) throw runtime_error("Underflow");
         if (i > SIZE) throw runtime_error("Overflow");
         bits[i] = value;
     }

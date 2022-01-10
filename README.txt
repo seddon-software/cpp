@@ -1,8 +1,6 @@
-A04 not documented
-A05 not documented
 A15 onwards needs to be checked
 
-Last updated 8 January 2022
+Last updated 10 January 2022
 
 
 To clone the repo use:

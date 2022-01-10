@@ -11,15 +11,20 @@ using namespace std;
 
 //////
 
-// This example effectively allows defining nested functions in C++
+/*
+ *  A number of authors have suggested that rather than use the bindings library, it is often cleaner
+ *  to use lambda expressions.  Note that with lambdas, you have the added flexability of providing 
+ *  closures.
+ */
 
 int main()
 {
 	int n = 0;
 
 	// create pointer to function objects using closure on reference to n;
-	std::function<int(int,int)> f =
-		[&n](int x, int y)
+	std::function<int(int,int)> f;
+    
+    f =	[&n](int x, int y)   // closure on n
 	    {
 		    n++;
 		    return x + y + n;

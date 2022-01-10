@@ -9,6 +9,19 @@
 #include <string>
 using namespace std;
 
+/*
+ *  Sometimes we want to provide constraints on a subset of the template parameters.  These are partial
+ *  specializations.  If you exmine the specialization below, you will see partial specializations for
+ *  when T1 and T2 represent the same type, when T1 is a pointer or const pointer, or when T2 is the 
+ *  class type Y.
+ *  
+ *  Don't forget that you must always define a generic template first, the partial specializations will
+ *  all have the same name as the generic template and the constaints will be specified in the <>.
+ * 
+ *  It is intended you step through this code in the debugger - no output statements are included in 
+ *  the code.
+ */
+
 // some example classes to use ...
 class X {};
 class Y {};

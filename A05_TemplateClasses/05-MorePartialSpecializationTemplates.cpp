@@ -1,5 +1,10 @@
-/* More examples of template specializations.  Note that struct and class are
- * interchangeable for public only classes.
+
+/* 
+ *  Here are some more examples of template specializations.  Note that struct and class are
+ *  interchangeable for public only classes.
+ * 
+ *  It is intended you step through this code in the debugger - no output statements are included in 
+ *  the code.
  */
 
 // some example classes to use ...

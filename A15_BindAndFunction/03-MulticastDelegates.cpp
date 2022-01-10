@@ -10,6 +10,10 @@
 #include <functional>
 using namespace std;
 
+/*
+ *  The C# language defines multicast delegates as and object with multiple callbacks.  By
+ *  overloading the += operator we can easily simulate this in C++.
+ */
 
 class Greeting
 {
@@ -60,7 +64,5 @@ int main()
 
 	// fire delegate
 	d();
-	
-	return 0;
 }
 
