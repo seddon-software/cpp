@@ -4,7 +4,7 @@
 using namespace std;
 
 /*  
- *  Another application of callbacks is in the software pattern Pub/Sub (publish and subscribe).
+ *  A typical application of callbacks is in the software pattern Pub/Sub (publish and subscribe).
  *  The pattern has a publisher (in our case a TemperaturMonitor) and a number of Observers.  The   
  *  publisher notifies interested parties when an event occurs using a callback.  Typically all the 
  *  observers register with the publisher with an optional condition (in our case the observer 

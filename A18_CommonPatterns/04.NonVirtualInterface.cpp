@@ -8,6 +8,23 @@
 #include <string>
 using namespace std;
 
+/*
+ *  The non-virtual interface pattern (NVI) controls how methods in a base class are overridden. 
+ *  It is related to the template method pattern.
+ *
+ *  Looking at the Car base class, you will find 3 pure virtual methods:
+ *      	virtual void start() = 0;
+ *          virtual void drive() = 0;
+ *          virtual void stop() = 0;
+ *
+ *  Implementations for these metohds are provided in the 2 derived classes:
+ *          class SportsCar
+ *          class ElectricCar
+ * 
+ *   In the base class, doJourney() implements the template method; it controls which virtual methods
+ *   are called and in what order.  This means that when doJourney is called for each type of car,
+ *   although same virtual methods are called, they are customized for each derived class.   
+ */
 
 class Car {
 public:
@@ -60,6 +77,4 @@ int main()
 
 	Car* electricCar = new ElectricCar("Electric Car");
 	electricCar->doJourney();
-
-	return 0;
 }

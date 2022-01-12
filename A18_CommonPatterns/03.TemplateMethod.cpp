@@ -8,6 +8,21 @@
 using namespace std;
 
 
+/*
+ *  The template method controls how other methods are called from a public method.  Typically a given
+ *  method is partially defined in the base class and partially defined in a derived class.  
+ *  
+ *  Note, in this example, the ChangeDepartment() method first calls SetDepartment() using early binding
+ *  and hence can't be overridden by a derived class.  
+ *  Next, it calls the pure virtual method SetSalary(), which means it must be overridden in a derived 
+ *  class.
+ *  Finally Report() is called.  As this is a virtual method, optionally, it can be overridden in a 
+ *  derived class, but this is not mandatory, as the base class defines a default version of this method.
+ * 
+ *  This combination of non-virtual, pure virtual and virtual methods gives maximum flexibility to the
+ *  template method.  Obviously, other examples can use permutations of these methods.
+ */
+
 class Employee
 {
 public:
