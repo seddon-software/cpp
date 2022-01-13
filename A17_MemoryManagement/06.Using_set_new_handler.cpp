@@ -7,6 +7,7 @@
 #include <new>
 #include <cstdlib>
 #include <iostream>
+#include <string>
 using namespace std;
 
 /*
@@ -28,14 +29,16 @@ int main()
 {
 	int MBytes = 0;
 	set_new_handler(low_on_memory);
-
+    cout << "This program will grab a huge amount of memory" << endl
+         << "your system may slow to a snails pace if you continue" << endl;
+    string dummy;
+    cout << "Hit return to continue of Ctrl-C to quit" << endl; 
+    getline(cin, dummy);
 	while(true)
 	{
-		new char[50 * MByte];
-		MBytes += 50;
+		new char[500 * MByte];
+		MBytes += 500;
 		cout << MBytes << " MBytes allocated" << endl;
 	}
-
-	return 0;
 }
   
