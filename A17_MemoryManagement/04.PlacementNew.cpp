@@ -9,6 +9,24 @@
 #include <iostream>
 using namespace std;
 
+/*
+ *  A much more practical use of these additional overloads is "placement new".  The idea here is
+ *  to tell the allocation routines where to place the object in memory.  With placement new, we
+ *  pre-allocate a raw memory buffer and place all our objects in this region.  We do this to avoid 
+ *  unnecessary deallocation of objects; we simply overwrite an existing object, when the object is
+ *  no longer needed.  In some cases, avoiding deallocation of memory can save a lot of time.
+ * 
+ *  Using a memory cache like this is sometimes used to place the objects in shared memory, so they 
+ *  can be seen by other processes.  In this example, we use the Linux API to place objects in 
+ *  shared memory, but don't go the full hog to show how another process can access this memory.
+ *  On Unix systems we use mmap to access shared memory, on Windows we use VirtualAlloc instead.
+ * 
+ *  Note that since objects are not allocated on the heap, we mustn't deallocate heap space.  This in 
+ *  turn means it is not safe to delete objects; instead we call the objects DTOR directly just in
+ *  case it is important to do so:
+ *          points[i].~Point();
+ *          dates[i].~Date(); 
+ */
 
 #if defined(WIN32)
 #include <windows.h>
@@ -45,7 +63,10 @@ class Date
 {
 public:
     Date(int d, int m, int y) : day(d), month(m), year(y) {}
-    ~Date() {}
+    ~Date()
+    {
+        cout << "Date DTOR called" << endl;
+    }
 
     void display()
     {
@@ -67,7 +88,10 @@ class Point
 {
 public:
     Point(int x0, int y0) : x(x0), y(y0) {}
-    ~Point() {}
+    ~Point() 
+    {
+        cout << "Point DTOR called" << endl;
+    }
 
     void display()
     {

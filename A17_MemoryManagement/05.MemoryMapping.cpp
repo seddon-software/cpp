@@ -13,6 +13,20 @@ using namespace std;
 #include <sys/stat.h>
 #include <sys/mman.h>
 
+/*
+ *  This example is very similar to the last one, except this time we use mmap and the Linux API to 
+ *  write our objects to memory mapped files:
+ * 	            ./mempool1
+ *              ./mempool2
+ * 
+ *  You can find a lot of information about memory mapped files on the web, for example:
+ *      http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2044.html
+ * 
+ *  I haven't included the Windows version of this example, but its not difficult to write.
+ * 
+ *  After the program finishes you can check the contents of the two binary files using the "hexdump"
+ *  utility.
+ */
 
 template <typename T>
 T* memoryAllocator(int fd, int size)
@@ -34,7 +48,6 @@ T* memoryAllocator(int fd, int size)
 	return array;
 #endif
 }
-
 
 class Date
 {
@@ -101,7 +114,7 @@ public:
 		return array;
 	}
 
-	// this is normal provided by the compiler (shown here for illustration only)
+	// this is normally provided by the compiler (shown here for illustration only)
 	static void* operator new(size_t, void* address)
 	{
 		return address;

@@ -9,6 +9,11 @@
 #include <iostream>
 using namespace std;
 
+/*
+ *  The set_new_handler function allows you to install a handler that is called whenever a memory 
+ *  allocation attempt fails.
+ */ 
+
 enum { MByte = 1024 * 1024 };  
 
 void low_on_memory()
@@ -26,8 +31,8 @@ int main()
 
 	while(true)
 	{
-		new char[5 * MByte];
-		MBytes += 5;
+		new char[50 * MByte];
+		MBytes += 50;
 		cout << MBytes << " MBytes allocated" << endl;
 	}
 
