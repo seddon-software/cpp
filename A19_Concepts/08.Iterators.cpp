@@ -5,6 +5,15 @@
 #include <vector>
 using namespace std;
 
+/*
+ *  The standard template library containers use a variety of different types of iterators.  You can use
+ *  iterator type as a constaint.  3 of the more common iterators are used in the "advance" function
+ *  templates below:
+ * 
+ *    forward_iterator:       only moves forward through the collection (e.g. single linked list).   
+ *    bidirectional_iterator: moves forward or backward through the collection (e.g. double linked list).
+ *    random_access_iterator: can move to any part of the collection (e.g. vector)
+ */
 
 template<std::forward_iterator I>
 void advance(I& iter, int n)

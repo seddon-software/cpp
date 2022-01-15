@@ -1,6 +1,19 @@
 #include <concepts>
 using namespace std;
 
+/*
+ *  Concepts are not restricted to the generic template.  Sometimes you will want to apply concepts
+ *  to specializations.
+ * 
+ *  In this example we create a Polygon hierachy consisting of a base class called Polygon and two 
+ *  derived classes Octagon and Heptagon.  We also define a seperate class Ellipse which is not part
+ *  of the inheritance hierachy.
+ * 
+ *  We now define a Drawing template that can take any of these 4 classes.  Then we write a 
+ *  specialization of this template that is constrained to Polygon and its derived classes.  If we
+ *  attempt to use the Ellipse class with this specialization, the code will fail to compile.
+ */
+
 // test classes
 class Polygon {};
 class Octagon: public Polygon {};
@@ -56,6 +69,5 @@ int main()
 	 */
 	// [[ maybe_unused ]] Ellipse& ellipse = drawing3.getPolygon();
 	// drawing3.setPolygon(ellipse2);
-
 }
 

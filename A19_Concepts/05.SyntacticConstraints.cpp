@@ -1,20 +1,23 @@
 #include <iostream>
 using namespace std;
 
-// template <unsigned int x, unsigned int y>
-// requires (x <= 20) && requires (y <= 20)
-// int xySum() 
-// {
-//     return x + y;
-// }
+/*
+ *  As discussed ealier, when you constrain a template parameter or function templates using concepts, 
+ *  you should use named concepts or combinations of them. What you shouldn't do is to use
+ *  syntactic constraints as in this example (only given to illustrate bad practice):
+ *
+ *              template <unsigned int x, unsigned int y>
+ *              requires (x <= 20) && requires (y <= 20)
+ *
+ *  Notice that the Sum template parameters A and B can't also be used as parameters to the Sum function.
+ *  This means you can't write: 
+ *              unsigned int Sum(int A, int B)
+ */
 
-// this works, but a <= 100 && b >= 100 is not a semantic category 
-// and hence is not regarded as good practice
-template <int a, int b>
-requires (a <= 100 && b >= 100)
-unsigned int Sum()  // note a and b are template parameters (types), so you can't write: Sum(int a, int b) 
+template <int A, int B> requires (A <= 100 && B >= 100)
+unsigned int Sum()
 {
-    return a + b;
+    return A + B;
 }
 
 int main() 
