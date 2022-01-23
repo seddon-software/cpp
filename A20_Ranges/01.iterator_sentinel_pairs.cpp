@@ -77,7 +77,7 @@ private:
     };
 };
 
-// oue example algorithms, one taking a pair of iterators, onr taking a range
+// our example algorithms, one taking a pair of iterators, the other taking a range
 template <typename I, typename S>
 void printAlgorithm(I begin, S end) // this takes an iterator-sentinel pair
 {

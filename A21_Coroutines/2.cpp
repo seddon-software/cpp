@@ -6,29 +6,30 @@
 
 using namespace std;
 
+template<int N>
 struct Generator {
   struct Promise;
 
 // compiler looks for promise_type
   using promise_type=Promise;
-  coroutine_handle<Promise> coro;
+  coroutine_handle<Promise> h_;
 
-  Generator(coroutine_handle<Promise> h): coro(h) {}
+  Generator(coroutine_handle<Promise> h): h_(h) {}
 
   ~Generator() {
-    if(coro)
-      coro.destroy();
+    if(h_)
+      h_.destroy();
   }
 
 // get current value of coroutine
   int value() {
-    return coro.promise().val;
+    return h_.promise().val;
   }
 
 // advance coroutine past suspension
   bool next() {
-    coro.resume();
-    return !coro.done();
+    h_.resume();
+    return !h_.done();
   }
 
   struct Promise {
@@ -37,7 +38,7 @@ struct Generator {
 
 // called by compiler first thing to get coroutine result
     Generator get_return_object() {
-      return Generator{coroutine_handle<Promise>::from_promise(*this)};
+      return Generator<N>{coroutine_handle<Promise>::from_promise(*this)};
     }
 
 // called by compiler first time co_yield occurs
@@ -46,10 +47,10 @@ struct Generator {
     }
 
 // required for co_yield
-    suspend_always yield_value(int x) {
-      val=x;
-      return {};
-    }
+    // suspend_always yield_value(int x) {
+    //   val=x;
+    //   return {};
+    // }
 
 // called by compiler for coroutine without return
     suspend_never return_void() {
@@ -62,10 +63,15 @@ struct Generator {
       return {};
     }
   };
-
 };
+template <int N>
+Generator<N>::Promise::suspend_always yield_value(int x) {
+    val=x;
+    return {};
+}
 
-Generator myCoroutineFunction(int n) {
+template <int N>
+Generator<N> generator0(int n) {
 
   for(int i = 0; i < n; ++i) {
     co_yield i;
@@ -77,14 +83,12 @@ int main ()
 {
   int n=10;
 
-  Generator myCoroutineResult = myCoroutineFunction(n);
+  Generator<0> myCoroutineResult = generator0(n);
 
   for(int i=0; i < n; ++i) {
     myCoroutineResult.next();
     printf("---\n");
     printf("%d \n", myCoroutineResult.value());
   }
-
-  return 0;
 }
 
