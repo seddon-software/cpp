@@ -1,7 +1,9 @@
 #includeders ../../Build/make.mk
 
-CC := g++
+CC := clang++
 CFLAGS := $(CFLAGS) -std=c++20 -fmodules-ts
+# clang++ -std=c++20 -stdlib=libc++ -fmodules -fbuiltin-module-map \
+#          -E hello_modular_world.cc | wc -c
 #! /bin/sh
 #g++ -c -std=c++20 -fmodules-ts 01.helloWorld.cpp
 #g++ -c -std=c++20 -fmodules-ts 01.main.cpp
@@ -21,7 +23,11 @@ main2.exe:
 	g++ -c -std=c++20 -fmodules-ts 02.mylib.cpp
 	g++ -c -std=c++20 -fmodules-ts 02.main.cpp
 	$(CC) $(CFLAGS) $(SOURCES_02) -o $@
-
+zz:
+	g++12 -std=c++20 -Mmodules -E hello_world.cc
+	time g++12 -std=c++20 -x c++-system-header iostream -Mmodules hello_world.cc
+	g++12 -c -std=c++20 -fmodules-ts -x c++-system-header iostream
+	time g++12 -std=c++20 -x c++-system-header iostream -fmodules -fbuiltin-module-map hello_world.cc
 preprocess:
 	$(CC) -E $(CFLAGS) $(SOURCES_01)
 

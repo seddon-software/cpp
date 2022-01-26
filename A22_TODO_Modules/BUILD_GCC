@@ -1,0 +1,34 @@
+# This script is based on:
+http://newsite.accu.org/journals/overload/28/160/orr/
+
+mkdir ~/projects
+cd ~/projects
+git clone git://gcc.gnu.org/git/gcc.git
+cd gcc
+./contrib/download_prerequisites
+
+ mkdir ../build
+cd ../build
+../gcc/configure --disable-bootstrap   --disable-multilib\
+--enable-languages=c++ --enable-threads=posix
+make -j 8
+
+cd ../gcc
+git checkout devel/c++-modules
+
+mkdir ../build-modules
+cd ../build-modules
+../gcc/configure --disable-bootstrap --disable-multilib --enable-languages=c++ --enable-threads=posix --prefix=/usr/share/gcc-modules
+make -j 8
+sudo make install
+
+# FIX ERRORS by refereing to:
+   https://reviews.llvm.org/D102059
+
+
+# then set up symbolic link:
+ln -s /usr/share/gcc-modules/bin/g++ g++12
+
+# run compiler
+g++12 --version
+

@@ -1,7 +1,8 @@
 {
     "git.enabled": false,
     "files.exclude": {
-        "**/.exe": true
+        "**/.exe": true,
+        "**/*.o": true
     },
     "files.associations": {
         "*.exe": "nm",
