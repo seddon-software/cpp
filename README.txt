@@ -1,6 +1,6 @@
 A19 onwards needs to be checked
 
-Last updated 13 January 2022
+Last updated 26 January 2022
 
 
 To clone the repo use:
@@ -8,7 +8,7 @@ To clone the repo use:
 
 my email:	seddon_software@btinternet.com
 
-To install C++20:
+To install gcc10 and g++10:
     sudo apt update
     sudo apt install gcc-10 gcc-10-base gcc-10-doc g++-10
     sudo apt install libstdc++-10-dev libstdc++-10-doc 
@@ -22,11 +22,3 @@ To install gcc11:
 To install g++11:
     https://lindevs.com/install-g-on-ubuntu/
 
-Leanpub:
-    https://leanpub.com/user_dashboard/library
-
-Notes:
-1) https://github.com/isocpp/CppCoreGuidelines
-2) Traits can be trait classes or type traits. These can be user-defined or standard-library ones. 
-Prefer the standard-library ones.
-3) https://thecodepad.com/cpp/c20-concepts-the-definitive-guide/
