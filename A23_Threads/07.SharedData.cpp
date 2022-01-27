@@ -4,6 +4,18 @@
 #include <chrono>
 using namespace std;
 
+/*
+ *  As a further example of locking, consider the two global counts in this example.  "count2" is protected
+ *  by a lock guard, but "count1" is not.  The ++ operator is not an atomic operation and therefore we
+ *  may experience data corruption when "count1" is incremented.  "count2" is safe because concurrent
+ *  access is prevented by the lock guard.
+ * 
+ *  The probability of ++ being interrupted is very small, but not zero, so we need to perform many
+ *  increments to illustrate the problem.  Even then we are no guaranteed that a corruption will occur.
+ *  The program uses 4 threads to ncrement both counts 1,000,000 times, so the expected result should be
+ *  4,000,000.  Run the program several times and you should see "count1" not reach this figure.
+ */
+ 
 mutex theMutex;
 
 int count1 = 0;		// not protected

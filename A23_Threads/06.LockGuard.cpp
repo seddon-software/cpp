@@ -7,6 +7,14 @@
 #include <random>
 using namespace std;
 
+/*
+ *  Here is the same example, but with multiple lock guards.  Notice two pairs of threads share the 
+ *  same lock guards.  This makes the pairs {1,3} and {2,4} mutually exclusive.  However, because we 
+ *  have two locks one thread from each pair can run concuurently.
+ * 
+ *  Note that it is essential the mutex is captured by reference - a copy of the lock won't work 
+ *  properly.
+ */
 
 void do_work(string id, int delay)
 {
