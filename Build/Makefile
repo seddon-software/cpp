@@ -1,8 +1,8 @@
 all: subsystems
 
-descend = @echo "\n\n$(1)\n"; cd ../$(1) && pwd && $(MAKE)
+descend = @echo "\n\n$(1)\n"; cd ../$(1) && pwd && $(MAKE) -i
 #clobber = @echo "\n\n$(1)\n"; cd ../$(1) && $(MAKE) clean
-clobber = cd ../$(1) && $(MAKE) clean
+clobber = cd ../$(1) && $(MAKE) -i clean
 
 subsystems:
 	$(call descend,01_GettingStarted)
@@ -35,8 +35,8 @@ subsystems:
 	$(call descend,A18_CommonPatterns)
 	$(call descend,A19_Concepts)
 	$(call descend,A20_Ranges)
-	$(call descend,A21_TODO_Coroutines)
-	$(call descend,A22_TODO_Modules)
+	$(call descend,A21_Coroutines)
+	$(call descend,A22_Modules)
 	$(call descend,A23_Threads)
 	$(call descend,A24_RegEx)
 	$(call descend,A25_MultipleInheritance)
@@ -74,8 +74,8 @@ clean:
 	$(call clobber,A18_CommonPatterns)
 	$(call clobber,A19_Concepts)
 	$(call clobber,A20_Ranges)
-	$(call clobber,A21_TODO_Coroutines)
-	$(call clobber,A22_TODO_Modules)
+	$(call clobber,A21_Coroutines)
+	$(call clobber,A22_Modules)
 	$(call clobber,A23_Threads)
 	$(call clobber,A24_RegEx)
 	$(call clobber,A25_MultipleInheritance)

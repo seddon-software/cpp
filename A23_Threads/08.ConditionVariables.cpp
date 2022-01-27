@@ -5,6 +5,19 @@
 #include <condition_variable>
 using namespace std;
 
+/*
+ *  Condition variables are objects able to block the calling thread until it is notified to resume.  The 
+ *  condition variable uses a mutex to lock the thread when one of its wait functions is called.  The 
+ *  thread remains blocked until woken up by another thread.
+ * 
+ *  You can think of condition variables as a red flag that stops threads in their tracks when the flag is
+ *  raised.  Any number of threads can be waiting on the flag.  Some other thread can then lower the flag 
+ *  to release all the waiting threads simultaneously.
+ * 
+ *  Here, the main thread creates 10 worker threads that wait on a condition variable (which is dependent
+ *  on a common mutex).  The main thread waits 5 seconds and then uses "notify_all" to release all the
+ *  waiting threads. 
+ */
 
 std::mutex myMutex;
 std::condition_variable cv;
@@ -24,16 +37,9 @@ void print_id(int id)
     cout << "thread " << id << " completed" << endl;
 }
 
-void go()
-{
-//    std::unique_lock<std::mutex> myLock(myMutex);
-    ready = true;
-    cv.notify_all();
-}
-
 int main ()
 {
-	using namespace std::literals::chrono_literals;
+	using namespace std::literals::chrono_literals;  // so we can use 5s as 5 seconds
 
 	// spawn 10 threads:
     thread threads[10];
@@ -44,7 +50,7 @@ int main ()
     std::this_thread::sleep_for(5s);		// C++14
 
     // set the condition variable
-    go();
+    cv.notify_all();
 
     // wait for threads to complete
     for (auto& th : threads) th.join();

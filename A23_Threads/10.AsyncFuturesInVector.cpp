@@ -7,6 +7,15 @@
 #include <cstdlib>
 using namespace std;
 
+/*  
+ *  An interesting variation on the previous example is to pass a lambda to async and store all
+ *  the prospective calculations in a vector.  To do this we first create a vector of asyncs:
+ *          	vector<future<int>> v;
+ *
+ *  and then proceed to add lambdas to the vector.  These asyncs will begin executing immediately they
+ *  are added to the vector.  Later we can retrieve all the results using get() in a for loop.
+ */
+
 int fetch_int(int lo, int hi)
 {
 	int sum = 0;
@@ -23,7 +32,7 @@ int main()
 	vector<future<int>> v;
 	v.push_back(async([]{ return fetch_int(1,10); }));
 	v.push_back(async([]{ return fetch_int(11,40); }));
-	v.push_back(async([]{ return fetch_int(41, 100); }));
+	v.push_back(async([]{ return fetch_int(41,100); }));
 
 	int result = 0;
 	for (auto& e : v)

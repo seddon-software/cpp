@@ -3,8 +3,16 @@
 #include <mutex>
 using namespace std;
 
-mutex theMutex;
+/*
+ *  Recall that threads can use the heap to share state.  In this example we set up 10 ints on the heap
+ *  and fire off 4 threads that operate on this heap space.  The thread function will need to know the 
+ *  location of the heap space, so the lambdas capture its address by value.
+ * 
+ *  Just to be careful we use a lock guard to prevent data corruption.  The 4 threads increment each 
+ *  integer 1,000,000 times, so all the integers on the heap should end up as 4,000,000.
+ */
 
+mutex theMutex;
 
 int main()
 {
@@ -13,7 +21,7 @@ int main()
 	int* buffer = new int[size];
 	for(int i = 0; i < 10; i++) buffer[i] = 0;
 
-	// task to loop 1,000,000 times, adding to each element of buffer
+	// lambda task to loop 1,000,000 times, adding to each element of buffer
 	auto task = [buffer]()
 		{
 			for(int i = 0; i < 1000 * 1000; i++)
@@ -35,7 +43,7 @@ int main()
     t3.join();
     t4.join();
 
-    // print results and exit
+    // print results clean up and exit
 	for(int i = 0; i < 10; i++) cout << buffer[i] << endl;
     delete[] buffer;
 }
