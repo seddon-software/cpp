@@ -4,6 +4,21 @@
 //
 ///////////////////////////////////////////////////////////////
 
+/*
+ *  The ElectricalDIY class below multiply inherits from the Electrical and DIY classes.  Each of these 
+ *  inherit from the StoreItem class.  This means ElectricalDIY will potentially have two separate 
+ *  StoreItem classes.  However this means an ElectricalDIY object will have two prices.  This is the 
+ *  default behaviour.  If instead you want the ElectricalDIY object to have a single price you have to
+ *  use virtual inheritance.
+ * 
+ *  In this example we use non virtual inheritance (the default) and allow the ElectricalDIY object to 
+ *  have two prices.  This will of course lead to logical difficulties later in the code, so you might 
+ *  prefer virtual inheritance (see next example).  Unfortunatey, virtual inheritance has its own 
+ *  idiosyncracies.
+ *  
+ *  Neither system works well - multiple inheritance is well known to be difficult to formulate.
+ */
+
 #include <iostream>
 using namespace std;
 
@@ -17,9 +32,9 @@ public:
 		price = p; 
 	}
 
-	void Display() 
+	void Display(auto parent) 
 	{ 
-		cout << "Price = " << price << " (address: " << &price << ")" << endl; 
+		cout << parent << " price = " << price << " (address: " << &price << ")" << endl; 
 	}
 private:
 	double price;
@@ -34,7 +49,7 @@ public:
 	
 	void Display() 
 	{ 
-		StoreItem::Display(); 
+		StoreItem::Display("Electrical"); 
 	}
 };
 
@@ -45,7 +60,7 @@ public:
 	
 	void Display() 
 	{ 
-		StoreItem::Display(); 
+		StoreItem::Display("DIY"); 
 	}
 };
 
@@ -68,12 +83,12 @@ public:
 
 int main()
 {
+    cout << "Using non-virtual multiple inheritance" << endl;
+    cout << "item has 2 separate prices" << endl;
 	ElectricalDIY item(19.99);
 	item.DIY::SetPrice(29.99);
 	item.Electrical::SetPrice(39.99);
 	item.Display();
-
-	return 0;
 }
 
 
