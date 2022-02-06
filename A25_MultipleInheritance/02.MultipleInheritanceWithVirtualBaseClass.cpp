@@ -4,6 +4,32 @@
 //
 ///////////////////////////////////////////////////////////////
 
+
+/*
+ *  In an attempt to avoid repeated based classes, C++ allows us to use virtual inheritance.  In this
+ *  case the StoreItem class is only inherited once and its components (price) are not repeated as in
+ *  the previous example.  However, initialization now becomes a problem.  Normally a derived class
+ *  will initialize its immediate base class, but if that were the case StoreItem would be initialized 
+ *  twice.  So with virtual inheritance the derived classes don't call the base constructor at and 
+ *  instead leave the initialization to their super class, ElectricalDIY.  
+ * 
+ *           ElectricalDIY
+ *              /    \
+ *            /        \
+ *        Electrical    DIY
+ *            \         /
+ *              \     /
+ *            StoreItem (virtual)
+ * 
+ *  Although the Electrical and DIY classes have code to initialize their base classes, the compiler only
+ *  generates these call if we are not in a "Diamond" inheritance hierarchy.  If you step through the code 
+ *  below, you will notice the StoreItem constructor is called from the ElectricalDIY class and not from
+ *  Electrical and DIY.  However, when we create Electrical and DIY objects, the StoreItem constructor is
+ *  indeed called, because these objects are not part of a "Diamond" inheritance hierarchy.
+ *
+ *
+ */
+
 #include <iostream>
 using namespace std;
 
@@ -85,10 +111,11 @@ public:
 int main()
 {
     cout << "      ElectricalDIY" << endl;
-    cout << "        |        |" << endl;
+    cout << "           /  \\" << endl;
+    cout << "         /      \\" << endl;
     cout << "    Electrical  DIY" << endl;
     cout << "         \\      /" << endl;
-    cout << "            |" << endl;
+    cout << "           \\  /" << endl;
     cout << "         StoreItem" << endl;
     
     cout << "Using virtual multiple inheritance" << endl;

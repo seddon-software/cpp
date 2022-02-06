@@ -5,6 +5,19 @@
 ///////////////////////////////////////////////////////////////
 
 /*
+ *  C++ supports multiple inheritance.  However it is well known that no programming language implements
+ *  multiple inheritance satisfactoraly.  C++ is no exception.  We begin with the so called problematic
+ *  "Diamond" inheritance pattern where the StoreClass below is effectively inherited twice.  As you
+ *  will see, all C++ implementation attempts result in difficulties.
+ *
+ *           ElectricalDIY
+ *              /    \
+ *            /        \
+ *        Electrical    DIY
+ *            \         /
+ *              \     /
+ *            StoreItem
+ *
  *  The ElectricalDIY class below multiply inherits from the Electrical and DIY classes.  Each of these 
  *  inherit from the StoreItem class.  This means ElectricalDIY will potentially have two separate 
  *  StoreItem classes.  However this means an ElectricalDIY object will have two prices.  This is the 
@@ -83,7 +96,7 @@ public:
 
 int main()
 {
-    cout << "Using non-virtual multiple inheritance" << endl;
+    cout << "\nUsing non-virtual multiple inheritance" << endl;
     cout << "item has 2 separate prices" << endl;
 	ElectricalDIY item(19.99);
 	item.DIY::SetPrice(29.99);

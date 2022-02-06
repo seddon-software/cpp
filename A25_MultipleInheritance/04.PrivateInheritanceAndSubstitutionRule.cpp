@@ -4,6 +4,12 @@
 //
 ///////////////////////////////////////////////////////////////
 
+/*
+ *  In this example of private inheritance, we show that the substitution rule fails.  If you uncomment
+ *  the lines in main(), this exapmple will fail to compile.  This is because the method f1() defined
+ *  in the base class does not propogate to the derive class because Base is inherited privately.
+ */
+
 class Base
 {
 public:
@@ -26,6 +32,4 @@ int main()
 	// Derived objects do not substitute for Base objects with private inheritance
 	// Base* q = new Derived;	// does not compile
 	// q->f1();
-
-	return 0;
 }
