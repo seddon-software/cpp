@@ -42,6 +42,4 @@ int main()
     b.g1();
     b.g2();
     b.g3();
-
-	return 0;
 }
