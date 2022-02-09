@@ -1,9 +1,3 @@
-///////////////////////////////////////////////////////////////
-//
-//		Private Constructors
-//
-///////////////////////////////////////////////////////////////
-
 #include <iostream>
 #include <stdexcept>
 using namespace std;
@@ -13,7 +7,7 @@ using namespace std;
  *  In this example, we make the Point class constructor private; the only way to create Point objects
  *  is to use the static method: Create.
  * 
- *  Beacuse Create is a method of the class, it can access the private constructor and hence can create 
+ *  Because Create is a method of the class, it can access the private constructor and hence can create 
  *  Point objects (on the heap).  By making this the only way of creating Point objects we can easily 
  *  impose conditions on their creation.  Here, we choose to limit the number of Point objects to 3.
  * 

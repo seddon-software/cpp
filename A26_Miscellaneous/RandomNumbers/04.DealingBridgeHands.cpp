@@ -7,11 +7,17 @@
 using Card = int;
 using namespace std;
 
+/*
+ *  This extends the previous example by dealing 4 bridge hands and displaying the high card points (HCP)
+ *  of each hand (Ace=4, King=3, Queen=2, Jack=1).
+ */
+
 int main()
 {
 // setup engine
 	static std::random_device rdev{};
-	static std::default_random_engine engine{rdev()};
+    auto seed = rdev();
+	static std::default_random_engine engine{seed};  // must be static
 
 // Manufacture a deck of cards:
 	std::array<Card, 52> deck{};
@@ -19,7 +25,7 @@ int main()
 
 // Shuffle the deck:
 	std::shuffle(deck.begin(), deck.end(), engine);
-	std::shuffle(deck.begin(), deck.end(), engine);
+	// std::shuffle(deck.begin(), deck.end(), engine);
 
 // Display each card in the shuffled deck:
 	auto suit = []( Card c ) { return "shdc"[c/13]; };
@@ -55,7 +61,7 @@ int main()
 			{
 				cout << ' ' << rank(c) << suit(c);
 			}
-			cout << " >> " << calculatePoints();
+			cout << " >> HCP: " << calculatePoints();
 			cout << endl;
 		};
 

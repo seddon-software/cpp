@@ -41,6 +41,7 @@ subsystems:
 	$(call descend,A24_RegEx)
 	$(call descend,A25_MultipleInheritance)
 	$(call descend,A26_Miscellaneous)
+	$(call descend,A26_Miscellaneous/RandomNumbers)
 	$(call descend,A27_TypeCasting)
 
 clean:
@@ -80,4 +81,5 @@ clean:
 	$(call clobber,A24_RegEx)
 	$(call clobber,A25_MultipleInheritance)
 	$(call clobber,A26_Miscellaneous)
+	$(call clobber,A26_Miscellaneous/RandomNumbers)
 	$(call clobber,A27_TypeCasting)
