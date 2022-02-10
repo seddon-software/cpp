@@ -1,9 +1,3 @@
-//////////////////////////////////////////////////
-//
-//   Advanced pattern matching ...
-//
-//////////////////////////////////////////////////
-
 #include <iostream>
 #include <iterator>
 #include <string>
@@ -11,8 +5,10 @@
 #include <regex>
 
 /*
- *  RegEx's can have multiple capture parentheses.  This example has nested captures.
- *  Recall that capture 0 represents the full match of the RegEx.
+ *  RegEx's can have multiple capture parentheses.  This example has nested captures.  Recall that 
+ *  capture 0 represents the full match of the RegEx.  The matches object overloads the [] operator
+ *  to make it easy to extract the results of each capture parenthesis of which (including nesting)
+ *  there are 8 distinct results.
  */
 
 using namespace std;
@@ -20,10 +16,10 @@ using namespace std;
 
 int main()
 {
-    match_results<string::const_iterator> searcher;
+    match_results<string::const_iterator> matches;
 	string text = "AAAA1111BBBB2222CCCC";
 
-	regex ex(
+	regex re(
 		"^("           // capture-1
 		  "("          // capture-2
 		   "(\\D+)"    // capture-3
@@ -37,13 +33,9 @@ int main()
 		")$"
 	);
 
-	regex_search(text, searcher, ex);
-
-	for(auto it = searcher.begin(); it != searcher.end(); ++it)
-	{
-		unsigned index = it - searcher.begin();
-		cout << index << ": " << *it << endl;
-	}
+	regex_search(text, matches, re);
+    for (size_t i = 0; i < matches.size(); ++i) 
+        cout << i << ": " << matches[i] << endl;
 }
 
 

@@ -11,9 +11,13 @@
 #include <regex>
 
 /*
- *  C++ allows strings to be concatenated and this in turn allows us to
- *  put comments in the RegEx.
- *  This example also explores non greedy matching.
+ *  C++ allows strings to be concatenated and this in turn allows us to put comments in the RegEx.
+ *  Note the subpattern:
+ *          "(.*?)"
+ * 
+ *  This is an example of non greedy matching.  The .* matches 0 or more (any) characters, but the ? says
+ *  match as few characters as possible.  There a 3 sets of capture parentheses in the full RegEx and 
+ *  hence there are 3 results, stored in searcher[1], searcher[2] and searcher[3].
  */
 
 using namespace std;

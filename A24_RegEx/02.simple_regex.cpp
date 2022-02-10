@@ -11,7 +11,11 @@
 #include <regex>
 
 /*
- *  Simple example searching for a number in a string
+ *  As we've seen from the last example, searching is more flexible than matching.  In this simple example
+ *  we are searching for a number in a string.
+ * 
+ *  Note the RegEx is "\\d+[.]\\d+".  This means one or more digits followed by a literal dot and terminated 
+ *  by one or more digits.
  */
 
 using namespace std;
