@@ -8,8 +8,10 @@
 using namespace std;
 
 /*
- *  Functions can have default parameters.  The only restrictions is that 
- *  defaults must all be defined from the right side of the function.
+ *  Functions can have default parameters.  The only restrictions is that defaults must all be defined 
+ *  from the right hand side of the function.  The defaults must be specified in the function prototype
+ *  and not in the function itself.  Note that the compiler allows you to omit parameter names in the
+ *  prototype.
  */
 
 // defaults should be declared in the prototype
@@ -18,13 +20,13 @@ void f(int, int = 99, int = 999);  // prototype doesn't need to specify
 
 void f(int a, int b, int c)
 {
-	cout << a << "," << b << "," << c << endl;
+	cout << "a=" << a << ",b=" << b << ",c=" << c << endl;
 }
 
 int main()
 {
     f(1, 2, 3);
-    f(11, 12);
-    f(21);
+    f(11, 12);      // defaulting c
+    f(21);          // defaulting b and c
 }
 

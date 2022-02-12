@@ -13,19 +13,19 @@
 
 using namespace std;
 
+/*
+ *  In this example we read from a binary file (we created earlier) using the ifstream class.  However,
+ *  it is convenient to use the stream buffer object associated with the stream to perform the reading and 
+ *  writing operations.
+ */
+
 int main()
 {
-    // read from binary file we created earlier
-
-    // A stream buffer is an object in charge of performing the reading and writing operations of the 
-    // stream object it is associated with: the stream delegates all such operations to its 
-    // associated stream buffer object, which is an intermediary between the stream and its 
-    // controlled input and output sequences.
     streambuf* pBuffer;
     ifstream inStream(FILENAME);
     if(inStream) 
     {
-        // get pointer to associated buffer object
+        // get pointer to the associated buffer object
         pBuffer = inStream.rdbuf();
 
         do {

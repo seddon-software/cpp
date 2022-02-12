@@ -1,7 +1,6 @@
 all: subsystems
 
 descend = @echo "\n\n$(1)\n"; cd ../$(1) && pwd && $(MAKE) -i
-#clobber = @echo "\n\n$(1)\n"; cd ../$(1) && $(MAKE) clean
 clobber = cd ../$(1) && $(MAKE) -i clean
 
 subsystems:
@@ -15,6 +14,8 @@ subsystems:
 	$(call descend,08_StandardTemplateLibrary)
 	$(call descend,09_Inheritance)
 	$(call descend,10_Polymorphism)
+	$(call descend,11_Templates)
+	$(call descend,12_Exceptions)
 	$(call descend,A01_Lambdas)
 	$(call descend,A02_Namespaces)
 	$(call descend,A03_NewFeatures)
@@ -55,6 +56,8 @@ clean:
 	$(call clobber,08_StandardTemplateLibrary)
 	$(call clobber,09_Inheritance)
 	$(call clobber,10_Polymorphism)
+	$(call clobber,11_Templates)
+	$(call clobber,12_Exceptions)
 	$(call clobber,A01_Lambdas)
 	$(call clobber,A02_Namespaces)
 	$(call clobber,A03_NewFeatures)

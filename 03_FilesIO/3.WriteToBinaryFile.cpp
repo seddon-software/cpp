@@ -11,7 +11,17 @@
 #include <cstdlib>
 #define FILENAME "myfile.dat"
 
+
 using namespace std;
+
+/*
+ *  When working with binary file we can use the flag:
+ *          ios::binary
+ *  but note this has no effect in Linux systems, because there is no difference between text and
+ *  binary files (it's provided for Windows platforms).  The flag:
+ *          ios::trunc
+ *  is used to empty (truncate to zero length) the output file, prior to writing to it.
+ */
 
 int main()
 {
@@ -27,6 +37,6 @@ int main()
     outStream.write((const char*)v.data(), v.size()*sizeof(char));
     outStream.close();
     // inspect file with hexdump
-    string cmd = "hexdump -c "s + FILENAME; 
+    string cmd = "hexdump -cx "s + FILENAME; 
     system(cmd.c_str());
 }

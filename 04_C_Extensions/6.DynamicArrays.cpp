@@ -7,6 +7,20 @@
 #include <iostream>
 using namespace std;
 
+/*  
+ *  In addition to the new and delete operators, C++ provides new[] and delete[] to manage arrays on the heap.
+ *  Nowadays, we tend to use vectors instead of raw arrays, but these two operators are still available; 
+ *  actually, vector uses the heap behind the scenes.
+ * 
+ *  Nevertheless, in this example we show how to use these raw operators.  Normally, we create default 
+ *  constructed objects on the heap as in:
+ *             ptr = new Point[3];
+ *  but we can invoke other constructors as in:
+ *             ptr = new Point[3] {{10,20},{10,20},{10,20}};
+ *
+ *  Note that because we are dealing with arrays, new will first allocate memory and then call constructors
+ *  for each item in the array.  Similarly, on destruction, destructors are called for each item in the array. 
+ */
 
 class Point
 {
@@ -51,7 +65,11 @@ int main()
     ptr[1] = Point(20, 20);
     ptr[2] = Point(30, 30);
 
-    // do something
+    // ... now use the array ...
 
-    delete [] ptr;
+    delete [] ptr;  // cleanup
+
+    // invoke different CTOR(int, int) for each item in array
+    ptr = new Point[3] {{10,20},{10,20},{10,20}};
+    delete [] ptr;  // cleanup
 }

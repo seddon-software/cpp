@@ -10,6 +10,13 @@
 
 #define FILENAME "myfile.txt"
 
+/*
+ *  Similarly, to input from a disk file we use ifstream.  If we are working with a text file, it is often 
+ *  easiest to use getline to read in a line of text.  Note that you should check in case you've not
+ *  specified the filename correctly as in:
+ *              if(inStream)
+ */
+
 using namespace std;
  
 int main()

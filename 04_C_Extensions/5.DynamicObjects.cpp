@@ -7,6 +7,14 @@
 #include <iostream>
 using namespace std;
 
+/*
+ *  Local objects are stored on the stack and their lifetimes are therefore restricted to the lifetime of
+ *  the function in which they are declared.  If you want a long lived object that persists across function 
+ *  calls then you need to use the heap (or globals).  C++ provides the new and delete operators to manage 
+ *  objects on the heap.
+ * 
+ *  new and delete should be called in pairs to avoid memory leakage.
+ */
 
 class Point
 {

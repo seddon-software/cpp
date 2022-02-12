@@ -12,26 +12,23 @@
 #include <cstdio>
 #include <cstring>
 
+/*
+ *  It's often the case that you want to manipulate strings in memory before output and it would
+ *  be very convenient if you could use the same syntax as used with cout.  The stringstream 
+ *  class provides this facility.  We can now use the extraction operators >> and << as with
+ *  cout and cin, thereby simplifying code.
+ * 
+ *  In this example we create a stringstream object and extract words from a test string (s)
+ *  using:
+ *              s >> word
+ *  These words are then appended to a vector before outputting.
+ */
+
 using namespace std;
 
 // split a string into individual words
 
-void c_version() 
-{
-    char str[] = "The quick brown fox jumped over the lazy dog";
-    char *token;
-   
-    /* get the first token */
-    token = strtok(str, " ");
-   
-    /* get remaining tokens */
-    while(token != 0) {
-        printf("%s\n", token );
-        token = strtok(0, " ");
-    }
-}
-
-void cpp_version() 
+int main() 
 {
     string str("The quick brown fox jumped over the lazy dog");
     string word;
@@ -42,15 +39,11 @@ void cpp_version()
     {
         words.push_back(word);
     }
-    for(unsigned i = 0; i < words.size(); i++)
+
+    for(auto word : words)
     {
-        cout << words[i] << endl;
+        cout << word << ", " << flush;
     }
+    cout << endl;
 }
 
-int main()
-{
-    c_version();
-    cout << "=======================" << endl;
-    cpp_version();
-}

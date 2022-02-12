@@ -1,15 +1,20 @@
-////////////////////////////////////////////////////////////
-//
-//      Using string in place of char*
-//
-////////////////////////////////////////////////////////////
-
 #include <string>
 #include <iostream>
 #include <cstdio>   // for printf 
 #include <cstring>  // for strcat, strcmp
 
 using namespace std;
+
+/*
+ *  One of the biggest changes in C++ from C is the introduction of the string type.  In C we have to use 
+ *  character arrays, or char*s.  In new projects it's best to avoid char*s, but many C++ projects were
+ *  written during the 1980s and 1990s and make extensive use of char*s.  
+ * 
+ *  For these legacy projects it is important to be able to convert between char*s and C++ strings.
+ *  Here we consider comparing char* and strings and also how to join or concatenate char*s and strings.
+ *  
+ *  The C++ strings store a char* internally and have a method c_str() to extract this char*. 
+ */
 
 char c1[]="ABC";
 char c2[]="XYZ";

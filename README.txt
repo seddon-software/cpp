@@ -1,4 +1,5 @@
-Last updated: 6 February 2022
+Last updated: 11 February 2022
+just 01-09 and A27 still to add comments to
 
 Timings:
 ========
@@ -22,8 +23,10 @@ then to fire up vscode type:
     code .
 
 
-You can email me on:	seddon_software@btinternet.com
-If you are running on your own Ubuntu machine:
+You can email me on:	
+    seddon_software@btinternet.com
+
+If you are running on your own Ubuntu machine and want to instal gcc10 or gcc11:
 
 To install gcc10 and g++10 on Ubuntu:
     sudo apt update
@@ -39,3 +42,4 @@ To install gcc11 and g++11:
 To install g++11:
     https://lindevs.com/install-g-on-ubuntu/
 
+Currently, gcc11 ships with version 11.1 on Ubuntu 20.04(LTS) and 11.2 on Ubuntu 21.10
