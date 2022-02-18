@@ -55,7 +55,9 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "deque": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "iomanip": "cpp",
+        "codecvt": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
