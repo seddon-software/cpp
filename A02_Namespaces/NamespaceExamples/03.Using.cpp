@@ -3,7 +3,7 @@ using namespace std;
 
 /*
  *  Here are some further examples of using directives.  They have the advantage of removing clutter
- *  from the code, but the disadvantage that they effectively pollute the global namespace (oftern 
+ *  from the code, but the disadvantage that they effectively pollute the global namespace (often 
  *  called the no-namespace namespace).  Opinions differ on best practice.
  */
 

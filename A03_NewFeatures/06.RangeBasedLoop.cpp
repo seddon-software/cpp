@@ -46,7 +46,8 @@ int main()
     }
     cout << endl;
 
-    for (auto str = "Hello World"s; auto c: str)  // string literal type = std::string not const char* 
+    for (auto str = "Hello World"s; auto c: str)  // "Hello World"s is string literal type
+                                                  //  = std::string not const char* 
     {
         cout << c << ".";
     }
