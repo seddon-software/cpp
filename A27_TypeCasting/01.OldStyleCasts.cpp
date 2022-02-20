@@ -5,9 +5,20 @@
 ////////////////////////////////////////////////////////////
 
 /*
- *   Old style casts are implemented in C++ using member functions:
- *   1) operator T():				to convert to T
- *   2) single parameter CTOR(T):	to convert from T
+ *  Old style casts are implemented in using member functions of class T (where U is a built in type):
+ *        1) T::operator U():				to convert T to U
+ *        2) T::T(U):                      	to convert from U to T
+ * 
+ *  It is also possible to convert between classes U and T where U is a class and not a built in type.  In
+ *  that case we choose 2 conversions from:
+ *        1) T::operator U():				to convert T to U           OR
+ *           U::U(T):                      	to convert from T to U
+ *        2) U::operator T():				to convert U to T           OR
+ *           T::T(U):                      	to convert from U to T
+ * 
+ *  In this example we restrict ourselves to the built in type example and use:
+ * 	        Time::operator int()            to convert Time to int
+ *          Time::Time(int)                 to convert from int to Time
  */
 
 #include <iostream>

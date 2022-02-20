@@ -1,12 +1,10 @@
-////////////////////////////////////////////////////////////
-//
-//		Keyword Casts
-//
-////////////////////////////////////////////////////////////
-
 /*
- *  This example illustrates what happens when you use convential
- *  old style casts (bracket casts) instead of dynamic_casts.
+ *  Old style casts will still work as expected in most cases.  The only time you run into trouble is when
+ *  you are using multiple inheritance.
+ * 
+ *  In this example convential old style casts (bracket casts) work fine in the single inheritance cases
+ *  but unlike dynamic_casts, they fail with multiple inheritance.  Study the detailed comments and diagrams 
+ *  below.
  */
 
 #include <iostream>

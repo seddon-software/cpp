@@ -1,14 +1,22 @@
-Last updated: 11 February 2022
-just 01-09 and A27 still to add comments to
+Last updated: 20 February 2022
+No comments as yet in introductory chapers 01-09, but all adavced chapters fully documented.
 
-Timings:
-========
+Course Timings:
+===============
      9.00 - 10.00
     11.00 - 12.00
      2.00 -  3.00
      4.00 -  5.00
 
+Days
+====
+    Monday 21 February
+    Tuesday 22 February
+    Wednesday 23 February
+    Friday 25 February
 
+Setup
+=====
 To setup your C/C++ compiler on a Diamond machine (gcc/11 isn't working properly):
     module load gcc/10
 

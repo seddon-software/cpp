@@ -1,16 +1,8 @@
-///////////////////////////////////////////////////////////////
-//
-//		Explicit
-//
-///////////////////////////////////////////////////////////////
-
 /*
- *  The explicit keyword on a operator cast or constructor cast
- *  prevents the cast being used implicitly.  This is to prevent
- *  cast operations occuring that were not intended by the program author.
+ *  The explicit keyword on a operator cast or constructor cast prevents the cast being used implicitly.  
+ *  This is to prevent cast operations occuring that were not intended by the program author.
  */
 
-#pragma GCC diagnostic ignored "-Wunused-variable"
 #include <iostream>
 using namespace std;
 

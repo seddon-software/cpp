@@ -1,13 +1,36 @@
-////////////////////////////////////////////////////////////
-//
-//		Static Casts
-//
-////////////////////////////////////////////////////////////
-
-#pragma GCC diagnostic ignored "-Wunused-variable"
 #include <iostream>
 #include <typeinfo>
 using namespace std;
+
+
+/*  
+ *  C++11 introduced 4 new cast operators:
+ *          static_cast<T>(U)
+ *          dynamic_cast<T>(U)
+ *          reinterpret_cast<T>(U)
+ *          const_cast<T>(U)
+ * 
+ *  These cast operators do the same job as the old fashioned casts, but were introduced to make it
+ *  more obvious what was intended by the cast.
+ *
+ *  The static_cast only works on objects, and can be applied to both polymorphic and non polymorphic types.
+ *  If the cast is invalid then the code will fail to compile.
+ 
+ *  The dynamic_cast only works on polymorphic types (classes with V-Tables).  If the cast is invalid
+ *  (incompatible polymorphic types) then casting from a pointer returns a null pointer on failure and
+ *  casting from a reference throws bad_cast on failure.  Note that because dynamic_casts are checked at
+ *  run-time, the polymorphic classes must a least one virtual function (to generate the V-Tables).
+ * 
+ *  The reinterpret_cast only works on pointers, and can also be applied to both polymorphic and non 
+ *  polymorphic types.  If the cast is invalid then the code will fail to compile.  If this cast is used
+ *  between non polymorphic types then the compiler assumes you know what you doing; this often an indication
+ *  of a hack or programming error.
+ 
+ *  The const_cast is used to remove the const nature of an object.  Note this should be used with caution;
+ *  the constness of an object id there for a reason.  Overriding constness is usually only necessary when
+ *  working with library code where the author has erroneously make something constant that shouldn't be
+ *  and you don't have access to the library code.
+ */
 
 struct X    // class must have a V-Table (for dynamic casts)
 {
@@ -44,7 +67,7 @@ int main()
     X* p2 = reinterpret_cast<X*>(&z);   // non polymorphic
 
     // static_cast
-    // static_cast only works on pointers ...
+    // static_cast only works on objects ...
     // ... both polymorphic and non polymorphic types
     X x1 = static_cast<X>(y);       // polymorphic
     X x2 = static_cast<X>(z);       // non polymorphic

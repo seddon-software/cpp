@@ -9,7 +9,7 @@
 using namespace std;
 
 /*
- * This example uses a cross cast to select all objects that are in LX or derived from LX
+ * This example uses a cross cast (i.e. a dynamic_cast) to select all objects that are in LX or derived from LX
  * The inheritance hierachy is:
  *
  *                    LX <-- LY <-- LZ
@@ -17,6 +17,8 @@ using namespace std;
  *                 Base
  *                   \
  *                    RX <-- RY <-- RZ
+ * 
+ *  Note that the dynamic_cast return a null pointer for Base, RX, RY and RZ.
  */
 
 struct Base             { virtual void f()  { cout << "Base" << endl; }  virtual ~Base(){} };
@@ -45,7 +47,7 @@ int main()
 	{
 		// dynamic_cast acts as a filter
 	    LX* p = dynamic_cast<LX*>(object);
-		if(p) p->lf();
+		if(p) p->lf();      // only make the call if the dynamic_cast succeeds
 	}
 }
 

@@ -1,15 +1,7 @@
-////////////////////////////////////////////////////////////
-//
-//		Static Casts
-//
-////////////////////////////////////////////////////////////
-
 /*
- *  Similar example to the pevious one, but this time using static casts
- *  which detect errors at compile time
+ *  Similar example to the pevious one, but this time using static casts which cause errors at compile time.
  */
 
-//#pragma GCC diagnostic ignored "-Wunused-private-field"
 #include <iostream>
 using namespace std;
 
