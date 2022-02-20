@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <numeric>
 #include <iterator>
 #include <unordered_map>
 #include <iostream>
@@ -83,7 +84,7 @@ private:
 class ConvertToRoman
 {
 public:
-	string operator()(string& year, const int& n)
+	string operator()(string& year, int n)
 	{
 		year += modern_to_roman[n];
 		return year;
@@ -91,10 +92,20 @@ public:
 };
 
 
-int toModern(string roman)
+int toModern(const string& roman)
 {
 	reverse(roman.begin(), roman.end());
+//    return 99;
+    ConvertToModern z{};
+//	const int operator()(int& year, const char& next)
+//    int total = 0;
+    // for(auto i = roman.begin(); i != roman.end(); i++)
+    // {
+    //     total = z(total, *i);
+    // }
+//    return total;
 	return accumulate(roman.begin(), roman.end(), 0, ConvertToModern());
+//	string operator()(string& year, const int& n)
 }
 
 string toRoman(int modern)
@@ -110,7 +121,17 @@ string toRoman(int modern)
 		(int)(s[2] - '0') * 10,
 		(int)(s[3] - '0') * 1,
 	};
-	return accumulate(v.begin(), v.end(), string(""), ConvertToRoman());
+    string z{""};
+	return accumulate(v.begin(), v.end(), z, ConvertToRoman());
+/*
+    auto c = ConvertToRoman();
+    string romanYear{""};
+    for(auto i : v)
+    {
+        c(romanYear, i);
+    }
+    return romanYear;
+*/
 }
 
 int main()
