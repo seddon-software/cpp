@@ -8,7 +8,7 @@ using namespace std;
  *  In this example we again use the transform algorithm, but this time via a template parameter pack,
  *  used to set initial values in a vector.  We will be passing both variables (l-value refs) and 
  *  constants (r-value refs) to the PushBack template and therefore must pass parameters by r-value 
- *  ref.  Recall, the collapsing rules mean that this with work for both types of references.
+ *  ref.  Recall, the collapsing rules mean that this will work for both types of references.
  * 
  *  The PushBack template works by using a right fold expression:
  *      (v.push_back(args), ...);   // fold using comma operator - brackets mandatory
