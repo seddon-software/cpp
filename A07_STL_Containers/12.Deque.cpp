@@ -3,8 +3,11 @@
 
 using namespace std;
 
-/*  
- * The STL has many collection classes.  Here is an example with a double ended queue 
+/*
+ *  The deque (double-ended queue) is an indexed sequence container that allows fast insertion and deletion 
+ *  at both its beginning and its end.  The elements of a deque are not stored contiguously: typical 
+ * 
+ *  This example shows how to use a deque. 
  */
 
 int main()

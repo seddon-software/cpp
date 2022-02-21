@@ -28,7 +28,7 @@ int main()
 	// capture x and y by value
 	auto modify = [x, y]() mutable { // closure is by const value unless you use mutable
 		x++;
-		y++;
+		y--;
 		return x - y; 
 	};
 

@@ -10,17 +10,22 @@
 
 using namespace std;
 
-/*  Here's a simple example to show how to uses sets */
+/*  
+ *  set is an associative container that contains a sorted set of unique objects called keys. Sorting is done 
+ *  using a key comparison function.  Search, removal, and insertion operations have O(logN) complexity. Sets 
+ *  are usually implemented as red-black trees.
+ * 
+ *  Here's a example to show how to uses sets; we've used the std::less template to define the comparator
+ *  function.  The less template uses the operator<() function for template parameter (i.e. string comparison).
+ * 
+ *  Note the use of:
+ *          pair<SET::iterator, bool> result;
+ * This allows us to check if an insert works or fails because of a duplicate key
+ */
 
 
-using PAIR =  pair<string, int>;
-using SET = set<PAIR, less<PAIR>>;
-// note: a set must define a comparator because elements are sorted
-
-void Print(const PAIR& p) 
-{ 
-    cout << p.first << ", " << p.second << endl; 
-}
+// note: a set must define a comparator because elements are ordered
+using SET = set<string, less<string>>;
 
 //////
 
@@ -28,26 +33,30 @@ int main()
 {
     SET theSet;
         
-    // insert pairs
-    theSet.insert(make_pair(string("Steven"), 25000));
-    theSet.insert(make_pair(string("Mary"),   18000));
-    theSet.insert(make_pair(string("John"),   20000));
+    // insert keys
+    theSet.insert("Steven"s);
+    theSet.insert("Mary"s);
+    theSet.insert("John"s);
 
-    // try to insert a duplicate
+    // try to insert a duplicate key
     pair<SET::iterator, bool> result;   // result.second will be false on failure
-    result = theSet.insert(make_pair(string("Steven"), 25000));
+    result = theSet.insert("Steven"s);
     if(result.second == false) 
     {
         cout << "insertion failed - duplicate entry" << endl;
     }
 
     // continue to insert
-    theSet.insert(make_pair(string("Susan"),  36500));
-    theSet.insert(make_pair(string("Rose"),   17500));
+    theSet.insert("Susan"s);
+    theSet.insert("Rose"s);
 
     // iterate through the list, noting items are in lexical order
     for (auto i = theSet.begin(); i != theSet.end(); i++)
     {
-        Print(*i);
+        cout << *i << endl; 
+    }
+    for (const auto& s: theSet)
+    {
+        cout << s << endl; 
     }
 }

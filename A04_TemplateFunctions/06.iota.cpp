@@ -16,7 +16,7 @@ int main()
     iota(begin(v), end(v), 50); // 50, 51, 52, ...
     for(auto i : v)
     {
-        cout << i << ", ";
+        cout << i << ", " << flush;
     }
     cout << endl;
 }

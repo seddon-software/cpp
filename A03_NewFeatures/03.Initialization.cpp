@@ -9,7 +9,8 @@ using namespace std;
  *  themselves, instead of using the constructor's initialization list.
  */
 
-class A {
+class A 
+{
 public:
     A(int c) : c(c), d(0) {}
     A(int c, int d) : c(c), d(d) {}

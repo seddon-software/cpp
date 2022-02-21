@@ -5,9 +5,9 @@ using namespace std;
 
 /*  
  *  The tuple template was introduce in C++11 and is a fixed-size collection of heterogeneous values,
- *  with the tpes thereof specified as template parameters.
+ *  with the types thereof specified as template parameters.
  * 
- *  This example focusses on some of the common methods of tuple template.
+ *  This example focuses on some of the common methods of the tuple template.
  */
 
 int main()
@@ -23,6 +23,7 @@ int main()
     // concatenate two tuples
 	auto t = tuple_cat(t1, t2);
     {
+        // use a structure binding to unpack tuple (see later in course)
         auto [a, b, c, d, e, f, g] = t;
         cout << a << ", " << b << ", " << c << ", " << d << ", " << e << ", " << f << ", " << g <<  endl;
     }

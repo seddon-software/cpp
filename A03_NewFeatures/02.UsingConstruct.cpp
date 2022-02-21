@@ -10,7 +10,7 @@ using namespace std;
 
 // typedef string S;
 using S = string;   
-// typedef int FP(int x, int y) 
+// typedef int (*FP)(int x, int y) 
 using FP = int (*)(int, int);  
 
 

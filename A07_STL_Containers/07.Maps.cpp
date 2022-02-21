@@ -10,7 +10,7 @@
 #include <map>
 
 /*  
- *  The map class is used to store key-vale pairs in a red-black binary tree.  The implementation
+ *  The map class is used to store key-value pairs in a red-black binary tree.  The implementation
  *  includes an order which can be specified as an optional comparison template.  By default the
  *  comparision template is:
  *          less<string>

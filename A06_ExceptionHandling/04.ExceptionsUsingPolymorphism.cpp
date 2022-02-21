@@ -40,7 +40,7 @@ int main()
 {
 	try
 	{
-		throw MathError();
+		throw MathError{};
 	}
 	catch(const Error& e)  // this catches Error, MathError or FileError
 	{
