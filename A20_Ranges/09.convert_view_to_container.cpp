@@ -1,24 +1,46 @@
 #include <iostream>
-//#include <range/v3/all.hpp>
+#include <cxxabi.h>    // gcc specific header to demangle names
 #include <ranges>
 #include <vector>
-// convert a view to a container
+
+/*  
+ *  The C++20 ranges library doesn't provide a generic method to convert a view back to a range (although this 
+ *  is provided in Eric Niebler's excellent range-v3 library:
+ *              https://github.com/ericniebler/range-v3)
+ * 
+ *  However, if the begin iterator and end sentinel are of the same type we can convert a view to a container 
+ *  with the current library.
+ */
 
 using namespace std;
-//using namespace ranges;
+
+
+const char* demangle(auto p)
+{
+	int status;  // did the demangle work?
+	const char* realname = abi::__cxa_demangle(typeid(p).name(),0,0,&status);  // gcc specific code (see Makefile)
+	return realname;
+}
 
 int main()
 {   
+    // create a view
     auto numbers = std::ranges::views::iota(20, 30);
-    auto common = std::views::common(numbers);
-    // std::views::common only works if the begin iterator and sentinel are the same type
-    // this is true for all STL containers 
-    auto b = std::ranges::begin(numbers); 
-    auto e = std::ranges::begin(numbers); 
+    cout << "type of numbers: " << demangle(numbers) << endl;
+    
+    // create begin iterator and sentinel
+    auto _begin = std::ranges::begin(numbers); 
+    auto _sentinel = std::ranges::begin(numbers); 
+
     // check iterator and sentinel are of the same type
-    cout << "type of begin iterator: " << typeid(b).name() << endl;
-    cout << "type of end sentinel:   " << typeid(e).name() << endl;
-    auto v = std::vector(std::ranges::begin(common), std::ranges::end(common));
-    for(auto i : v) std::cout << i << ",";
-    std::cout << std::endl;
+    cout << "type of begin iterator: " << demangle(_begin) << endl;
+    cout << "type of end sentinel:   " << demangle(_sentinel) << endl;
+
+    // create a range from the iterators
+    auto v = std::vector(std::ranges::begin(numbers), std::ranges::end(numbers));
+    cout << "type of v: " << demangle(v) << endl;
+
+    // print the vector (i.e. the range)
+    for(auto i : v) cout << i << "," << flush;
+    cout << endl;
 }

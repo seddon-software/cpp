@@ -5,8 +5,15 @@
 
 using namespace std;
 
-// A key feature of views is that whatever transformation they apply, 
-// they do so at the moment you request an element, not when the view is created: lazy evalution.
+/*
+ *  In this example we use drop in a pipeline.  With v2,
+ *              std::views::drop(1)
+ *  drops the first item from the view after it has been reversed and then reverses and drops again, thereby
+ *  dropping the first and last items from the view.
+ * 
+ *  With v3 we show and set of nested views which achieve the same thing.
+ * 
+ */
 
 void print(auto v)
 {

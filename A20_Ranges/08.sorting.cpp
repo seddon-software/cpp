@@ -17,12 +17,12 @@ int main()
     int N = 2;
     { // using iterators
         vector v{99, 99, 99, -3, 5, 0, 7, -4, 12, -2};  // template parameter deduced as int
-        sort(v.begin() + N, v.end());
+        sort(v.begin() + N, v.end());                   // only sort from item 2 to end
         print(v);
     }
     { // using ranges
         vector v{99, 99, 99, -3, 5, 0, 7, -4, 12, -2};
-        ranges::sort(views::drop(v, N));
+        ranges::sort(std::views::drop(v, N));
         print(v);
     }
     { // reverse sort

@@ -1,15 +1,37 @@
 #include <cstring>
 #include <iostream>
+using namespace std;
+
 
 /*
- * Many of the algorithms in the standard library work over a range defined by begin() 
- * and end() iterators.  In most cases these iterators are of the same type.  However sometimes
- * the end() has to be computed dynamically, for example with a null terminated C-string and end()
- * has to be defined differently. These an end-only iterators are called a sentinels.
+ *  Many of the algorithms in the standard library work over a range defined by begin() 
+ *  and end() iterators.  In most cases these iterators are of the same type.  However sometimes
+ *  the end() has to be computed dynamically, for example with a null terminated C-string and end()
+ *  has to be defined differently. These an end-only iterators are called a sentinels.  Usually we define
+ *  the sentinel as a nested empty class.  The only part of the sentinel that is relevent is its type (see
+ *  below).
  *
- * So, whenever you have a range where the end is some dynamic condition instead of a fixed position, 
- * we use an iterator and sentinel pair instead.  Ranges are simpler to use than iterator pairs
- * and this is why the STL algorithms have been extended to support ranges.
+ *  So, whenever you have a range where the end is some dynamic condition instead of a fixed position, 
+ *  we use an iterator and sentinel pair, a.k.a. a range.  Ranges are simpler to use than iterator pairs
+ *  and this is why the STL algorithms have now been extended to support ranges.
+ * 
+ *  The key part of this example is the loop incrementing the begin iterator:
+ *          while(begin != end)
+ *          {
+ *              cout << *begin << flush;
+ *              ++begin;
+ *          }
+ * 
+ *  The exit condition for the loop is when we reach the null terminator at the end of the string.  This is
+ *  a dynamic condition and we can only determine this at run-time.  Therefore we check for his exit condition
+ *  in the first line:
+ *          while(begin != end)
+ * 
+ *  which calls the friend function in the nested iterator class:
+ *          String::iterator::operator!=(iterator iter, sentinel)
+ * 
+ *  because end is of type sentinel and begin is of type iterator.  So the loop prints characters from the string
+ *  one by one until operator!= returns false.
  */
 
 // our example collection class
@@ -46,17 +68,14 @@ private:
 
     // The special end-only iterator.
     // It is usually an empty type, we don't actually need any objects.
-    // It's just there because `==` takes two parameters.
+    // It's just there because `!=` takes two parameters.
     class sentinel {};
 
     // Some iterator, with *, ++, etc.
 private:
-    friend bool operator==(iterator iter, sentinel)
-    {
-        return *iter == '\0'; /* is iter done? */
-    }
     friend bool operator!=(iterator iter, sentinel)
     {
+        cout << boolalpha << "\noperator!=(iterator iter, sentinel) returns " << (*iter != '\0') << endl;
         return *iter != '\0'; /* is iter not done? */
     }    
     class iterator
@@ -81,10 +100,10 @@ private:
 template <typename I, typename S>
 void printAlgorithm(I begin, S end) // this takes an iterator-sentinel pair
 {
+    cout << "printAlgorithm(Iterator begin, Sentinel end)" << endl;
     while(begin != end)
     {
-        std::cout << *begin;
-        std::cout.flush();
+        cout << *begin << flush;
         ++begin;
     }
     std::cout << std::endl;
@@ -93,6 +112,9 @@ void printAlgorithm(I begin, S end) // this takes an iterator-sentinel pair
 template <typename R>  // this takes a range
 void printAlgorithm(R& r)
 {
+    cout << "printAlgorithm(Range& r)" << endl;
+    // r.begin() returns a const char*
+    // r.end() returns a sentinel object
     printAlgorithm(r.begin(), r.end());
 }
 
@@ -102,7 +124,7 @@ public:
     StringRange(const String& s): s(s){}
 
 
-    auto begin() const
+    auto begin() const  // returns const char*
     {
         return s.begin();
     }
@@ -119,6 +141,5 @@ int main()
 {
     const String s{"ABCDEFGHIJKLM"};
     StringRange range(s);
-    printAlgorithm(s.begin(), s.end());
     printAlgorithm(range);
 }
