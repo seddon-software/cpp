@@ -7,7 +7,7 @@ using namespace std;
 
 /*
  *  The standard template library containers use a variety of different types of iterators.  You can use
- *  iterator type as a constaint.  3 of the more common iterators are used in the "advance" function
+ *  iterator type as a constraint.  3 of the more common iterators are used in the "advance" function
  *  templates below:
  * 
  *    forward_iterator:       only moves forward through the collection (e.g. single linked list).   
