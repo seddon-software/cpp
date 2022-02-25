@@ -15,7 +15,6 @@
 import speech;
 
 import <iostream>;
-import <stdlib.h>;
 import <cstdlib>;
 
 using namespace std;

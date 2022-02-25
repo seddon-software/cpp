@@ -14,7 +14,6 @@ all: clean main.exe
 main.exe:
 	$(CC) $(CFLAGS) $(SYSTEM_HEADER) iostream
 	$(CC) $(CFLAGS) $(SYSTEM_HEADER) cstdlib
-	$(CC) $(CFLAGS) $(SYSTEM_HEADER) stdlib.h
 	$(CC) $(CFLAGS) english.cpp
 	$(CC) $(CFLAGS) spanish.cpp
 	$(CC) $(CFLAGS) speech.cpp

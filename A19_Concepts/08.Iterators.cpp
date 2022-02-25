@@ -32,7 +32,7 @@ void advance(I& iter, int n)
 template<std::random_access_iterator I>
 void advance(I& iter, int n)
 {
-    for(int i = 0; i < n; i++) iter++;
+    iter = iter + n;
     cout << "random_access_iterator" << endl;
 }
 

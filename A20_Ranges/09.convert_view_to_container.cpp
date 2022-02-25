@@ -29,15 +29,15 @@ int main()
     cout << "type of numbers: " << demangle(numbers) << endl;
     
     // create begin iterator and sentinel
-    auto _begin = std::ranges::begin(numbers); 
-    auto _sentinel = std::ranges::begin(numbers); 
+    auto begin = std::ranges::begin(numbers); 
+    auto sentinel = std::ranges::end(numbers); 
 
     // check iterator and sentinel are of the same type
-    cout << "type of begin iterator: " << demangle(_begin) << endl;
-    cout << "type of end sentinel:   " << demangle(_sentinel) << endl;
+    cout << "type of begin iterator: " << demangle(begin) << endl;
+    cout << "type of end sentinel:   " << demangle(sentinel) << endl;
 
     // create a range from the iterators
-    auto v = std::vector(std::ranges::begin(numbers), std::ranges::end(numbers));
+    auto v = std::vector(begin, sentinel);
     cout << "type of v: " << demangle(v) << endl;
 
     // print the vector (i.e. the range)
