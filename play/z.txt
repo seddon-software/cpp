@@ -1,0 +1,40 @@
+%CODE
+
+void swap(int* px, int* py)
+{
+    int temp;
+    temp = *px;
+    *px = *py;
+    *py = temp;
+}
+
+int main(void)
+{
+    int x = 100;
+    int y = 200;
+    swap(&x, &y);
+}
+
+%INSTRUCTIONS
+13,  3, 100, main.x, push x
+14,  5, 200, main.y, push y
+15,  7, , , call swap
+15,  7, &y, , push parameter
+15,  9, &x, , push parameter
+3,  7, &y, swap.py, label parameter
+3,  9, &x, swap.px, label parameter
+5, 11, ???, swap.temp, push temp
+6, 11, 100, swap.temp, copy x to temp
+7,  9, 200, swap.py, copy y to x
+8,  7, 100, swap.px, copy temp to x
+9, 13,     ,           , return from swap
+9, 13,     ,           , pop local parameters
+9, 11,     ,           , pop local parameters
+15, 11,     ,           , return to main
+15,  9,     ,           , pop parameters
+15,  7,     ,           , pop parameters
+16,  7,     ,           , end main
+16,  5,     ,           , pop y
+16,  3,     ,           , pop x
+16,  3,     ,           , FINISH
+%END
