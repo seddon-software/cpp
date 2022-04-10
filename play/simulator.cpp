@@ -13,6 +13,8 @@
 using namespace std;
 
 #define STACK 50
+#define MESSAGE 20
+#define FILENAME argv[1]
 
 typedef struct
 {
@@ -23,9 +25,23 @@ typedef struct
     string message;
 } Param;
 
-string blank(25, ' ');
+typedef struct
+{
+    int cursor;
+    int stack;
+    string value;
+    string label;
+    string message;
+} P;
 
+string blank(50, ' ');
 
+P normalize(const Param& param)
+{
+    P p;
+    p.cursor = stoi("0"s + param.cursor);
+    return p;
+}
 void go_red()
 {
     init_pair(1, COLOR_RED, COLOR_WHITE);
@@ -66,6 +82,13 @@ int out(int row, int col, const char* text)
     return row;
 }
 
+string& trim(string& str)
+{
+    str.erase(0, str.find_first_not_of(" ")); // left trim
+    str.erase(str.find_last_not_of(" ") + 1); // right trim
+    return str;
+}
+
 auto get_instructions(ifstream& ifs)
 {
     string text;
@@ -74,7 +97,7 @@ auto get_instructions(ifstream& ifs)
     while(ifs)
     {
         getline(ifs, text);
-        if(text.starts_with("%END")) return lines;
+        if(text.starts_with("%END")) break;
         stringstream ss;
         ss << text;
         getline(ss, param.cursor, ',');
@@ -84,7 +107,18 @@ auto get_instructions(ifstream& ifs)
         getline(ss, param.message, ',');
         lines.push_back(param);
     }
-    return lines;
+    list<P> instructions;
+    for(auto& line: lines)
+    {
+        P p;
+        p.cursor = stoi("0"s + trim(line.cursor));
+        p.stack = stoi("0"s + trim(line.stack));
+        p.label = trim(line.label);
+        p.value = trim(line.value);
+        p.message = trim(line.message);
+        instructions.push_back(p);
+    }
+    return instructions;
 }
 
 auto get_code(ifstream& ifs)
@@ -105,7 +139,7 @@ auto get_code(ifstream& ifs)
     return lines;
 }
 
-list<Param> read_file(const string& fileName)
+auto read_file(const string& fileName)
 {
     int row = 2;
     int col = 2;
@@ -113,7 +147,7 @@ list<Param> read_file(const string& fileName)
     ifstream ifs(fileName.c_str()); 
 
     vector<string> code;
-    list<Param> instructions;
+    list<P> instructions;
     code = get_code(ifs);
     instructions = get_instructions(ifs);
     ifs.close();    
@@ -126,27 +160,38 @@ list<Param> read_file(const string& fileName)
     return instructions;
 }
 
-void label(int row, int col, const string& text)
+void label(int row, int col, const string& text, int cols=4)
 {
-    out(row, col, text.c_str());
+    string blank(cols, ' ');
+    if(text != ""s) 
+    {
+        if(text == "_"s) {
+            out(row, col, blank.c_str());
+        }
+        else
+        {
+            out(row, col, blank.c_str());
+            out(row, col, text.c_str());
+        }
+    }
 }
 
 void do_next(auto& params, int col)
 {
-    static Param last = {};
+    static P last = {};
     getch();
     auto p = params.front();
     params.pop_front();
 
-    if(last.cursor != "")
-        out(stoi(last.cursor), col, "  ");
+    if(last.cursor != 0)
+        out(last.cursor, col, "  ");
     go_red();
-    out(stoi(p.cursor), col, "> ");
-    label(20, STACK, blank);  // clear message
-    label(20, STACK+2, p.message);
+    out(p.cursor, col, "> ");
+    label(MESSAGE, STACK, blank);  // clear message
+    label(MESSAGE, STACK+2, p.message);
     stop_red();
-    label(stoi(p.stack), STACK+12, p.label);
-    label(stoi(p.stack), STACK+4, p.value);
+    label(p.stack, STACK+12, p.label, 30);
+    label(p.stack, STACK+4, p.value);
     last = p;
     refresh();
 }
@@ -169,13 +214,12 @@ int main(int argc, char** argv)
     }
     init_pair(3, COLOR_WHITE, COLOR_BLACK);
     wbkgd(stdscr, COLOR_PAIR(3));
-    list<Param> params;
-    params = read_file("z.txt");
+    list<P> instructions = read_file(FILENAME);
     draw_stack(2, STACK, 6);
-    auto size = params.size();
+    auto size = instructions.size();
     for(unsigned i = 0; i < size; i++)
     {
-        do_next(params, 2);
+        do_next(instructions, 2);
     }
     getch();
     clear();

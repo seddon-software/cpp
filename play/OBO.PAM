@@ -1,0 +1,155 @@
+void   main(void)
+{
+       int   i;
+       int   a[6];
+
+       for(i = 0; i <= 6; i++) {
+             printf("initialising %d\n", i);
+             a[i] = 0;
+       }
+}
+
+   highlightline 6
+   M allocate space for the int variable "i"
+pause
+   labelstack 1 i
+   onstack - ?
+pause
+   movehighlightline +1
+   M allocate space for the array of 6 integers "a"
+pause
+   labelstack +1 a[5]
+   onstack - ?
+   delay 70
+   labelstack +1 a[4]
+   onstack - ?
+   delay 70
+   labelstack +1 a[3]
+   onstack - ?
+   delay 70
+   labelstack +1 a[2]
+   onstack - ?
+   delay 70
+   labelstack +1 a[1]
+   onstack - ?
+   delay 70
+   labelstack +1 a[0]
+   onstack - ?
+pause
+   movehighlightline +2
+   M enter the for loop and initialise the variable i to zero
+pause
+   onstack 1 0
+   
+pause
+   movehighlightline +1
+   delay 70
+   movehighlightline +1
+   setlabelcolour brightRed
+   labelstack 7 a[0]
+   onstack 7 0
+pause
+   M increment i and test against 6
+   movehighlightline +1
+   delay 70
+   movehighlightline -3
+   onstack 1 1
+pause
+   movehighlightline +1
+   delay 70
+   movehighlightline +1
+   setlabelcolour
+   labelstack 7 a[0]
+   setlabelcolour brightRed
+   labelstack 6 a[1]
+   onstack 6 0
+pause
+   M and again increment i and test against 6
+   movehighlightline +1
+   delay 70
+   movehighlightline -3
+   onstack 1 2
+pause
+   movehighlightline +1
+   delay 70
+   movehighlightline +1
+   setlabelcolour
+   labelstack 6 a[1]
+   setlabelcolour brightRed
+   labelstack 5 a[2]
+   onstack 5 0
+pause
+   M round again
+   movehighlightline +1
+   delay 70
+   movehighlightline -3
+   onstack 1 3
+   delay 70
+   movehighlightline +1
+   delay 70
+   movehighlightline +1
+   setlabelcolour
+   labelstack 5 a[2]
+   setlabelcolour brightRed
+   labelstack 4 a[3]
+   onstack 4 0
+pause
+   delay 70
+   movehighlightline +1
+   delay 70
+   movehighlightline -3
+   M
+   delay 70
+   onstack 1 4
+   movehighlightline +1
+   delay 70
+   movehighlightline +1
+   delay 70
+   setlabelcolour
+   labelstack 4 a[3]
+   setlabelcolour brightRed
+   labelstack 3 a[4]
+   onstack 3 0
+   delay 70
+   movehighlightline +1
+   delay 70
+   movehighlightline -3
+   onstack 1 5
+   delay 70
+   movehighlightline +1
+   delay 70
+   movehighlightline +1
+   setlabelcolour
+   labelstack 3 a[4]
+   setlabelcolour brightRed
+   labelstack 2 a[5]
+   onstack 2 0
+pause
+   M round the loop again, increment i
+   movehighlightline +1
+   delay 70
+   movehighlightline -3
+   setlabelcolour
+   labelstack 2 a[5]
+   onstack 1 6
+pause
+   M the loop is entered once more
+   movehighlightline +1
+   delay 70
+   movehighlightline +1
+   M the compiler accesses element a[6], one beyond the array
+   setstacktextcolour flashingBrightRed
+   onstack 1 0
+pause
+   setstacktextcolour brightRed
+   onstack 1 0
+   setstacktextcolour
+   M and around the loop once more
+   movehighlightline +1
+   delay 70
+   movehighlightline -3
+pause
+   M increment "i" and test it against 6
+   onstack 1 1
+pause
+   M and so on around the loop again
