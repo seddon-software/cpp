@@ -5,56 +5,152 @@ void   main(void)
     int   a[6];
 
     for(i = 0; i <= 6; i++) {
-        printf("%d\n", i);
+        printf("%%d\n", i);
         a[i] = 0;
     }
 }
-
-
 %INSTRUCTIONS
-4,,,, push i
-4,  3, ---, i, 
-5,  5,,, allocate space for the array of 6 integers "a"
-5,  5, ---, a[5],
-5,  7, ---, a[4]
-5,  9, ---, a[3]
-5, 11, ---, a[2]
-5, 13, ---, a[1]
-5, 15, ---, a[0]
-7,  3,,,initialize loop variable
-7,  3,0,i,
-8, 17,    ,, 
-8, 17,    ,, print 0
-9, 15,,,
-9, 15,0,, set a[0] = 0
-10, 17,,_
-10, 17,,, loop again
-7,3,1,,_
-8, 17,    ,, print 1
-9, 13,   ,,set a[1] = 0
-9, 13,   0,, 
-10, 17,,
-10, 17,,, loop again
-7,3,2,,_
-8, 17,    ,, print 2
-9, 11,   ,,set a[2] = 0
-9, 11,   0,, 
-10, 17,,
-10, 17,,, loop again
-7,3,3,,_
-8, 17,    ,, print 3
-9,  9,   ,, set a[3] = 0
-9,  9,   0,, 
-10, 17,,,
-10, 17,,, loop again
-7,3,4,,_
-8, 17,,, print 4
-9,  7,   ,, set a[4] = 0
-9,  7,   0,, 
-10, 17,,
-10, 17,,, loop again
-7,3,5,,_
-8, 17,,, print 5
-9, 5,   ,, set a[5] = 0
-9, 5,   0,, 
+GLOBAL STACK_COL 50
+GLOBAL MESSAGE_ROW 25
+GLOBAL MESSAGE_COL 50
+GLOBAL VALUE_COL 54
+GLOBAL VARIABLE_COL 62
+GLOBAL CODE_COL 5
+LOAD CODE
+LOAD STACK 7
+CODE 1
+MESSAGE BEGIN
+CODE 3
+MESSAGE push local variable
+CODE 4
+PUSH_NEW i
+VALUE i ---
+MESSAGE push local array
+CODE 6
+PUSH_NEW a[5]
+PUSH_NEW a[4]
+PUSH_NEW a[3]
+PUSH_NEW a[2]
+PUSH_NEW a[1]
+PUSH_NEW a[0]
+VALUE a[5] ---
+VALUE a[4] ---
+VALUE a[3] ---
+VALUE a[2] ---
+VALUE a[1] ---
+VALUE a[0] ---
+
+MESSAGE start loop
+VALUE i 0
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 0
+CODE 9
+VALUE a[0] 0
+MESSAGE
+CODE 6
+
+MESSAGE loop again
+VALUE i 1
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 1
+CODE 9
+VALUE a[1] 0
+MESSAGE
+CODE 6
+
+MESSAGE loop again
+VALUE i 2
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 2
+CODE 9
+VALUE a[2] 0
+MESSAGE
+CODE 6
+
+MESSAGE loop again
+VALUE i 3
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 3
+CODE 9
+VALUE a[3] 0
+MESSAGE
+CODE 6
+
+MESSAGE loop again
+VALUE i 4
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 4
+CODE 9
+VALUE a[4] 0
+MESSAGE
+CODE 6
+
+MESSAGE loop again
+VALUE i 5
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 5
+CODE 9
+VALUE a[5] 0
+MESSAGE
+CODE 6
+
+MESSAGE loop again because i <= 6
+MESSAGE increment i
+VALUE i 6
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 6
+MESSAGE a[6] will coincide with i
+MESSAGE initialise "a[6] = 0" aka i
+CODE 9
+VALUE i 0
+MESSAGE loop again because i has been reset and i <= 6
+
+CODE 6
+VALUE i 1
+MESSAGE
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 1
+CODE 9
+MESSAGE we'll keep looping forever because i keeps being reset
+
+CODE 6
+VALUE i 2
+MESSAGE
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 2
+CODE 9
+MESSAGE
+
+CODE 6
+VALUE i 3
+MESSAGE
+CODE 7
+MESSAGE
+CODE 8
+MESSAGE 3
+CODE 9
+MESSAGE
+
+MESSAGE and so on ...
+
+MESSAGE FINISH
+
 %END
