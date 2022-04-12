@@ -2,8 +2,9 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
-#include <list>
 #include <vector>
+#include <list>
+#include <map>
 #include <fstream>
 #include <wchar.h>
 #include <locale.h>
@@ -12,46 +13,17 @@
 
 using namespace std;
 
-#define STACK 50
-#define MESSAGE 20
-#define FILENAME argv[1]
 
-typedef struct
-{
-    string cursor;
-    string stack;
-    string value;
-    string label;
-    string message;
-} Param;
+// #define STACK_COL 50
+// #define MESSAGE_ROW 25
+// #define MESSAGE_COL 50
+#define FILENAME "one_too_many2.txt"
+// #define VALUE_COL STACK_COL+4
+// #define VARIABLE_COL STACK_COL+12
 
-typedef struct
+void wait()
 {
-    int cursor;
-    int stack;
-    string value;
-    string label;
-    string message;
-} P;
-
-string blank(50, ' ');
-
-P normalize(const Param& param)
-{
-    P p;
-    p.cursor = stoi("0"s + param.cursor);
-    return p;
-}
-void go_red()
-{
-    init_pair(1, COLOR_RED, COLOR_WHITE);
-    attrset(COLOR_PAIR(1));
-}
-
-void stop_red()
-{
-    init_pair(2, COLOR_WHITE, COLOR_BLACK);
-    attrset(COLOR_PAIR(2));
+    getch();
 }
 
 int draw(int row, int col, const string& s)
@@ -64,7 +36,7 @@ int draw(int row, int col, const string& s)
 void draw_stack(int row, int col, int boxes)
 {
     row = draw(row, col, "┌─────────┐");
-    for(int i = 0; i <= boxes; i++)
+    for(int i = 0; i < boxes-1; i++)
     {
         row = draw(row, col, "│         │");
         row = draw(row, col, "├─────────┤");
@@ -74,11 +46,9 @@ void draw_stack(int row, int col, int boxes)
     refresh();
 }
 
-int out(int row, int col, const char* text)
+int output(int row, int col, const string& text)
 {
-    move(row++, col);
-    addstr(text);
-    refresh();
+    mvprintw(row++, col, text.c_str());
     return row;
 }
 
@@ -91,118 +61,70 @@ string& trim(string& str)
 
 auto get_instructions(ifstream& ifs)
 {
-    string text;
-    list<Param> lines;
-    Param param;
+    list<list<string>> instructions;
     while(ifs)
     {
+        string text;
         getline(ifs, text);
+        if(text.empty()) continue;
         if(text.starts_with("%END")) break;
-        stringstream ss;
-        ss << text;
-        getline(ss, param.cursor, ',');
-        getline(ss, param.stack, ',');
-        getline(ss, param.value, ',');
-        getline(ss, param.label, ',');
-        getline(ss, param.message, ',');
-        lines.push_back(param);
-    }
-    list<P> instructions;
-    for(auto& line: lines)
-    {
-        P p;
-        p.cursor = stoi("0"s + trim(line.cursor));
-        p.stack = stoi("0"s + trim(line.stack));
-        p.label = trim(line.label);
-        p.value = trim(line.value);
-        p.message = trim(line.message);
-        instructions.push_back(p);
+
+        char space_char = ' ';
+        list<string> words{};
+        stringstream sstream(text);
+        string word;
+        while (std::getline(sstream, word, space_char)){
+            words.push_back(word);
+        }
+        instructions.push_back(words);
     }
     return instructions;
+}
+
+void print_code(int row, int col, auto& code)
+{
+    for(auto& line: code)
+    {
+        output(row++, col, line);
+    }
 }
 
 auto get_code(ifstream& ifs)
 {
-    int line = 2;
-    string text;
-    vector<string> lines;
+    int line = 1;
+    list<string> code;
     while(ifs)
     {
+        string text;
         getline(ifs, text);
         if(text.starts_with("%CODE")) continue;
-        if(text.starts_with("%INSTRUCTIONS")) return lines;
+        if(text.starts_with("%INSTRUCTIONS")) break;
+        // add line numbers
         stringstream ss;
-        ss << setw(4) << line++ << ":  " << text;
-        string text = ss.str();
-        lines.push_back(ss.str());
+        ss << line++ << ":  " << text;
+        text = ss.str();
+        code.push_back(text);
     }
-    return lines;
+    return code;
 }
 
 auto read_file(const string& fileName)
 {
-    int row = 2;
-    int col = 2;
-    string text;
     ifstream ifs(fileName.c_str()); 
-
-    vector<string> code;
-    list<P> instructions;
-    code = get_code(ifs);
-    instructions = get_instructions(ifs);
-    ifs.close();    
-
-    for(auto str:code)
-    {
-        row = out(row, col, str.c_str());
-        refresh();
-    }
-    return instructions;
+    return ifs;
 }
 
-void label(int row, int col, const string& text, int cols=4)
-{
-    string blank(cols, ' ');
-    if(text != ""s) 
-    {
-        if(text == "_"s) {
-            out(row, col, blank.c_str());
-        }
-        else
-        {
-            out(row, col, blank.c_str());
-            out(row, col, text.c_str());
-        }
-    }
-}
-
-void do_next(auto& params, int col)
-{
-    static P last = {};
-    getch();
-    auto p = params.front();
-    params.pop_front();
-
-    if(last.cursor != 0)
-        out(last.cursor, col, "  ");
-    go_red();
-    out(p.cursor, col, "> ");
-    label(MESSAGE, STACK, blank);  // clear message
-    label(MESSAGE, STACK+2, p.message);
-    stop_red();
-    label(p.stack, STACK+12, p.label, 30);
-    label(p.stack, STACK+4, p.value);
-    last = p;
-    refresh();
-}
-
-int main(int argc, char** argv) 
+void initialize_ncurses()
 {
     addstr("");
     setlocale(LC_ALL, "");
     initscr();
     cbreak();
     curs_set(0);        // hide cursor
+}
+
+void setup_colors()
+{
     try
     {
         if(start_color() != OK) throw exception();
@@ -210,18 +132,119 @@ int main(int argc, char** argv)
     catch(const std::exception& e)
     {
         std::cerr << "no colors" << '\n';
-        return 1;
+        exit(1);
     }
-    init_pair(3, COLOR_WHITE, COLOR_BLACK);
-    wbkgd(stdscr, COLOR_PAIR(3));
-    list<P> instructions = read_file(FILENAME);
-    draw_stack(2, STACK, 6);
-    auto size = instructions.size();
-    for(unsigned i = 0; i < size; i++)
+    init_pair(1, COLOR_WHITE, COLOR_BLACK);
+    init_pair(2, COLOR_GREEN, COLOR_BLACK);
+    init_pair(3, COLOR_RED, COLOR_YELLOW);
+    wbkgd(stdscr, COLOR_PAIR(1)); 
+}
+
+auto next(auto& theList)
+{
+    auto word = theList.front();
+    theList.pop_front();
+    return word;
+}
+
+void do_code(auto& instruction, auto& code_lines, auto& globals)
+{
+    static int previous_line = 0;
+    auto line = stoi(next(instruction));
+    attrset(COLOR_PAIR(2));
+    output(line, globals["CODE_COL"], code_lines[line-1]);
+    if(previous_line > 0)
     {
-        do_next(instructions, 2);
+        attrset(COLOR_PAIR(1));
+        output(previous_line, globals["CODE_COL"], code_lines[previous_line-1]);
     }
-    getch();
+    previous_line = line;
+    attrset(COLOR_PAIR(1));
+    wait();
+}
+
+void do_global(auto& instruction, auto& globals)
+{
+    auto symbol = next(instruction);
+    auto value = next(instruction);
+    globals[symbol] = stoi(value);
+}
+
+void do_load(auto& instruction, auto& code, auto& globals)
+{
+    auto what = next(instruction);
+    if(what == "CODE") print_code(1, globals["CODE_COL"], code);
+    if(what == "STACK") 
+    {
+        auto size = stoi(next(instruction));
+        draw_stack(1, globals["STACK_COL"], size);
+    }
+}
+
+void do_message(auto& instruction, auto& globals)
+{
+    string text("");
+    while(!instruction.empty())
+    {
+        text += next(instruction) + " "s;
+    }
+    attrset(COLOR_PAIR(3));
+    string blanks(60,' ');
+    output(globals["MESSAGE_ROW"], globals["MESSAGE_COL"], blanks);
+    output(globals["MESSAGE_ROW"], globals["MESSAGE_COL"], text);
+        attrset(COLOR_PAIR(1));
+}
+
+void do_push_new(auto& instruction, int& stack_position, auto& variables, auto& globals)
+{
+    string variable = next((instruction));
+    int row = stack_position * 2;
+    variables[variable] = row;
+    output(row, globals["VARIABLE_COL"], variable);
+    stack_position++;
+}
+
+void do_value(auto& instruction, auto& variables, auto& globals)
+{
+    string variable = next((instruction));
+    string value = next((instruction));
+    int row = variables[variable];
+    string blanks(6,' ');
+    output(row, globals["VALUE_COL"], blanks);
+    output(row, globals["VALUE_COL"], value);
+}
+
+void process_instructions(auto& instructions, auto& code)
+{
+    vector<string> code_lines(code.begin(), code.end());
+
+    map<string, int> globals;
+    map<string, int> variables;
+    int stack_position = 1;
+
+    for(auto& instruction : instructions)
+    {
+        attrset(COLOR_PAIR(1));
+        auto command = next(instruction);
+        if(command == "CODE") do_code(instruction, code_lines, globals);
+        if(command == "GLOBAL") do_global(instruction, globals);
+        if(command == "LOAD") do_load(instruction, code, globals);
+        if(command == "MESSAGE") do_message(instruction, globals);
+        if(command == "PUSH_NEW") do_push_new(instruction, stack_position, variables, globals);
+        if(command == "VALUE") do_value(instruction, variables, globals);
+        if(command == "WAIT") wait();
+        if(command == "END") {} // used for debugging
+    }
+}
+
+int main(int argc, char** argv) 
+{
+    initialize_ncurses();
+    setup_colors();
+    auto ifs = read_file(FILENAME);
+    auto code = get_code(ifs);
+    auto instructions = get_instructions(ifs);
+    process_instructions(instructions, code);
     clear();
     endwin();
 }
