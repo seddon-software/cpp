@@ -1,0 +1,194 @@
+%**************************************************************************
+%**************************************************************************
+%**                                                                      **
+%**     Script to demonstrate how printf works, ie how parameters are    **
+%**        passed across on the stack and how they are retrieved         **
+%**                                                                      **
+%**************************************************************************
+%**************************************************************************
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initially override a few in-built parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+setstacktop 2
+setstackbottom 24
+setstackwidth 13
+setstackleft 10
+setmargin 8
+setmessagetextcolour brightGreen
+
+alias displaycentredmessage M
+alias setstacktextcolour S
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the program text to be displayed on the right hand side of
+% the screen. After "programtext" everything is read until a line whose
+% first character starts with a "*" (the first non blank after programtext)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+programtext *****************************************************************
+
+
+void   func(char*, char, int, float);
+
+void   main(void)
+{
+       char   c = 'c';
+       int    d = 10;
+       float  f = 10.0F;
+       
+       func("a string", c, d, f);
+       printf("%c %d\n", c, d, f, f);
+       printf("%d %d\n");
+}
+
+void   func(char* s, char x, int i, float fl)
+{
+       x  = 'g';
+       i  = 20;
+       fl = 14.1;
+}
+
+****************** this is the end of the program text **********************
+
+clearscreen
+displaystack
+displaytext
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% start the program rolling. Enter main and build the stack
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   highlightline 6
+
+   M allocate space for the char variable "c"
+   labelstack 1 c
+   onstack - 'c'
+pause
+   movehighlightline +1
+   M allocate space for the int variable "d"
+   labelstack 2 d
+   onstack - 10
+pause
+   movehighlightline +1
+   M allocate space for the float variable "f"
+   labelstack 3 f
+   onstack - 10.0
+pause
+   movehighlightline +2
+   M now call the function "func"
+pause
+   M parameters are copied right to left
+   onstack 4 10.0
+   delay 90
+   onstack 5 10
+   delay 90
+   onstack 6 'c'
+   delay 100
+   M the address of the array of characters "a string" is pushed
+   setstacktextcolour brightRed
+   onstack 7 0x1ABCD
+   setstacktextcolour
+pause
+   M func is called
+   movehighlightline +5
+pause
+   M the parameters are picked up
+   labelstack 7 s
+   delay 50
+   labelstack 6 x
+   delay 50
+   labelstack 5 i
+   delay 50
+   labelstack 4 fl
+pause
+   movehighlightline +2
+   M the value of x is changed
+   onstack 6 'g'
+pause
+   movehighlightline +1
+   M the value of i is changed
+   onstack 5 20
+pause
+   movehighlightline +1
+   M the value of fl is changed
+   onstack 4 14.1
+pause
+   movehighlightline +1
+   M the function returns
+pause
+   movehighlightline -10
+   M the main function, having placed 4 parameters on the stack, removes them
+pause
+   onstack 7
+   labelstack -
+   delay 50
+   onstack 6
+   labelstack -
+   delay 50
+   onstack 5
+   labelstack -
+   delay 50
+   onstack 4
+   labelstack -
+pause
+   movehighlightline +1
+   M printf is called, parameters are pushed right to left
+   delay 90
+   onstack 4 10.0
+   delay 90
+   onstack 5 10.0
+   delay 90
+   onstack 6 10
+   delay 90
+   onstack 7 'c'
+   delay 100
+   M then the address of the array of characters containing "%c %d\n"
+   setstacktextcolour brightRed
+   onstack 8 0x51AAB
+pause
+   M printf is called
+   lowlightline -
+pause
+   M printf returns
+   highlightline 11
+pause
+   M printf is not allowed to alter the stack ...
+pause
+   M therefore it does not pop the two parameters it thinks it knows about
+pause
+   M the main function pops the parameters
+   onstack 8
+   delay 50
+   onstack 7
+   delay 50
+   onstack 6
+   delay 50
+   onstack 5
+   delay 50
+   onstack 4 
+pause
+   M the stack is intact, the program is saved !!!
+pause
+   movehighlightline +1
+   M printf's one parameter is pushed
+pause
+   setstacktextcolour brightRed
+   onstack 4 0x52DDA
+pause
+   M printf is called
+   lowlightline -
+pause
+   M printf returns
+   highlightline 12
+pause
+   M once more, printf is not allowed to alter the stack ...
+pause
+   M ... therefore it cannot remove two parameters it thought were present
+pause
+   M main removes the one parameter it placed on the stack
+pause
+   onstack -
+   M the stack is intact and our program (once more) saved
+pause

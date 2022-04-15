@@ -1,0 +1,194 @@
+%**************************************************************************
+%**************************************************************************
+%**                                                                      **
+%**       script to demonstrate the non working swap() function          **
+%**           mentioned in the C course notes in chapter 8               **
+%**                                                                      **
+%**************************************************************************
+%**************************************************************************
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initially override a few in-built parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+setstacktop 2
+setstackbottom 22
+setstackwidth 11
+setstackleft 10
+setmargin 8
+setmessagetextcolour brightGreen
+
+alias displaycentredmessage M
+alias setstacktextcolour S
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the program text to be displayed on the right hand side of
+% the screen. After "programtext" everything is read until a line whose
+% first character starts with a "*" (the first non blank after programtext)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+programtext *****************************************************************
+
+void   swap(int, int);
+
+void   main(void)
+{
+       int   x = 7;
+       int   y = 5;
+
+       swap(x, y);
+       printf("x is now %d\n", x);
+}
+
+void   swap(int a, int b)
+{
+       int   temp;
+ 
+       temp = a;
+       a = b;
+       b = temp;
+       printf("a is now %d\n", a);
+}
+****************** this is the end of the program text **********************
+
+clearscreen
+displaystack
+displaytext
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% start the program rolling. Enter main and build the stack
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   highlightline 5
+   M the first local variable in main is "x" which is initialised to 7
+pause
+   labelstack 1 main.x
+   onstack - 7
+pause
+   movehighlightline +1
+   M the second local variable in main is "y" which is initialised to 5
+pause
+   labelstack +1 main.y
+   onstack - 5
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% now call the swap function. remember that the value of y goes on the stack
+% first. this is not important, but its nice to be accurate.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +2
+   M call the swap function, copy the values of "x" and "y" onto the stack
+pause
+   onstack +1 5
+delay 150
+   onstack +1 7
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% thats the calling over with, now the naming
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +4
+   M move into the swap function and claim two parameters "a" and "b"
+pause
+   labelstack 4 swap.a
+delay 150
+   labelstack 3 swap.b
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% move into the swap function proper. one local variable. goes on the stack
+% too, but has garbage in it
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +2
+   M swap has one local variable "temp" which is initially random
+pause
+   labelstack 5 swap.temp
+   onstack - ?
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% do the swapping
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +2
+   M "temp" takes on the value of "a" which is 7
+pause
+   S 12
+   transfer 4 5 100 7
+   S
+   onstack 5 7
+pause
+   movehighlightline +1
+   M "a" takes on the value of "b" which is 5
+pause
+   S 12
+   transfer 3 4 100 5
+   S
+   onstack - 5
+pause
+   movehighlightline +1
+   M "b" takes on the value of "temp" which is 7
+pause
+   S 12
+   transfer 5 3 80 7
+   S
+   onstack - 7
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% move onto the printf briefly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +1
+   M the printf displays the value of "a" which is 5
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% before going onto the closing brace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +1
+   M returning to main one local variable is destroyed
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% destroy the local variable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   onstack 5
+   labelstack -
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% then back up into main once more
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline -12
+   M back to the main function
+pause
+   M main destroys the two parameters
+   onstack 4
+   labelstack -
+   onstack 3
+   labelstack -
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% down to the printf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +1
+   M and alight on the printf, this prints the value of x which is 7
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hit the closing squiggly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +1
+   M doesn't swap very well really
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% and finito
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   lowlightline -
+   onstack 1
+   labelstack -
+   onstack 2
+   labelstack -
+   M
+pause

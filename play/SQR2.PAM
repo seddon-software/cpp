@@ -1,0 +1,174 @@
+%**************************************************************************
+%**************************************************************************
+%**                                                                      **
+%**   script to demonstrate how the sqr() routine works this is          **
+%**       mentioned in the C Primer course notes in chapter 6            **
+%**                                                                      **
+%**************************************************************************
+%**************************************************************************
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initially override a few in-built parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+setstacktop 2
+setstackbottom 22
+setstackwidth 15
+setstackleft 10
+setmargin 8
+setmessagetextcolour brightGreen
+
+alias displaycentredmessage M
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the program text to be displayed on the right hand side of
+% the screen. After "programtext" everything is read until a line whose
+% first character starts with a "*" (the first non blank after programtext)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+programtext *****************************************************************
+
+
+int    sqr(int);
+
+void   main(void)
+{
+       int   square;
+       
+       square = sqr(10);
+       printf("square of 10 = %d\n", square);
+}
+ 
+int    sqr(int n)
+{
+       int   ans;
+       
+       ans = n * n;
+       return(ans);
+}
+****************** this is the end of the program text **********************
+
+clearscreen
+displaytext
+pause
+
+%%%%%%%%%%%%%%%%%%%%
+% set things going
+%%%%%%%%%%%%%%%%%%%%
+highlightline 6
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% create space for the local variable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   displaystack 20 22
+
+   labelstack 1 square
+
+pause
+   onstack 1 ?
+   M since "square" is not initialised, it contains a random number
+pause
+   movehighlightline +2
+   M now call the sqr function, leave the 10 somewhere we can find it
+pause
+   displaystack 16 18
+   onstack 3 10
+pause
+   movehighlightline +4
+   labelstack 3 n
+   M this value is picked up as the variable n
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% move onto the declaration of ans, a local variable and put garbage in it
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   % now create the variable "ans"
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   displaystack 12 14
+   labelstack 5 ans
+
+   movehighlightline +2
+   M ans is not initialised either, so its value is random
+pause
+   onstack 5 ?
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% move to the calculation of the square and put the result onto the stack
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +2
+   M 10 x 10 = 100, this goes in the variable "ans"
+pause
+   onstack 5 100
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% move onto the return statement and change the highlight colour
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   displaystack 2 4
+   setlabelcolour brightRed
+   labelstack 10 special
+   setlabelcolour
+   sethighlightcolour brightRed
+   movehighlightline +1
+   M now return the value of the variable "ans"
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% put the returned value into the "special place"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   setstacktextcolour brightRed
+   onstack 10 100
+   M the value of 100 goes into the "special place"
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% clean up the parameters and the local variable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   M now jump back into the main function
+   sethighlightcolour
+   movehighlightline +1
+pause
+   M the variable "ans" and the parameter "n" are destroyed
+pause
+   clearstackarea 12 18
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% go back to where we were called from in main. the highlight colour can
+% be changed back now since we've effected the return
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline -10
+   M the returned value is transferred from the "special place"
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% now make the returned value trickle down the stack and into the "square"
+% variable
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   onstack 10
+   setdelay 100
+   transfer 10 1 -5 100
+   setstacktextcolour
+   onstack 1 100
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% move onto the printf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +1
+   M the printf will now print out the value in "square"
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% then move onto the closing squiggly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   movehighlightline +1
+   M
+pause
+
+   clearstackarea 10 22
+   lowlightline -
+   onstack -
+pause

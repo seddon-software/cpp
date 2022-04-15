@@ -1,3 +1,37 @@
+%**************************************************************************
+%**************************************************************************
+%**                                                                      **
+%**     Script to demonstrate that disaster can happen when an access    **
+%**              is made outside the bounds of an array                  **
+%**                                                                      **
+%**************************************************************************
+%**************************************************************************
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initially override a few in-built parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+setstacktop 2
+setstackbottom 22
+setstackwidth 11
+setstackleft 10
+setmargin 8
+setmessagetextcolour brightGreen
+
+alias displaycentredmessage M
+alias setstacktextcolour S
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the program text to be displayed on the right hand side of
+% the screen. After "programtext" everything is read until a line whose
+% first character starts with a "*" (the first non blank after programtext)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+programtext *****************************************************************
+
+
+
+
 void   main(void)
 {
        int   i;
@@ -9,6 +43,18 @@ void   main(void)
        }
 }
 
+
+
+****************** this is the end of the program text **********************
+
+clearscreen
+displaystack
+displaytext
+pause
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% start the program rolling. Enter main and build the stack
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    highlightline 6
    M allocate space for the int variable "i"
 pause
@@ -153,3 +199,158 @@ pause
    onstack 1 1
 pause
    M and so on around the loop again
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 2
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 3
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 4
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 5
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 6
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   onstack 1 0
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline -3
+   onstack 1 1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 2
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 3
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 4
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 5
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 6
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 0
+   movehighlightline +1
+   delay 10
+   onstack 1 1
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 2
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 3
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 4
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 5
+   movehighlightline -3
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   movehighlightline +1
+   delay 10
+   onstack 1 6
+   M and so on
+pause
