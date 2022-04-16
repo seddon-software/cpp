@@ -1,3 +1,26 @@
+/*
+ *  To run on command line:
+ *        simulator2.exe run
+ * 
+ *  To debug, just run inside vscode or from the command line type:
+ *        simulator2.exe
+ * 
+ *  In debug mode, output uses cout, in normal mode output uses ncurses.
+ *  Commands available in simulator are:
+ *          CODE n                          move cursor to line n of the code
+ *          GLOBAL symbol value             set global symbol to given value
+ *          LOAD CODE                       display code on terminal
+ *          LOAD STACK n                    display stack with n slots on terminal
+ *          MESSAGE word1 word2 ... wordn   display message under the stack on terminal
+ *          PUSH_NEW variable               define a variable for use in simulation (order important)
+ *          VISIBLE                         make variable visible on terminal
+ *          PUSH_RETURN name                define name (variable) of return stack
+ *          VALUE variable value            set variable to given value and display
+ *          WAIT                            wait for user input (any key) before continuing
+ *          END                             add code here to run at end of simulation
+ *          LOOP n m                        jump back n instructions and repeat code m times
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -7,6 +30,7 @@
 #include <map>
 #include <tuple>
 #include <fstream>
+#include <cstdio>
 #include <wchar.h>
 #include <locale.h>
 #include <curses.h>
@@ -16,15 +40,21 @@ using namespace std;
 
 
 //#define FILENAME "is_leap.txt"
-#define FILENAME "one_too_many.txt"
-// #define FILENAME "z.txt"
+// #define FILENAME "one_too_many.txt"
+#define FILENAME "z.txt"
 
 
 bool DEBUG = false;
 void wait()
 {
-    if(DEBUG) 
+    if(DEBUG)
+    {
+        getchar();
+    }
+    else
+    { 
         getch();
+    }
 }
 
 int draw(int row, int col, const string& s)
@@ -49,7 +79,14 @@ void draw_stack(int row, int col, int boxes)
 
 int output(int row, int col, const string& text)
 {
-    mvprintw(row++, col, text.c_str());
+    if(DEBUG)
+    {
+        cout << text.c_str() << "\r" << endl;
+    }
+    else
+    {
+        mvprintw(row++, col, text.c_str());
+    }
     return row;
 }
 
@@ -150,7 +187,8 @@ void do_code(auto& instruction, auto& code_lines, auto& globals)
     if(previous_line > 0)
     {
         attrset(COLOR_PAIR(1));
-        output(previous_line, globals["CODE_COL"], code_lines[previous_line-1]);
+        if(!DEBUG)
+            output(previous_line, globals["CODE_COL"], code_lines[previous_line-1]);
     }
     previous_line = line;
     attrset(COLOR_PAIR(1));
@@ -219,18 +257,6 @@ void do_push_new(auto& instruction, int& stack_position, auto& variables, auto& 
     stack_position++;
 }
 
-auto do_loop(auto& instruction, auto& variables, auto& globals)
-{
-    int jump_back  = stoi(instruction[1]);
-    int repeats  = stoi(instruction[2]);
-    tuple result = (jump_back, repeats);
-    // string value = next((instruction));
-    // int row = variables[variable];
-    // string blanks(6,' ');
-    // output(row, globals["VALUE_COL"], blanks);
-    // output(row, globals["VALUE_COL"], value);
-}
-
 void do_value(auto& instruction, auto& variables, auto& globals)
 {
     string variable = instruction[1];
@@ -247,10 +273,13 @@ void process_instructions(auto& instructions, auto& code)
     map<string, int> globals;
     map<string, int> variables;
     int stack_position = 1;
+    int repeats = 0;
+    bool loop = false;
+    int jump_back = 0;
 
-    for(unsigned i = 0; i < instructions.size(); i++)
+    for(unsigned index = 0; index < instructions.size(); index++)
     {
-        auto& instruction = instructions[i];
+        auto& instruction = instructions[index];
         auto& command = instruction[0];
         attrset(COLOR_PAIR(1));
         if(command == "CODE") do_code(instruction, code_lines, globals);
@@ -263,13 +292,29 @@ void process_instructions(auto& instructions, auto& code)
         if(command == "VALUE") do_value(instruction, variables, globals);
         if(command == "WAIT") wait();
         if(command == "END") {} // used for debugging
-        if(command == "LOOP") do_loop(instruction, variables, globals);
+        if(command == "LOOP") 
+        {   
+            if(loop == true && repeats > 0)
+            {
+                index -= jump_back;
+                repeats--;
+            }
+
+            if(loop == false && repeats == 0)
+            {
+                loop = true;
+                jump_back  = stoi(instruction[1]) + 1;
+                repeats = stoi(instruction[2]) + 1;
+                index -= jump_back;
+                repeats--; 
+            }
+        }
     }
 }
 
 int main(int argc, char** argv) 
 {
-    if(argc > 1) DEBUG = true;
+    if(argc == 1) DEBUG = true;
     initialize_ncurses();
     setup_colors();
     auto ifs = read_file(FILENAME);
