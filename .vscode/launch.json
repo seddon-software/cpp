@@ -1,6 +1,7 @@
 {
   "version": "2.0.0",
   "configurations": [
+
     {
       "name": "Python",
       "type": "python",
@@ -53,7 +54,29 @@
           }
       ],
       "preLaunchTask": "make",
-      "miDebuggerPath": "/usr/bin/gdb",
-  }
-  ]
+      "miDebuggerPath": "/usr/bin/gdb"
+  },
+  {
+    "name": "C++ Debug",
+    "type": "cppdbg",
+    "cppStandard":"c++20",
+    "request": "launch",
+    "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+    "args": ["debug"],
+    "stopAtEntry": true,
+    "cwd": "${fileDirname}",
+    "environment": [],
+    "externalConsole": false,
+    "MIMode": "gdb",
+    "setupCommands": [
+        {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+        }
+    ],
+    "preLaunchTask": "make",
+    "miDebuggerPath": "/usr/bin/gdb"
+}
+]
 }
