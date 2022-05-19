@@ -1,9 +1,13 @@
 /*
+ *  The algorithms in the STL apply to many different types of containers.  It was decided that the best way
+ *  of handling consistency across these containers was to use iterators.  Each container can produce its own
+ *  type of iterator for taking part in various algorithms.  Here we look at a small samall of algorithms from
+ *  the <algorithms> and <numeric> libraries. 
  */
 
 #include <iostream>
 #include <vector>
-#include <algorithm>        // for transform
+#include <algorithm>        // for transform and reverse_copy
 #include <numeric>          // for accumulate
 using namespace std;
 
@@ -25,7 +29,7 @@ void print(string name, vector<int>& v)
 int main()
 {
     vector<int> v1 = {2, 4, 6, 8, 10};
-    vector<int> v2(5);
+    vector<int> v2(5);  // make sure the destination has enough slots
 
     print("v1", v1);
 

@@ -1,8 +1,9 @@
-////////////////////////////////////////////////////////////
-//
-//      Inline member functions
-//
-////////////////////////////////////////////////////////////
+/*
+ *  The previous example can be written "Java Style" by moving the method definitions inside the class.  This
+ *  is how classes are defined in Java and that in turn made this approach popular in C++.  Everything else is
+ *  the same.  This is called "implicitly inlining the methods".
+ * 
+ */
 
 #include <iostream>
 using namespace std;
