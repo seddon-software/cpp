@@ -21,6 +21,5 @@
 int main()
 {
     int x;
-    std::cout << &x << std::endl;
 	std::cout << "Hello World" << std::endl;  // note some people prefer "\n" to endl as its usually more efficient
 }
