@@ -18,6 +18,41 @@
  */
 
 
+/*
+     2**64 ┌─────────────┐  
+           │             │
+           │    KERNEL   │   protected access (kernel only)
+           │             │   
+     2**63 ├─────────────┤
+           │             │
+           │    USER     │   accessible by program code
+           │             │   
+      0    └─────────────┘
+
+
+     2**63 ┌─────────────┐  
+           │             │
+           │    STACK    │   local variables
+           │             │   managed by the compiler  
+           ├─────────────┤
+           │             │
+           │    HOLE     │   available for shared memory
+           │             │   and memory mapped files  
+           ├─────────────┤
+           │             │
+           │    HEAP     │   dynamic variables
+           │             │   managed by the programmer  
+           ├─────────────┤
+           │             │
+           │    DATA     │   global variables (initialized and unitialized)
+           │             │   managed by the compiler  
+           ├─────────────┤
+           │             │
+           │    TEXT     │   code and constants
+           │             │   read only
+      0    └─────────────┘
+*/
+
 int main()
 {
 }
