@@ -1,8 +1,8 @@
-////////////////////////////////////////////////////////////
-//
-//      Association
-//
-////////////////////////////////////////////////////////////
+/*
+ *  Association is where an object is linked to another object of a different class by way of usage.  In this example, the
+ *  Person object is associated with the Car object.  We say
+ *              A Person HAS A Car
+ */
 
 #include <string>
 using namespace std;
