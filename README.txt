@@ -1,33 +1,40 @@
-Last updated: 20 February 2022
-No comments as yet in introductory chapers 01-09, but all adavced chapters fully documented.
+Last updated: 4 July 2022
 
 Course Timings:
 ===============
+Tuesday and Thursday:
      9.00 - 10.00
     11.00 - 12.00
+     1.30 -  2.30
+     3.30 -  4.30
+
+Wednesday:
+    10.05 - 11.05
+    12.00 -  1.00
      2.00 -  3.00
      4.00 -  5.00
 
 Days
 ====
-    Monday 21 February
-    Tuesday 22 February
-    Wednesday 23 February
-    Friday 25 February
+    Tuesday 5 July
+    Wednesday 6 July, start 10
+    Thursday 7 July
+
+01494 483691
+Chris Seddon
+seddon_software@btinternet.com
 
 Setup
 =====
-To setup your C/C++ compiler on a Diamond machine (gcc/11 isn't working properly):
-    module load gcc/10
+1. Setup your C/C++ compiler on a Linux machine (gcc/11?)
 
-To clone the repo use:
+2. To clone the repo use:
     git clone https://github.com/seddon-software/cpp.git
     cd cpp
 
-If you are on a Diamond machine, setup vscode with:
-    module load vscode/1.42.1
+3. Install vscode
 
-then to fire up vscode type:
+4. Fire up vscode type:
     code .
 
 
