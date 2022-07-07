@@ -7,12 +7,11 @@ using namespace std;
  *  only one handler will be called.  The compiler will ensure the handler matches the class of 
  *  the object throw, unless you are using inheritance (see later examples).
  * 
- *  Note: in this example we've used a struct because everything is public and we've used private
- *  inheritance.  The fact we've used private inheritance (default inheritance) has no impact on
- *  this example because everything is public.
+ *  Note: in this example we've used a struct because everything is public with a struct including
+ *  defaulting to public inheritance (a class uses private inheritance by default).
  * 
- *  By using struct and private inheritance, we simplify our code without violating any object 
- *  oriented principles.
+ *  By using struct and public inheritance, we simplify our code while still supporting the substitution
+ *  rule (which requires public inheritance).
  */
 
 struct A : exception {};

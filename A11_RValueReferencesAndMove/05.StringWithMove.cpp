@@ -19,7 +19,7 @@ using namespace std;
  *  In this example we write our own String class to illustrate the use of the move CTOR and 
  *  how you can use r-value refs in operator=().  Note that C++17 introduced mandatory copy
  *  elision with most copy operations, so move constructors are not now called when constructing
- *  from temporaries.
+ *  from temporaries.  To force the use of a move CTOR you have to use std::move as CTOR parameter.
  * 
  *  Furthermore, note the use of the copy and swap idiom in the l-value reference version of the
  *  operator=() overload to make it exception safe.  We've also included and r-value reference 
@@ -60,11 +60,11 @@ public:
 	String& operator=(const String& rhs)
 	{
 		cout << "operator=(String&) called" << endl;
-		cout.flush();
-		if (this == &rhs) return *this;
+		if (this == &rhs) return *this;  // check for self copy
 		cout << "preparing for swap idiom" << endl;
-		String temp(rhs);
-		Swap(temp);
+		String temp(rhs);  // this may throw
+        // if we get this far, all is well and we won't throw now
+		Swap(temp);     // swap with *this
 		return *this;
 	}
 
@@ -83,6 +83,7 @@ public:
 	}
 	String operator+(const String& rhs) const
 	{
+        cout << "operator+ called" << endl;
 		String result;
 		delete[] result.text;
 		result.text = new char[strlen(text) + strlen(rhs.text) + 1];
@@ -98,9 +99,15 @@ public:
 	{
 		delete[] text;
 	}
+    friend ostream& operator<<(ostream& os, const String& rhs);
 private:
 	char* text;
 };
+
+ostream& operator<<(ostream& os, const String& rhs)
+{
+    return os << rhs.text;
+}
 
 
 int main()
@@ -108,9 +115,10 @@ int main()
 	String s1{"ABC"};
 	String s2{"DEFGHI"};
 	String s3{s1};			// calls copy CTOR
-	cout << endl;
-    String s4{s1+s2};		// copy elision (move CTOR not called)
-	s3 = s4;			    // calls operator=(String&) 
-	cout << endl;
 	s1 = s2 + s3;			// calls operator=(String&&)
+	s3 = s2;			    // calls operator=(String&) 
+    String s4{s1+s2};		// copy elision (move CTOR not called)
+    cout << "s4=" << s4 << endl;
+    String s5{std::move(s4)};	// force move CTOR to be called (s4 will now be invalid)
+    cout << "s5=" << s5 << endl;
 }

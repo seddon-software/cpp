@@ -35,6 +35,7 @@ void terminator()
     // this array must be free()-ed
     char** symbolList = backtrace_symbols(addrlist, size);
 
+    cout << "-------- stack trace follows --------" << endl;
 	for(int i = 0; i < size; i++)
 	    cout << symbolList[i] << endl;
 
