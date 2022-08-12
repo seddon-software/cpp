@@ -4,6 +4,20 @@
 //
 ////////////////////////////////////////////////////////////
 
+/* 
+ *  When overloading the + operator you have two choices: member function or free function.  In this example
+ *  we show how to overload + as a member function.  However it is usually better to oveload as a free function
+ *  since the free function is easily converted to a template and can be applied to several classes.  As a member
+ *  function, the overload is tightly coupled to one class.
+ * 
+ *  The overload works because the compiler treats:
+ *              t1 + t2
+ *  
+ *  as equivalent to writing:
+ *              t1.operator+(t2)
+ * 
+ */
+
 class Time
 {
 public:
