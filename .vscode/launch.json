@@ -17,7 +17,7 @@
       "type": "cppdbg",
       "cppStandard":"c++20",
       "request": "launch",
-      "program": "${fileDirname}/main",
+      "program": "${fileDirname}/build/main",
       "args": [],
       "stopAtEntry": true,
       "cwd": "${fileDirname}",

@@ -16,11 +16,12 @@ all: $(EXECUTABLES)
 
 
 $(EXECUTABLES): %.exe: %.cpp
-	$(CC) $(CFLAGS) $< -o $@ $(LFLAGS)
+	@mkdir -p build
+	$(CC) $(CFLAGS) $< -o build/$@ $(LFLAGS)
 
 
 
 clean:
-	- rm -f *.exe
+	- rm -rf build
 	
 	
