@@ -5,9 +5,6 @@
 default_target: all
 .PHONY : default_target
 
-# Allow only one "make -f Makefile2" at a time, but pass parallelism.
-.NOTPARALLEL:
-
 #=============================================================================
 # Special targets provided by cmake.
 
@@ -63,70 +60,19 @@ CMAKE_SOURCE_DIR = /home/chris/home/workspace/cpp/Build
 CMAKE_BINARY_DIR = /home/chris/home/workspace/cpp/Build
 
 #=============================================================================
-# Targets provided globally by CMake.
+# Directory level rules for the build root directory
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
-
-# The main all target
-all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/home/workspace/cpp/Build/CMakeFiles /home/chris/home/workspace/cpp/Build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/home/workspace/cpp/Build/CMakeFiles 0
+# The main recursive "all" target.
+all:
 .PHONY : all
 
-# The main clean target
-clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
-.PHONY : clean
-
-# The main clean target
-clean/fast: clean
-.PHONY : clean/fast
-
-# Prepare targets for installation.
-preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+# The main recursive "preinstall" target.
+preinstall:
 .PHONY : preinstall
 
-# Prepare targets for installation.
-preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
-.PHONY : preinstall/fast
-
-# clear depends
-depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
-.PHONY : depend
-
-# Help Target
-help:
-	@echo "The following are some of the valid targets for this Makefile:"
-	@echo "... all (the default if no target is provided)"
-	@echo "... clean"
-	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-.PHONY : help
-
-
+# The main recursive "clean" target.
+clean:
+.PHONY : clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
