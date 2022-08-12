@@ -1,0 +1,8 @@
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/01.NoCapture.exe.dir
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/02.CaptureByValue.exe.dir
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/03.CaptureByRef.exe.dir
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/04.LambdaSimpleExamples.exe.dir
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/05.NestedLambdas.exe.dir
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/06.GenericLambdas.exe.dir
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/edit_cache.dir
+/home/chris/home/workspace/cpp/A01_Lambdas/build/CMakeFiles/rebuild_cache.dir

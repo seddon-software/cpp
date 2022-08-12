@@ -1,6 +1,4 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
@@ -11,6 +9,39 @@
             },
             "command": "BUILD",
             "args": ["${fileBasenameNoExtension}"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "cmake",
+            "dependsOn": [
+                "cmake-part1",
+                "cmake-part2" ],
+            "dependsOrder": "sequence"
+        },
+        {
+            "label": "cmake-part1",
+            "type": "shell",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "command": "cmake", "args":["-S", ".", "-B", "build"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "cmake-part2",
+            "type": "shell",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "command": "cmake", "args":["--build", "build"],
             "problemMatcher": [],
             "group": {
                 "kind": "build",
