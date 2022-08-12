@@ -69,7 +69,7 @@ struct Generator
 
         // called by compiler last thing to await final result
         // coroutine cannot be resumed after this is called
-        suspend_always final_suspend() 
+        suspend_always final_suspend() noexcept(true) 
         {
             return {};
         }

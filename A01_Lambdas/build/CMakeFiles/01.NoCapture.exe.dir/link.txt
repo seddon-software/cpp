@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/01.NoCapture.exe.dir/01.NoCapture.cpp.o -o 01.NoCapture.exe 
+/usr/bin/g++ -g -Wall CMakeFiles/01.NoCapture.exe.dir/01.NoCapture.cpp.o -o 01.NoCapture.exe 

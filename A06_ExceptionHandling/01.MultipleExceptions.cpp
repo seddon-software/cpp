@@ -20,7 +20,6 @@ struct C : exception {};
 
 int main()
 {
-    cout <<"1" << endl;
 	try
 	{
 	    throw A();
