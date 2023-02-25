@@ -20,6 +20,5 @@
 
 int main()
 {
-    int x;
 	std::cout << "Hello World" << std::endl;  // note some people prefer "\n" to endl as its usually more efficient
 }

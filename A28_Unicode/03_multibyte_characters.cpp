@@ -15,7 +15,7 @@ using namespace std;
  *  In this example we print multi-byte strings with cout (they use ""), but not multi-byte characters 
  *  (they use '').  You will notice you can print the Unicode characters themseves or use their code point 
  *  values.  I've copied the Unicode characters from the following website:
- *              https://unicode-table.com/en/
+ *              https://symbl.cc/en/unicode/blocks/
  * 
  *  When working with code points you use the u and U prefixes.  For example, for 16 bit code points:
  *              const char* star2 = "\u2605"

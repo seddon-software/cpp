@@ -3,7 +3,8 @@ include ../Build/make.mk
 all: subsystems
 
 subsystems:
-	cd SplitFiles && $(MAKE) Test
+	@echo "\n\n";cd SplitFiles && $(MAKE) Test
 
-clean:
-	cd SplitFiles && $(MAKE) clean
+clean::
+	@echo "\n\n";cd SplitFiles && $(MAKE) clean
+

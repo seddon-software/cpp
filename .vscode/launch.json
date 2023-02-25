@@ -13,28 +13,50 @@
       "stopOnEntry": true
     },
     {
-      "name": "several C++ files",
-      "type": "cppdbg",
-      "cppStandard":"c++20",
-      "request": "launch",
-      "program": "${fileDirname}/build/main",
-      "args": [],
-      "stopAtEntry": true,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "setupCommands": [
-          {
-              "description": "Enable pretty-printing for gdb",
-              "text": "-enable-pretty-printing",
-              "ignoreFailures": true
-          }
-      ],
-      "preLaunchTask": "cmake",
-      "miDebuggerPath": "/usr/bin/gdb"
-    },
-    {
+        "name": "several C++ files (make)",
+        "type": "cppdbg",
+        "cppStandard":"c++20",
+        "request": "launch",
+        "program": "${fileDirname}/main",
+        "args": [],
+        "stopAtEntry": true,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ],
+        "preLaunchTask": "make",
+        "miDebuggerPath": "/usr/bin/gdb"
+      },
+      {
+        "name": "several C++ files (cmake)",
+        "type": "cppdbg",
+        "cppStandard":"c++20",
+        "request": "launch",
+        "program": "${fileDirname}/build/main",
+        "args": [],
+        "stopAtEntry": true,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ],
+        "preLaunchTask": "cmake",
+        "miDebuggerPath": "/usr/bin/gdb"
+      },
+        {
         "name": "C++(make)",
         "type": "cppdbg",
         "cppStandard":"c++20",

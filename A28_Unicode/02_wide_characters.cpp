@@ -33,8 +33,9 @@ Multibyte
 using namespace std;
 
 /*
- *  C++ works with Unicode code points; these are up to 32 bits in length.  Unicode code points can be printed
- *  in wide mode or narrow mode.  Here we look at wide mode; code points are stored in wchar_t.
+ *  C++ works with Unicode code points; these are up to 32 bits in length.  Unicode code 
+ *  points can be printed in wide mode or narrow mode.  Here we look at wide mode; code 
+ *  points are stored in wchar_t.
  * 
  *  Wide character strings are introduced with L"..." and are printed using wcout. 
  */

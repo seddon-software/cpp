@@ -1,11 +1,11 @@
 all: subsystems
 
 subsystems:
-	@cd NamespaceExamples && $(MAKE)
-	@cd NamespacesInLibraries && $(MAKE)
+	@echo "\n\n";cd NamespaceExamples && $(MAKE)
+	@echo "\n\n";cd NamespacesInLibraries && $(MAKE) main
 
 clean:
-	@cd NamespaceExamples && $(MAKE) clean
-	@cd NamespacesInLibraries && $(MAKE) clean
+	@echo "\n\n";cd NamespaceExamples && $(MAKE) clean
+	@echo "\n\n";cd NamespacesInLibraries && $(MAKE) clean
 
 
