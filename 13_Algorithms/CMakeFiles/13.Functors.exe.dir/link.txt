@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/13.Functors.exe.dir/13.Functors.cpp.o -o 13.Functors.exe 

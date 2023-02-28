@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/10.AvoidingFriends.exe.dir/10.AvoidingFriends.cpp.o -o 10.AvoidingFriends.exe 

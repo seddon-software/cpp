@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.NewStyleCasts.exe.dir/02.NewStyleCasts.cpp.o -o 02.NewStyleCasts.exe 

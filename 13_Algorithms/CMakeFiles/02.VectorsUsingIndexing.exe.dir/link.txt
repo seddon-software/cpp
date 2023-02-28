@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.VectorsUsingIndexing.exe.dir/02.VectorsUsingIndexing.cpp.o -o 02.VectorsUsingIndexing.exe 

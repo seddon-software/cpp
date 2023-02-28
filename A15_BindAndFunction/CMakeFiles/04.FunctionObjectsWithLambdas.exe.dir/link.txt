@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.FunctionObjectsWithLambdas.exe.dir/04.FunctionObjectsWithLambdas.cpp.o -o 04.FunctionObjectsWithLambdas.exe 

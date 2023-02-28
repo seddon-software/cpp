@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/05.FactoryMethod.exe.dir/05.FactoryMethod.cpp.o -o 05.FactoryMethod.exe 

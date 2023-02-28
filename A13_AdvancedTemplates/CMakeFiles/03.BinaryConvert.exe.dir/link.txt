@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/03.BinaryConvert.exe.dir/03.BinaryConvert.cpp.o -o 03.BinaryConvert.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/06.Using_set_new_handler.exe.dir/06.Using_set_new_handler.cpp.o -o 06.Using_set_new_handler.exe 

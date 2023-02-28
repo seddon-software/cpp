@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.PlacementNew.exe.dir/04.PlacementNew.cpp.o -o 04.PlacementNew.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/2.ShallowAssignment.exe.dir/2.ShallowAssignment.cpp.o -o 2.ShallowAssignment.exe 

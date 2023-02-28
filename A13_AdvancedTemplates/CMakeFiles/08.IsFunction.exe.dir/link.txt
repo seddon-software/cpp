@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/08.IsFunction.exe.dir/08.IsFunction.cpp.o -o 08.IsFunction.exe 

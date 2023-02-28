@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.ReferenceCollapsingRules_Basic.exe.dir/02.ReferenceCollapsingRules_Basic.cpp.o -o 02.ReferenceCollapsingRules_Basic.exe 

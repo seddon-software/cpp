@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/05.CustomComparators.exe.dir/05.CustomComparators.cpp.o -o 05.CustomComparators.exe 

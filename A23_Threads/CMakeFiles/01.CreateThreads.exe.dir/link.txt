@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.CreateThreads.exe.dir/01.CreateThreads.cpp.o -o 01.CreateThreads.exe 

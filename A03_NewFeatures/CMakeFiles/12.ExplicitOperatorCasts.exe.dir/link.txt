@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/12.ExplicitOperatorCasts.exe.dir/12.ExplicitOperatorCasts.cpp.o -o 12.ExplicitOperatorCasts.exe 

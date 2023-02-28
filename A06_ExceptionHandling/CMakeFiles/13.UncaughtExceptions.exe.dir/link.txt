@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/13.UncaughtExceptions.exe.dir/13.UncaughtExceptions.cpp.o -o 13.UncaughtExceptions.exe 

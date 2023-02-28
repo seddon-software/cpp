@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/06.greedy_matching.exe.dir/06.greedy_matching.cpp.o -o 06.greedy_matching.exe 

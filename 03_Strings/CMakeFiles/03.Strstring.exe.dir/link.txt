@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/03.Strstring.exe.dir/03.Strstring.cpp.o -o 03.Strstring.exe 

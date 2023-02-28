@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/07.MapInserts.exe.dir/07.MapInserts.cpp.o -o 07.MapInserts.exe 

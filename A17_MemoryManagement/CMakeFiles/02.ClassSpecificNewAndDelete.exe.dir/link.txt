@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.ClassSpecificNewAndDelete.exe.dir/02.ClassSpecificNewAndDelete.cpp.o -o 02.ClassSpecificNewAndDelete.exe 

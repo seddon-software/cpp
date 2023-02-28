@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/06.UsingDeclarations.exe.dir/06.UsingDeclarations.cpp.o -o 06.UsingDeclarations.exe 

@@ -1,0 +1,5 @@
+clear
+cmake -S NamespaceExamples -B NamespaceExamples/build
+cmake --build NamespaceExamples/build
+cmake -S NamespacesInLibraries -B NamespacesInLibraries/build
+cmake --build NamespacesInLibraries/build

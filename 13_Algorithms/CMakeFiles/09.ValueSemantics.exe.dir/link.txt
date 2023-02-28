@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/09.ValueSemantics.exe.dir/09.ValueSemantics.cpp.o -o 09.ValueSemantics.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/12.Deque.exe.dir/12.Deque.cpp.o -o 12.Deque.exe 

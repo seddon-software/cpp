@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/03.TemplateMethod.exe.dir/03.TemplateMethod.cpp.o -o 03.TemplateMethod.exe 

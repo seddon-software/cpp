@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/09.Hashes.exe.dir/09.Hashes.cpp.o -o 09.Hashes.exe 

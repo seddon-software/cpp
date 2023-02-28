@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/05.ResolvingAmbiguities.exe.dir/05.ResolvingAmbiguities.cpp.o -o 05.ResolvingAmbiguities.exe 

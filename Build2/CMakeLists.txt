@@ -1,8 +1,8 @@
 #########################################
 #  Invoke this cmake with:
 #
-# cmake -S .
-# cmake --build .
+# cmake -S . -B build
+# cmake --build build
 #########################################
 
 cmake_minimum_required(VERSION 3.10)
@@ -13,48 +13,45 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS -g)
 set(CMAKE_RULE_MESSAGES:BOOL=OFF)
 project("Build All")
-# add_subdirectory(../A01_Lambdas ../A01_Lambdas)
-# add_subdirectory(../A03_NewFeatures ../A03_NewFeatures)
-include(../A01_Lambdas/CMakeLists.txt)
-#include(../A03_NewFeatures/CMakeLists.txt)
-
-# function(findSubDirectories result curdir)
-# #    message(result)
-
-#     FILE(GLOB children ${curdir})
-#     SET(dirlist "")
-#     MESSAGE("")
-  
-#     foreach(child ${children})
-#         # MESSAGE("child=${child}")
-#         LIST(APPEND dirlist ${child})
-#     ENDFOREACH()
-
-#     SET(${result} ${dirlist} PARENT_SCOPE)
-# ENDFUNCTION(findSubDirectories)
-
-# fundamentals chapters
-# findSubDirectories(d1 "../(A01*|A03*)")
-# MESSAGE("d1 = **** ${${d1}}")
-
-# advanced chapters
-#findSubDirectories(d2 "../A[01][234]*")
-
-# print results
-# foreach(d ${d1})
-#     message(">> ${d}")
-#   add_subdirectory(../A01_Lambdas ../A01_Lambdas)
-#     include("${d}/CMakeLists.txt")
-# endforeach()
-
-#MESSAGE("d2 = **** ${d2}")
-
-# function(setVariable varName value)
-    # set(${varName} ${value})
-    # set(${varName} ${${varName}} PARENT_SCOPE)
-    # message("setVariable: ${varName} = ${${varName}}")
-# endfunction()
-
-# setVariable(Foobar "Assign this value to Foobar")
-# message("Foobar = ${Foobar}")
+add_subdirectory(../01_GettingStarted ../../01_GettingStarted/build)
+add_subdirectory(../02_Extensions_to_C ../../02_Extensions_to_C/build)
+add_subdirectory(../03_Strings ../../03_Strings/build)
+add_subdirectory(../04_More_on_STL ../../04_More_on_STL/build)
+add_subdirectory(../05_Classes ../../05_Classes/build)
+add_subdirectory(../06_OperatorOverloading ../../06_OperatorOverloading/build)
+add_subdirectory(../07_ShallowDeepCopying ../../07_ShallowDeepCopying/build)
+add_subdirectory(../08_FileIO ../../08_FileIO/build)
+add_subdirectory(../09_Inheritance ../../09_Inheritance/build)
+add_subdirectory(../10_Polymorphism ../../10_Polymorphism/build)
+add_subdirectory(../11_WritingTemplates ../../11_WritingTemplates/build)
+add_subdirectory(../12_ExceptionHandling ../../12_ExceptionHandling/build)
+add_subdirectory(../13_Algorithms ../../13_Algorithms/build)
+add_subdirectory(../A01_Lambdas ../../A01_Lambdas/build)
+add_subdirectory(../A02_Namespaces ../../A02_Namespaces/build)
+add_subdirectory(../A03_NewFeatures ../../A03_NewFeatures/build)
+add_subdirectory(../A04_TemplateFunctions ../../A04_TemplateFunctions/build)
+add_subdirectory(../A05_TemplateClasses ../../A05_TemplateClasses/build)
+add_subdirectory(../A06_ExceptionHandling ../../A06_ExceptionHandling/build)
+add_subdirectory(../A07_STL_Containers ../../A07_STL_Containers/build)
+add_subdirectory(../A08_STL_Miscellaneous ../../A08_STL_Miscellaneous/build)
+add_subdirectory(../A09_STL_Algorithms ../../A09_STL_Algorithms/build)
+add_subdirectory(../A10_HandleBody ../../A10_HandleBody/build)
+add_subdirectory(../A11_RValueReferencesAndMove ../../A11_RValueReferencesAndMove/build)
+add_subdirectory(../A12_SmartPointers ../../A12_SmartPointers/build)
+add_subdirectory(../A13_AdvancedTemplates ../../A13_AdvancedTemplates/build)
+add_subdirectory(../A14_ObjectOrientedCallbacks ../../A14_ObjectOrientedCallbacks/build)
+add_subdirectory(../A15_BindAndFunction ../../A15_BindAndFunction/build)
+add_subdirectory(../A16_Bindings ../../A16_Bindings/build)
+add_subdirectory(../A17_MemoryManagement ../../A17_MemoryManagement/build)
+add_subdirectory(../A18_CommonPatterns ../../A18_CommonPatterns/build)
+add_subdirectory(../A19_Concepts ../../A19_Concepts/build)
+add_subdirectory(../A20_Ranges ../../A20_Ranges/build)
+add_subdirectory(../A21_Coroutines ../../A21_Coroutines/build)
+add_subdirectory(../A22_Modules ../../A22_Modules/build)
+add_subdirectory(../A23_Threads ../../A23_Threads/build)
+add_subdirectory(../A24_RegEx ../../A24_RegEx/build)
+add_subdirectory(../A25_MultipleInheritance ../../A25_MultipleInheritance/build)
+add_subdirectory(../A26_Miscellaneous ../../A26_Miscellaneous/build)
+add_subdirectory(../A26_Miscellaneous/RandomNumbers ../../A26_Miscellaneous/RandomNumbers/build)
+add_subdirectory(../A27_TypeCasting ../../A27_TypeCasting/build)
 

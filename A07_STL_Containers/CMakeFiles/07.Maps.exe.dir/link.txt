@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/07.Maps.exe.dir/07.Maps.cpp.o -o 07.Maps.exe 

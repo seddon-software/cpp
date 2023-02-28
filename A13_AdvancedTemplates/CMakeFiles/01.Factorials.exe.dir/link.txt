@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.Factorials.exe.dir/01.Factorials.cpp.o -o 01.Factorials.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.SmartPointers.exe.dir/01.SmartPointers.cpp.o -o 01.SmartPointers.exe 

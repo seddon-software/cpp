@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/08.ConstCasts.exe.dir/08.ConstCasts.cpp.o -o 08.ConstCasts.exe 

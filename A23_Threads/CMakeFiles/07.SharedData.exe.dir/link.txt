@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/07.SharedData.exe.dir/07.SharedData.cpp.o -o 07.SharedData.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.HeapIsNotGarbageCollected.exe.dir/02.HeapIsNotGarbageCollected.cpp.o -o 02.HeapIsNotGarbageCollected.exe 

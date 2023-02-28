@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/11.MoreSmartPointers.exe.dir/11.MoreSmartPointers.cpp.o -o 11.MoreSmartPointers.exe 

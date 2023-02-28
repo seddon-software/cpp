@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/03.UsingPointersAsIterators.exe.dir/03.UsingPointersAsIterators.cpp.o -o 03.UsingPointersAsIterators.exe 

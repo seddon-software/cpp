@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.Gcc_Type_Info.exe.dir/04.Gcc_Type_Info.cpp.o -o 04.Gcc_Type_Info.exe 

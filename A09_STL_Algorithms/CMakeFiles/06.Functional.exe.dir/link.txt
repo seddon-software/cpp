@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/06.Functional.exe.dir/06.Functional.cpp.o -o 06.Functional.exe 

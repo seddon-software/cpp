@@ -1,16 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
-include("../Build/compileAll.cmake")
+include("../Build2/compileAll.cmake")
 project(CMAKE)
 
-
-all: subsystems
-
-subsystems:
-	@cd NamespaceExamples && $(MAKE)
-	@cd NamespacesInLibraries && $(MAKE)
-
-clean:
-	@cd NamespaceExamples && $(MAKE) clean
-	@cd NamespacesInLibraries && $(MAKE) clean
-
+add_subdirectory(NamespaceExamples NamespaceExamples/build)
+add_subdirectory(NamespacesInLibraries NamespacesInLibraries/build) 
 

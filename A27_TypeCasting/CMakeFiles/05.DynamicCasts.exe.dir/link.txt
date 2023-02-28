@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/05.DynamicCasts.exe.dir/05.DynamicCasts.cpp.o -o 05.DynamicCasts.exe 

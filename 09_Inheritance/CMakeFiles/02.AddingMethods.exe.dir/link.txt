@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.AddingMethods.exe.dir/02.AddingMethods.cpp.o -o 02.AddingMethods.exe 

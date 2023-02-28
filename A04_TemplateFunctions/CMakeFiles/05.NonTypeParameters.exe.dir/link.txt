@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/05.NonTypeParameters.exe.dir/05.NonTypeParameters.cpp.o -o 05.NonTypeParameters.exe 

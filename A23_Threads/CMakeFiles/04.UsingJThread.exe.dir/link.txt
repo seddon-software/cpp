@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.UsingJThread.exe.dir/04.UsingJThread.cpp.o -o 04.UsingJThread.exe 

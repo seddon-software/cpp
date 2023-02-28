@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.MoveAndCopy.exe.dir/04.MoveAndCopy.cpp.o -o 04.MoveAndCopy.exe 

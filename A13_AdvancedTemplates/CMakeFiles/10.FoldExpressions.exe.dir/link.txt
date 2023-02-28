@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/10.FoldExpressions.exe.dir/10.FoldExpressions.cpp.o -o 10.FoldExpressions.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/03.PubSub.exe.dir/03.PubSub.cpp.o -o 03.PubSub.exe 

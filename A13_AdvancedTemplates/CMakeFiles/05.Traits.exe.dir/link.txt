@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/05.Traits.exe.dir/05.Traits.cpp.o -o 05.Traits.exe 

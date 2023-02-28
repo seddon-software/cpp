@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.PartialSpecializationTemplates.exe.dir/02.PartialSpecializationTemplates.cpp.o -o 02.PartialSpecializationTemplates.exe 

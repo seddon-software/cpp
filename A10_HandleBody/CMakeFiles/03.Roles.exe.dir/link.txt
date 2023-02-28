@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/03.Roles.exe.dir/03.Roles.cpp.o -o 03.Roles.exe 

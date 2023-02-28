@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.Binding.exe.dir/01.Binding.cpp.o -o 01.Binding.exe 

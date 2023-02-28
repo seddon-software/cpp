@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.Vectors.exe.dir/01.Vectors.cpp.o -o 01.Vectors.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.match_or_search.exe.dir/01.match_or_search.cpp.o -o 01.match_or_search.exe 

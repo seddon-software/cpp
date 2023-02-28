@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.SingleInheritance.exe.dir/01.SingleInheritance.cpp.o -o 01.SingleInheritance.exe 

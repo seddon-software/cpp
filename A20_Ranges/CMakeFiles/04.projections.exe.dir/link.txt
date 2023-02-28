@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.projections.exe.dir/04.projections.cpp.o -o 04.projections.exe 

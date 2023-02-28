@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.TailTypeInference.exe.dir/04.TailTypeInference.cpp.o -o 04.TailTypeInference.exe 

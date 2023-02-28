@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.VectorUsingIterators.exe.dir/02.VectorUsingIterators.cpp.o -o 02.VectorUsingIterators.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/07.SpaceshipOperator.exe.dir/07.SpaceshipOperator.cpp.o -o 07.SpaceshipOperator.exe 

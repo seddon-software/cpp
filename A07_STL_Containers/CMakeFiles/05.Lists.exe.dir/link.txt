@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/05.Lists.exe.dir/05.Lists.cpp.o -o 05.Lists.exe 

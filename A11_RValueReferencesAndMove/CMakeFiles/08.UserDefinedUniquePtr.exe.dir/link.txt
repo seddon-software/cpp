@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/08.UserDefinedUniquePtr.exe.dir/08.UserDefinedUniquePtr.cpp.o -o 08.UserDefinedUniquePtr.exe 

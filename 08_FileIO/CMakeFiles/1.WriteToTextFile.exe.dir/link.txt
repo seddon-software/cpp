@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/1.WriteToTextFile.exe.dir/1.WriteToTextFile.cpp.o -o 1.WriteToTextFile.exe 

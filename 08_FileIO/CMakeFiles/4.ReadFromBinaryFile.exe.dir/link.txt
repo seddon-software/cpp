@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/4.ReadFromBinaryFile.exe.dir/4.ReadFromBinaryFile.cpp.o -o 4.ReadFromBinaryFile.exe 

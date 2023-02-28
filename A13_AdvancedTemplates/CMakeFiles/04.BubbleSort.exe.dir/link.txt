@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.BubbleSort.exe.dir/04.BubbleSort.cpp.o -o 04.BubbleSort.exe 

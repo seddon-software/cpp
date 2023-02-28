@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.structure_bindings.exe.dir/02.structure_bindings.cpp.o -o 02.structure_bindings.exe 

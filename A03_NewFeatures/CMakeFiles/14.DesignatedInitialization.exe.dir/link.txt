@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/14.DesignatedInitialization.exe.dir/14.DesignatedInitialization.cpp.o -o 14.DesignatedInitialization.exe 

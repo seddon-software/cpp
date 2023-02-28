@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/15.DelegatingConstructors.exe.dir/15.DelegatingConstructors.cpp.o -o 15.DelegatingConstructors.exe 

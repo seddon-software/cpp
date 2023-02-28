@@ -1,0 +1,5 @@
+clear
+cmake -S . -B build
+cmake --build build
+cmake -S RandomNumbers -B build
+cmake --build RandomNumbers/build

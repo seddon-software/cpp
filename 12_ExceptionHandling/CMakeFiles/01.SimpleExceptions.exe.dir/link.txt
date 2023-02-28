@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.SimpleExceptions.exe.dir/01.SimpleExceptions.cpp.o -o 01.SimpleExceptions.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.StaticInitializers.exe.dir/04.StaticInitializers.cpp.o -o 04.StaticInitializers.exe 

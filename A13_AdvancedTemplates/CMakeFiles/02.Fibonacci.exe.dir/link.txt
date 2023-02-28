@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.Fibonacci.exe.dir/02.Fibonacci.cpp.o -o 02.Fibonacci.exe 

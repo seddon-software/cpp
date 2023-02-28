@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/4.DeepAssignment.exe.dir/4.DeepAssignment.cpp.o -o 4.DeepAssignment.exe 

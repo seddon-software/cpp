@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/2.InlineDefinitions.exe.dir/2.InlineDefinitions.cpp.o -o 2.InlineDefinitions.exe 

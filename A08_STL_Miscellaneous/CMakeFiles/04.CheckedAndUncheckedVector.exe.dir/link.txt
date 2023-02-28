@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/04.CheckedAndUncheckedVector.exe.dir/04.CheckedAndUncheckedVector.cpp.o -o 04.CheckedAndUncheckedVector.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/01.String_Class.exe.dir/01.String_Class.cpp.o -o 01.String_Class.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/3.DeepConstruction.exe.dir/3.DeepConstruction.cpp.o -o 3.DeepConstruction.exe 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/02.ordered_map.exe.dir/02.ordered_map.cpp.o -o 02.ordered_map.exe 

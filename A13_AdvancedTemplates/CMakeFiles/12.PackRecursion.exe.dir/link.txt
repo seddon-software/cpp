@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/12.PackRecursion.exe.dir/12.PackRecursion.cpp.o -o 12.PackRecursion.exe 

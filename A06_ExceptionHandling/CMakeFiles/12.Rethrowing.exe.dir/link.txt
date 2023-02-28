@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/12.Rethrowing.exe.dir/12.Rethrowing.cpp.o -o 12.Rethrowing.exe 

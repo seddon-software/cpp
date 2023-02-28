@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/3.Constructors.exe.dir/3.Constructors.cpp.o -o 3.Constructors.exe 

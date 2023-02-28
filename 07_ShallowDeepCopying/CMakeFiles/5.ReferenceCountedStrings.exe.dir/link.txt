@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/5.ReferenceCountedStrings.exe.dir/5.ReferenceCountedStrings.cpp.o -o 5.ReferenceCountedStrings.exe 

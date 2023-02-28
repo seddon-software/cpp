@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/09.ParameterPackExpansion.exe.dir/09.ParameterPackExpansion.cpp.o -o 09.ParameterPackExpansion.exe 

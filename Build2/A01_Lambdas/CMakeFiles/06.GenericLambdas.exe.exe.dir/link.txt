@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/06.GenericLambdas.exe.exe.dir/06.GenericLambdas.cpp.o -o 06.GenericLambdas.exe.exe 

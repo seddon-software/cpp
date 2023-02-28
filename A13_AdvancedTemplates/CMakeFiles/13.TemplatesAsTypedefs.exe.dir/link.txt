@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wall CMakeFiles/13.TemplatesAsTypedefs.exe.dir/13.TemplatesAsTypedefs.cpp.o -o 13.TemplatesAsTypedefs.exe 
