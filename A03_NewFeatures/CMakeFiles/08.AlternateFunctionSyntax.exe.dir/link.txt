@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/08.AlternateFunctionSyntax.exe.dir/08.AlternateFunctionSyntax.cpp.o -o 08.AlternateFunctionSyntax.exe 

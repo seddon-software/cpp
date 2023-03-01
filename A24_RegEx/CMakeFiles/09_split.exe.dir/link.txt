@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/09_split.exe.dir/09_split.cpp.o -o 09_split.exe 

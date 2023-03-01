@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.MulticastDelegates.exe.dir/03.MulticastDelegates.cpp.o -o 03.MulticastDelegates.exe 

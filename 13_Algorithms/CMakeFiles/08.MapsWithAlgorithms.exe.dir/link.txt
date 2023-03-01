@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/08.MapsWithAlgorithms.exe.dir/08.MapsWithAlgorithms.cpp.o -o 08.MapsWithAlgorithms.exe 

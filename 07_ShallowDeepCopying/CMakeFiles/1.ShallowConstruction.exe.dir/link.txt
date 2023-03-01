@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/1.ShallowConstruction.exe.dir/1.ShallowConstruction.cpp.o -o 1.ShallowConstruction.exe 

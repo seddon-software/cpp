@@ -1,5 +1,5 @@
 clear
 cmake -S NamespaceExamples -B NamespaceExamples/build
-cmake --build NamespaceExamples/build
+cmake --build NamespaceExamples/build --clean-first
 cmake -S NamespacesInLibraries -B NamespacesInLibraries/build
-cmake --build NamespacesInLibraries/build
+cmake --build NamespacesInLibraries/build --clean-first

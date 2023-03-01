@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.Requires.exe.dir/02.Requires.cpp.o -o 02.Requires.exe 

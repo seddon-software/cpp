@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.Explicit.exe.dir/03.Explicit.cpp.o -o 03.Explicit.exe 

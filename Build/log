@@ -17,9 +17,8 @@ g++ -g -Wall  -std=c++20 10.Vectors_and_functions.cpp -o 10.Vectors_and_function
 g++ -g -Wall  -std=c++20 11.Vectors_and_iterators.cpp -o 11.Vectors_and_iterators.exe    
 g++ -g -Wall  -std=c++20 12.Algorithms.cpp -o 12.Algorithms.exe    
 g++ -g -Wall  -std=c++20 13.Arrays.cpp -o 13.Arrays.exe    
-g++ -g -Wall  -std=c++20 MemoryManagement.cpp -o MemoryManagement.exe    
-g++ -g -Wall  -std=c++20 Overview.cpp -o Overview.exe    
-g++ -g -Wall  -std=c++20 Questions.cpp -o Questions.exe    
+g++ -g -Wall  -std=c++20 _1.Overview.cpp -o _1.Overview.exe    
+g++ -g -Wall  -std=c++20 _2.MemoryManagement.cpp -o _2.MemoryManagement.exe    
 make[1]: Leaving directory '/home/chris/home/workspace/cpp/01_GettingStarted'
 
 
@@ -65,13 +64,13 @@ make[1]: Leaving directory '/home/chris/home/workspace/cpp/04_More_on_STL'
 
 /home/chris/home/workspace/cpp/05_Classes
 make[1]: Entering directory '/home/chris/home/workspace/cpp/05_Classes'
-Makefile:9: warning: overriding recipe for target 'clean'
-../Build/make.mk:24: warning: ignoring old recipe for target 'clean'
-cd SplitFiles && make Test
-make[2]: Entering directory '/home/chris/home/workspace/cpp/05_Classes/SplitFiles'
-g++ -g -Wall  -std=c++20     Point.cpp Test.cpp -o Test
-mv Test Test.exe
-make[2]: Leaving directory '/home/chris/home/workspace/cpp/05_Classes/SplitFiles'
+g++ -g -Wall  -std=c++20 1.Point.cpp -o 1.Point.exe    
+g++ -g -Wall  -std=c++20 2.InlineDefinitions.cpp -o 2.InlineDefinitions.exe    
+g++ -g -Wall  -std=c++20 3.Constructors.cpp -o 3.Constructors.exe    
+g++ -g -Wall  -std=c++20 4.AddingStatics.cpp -o 4.AddingStatics.exe    
+g++ -g -Wall  -std=c++20 5.Aggregation.cpp -o 5.Aggregation.exe    
+g++ -g -Wall  -std=c++20 6.Composion.cpp -o 6.Composion.exe    
+g++ -g -Wall  -std=c++20 7.Association.cpp -o 7.Association.exe    
 make[1]: Leaving directory '/home/chris/home/workspace/cpp/05_Classes'
 
 
@@ -168,7 +167,7 @@ g++ -g -Wall  -std=c++20 03.VectorWithIterators.cpp -o 03.VectorWithIterators.ex
 g++ -g -Wall  -std=c++20 04.ListWithIterators.cpp -o 04.ListWithIterators.exe    
 g++ -g -Wall  -std=c++20 05.ListWithFind.cpp -o 05.ListWithFind.exe    
 g++ -g -Wall  -std=c++20 06.ListWithFunctor.cpp -o 06.ListWithFunctor.exe    
-g++ -g -Wall  -std=c++20 07.Maps.cpp -o 07.Maps.exe    
+g++ -g -Wall  -std=c++20 07.BinaryTrees.cpp -o 07.BinaryTrees.exe    
 g++ -g -Wall  -std=c++20 08.MapsWithAlgorithms.cpp -o 08.MapsWithAlgorithms.exe    
 g++ -g -Wall  -std=c++20 09.ValueSemantics.cpp -o 09.ValueSemantics.exe    
 g++ -g -Wall  -std=c++20 10.SmartPointers.cpp -o 10.SmartPointers.exe    
@@ -195,6 +194,9 @@ A02_Namespaces
 
 /home/chris/home/workspace/cpp/A02_Namespaces
 make[1]: Entering directory '/home/chris/home/workspace/cpp/A02_Namespaces'
+
+
+
 make[2]: Entering directory '/home/chris/home/workspace/cpp/A02_Namespaces/NamespaceExamples'
 g++ -g -Wall  -std=c++20 01.Namespaces.cpp -o 01.Namespaces.exe    
 g++ -g -Wall  -std=c++20 02.NamespaceAliases.cpp -o 02.NamespaceAliases.exe    
@@ -202,21 +204,10 @@ g++ -g -Wall  -std=c++20 03.Using.cpp -o 03.Using.exe
 g++ -g -Wall  -std=c++20 04.UnamedNamespace.cpp -o 04.UnamedNamespace.exe    
 g++ -g -Wall  -std=c++20 05.KoenigNameLookup.cpp -o 05.KoenigNameLookup.exe    
 make[2]: Leaving directory '/home/chris/home/workspace/cpp/A02_Namespaces/NamespaceExamples'
+
+
+
 make[2]: Entering directory '/home/chris/home/workspace/cpp/A02_Namespaces/NamespacesInLibraries'
-Makefile:13: warning: overriding recipe for target 'LibPart1.exe'
-../../Build/make.mk:19: warning: ignoring old recipe for target 'LibPart1.exe'
-Makefile:13: warning: overriding recipe for target 'LibPart2.exe'
-../../Build/make.mk:19: warning: ignoring old recipe for target 'LibPart2.exe'
-Makefile:13: warning: overriding recipe for target 'LibPart3.exe'
-../../Build/make.mk:19: warning: ignoring old recipe for target 'LibPart3.exe'
-Makefile:13: warning: overriding recipe for target 'Test.exe'
-../../Build/make.mk:19: warning: ignoring old recipe for target 'Test.exe'
-Makefile:18: warning: overriding recipe for target 'clean'
-../../Build/make.mk:24: warning: ignoring old recipe for target 'clean'
-
-
-
-
 g++ -g -Wall  -std=c++20 LibPart1.cpp LibPart2.cpp LibPart3.cpp Test.cpp -o main
 make[2]: Leaving directory '/home/chris/home/workspace/cpp/A02_Namespaces/NamespacesInLibraries'
 make[1]: Leaving directory '/home/chris/home/workspace/cpp/A02_Namespaces'
@@ -446,10 +437,6 @@ make[1]: Entering directory '/home/chris/home/workspace/cpp/A17_MemoryManagement
 g++ -g -Wall  -std=c++20 01.GlobalNewAndDelete.cpp -o 01.GlobalNewAndDelete.exe    
 g++ -g -Wall  -std=c++20 02.ClassSpecificNewAndDelete.cpp -o 02.ClassSpecificNewAndDelete.exe    
 g++ -g -Wall  -std=c++20 03.AlternativeFormsOfNewAndDelete.cpp -o 03.AlternativeFormsOfNewAndDelete.exe    
-03.AlternativeFormsOfNewAndDelete.cpp: In constructor ‘Point::Point()’:
-03.AlternativeFormsOfNewAndDelete.cpp:51:12: warning: ‘*this.Point::x’ is used uninitialized [-Wuninitialized]
-   51 |         if(x == 5) throw runtime_error("throw in CTOR");
-      |            ^
 g++ -g -Wall  -std=c++20 04.PlacementNew.cpp -o 04.PlacementNew.exe    
 g++ -g -Wall  -std=c++20 05.MemoryMapping.cpp -o 05.MemoryMapping.exe    
 g++ -g -Wall  -std=c++20 06.Using_set_new_handler.cpp -o 06.Using_set_new_handler.exe    
@@ -504,9 +491,9 @@ A21_Coroutines
 
 /home/chris/home/workspace/cpp/A21_Coroutines
 make[1]: Entering directory '/home/chris/home/workspace/cpp/A21_Coroutines'
-g++ -fcoroutines -fno-exceptions -g -Wall  -std=c++20 01.Using_co_await.cpp -o 01.Using_co_await.exe -lpthread
-g++ -fcoroutines -fno-exceptions -g -Wall  -std=c++20 02.Using_co_yield.cpp -o 02.Using_co_yield.exe -lpthread
-g++ -fcoroutines -fno-exceptions -g -Wall  -std=c++20 03.ConcurrentCoroutines.cpp -o 03.ConcurrentCoroutines.exe -lpthread
+g++ -g -Wall  -std=c++20 01.Using_co_await.cpp -o 01.Using_co_await.exe    
+g++ -g -Wall  -std=c++20 02.Using_co_yield.cpp -o 02.Using_co_yield.exe    
+g++ -g -Wall  -std=c++20 03.ConcurrentCoroutines.cpp -o 03.ConcurrentCoroutines.exe    
 make[1]: Leaving directory '/home/chris/home/workspace/cpp/A21_Coroutines'
 
 
@@ -514,89 +501,7 @@ A22_Modules
 
 /home/chris/home/workspace/cpp/A22_Modules
 make[1]: Entering directory '/home/chris/home/workspace/cpp/A22_Modules'
-for dir in 01.InterfaceModules/. 02.ModulePartitions/. 03.SubModules/. 04.ImplementationModules/. build/.; do \
-make -C $dir; \
-done
-make[2]: Entering directory '/home/chris/home/workspace/cpp/A22_Modules/01.InterfaceModules'
-rm -rf gcm.cache
-rm *.o
-rm: cannot remove '*.o': No such file or directory
-make[2]: [Makefile:23: clean] Error 1 (ignored)
-rm *.exe
-rm: cannot remove '*.exe': No such file or directory
-make[2]: [Makefile:24: clean] Error 1 (ignored)
-echo helloWorld.o main.o
-helloWorld.o main.o
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header iostream
-g++ -g -c -fPIE -std=c++20 -fmodules-ts helloWorld.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts main.cpp
-g++ helloWorld.o main.o -o main.exe
-make[2]: Leaving directory '/home/chris/home/workspace/cpp/A22_Modules/01.InterfaceModules'
-make[2]: Entering directory '/home/chris/home/workspace/cpp/A22_Modules/02.ModulePartitions'
-rm -rf gcm.cache
-rm *.o
-rm: cannot remove '*.o': No such file or directory
-make[2]: [Makefile:27: clean] Error 1 (ignored)
-rm *.exe
-rm: cannot remove '*.exe': No such file or directory
-make[2]: [Makefile:28: clean] Error 1 (ignored)
-echo english.o main.o spanish.o speech.o
-english.o main.o spanish.o speech.o
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header iostream
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header cstdlib
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header stdlib.h
-g++ -g -c -fPIE -std=c++20 -fmodules-ts english.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts spanish.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts speech.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts main.cpp
-g++ english.o main.o spanish.o speech.o -o main.exe
-make[2]: Leaving directory '/home/chris/home/workspace/cpp/A22_Modules/02.ModulePartitions'
-make[2]: Entering directory '/home/chris/home/workspace/cpp/A22_Modules/03.SubModules'
-rm -rf gcm.cache
-rm *.o
-rm: cannot remove '*.o': No such file or directory
-make[2]: [Makefile:27: clean] Error 1 (ignored)
-rm *.exe
-rm: cannot remove '*.exe': No such file or directory
-make[2]: [Makefile:28: clean] Error 1 (ignored)
-echo english.o main.o spanish.o speech.o
-english.o main.o spanish.o speech.o
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header iostream
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header cstdlib
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header stdlib.h
-g++ -g -c -fPIE -std=c++20 -fmodules-ts english.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts spanish.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts speech.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts main.cpp
-g++ english.o main.o spanish.o speech.o -o main.exe
-make[2]: Leaving directory '/home/chris/home/workspace/cpp/A22_Modules/03.SubModules'
-make[2]: Entering directory '/home/chris/home/workspace/cpp/A22_Modules/04.ImplementationModules'
-rm -rf gcm.cache
-rm *.o
-rm: cannot remove '*.o': No such file or directory
-make[2]: [Makefile:26: clean] Error 1 (ignored)
-rm *.exe
-rm: cannot remove '*.exe': No such file or directory
-make[2]: [Makefile:27: clean] Error 1 (ignored)
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header iostream
-g++ -g -c -fPIE -std=c++20 -fmodules-ts -x c++-system-header cstdlib
-g++ -g -c -fPIE -std=c++20 -fmodules-ts english.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts spanish.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts speech.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts speech_impl.cpp
-g++ -g -c -fPIE -std=c++20 -fmodules-ts main.cpp
-g++ english.o main.o spanish.o speech.o speech_impl.o -o main.exe
-make[2]: Leaving directory '/home/chris/home/workspace/cpp/A22_Modules/04.ImplementationModules'
-make[2]: Entering directory '/home/chris/home/workspace/cpp/A22_Modules/build'
-CMake Error at CMakeLists.txt:2 (include):
-  include could not find requested file:
-
-    ../Build/compileAll.cmake
-
-
--- Configuring incomplete, errors occurred!
-See also "/home/chris/home/workspace/cpp/A22_Modules/build/CMakeFiles/CMakeOutput.log".
-make[2]: Leaving directory '/home/chris/home/workspace/cpp/A22_Modules/build'
+make[1]: Nothing to be done for 'all'.
 make[1]: Leaving directory '/home/chris/home/workspace/cpp/A22_Modules'
 
 
@@ -666,10 +571,8 @@ A26_Miscellaneous/RandomNumbers
 
 /home/chris/home/workspace/cpp/A26_Miscellaneous/RandomNumbers
 make[1]: Entering directory '/home/chris/home/workspace/cpp/A26_Miscellaneous/RandomNumbers'
-g++ -g -Wall  -std=c++20 01.RepeatableRandomNumbers.cpp -o 01.RepeatableRandomNumbers.exe    
-g++ -g -Wall  -std=c++20 02.Seeding.cpp -o 02.Seeding.exe    
-g++ -g -Wall  -std=c++20 03.DealingDeckCards.cpp -o 03.DealingDeckCards.exe    
-g++ -g -Wall  -std=c++20 04.DealingBridgeHands.cpp -o 04.DealingBridgeHands.exe    
+make[2]: Entering directory '/home/chris/home/workspace/cpp/Build2/build'
+make[2]: Leaving directory '/home/chris/home/workspace/cpp/Build2/build'
 make[1]: Leaving directory '/home/chris/home/workspace/cpp/A26_Miscellaneous/RandomNumbers'
 
 
@@ -679,47 +582,28 @@ A27_TypeCasting
 make[1]: Entering directory '/home/chris/home/workspace/cpp/A27_TypeCasting'
 g++ -g -Wall  -std=c++20 01.OldStyleCasts.cpp -o 01.OldStyleCasts.exe    
 g++ -g -Wall  -std=c++20 02.NewStyleCasts.cpp -o 02.NewStyleCasts.exe    
-02.NewStyleCasts.cpp: In function ‘int main()’:
-02.NewStyleCasts.cpp:81:17: warning: ‘dynamic_cast<struct Y*>(X x)’ can never succeed
-   81 |         Y* p4 = dynamic_cast<Y*>(&x);   // downcast  (fails)
-      |                 ^~~~~~~~~~~~~~~~~~~~
-02.NewStyleCasts.cpp:86:12: warning: unused variable ‘ref1’ [-Wunused-variable]
-   86 |         X& ref1 = dynamic_cast<X&>(y);  // upcasting (p1 refers to derived part of y)
-      |            ^~~~
-02.NewStyleCasts.cpp:88:12: warning: unused variable ‘ref2’ [-Wunused-variable]
-   88 |         Y& ref2 = dynamic_cast<Y&>(x);
-      |            ^~~~
-02.NewStyleCasts.cpp:66:8: warning: unused variable ‘p1’ [-Wunused-variable]
-   66 |     X* p1 = reinterpret_cast<X*>(&y);   // polymorphic
-      |        ^~
-02.NewStyleCasts.cpp:67:8: warning: unused variable ‘p2’ [-Wunused-variable]
-   67 |     X* p2 = reinterpret_cast<X*>(&z);   // non polymorphic
-      |        ^~
-02.NewStyleCasts.cpp:79:12: warning: unused variable ‘p3’ [-Wunused-variable]
-   79 |         X* p3 = dynamic_cast<X*>(&y);   // upcasting (p1 points at derived part of y)
-      |            ^~
-02.NewStyleCasts.cpp:81:12: warning: unused variable ‘p4’ [-Wunused-variable]
-   81 |         Y* p4 = dynamic_cast<Y*>(&x);   // downcast  (fails)
-      |            ^~
 g++ -g -Wall  -std=c++20 03.Explicit.cpp -o 03.Explicit.exe    
-03.Explicit.cpp: In function ‘int main()’:
-03.Explicit.cpp:44:13: warning: unused variable ‘x2’ [-Wunused-variable]
-   44 |         int x2 = t;
-      |             ^~
-03.Explicit.cpp:48:13: warning: unused variable ‘x3’ [-Wunused-variable]
-   48 |         int x3 = static_cast<int>(t);
-      |             ^~
 g++ -g -Wall  -std=c++20 04.CrossCasts.cpp -o 04.CrossCasts.exe    
 g++ -g -Wall  -std=c++20 05.DynamicCasts.cpp -o 05.DynamicCasts.exe    
-05.DynamicCasts.cpp: In function ‘int main()’:
-05.DynamicCasts.cpp:165:14: warning: ‘dynamic_cast<class AAA*>(BBB b)’ can never succeed
-  165 |         pa = dynamic_cast<AAA*> (&b);
-      |              ^~~~~~~~~~~~~~~~~~~~~~~
-05.DynamicCasts.cpp:167:14: warning: ‘dynamic_cast<class CCC*>(BBB b)’ can never succeed
-  167 |         pc = dynamic_cast<CCC*> (&b);
-      |              ^~~~~~~~~~~~~~~~~~~~~~~
 g++ -g -Wall  -std=c++20 06.StaticCasts.cpp -o 06.StaticCasts.exe    
 g++ -g -Wall  -std=c++20 07.ReinterpretCasts.cpp -o 07.ReinterpretCasts.exe    
 g++ -g -Wall  -std=c++20 08.ConstCasts.cpp -o 08.ConstCasts.exe    
 g++ -g -Wall  -std=c++20 09.RuntimeTypeInformation.cpp -o 09.RuntimeTypeInformation.exe    
 make[1]: Leaving directory '/home/chris/home/workspace/cpp/A27_TypeCasting'
+
+
+A28_Unicode
+
+/home/chris/home/workspace/cpp/A28_Unicode
+make[1]: Entering directory '/home/chris/home/workspace/cpp/A28_Unicode'
+g++ -g -Wall  -std=c++20 01_character_types.cpp -o 01_character_types.exe    
+g++ -g -Wall  -std=c++20 02_wide_characters.cpp -o 02_wide_characters.exe    
+g++ -g -Wall  -std=c++20 03_multibyte_characters.cpp -o 03_multibyte_characters.exe    
+g++ -g -Wall  -std=c++20 04_wide_to_multibyte.cpp -o 04_wide_to_multibyte.exe    
+g++ -g -Wall  -std=c++20 05_multibyte_to_wide.cpp -o 05_multibyte_to_wide.exe    
+g++ -g -Wall  -std=c++20 06_wide_and_narrow_streams.cpp -o 06_wide_and_narrow_streams.exe    
+g++ -g -Wall  -std=c++20 07_unicode_identifiers.cpp -o 07_unicode_identifiers.exe    
+g++ -g -Wall  -std=c++20 08_code_points.cpp -o 08_code_points.exe    
+g++ -g -Wall  -std=c++20 09.print_char32_t.cpp -o 09.print_char32_t.exe    
+g++ -g -Wall  -std=c++20 10.convert_to_utf8.cpp -o 10.convert_to_utf8.exe    
+make[1]: Leaving directory '/home/chris/home/workspace/cpp/A28_Unicode'

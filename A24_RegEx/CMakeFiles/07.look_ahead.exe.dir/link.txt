@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/07.look_ahead.exe.dir/07.look_ahead.cpp.o -o 07.look_ahead.exe 

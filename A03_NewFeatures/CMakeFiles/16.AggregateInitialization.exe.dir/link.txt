@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/16.AggregateInitialization.exe.dir/16.AggregateInitialization.cpp.o -o 16.AggregateInitialization.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/13.GuaranteedCopyElision.exe.dir/13.GuaranteedCopyElision.cpp.o -o 13.GuaranteedCopyElision.exe 

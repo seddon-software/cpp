@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/6.Composion.exe.dir/6.Composion.cpp.o -o 6.Composion.exe 

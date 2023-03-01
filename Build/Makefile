@@ -45,6 +45,7 @@ subsystems:
 	$(call descend,A26_Miscellaneous)
 	$(call descend,A26_Miscellaneous/RandomNumbers)
 	$(call descend,A27_TypeCasting)
+	$(call descend,A28_Unicode)
 
 clean:
 	$(call clobber,01_GettingStarted)
@@ -88,4 +89,5 @@ clean:
 	$(call clobber,A26_Miscellaneous)
 	$(call clobber,A26_Miscellaneous/RandomNumbers)
 	$(call clobber,A27_TypeCasting)
+	$(call clobber,A28_Unicode)
 

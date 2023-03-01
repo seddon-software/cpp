@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/10.BinaryLiterals.exe.dir/10.BinaryLiterals.cpp.o -o 10.BinaryLiterals.exe 

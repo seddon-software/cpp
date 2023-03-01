@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.SpecialCases.exe.dir/01.SpecialCases.cpp.o -o 01.SpecialCases.exe 

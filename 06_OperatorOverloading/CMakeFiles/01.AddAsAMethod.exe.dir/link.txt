@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.AddAsAMethod.exe.dir/01.AddAsAMethod.cpp.o -o 01.AddAsAMethod.exe 

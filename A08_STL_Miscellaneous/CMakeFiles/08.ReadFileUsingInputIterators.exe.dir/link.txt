@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/08.ReadFileUsingInputIterators.exe.dir/08.ReadFileUsingInputIterators.cpp.o -o 08.ReadFileUsingInputIterators.exe 

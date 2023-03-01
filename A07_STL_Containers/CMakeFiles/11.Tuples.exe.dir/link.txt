@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/11.Tuples.exe.dir/11.Tuples.cpp.o -o 11.Tuples.exe 

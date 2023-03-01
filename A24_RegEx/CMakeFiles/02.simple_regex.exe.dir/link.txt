@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.simple_regex.exe.dir/02.simple_regex.cpp.o -o 02.simple_regex.exe 

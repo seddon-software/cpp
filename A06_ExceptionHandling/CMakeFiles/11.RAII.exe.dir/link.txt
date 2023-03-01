@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/11.RAII.exe.dir/11.RAII.cpp.o -o 11.RAII.exe 

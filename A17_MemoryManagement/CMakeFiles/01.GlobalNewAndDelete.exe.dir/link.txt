@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.GlobalNewAndDelete.exe.dir/01.GlobalNewAndDelete.cpp.o -o 01.GlobalNewAndDelete.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/10_sub.exe.dir/10_sub.cpp.o -o 10_sub.exe 

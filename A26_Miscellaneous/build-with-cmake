@@ -1,5 +1,5 @@
 clear
 cmake -S . -B build
-cmake --build build
-cmake -S RandomNumbers -B build
-cmake --build RandomNumbers/build
+cmake --build build --clean-first
+cmake -S RandomNumbers -B RandomNumbers/build
+cmake --build RandomNumbers/build --clean-first

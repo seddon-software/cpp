@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.Using_static_asserts.exe.dir/01.Using_static_asserts.cpp.o -o 01.Using_static_asserts.exe 

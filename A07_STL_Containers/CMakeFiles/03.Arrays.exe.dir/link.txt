@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.Arrays.exe.dir/03.Arrays.cpp.o -o 03.Arrays.exe 

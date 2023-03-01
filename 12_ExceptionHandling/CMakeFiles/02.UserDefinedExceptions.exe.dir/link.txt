@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.UserDefinedExceptions.exe.dir/02.UserDefinedExceptions.cpp.o -o 02.UserDefinedExceptions.exe 

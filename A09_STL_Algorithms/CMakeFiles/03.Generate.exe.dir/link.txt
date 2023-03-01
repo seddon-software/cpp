@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.Generate.exe.dir/03.Generate.cpp.o -o 03.Generate.exe 

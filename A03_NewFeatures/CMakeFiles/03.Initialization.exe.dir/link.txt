@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.Initialization.exe.dir/03.Initialization.cpp.o -o 03.Initialization.exe 

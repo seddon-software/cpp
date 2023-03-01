@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/4.AddingStatics.exe.dir/4.AddingStatics.cpp.o -o 4.AddingStatics.exe 

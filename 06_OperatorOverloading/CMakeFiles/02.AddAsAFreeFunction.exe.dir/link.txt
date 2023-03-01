@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.AddAsAFreeFunction.exe.dir/02.AddAsAFreeFunction.cpp.o -o 02.AddAsAFreeFunction.exe 

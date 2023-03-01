@@ -1,0 +1,13 @@
+03.ConcurrentCoroutines.cpp: In instantiation of ‘Generator<N> generator(int) [with int N = 1]’:
+03.ConcurrentCoroutines.cpp:113:39:   required from here
+03.ConcurrentCoroutines.cpp:101:14: error: no member named ‘unhandled_exception’ in ‘std::__n4861::__coroutine_traits_impl<Generator<1>, void>::promise_type’ {aka ‘Generator<1>::Promise’}
+  101 | Generator<N> generator(int n)
+      |              ^~~~~~~~~
+03.ConcurrentCoroutines.cpp: In instantiation of ‘Generator<N> generator(int) [with int N = 2]’:
+03.ConcurrentCoroutines.cpp:114:37:   required from here
+03.ConcurrentCoroutines.cpp:101:14: error: no member named ‘unhandled_exception’ in ‘std::__n4861::__coroutine_traits_impl<Generator<2>, void>::promise_type’ {aka ‘Generator<2>::Promise’}
+03.ConcurrentCoroutines.cpp: In instantiation of ‘Generator<N> generator(int) [with int N = 3]’:
+03.ConcurrentCoroutines.cpp:115:37:   required from here
+03.ConcurrentCoroutines.cpp:101:14: error: no member named ‘unhandled_exception’ in ‘std::__n4861::__coroutine_traits_impl<Generator<3>, void>::promise_type’ {aka ‘Generator<3>::Promise’}
+make[1]: [../Build/make.mk:19: 03.ConcurrentCoroutines.exe] Error 1 (ignored)
+make[2]: *** No rule to make target '/home/chris/home/workspace/cpp/A26_Miscellaneous/RandomNumbers/all'. Stop.

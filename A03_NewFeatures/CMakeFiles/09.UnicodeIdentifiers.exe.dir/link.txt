@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/09.UnicodeIdentifiers.exe.dir/09.UnicodeIdentifiers.cpp.o -o 09.UnicodeIdentifiers.exe 

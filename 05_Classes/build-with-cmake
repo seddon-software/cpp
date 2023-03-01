@@ -1,0 +1,5 @@
+clear
+cmake -S . -B build
+cmake --build build --clean-first
+cmake -S SplitFiles -B SplitFiles/build
+cmake --build SplitFiles/build --clean-first

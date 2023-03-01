@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.easy_to_read_patterns.exe.dir/03.easy_to_read_patterns.cpp.o -o 03.easy_to_read_patterns.exe 

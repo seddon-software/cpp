@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/05.SideEffectOperators.exe.dir/05.SideEffectOperators.cpp.o -o 05.SideEffectOperators.exe 

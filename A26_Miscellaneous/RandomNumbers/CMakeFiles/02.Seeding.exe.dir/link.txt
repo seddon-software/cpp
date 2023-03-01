@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.Seeding.exe.dir/02.Seeding.cpp.o -o 02.Seeding.exe 

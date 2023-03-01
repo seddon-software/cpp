@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/07.BinaryTrees.exe.dir/07.BinaryTrees.cpp.o -o 07.BinaryTrees.exe 

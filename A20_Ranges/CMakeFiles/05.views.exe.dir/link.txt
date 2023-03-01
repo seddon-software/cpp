@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/05.views.exe.dir/05.views.cpp.o -o 05.views.exe 

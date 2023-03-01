@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/06.PerfectForwarding_Attempt3.exe.dir/06.PerfectForwarding_Attempt3.cpp.o -o 06.PerfectForwarding_Attempt3.exe 

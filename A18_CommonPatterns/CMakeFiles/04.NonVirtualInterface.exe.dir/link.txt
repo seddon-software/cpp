@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/04.NonVirtualInterface.exe.dir/04.NonVirtualInterface.cpp.o -o 04.NonVirtualInterface.exe 

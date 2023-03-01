@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.TemplatedClasses.exe.dir/02.TemplatedClasses.cpp.o -o 02.TemplatedClasses.exe 

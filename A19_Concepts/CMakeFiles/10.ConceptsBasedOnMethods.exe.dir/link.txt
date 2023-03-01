@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/10.ConceptsBasedOnMethods.exe.dir/10.ConceptsBasedOnMethods.cpp.o -o 10.ConceptsBasedOnMethods.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/08.translate.exe.dir/08.translate.cpp.o -o 08.translate.exe 

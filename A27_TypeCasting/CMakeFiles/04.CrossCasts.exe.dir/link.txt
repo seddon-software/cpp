@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/04.CrossCasts.exe.dir/04.CrossCasts.cpp.o -o 04.CrossCasts.exe 

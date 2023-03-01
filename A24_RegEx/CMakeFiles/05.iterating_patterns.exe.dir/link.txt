@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/05.iterating_patterns.exe.dir/05.iterating_patterns.cpp.o -o 05.iterating_patterns.exe 

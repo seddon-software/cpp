@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/06.RangeBasedLoop.exe.dir/06.RangeBasedLoop.cpp.o -o 06.RangeBasedLoop.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.FunctionObjectsByRef.exe.dir/02.FunctionObjectsByRef.cpp.o -o 02.FunctionObjectsByRef.exe 

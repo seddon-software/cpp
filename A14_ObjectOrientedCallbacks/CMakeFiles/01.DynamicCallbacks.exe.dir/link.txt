@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.DynamicCallbacks.exe.dir/01.DynamicCallbacks.cpp.o -o 01.DynamicCallbacks.exe 

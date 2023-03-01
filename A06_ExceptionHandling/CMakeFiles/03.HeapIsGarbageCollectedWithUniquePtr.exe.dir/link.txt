@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.HeapIsGarbageCollectedWithUniquePtr.exe.dir/03.HeapIsGarbageCollectedWithUniquePtr.cpp.o -o 03.HeapIsGarbageCollectedWithUniquePtr.exe 

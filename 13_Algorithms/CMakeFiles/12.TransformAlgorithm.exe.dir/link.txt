@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/12.TransformAlgorithm.exe.dir/12.TransformAlgorithm.cpp.o -o 12.TransformAlgorithm.exe 

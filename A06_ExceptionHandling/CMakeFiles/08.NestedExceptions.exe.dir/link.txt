@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/08.NestedExceptions.exe.dir/08.NestedExceptions.cpp.o -o 08.NestedExceptions.exe 

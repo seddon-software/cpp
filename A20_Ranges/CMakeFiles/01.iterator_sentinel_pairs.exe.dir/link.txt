@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.iterator_sentinel_pairs.exe.dir/01.iterator_sentinel_pairs.cpp.o -o 01.iterator_sentinel_pairs.exe 

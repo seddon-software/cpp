@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/04.ExceptionsUsingPolymorphism.exe.dir/04.ExceptionsUsingPolymorphism.cpp.o -o 04.ExceptionsUsingPolymorphism.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.TypeInference.exe.dir/01.TypeInference.cpp.o -o 01.TypeInference.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.UniquePtr.exe.dir/03.UniquePtr.cpp.o -o 03.UniquePtr.exe 

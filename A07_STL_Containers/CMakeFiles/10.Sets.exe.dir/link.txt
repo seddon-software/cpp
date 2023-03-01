@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/10.Sets.exe.dir/10.Sets.cpp.o -o 10.Sets.exe 

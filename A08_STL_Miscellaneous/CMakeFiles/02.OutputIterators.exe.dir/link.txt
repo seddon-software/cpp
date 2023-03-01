@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.OutputIterators.exe.dir/02.OutputIterators.cpp.o -o 02.OutputIterators.exe 

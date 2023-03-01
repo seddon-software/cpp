@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.DealingDeckCards.exe.dir/03.DealingDeckCards.cpp.o -o 03.DealingDeckCards.exe 

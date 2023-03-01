@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.TransformTemplated.exe.dir/02.TransformTemplated.cpp.o -o 02.TransformTemplated.exe 

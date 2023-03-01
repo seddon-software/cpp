@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/1.Point.exe.dir/1.Point.cpp.o -o 1.Point.exe 

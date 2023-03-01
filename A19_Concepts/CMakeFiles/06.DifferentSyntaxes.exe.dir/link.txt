@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/06.DifferentSyntaxes.exe.dir/06.DifferentSyntaxes.cpp.o -o 06.DifferentSyntaxes.exe 

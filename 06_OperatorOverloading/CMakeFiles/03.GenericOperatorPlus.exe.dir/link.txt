@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.GenericOperatorPlus.exe.dir/03.GenericOperatorPlus.cpp.o -o 03.GenericOperatorPlus.exe 

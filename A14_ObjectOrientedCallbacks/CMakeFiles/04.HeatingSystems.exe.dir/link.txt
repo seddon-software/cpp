@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/04.HeatingSystems.exe.dir/04.HeatingSystems.cpp.o -o 04.HeatingSystems.exe 

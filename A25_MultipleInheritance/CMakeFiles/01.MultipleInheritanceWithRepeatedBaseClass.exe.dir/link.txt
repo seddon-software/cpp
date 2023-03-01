@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.MultipleInheritanceWithRepeatedBaseClass.exe.dir/01.MultipleInheritanceWithRepeatedBaseClass.cpp.o -o 01.MultipleInheritanceWithRepeatedBaseClass.exe 

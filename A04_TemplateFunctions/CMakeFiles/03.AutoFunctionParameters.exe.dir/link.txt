@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.AutoFunctionParameters.exe.dir/03.AutoFunctionParameters.cpp.o -o 03.AutoFunctionParameters.exe 

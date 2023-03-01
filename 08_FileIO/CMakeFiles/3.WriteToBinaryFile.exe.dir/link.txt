@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/3.WriteToBinaryFile.exe.dir/3.WriteToBinaryFile.cpp.o -o 3.WriteToBinaryFile.exe 

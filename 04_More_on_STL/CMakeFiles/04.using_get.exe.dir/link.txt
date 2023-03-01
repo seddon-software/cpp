@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/04.using_get.exe.dir/04.using_get.cpp.o -o 04.using_get.exe 

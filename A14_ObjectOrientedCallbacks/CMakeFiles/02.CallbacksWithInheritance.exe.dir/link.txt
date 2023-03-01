@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/02.CallbacksWithInheritance.exe.dir/02.CallbacksWithInheritance.cpp.o -o 02.CallbacksWithInheritance.exe 

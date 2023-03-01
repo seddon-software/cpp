@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/5.Aggregation.exe.dir/5.Aggregation.cpp.o -o 5.Aggregation.exe 

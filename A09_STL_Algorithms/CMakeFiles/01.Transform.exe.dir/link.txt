@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.Transform.exe.dir/01.Transform.cpp.o -o 01.Transform.exe 

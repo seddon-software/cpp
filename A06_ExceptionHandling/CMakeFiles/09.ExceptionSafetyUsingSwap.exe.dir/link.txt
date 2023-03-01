@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/09.ExceptionSafetyUsingSwap.exe.dir/09.ExceptionSafetyUsingSwap.cpp.o -o 09.ExceptionSafetyUsingSwap.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/09.RuntimeTypeInformation.exe.dir/09.RuntimeTypeInformation.cpp.o -o 09.RuntimeTypeInformation.exe 

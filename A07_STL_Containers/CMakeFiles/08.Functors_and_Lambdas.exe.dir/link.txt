@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/08.Functors_and_Lambdas.exe.dir/08.Functors_and_Lambdas.cpp.o -o 08.Functors_and_Lambdas.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/05.PolymorphismWithVector.exe.dir/05.PolymorphismWithVector.cpp.o -o 05.PolymorphismWithVector.exe 

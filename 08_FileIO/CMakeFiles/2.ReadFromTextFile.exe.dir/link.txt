@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/2.ReadFromTextFile.exe.dir/2.ReadFromTextFile.cpp.o -o 2.ReadFromTextFile.exe 

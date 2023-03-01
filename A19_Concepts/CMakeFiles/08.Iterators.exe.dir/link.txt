@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/08.Iterators.exe.dir/08.Iterators.cpp.o -o 08.Iterators.exe 

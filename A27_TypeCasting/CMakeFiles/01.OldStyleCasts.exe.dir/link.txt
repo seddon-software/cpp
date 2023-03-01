@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.OldStyleCasts.exe.dir/01.OldStyleCasts.cpp.o -o 01.OldStyleCasts.exe 

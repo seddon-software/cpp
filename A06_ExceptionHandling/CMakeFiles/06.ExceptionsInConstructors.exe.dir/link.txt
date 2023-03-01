@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/06.ExceptionsInConstructors.exe.dir/06.ExceptionsInConstructors.cpp.o -o 06.ExceptionsInConstructors.exe 

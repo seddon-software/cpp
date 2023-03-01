@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/13.SharingDataOnTheHeap.exe.dir/13.SharingDataOnTheHeap.cpp.o -o 13.SharingDataOnTheHeap.exe 

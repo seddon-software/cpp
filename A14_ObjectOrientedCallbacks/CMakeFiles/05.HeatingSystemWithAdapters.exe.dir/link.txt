@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/05.HeatingSystemWithAdapters.exe.dir/05.HeatingSystemWithAdapters.cpp.o -o 05.HeatingSystemWithAdapters.exe 

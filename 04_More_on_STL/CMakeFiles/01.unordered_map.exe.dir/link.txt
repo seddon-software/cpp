@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.unordered_map.exe.dir/01.unordered_map.cpp.o -o 01.unordered_map.exe 

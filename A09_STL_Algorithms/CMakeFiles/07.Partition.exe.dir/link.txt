@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/07.Partition.exe.dir/07.Partition.cpp.o -o 07.Partition.exe 

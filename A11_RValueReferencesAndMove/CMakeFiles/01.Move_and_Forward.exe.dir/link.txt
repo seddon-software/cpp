@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/01.Move_and_Forward.exe.dir/01.Move_and_Forward.cpp.o -o 01.Move_and_Forward.exe 

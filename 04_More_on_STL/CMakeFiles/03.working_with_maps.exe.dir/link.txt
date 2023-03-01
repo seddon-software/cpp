@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.working_with_maps.exe.dir/03.working_with_maps.cpp.o -o 03.working_with_maps.exe 

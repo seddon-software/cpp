@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/15.Initializer_lists.exe.dir/15.Initializer_lists.cpp.o -o 15.Initializer_lists.exe 

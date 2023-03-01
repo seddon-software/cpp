@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/04.PrivateInheritanceAndSubstitutionRule.exe.dir/04.PrivateInheritanceAndSubstitutionRule.cpp.o -o 04.PrivateInheritanceAndSubstitutionRule.exe 

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -Wall CMakeFiles/03.structure_bindings_with_tuple.exe.dir/03.structure_bindings_with_tuple.cpp.o -o 03.structure_bindings_with_tuple.exe 
