@@ -19,7 +19,7 @@ $(EXECUTABLES): %.exe: %.cpp
 	$(CC) $(CFLAGS) $< -o $@ $(LFLAGS)
 
 
-
+# note double colon.  This allows other Makefiles to add addition clean rules 
 clean::
 	- rm -f *.exe
 	

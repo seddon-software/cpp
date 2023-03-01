@@ -67,4 +67,4 @@ To install gcc11 and g++11:
 To install g++11:
     https://lindevs.com/install-g-on-ubuntu/
 
-Currently, gcc11 ships with version 11.1 on Ubuntu 20.04(LTS) and 11.2 on Ubuntu 21.10
+Currently, gcc11 ships with version 11.1 on Ubuntu 20.04(LTS) and 11.3.0 on Ubuntu 22.04
