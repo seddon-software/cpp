@@ -102,7 +102,7 @@ public:
 			{
 				v1 = lhs.m[row];
 				v2 = rhs2.m[col];
-				for(int i = 0; i < v1.size(); i++)
+				for(unsigned i = 0; i < v1.size(); i++)
 				{
 					(result.m)[row][col] += v1[i] * v2[i];
 				}

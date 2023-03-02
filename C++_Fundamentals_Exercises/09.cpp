@@ -12,7 +12,7 @@ int convert(const string& text)
 {
 	int result = 0;
 
-    for(int i = 0; i < text.size(); i++)
+    for(unsigned i = 0; i < text.size(); i++)
     {
     	result *= 2;
     	int k = text[i] - '0';

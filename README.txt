@@ -1,17 +1,4 @@
-Last updated: 4 July 2022
-
-Course Timings:
-===============
-     9.00 - 10.00
-    11.00 - 12.00
-     1.30 -  2.30
-     3.30 -  4.30
-
-Days
-====
-    Tuesday 5 July
-    Wednesday 6 July, start 10
-    Thursday 7 July
+Last updated: 42 Mar 2023
 
 01494 483691
 Chris Seddon

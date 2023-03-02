@@ -31,7 +31,7 @@ map<string, int> determineStems(vector<string>& words)
 
 	for(string word : words)
 	{
-		for(int i = 1; i <= word.size(); i++)
+		for(unsigned i = 1; i <= word.size(); i++)
 		{
 			string stem = word.substr(0, i);
 			stemCounts[stem]++;

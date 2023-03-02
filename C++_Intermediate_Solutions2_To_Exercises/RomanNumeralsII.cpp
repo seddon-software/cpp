@@ -43,13 +43,10 @@ RomanToDecimalMap symbols = {
 
 string decimalToRoman(int decimal)
 {
-//    decimalToRoman(2873);
-
     int digit4 = ((decimal/1000)%10)*1000;
     int digit3 = ((decimal/ 100)%10)* 100;
     int digit2 = ((decimal/  10)%10)*  10;
     int digit1 = ((decimal/   1)%10)*   1;
-    x = lookup[digit4];
     
     return lookup[digit4] + lookup[digit3] + lookup[digit2] + lookup[digit1];
 }
