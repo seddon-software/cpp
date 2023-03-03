@@ -1,6 +1,6 @@
 CC := g++
 WARNINGS := -Wall -Wno-sign-compare
-CFLAGS := -g -O0 $(WARNINGS) -std=c++17
+CFLAGS := -g -O0 $(WARNINGS) -std=c++20
 SOURCES := $(wildcard *.cpp)
 EXECUTABLES := $(SOURCES:.cpp=.exe)
 
