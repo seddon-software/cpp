@@ -1,19 +1,13 @@
-// Tutorial on filesystem: 
-//		https://www.bfilipek.com/2017/08/cpp17-details-filesystem.html
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <iterator>
 #include <algorithm>
 #include <fstream>
-// gcc has not added filesystem head to the library as of version 9.2.0
-// so use the following instead
-#include <experimental/filesystem>
-// note we must also link with LFLAGS = -lstdc++fs
+#include <filesystem>
 
 using namespace std;
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 
 bool search_for_string(const fs::path & pfound, const string& word)
