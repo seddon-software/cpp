@@ -1,6 +1,6 @@
 /*
- *  g++ Compiler
- *  ============
+ *              g++ Compiler
+ *              ============
  * 
  *  C++ programs are compiled.  Today the most common compilers are:
  *      MSVC        Microsoft Compiler (Windows)
