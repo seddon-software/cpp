@@ -1,4 +1,7 @@
 /*
+ *              C++ Overview
+ *              ============
+ * 
  *  C++ is now over 40 years old.  Originally C++ was an offshoot of the C programming language with classes added.  In time C++ diverged markedly from C.
  *  THe biggest change came in 2011 (C++11) when a whole host of features were added to the language.  Another very significant change was in 2020 (C++20).
  * 
@@ -16,7 +19,6 @@
  *  allow us to ignore C++11 and what came before.  This is what makes learning C++ so difficult: the sheer quantity of constructs in the language.  In these notes I've split
  *  the large number of chapters into two groups.  The basic chapters with simple numbers and addvanced chapters where I've prependended the letter 'A' to their titles.
  */
-
 
 int main()
 {

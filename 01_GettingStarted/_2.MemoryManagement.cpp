@@ -1,7 +1,10 @@
 /*
+ *              Memory Model
+ *              ============
+ * 
  *  C++ programs use virtual memory.  The MMU (memory management unit) hardware unit is responsible for mapping virtual memory to physical memory.
  *  The C++ compiler works entirely with virtual memory.  Each process has 2**64 bytes of virtual memory (a large proportion of this may be empty, i.e. not mapped to physical memory).  Using virtual
- *  memory has many advantages: in partucular each process is exactly the same virtual size and memory appears contiguous.  The upper half of the address space is used by the kernel and is
+ *  memory has many advantages: in particular each process is exactly the same virtual size and memory appears contiguous.  The upper half of the address space is used by the kernel and is
  *  inaccesible by the programmer.
  * 
  *    2**64 ┌─────────────┐  
