@@ -1,6 +1,6 @@
 /*
- *  In C all arrays are fixed size.  The C++ vector is a dynamic array in the sense that you can expand the vector 
- *  at a later date with the push_back() method:
+ *  In C all arrays are fixed size.  The C++ vector is a dynamic array in the sense that you can expand the
+ *  vector at a later date with the push_back() method:
  * 
  *  It's easy to iterate through a vector using the range based for loop (see below).
  */
