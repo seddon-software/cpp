@@ -1,0 +1,2 @@
+#! /bin/sh
+find . -type d -name build -exec ls -d {} \; -exec rm -rf {} +

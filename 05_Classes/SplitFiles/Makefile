@@ -1,9 +1,10 @@
 include ../../Build/make.mk
 
+all: main
 
-Test: Point.cpp Test.cpp
+main: Point.cpp Test.cpp
 	$(CC) $(CFLAGS) $(LFLAGS) Point.cpp Test.cpp -o $@
-	mv Test Test.exe
+	mv Test main
 
 
 
