@@ -27,7 +27,7 @@ void ffffff(int x, double y) {}
 int main()
 {
     // inspect file with hexdump
-    string cmd = "nm 4.NameMangling.exe | grep ffffff"s; 
+    string cmd = "nm 04.NameMangling.exe | grep ffffff"s; 
     system(cmd.c_str());
 }
 
