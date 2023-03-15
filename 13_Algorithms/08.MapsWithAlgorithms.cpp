@@ -27,8 +27,8 @@ public:
 	Query(int salary): salary(salary) {}
 	bool operator()(const pair<string, int>& p)
 	{
-		string name = get<0>(p);
-		int amount = get<1>(p);
+//		const string& name = get<0>(p);
+		const int& amount = get<1>(p);
 		return amount < 25000;
 	}
 private:
