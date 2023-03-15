@@ -10,22 +10,22 @@ public:
 	~Shape() { cout << "Shape::DTOR()" << endl; }
 };
 
-class Polygon : public Shape
+class Rectangle : public Shape
 {
 public:
 	void draw() { cout << "Rectangle::draw()" << endl; }
 	void show() { cout << "Rectangle::show()" << endl; }
 	void hide() { cout << "Rectangle::hide()" << endl; }
-	~Polygon() { cout << "Rectangle::DTOR()" << endl; }
+	~Rectangle() { cout << "Rectangle::DTOR()" << endl; }
 };
 
-class Rectangle : public Shape
+class Polygon : public Shape
 {
 public:
 	void draw() { cout << "Polygon::draw()" << endl; }
 	void show() { cout << "Polygon::show()" << endl; }
 	void hide() { cout << "Polygon::hide()" << endl; }
-	~Rectangle() { cout << "Polygon::DTOR()" << endl; }
+	~Polygon() { cout << "Polygon::DTOR()" << endl; }
 };
 
 class Ellipse : public Shape
