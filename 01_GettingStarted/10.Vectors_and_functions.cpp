@@ -3,9 +3,10 @@
  *  declare card as:
  *              for(const auto& card : h) { ...}
  * 
- *  Note that the const is already implied by using "auto", but it's better to be explicit rathaer than implicit.
+ *  Note that the const is already implied by using "auto", but it's better to be explicit rather than implicit.
  *  Thus we could have written:
  *              for(auto& card : h) { ...}
+ *  instead.
  */
 
 #include <iostream>

@@ -5,8 +5,8 @@
  *	                i *= 2;
  *              }
  *
- *  This allows you to modify the contents of the vector.  It's common place to use auto when declaring
- *  the reference (less error prone):
+ *  By using an auto reference, i becomes an alias to the vector and hence allows you to modify the 
+ *  contents of the vector:
  *              for(auto& i : v)
  */
 

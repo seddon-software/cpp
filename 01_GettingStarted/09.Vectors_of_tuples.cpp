@@ -1,6 +1,6 @@
 /*
- *  vectors are very versatile; they can hold many different types (but not at the same time).  In this example
- *  we place tuples (cards) inside our vector. 
+ *  vectors are very versatile; they can hold many different types (but not at the same time).  In this 
+ *  example we place cards defined as tuples inside our vector. 
  * 
  *  Notice how the compiler makes it very easy to add an extra card to the vector:
  *              hand.push_back({"seven", "diamonds"});
@@ -9,6 +9,9 @@
  *              {"seven", "diamonds"}
  * 
  *  is interprted as a tuple (without having to declare it explicitly).
+ * 
+ *  Note the compiler has to be told all the template parameters - it can't deduce them in a complicated
+ *  example like this.
  */
 
 #include <iostream>
@@ -30,7 +33,7 @@ int main()
 
     hand.push_back({"seven", "diamonds"});
 
-    for(auto& card : hand)
+    for(auto card : hand)
     {
         cout << get<0>(card) <<" of " << get<1>(card) << endl;
     }

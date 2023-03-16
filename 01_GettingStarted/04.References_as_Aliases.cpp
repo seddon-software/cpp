@@ -1,6 +1,8 @@
 
 /*
- *  References are usually used to extend the scope of a variable in another function.  However, since they are aliases they can also be used to simplify notation (as in this example).
+ *  References are usually used to extend the scope of a variable such that it is accessible 
+ *  in another function (as in the swap example).  However, since they are aliases they can 
+ *  also be used to simplify notation (as in this example).
  */
 
 #include <iostream>

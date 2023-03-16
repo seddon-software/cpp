@@ -8,8 +8,8 @@
  *  When iterating using the for range loop you can use "auto" to declare the range variable:
  *                  for(auto i : v)
  *
- *  By using "auto" you let the compiler to determine the type of the range variable.  This is less error prone
- *  and handy if you later change the type of the vector (no need to change the code). 
+ *  By using "auto" you let the compiler to determine the type of the range variable.  This is less error 
+ *  prone and handy if you later change the type of the vector (no need to change the code). 
  */
 
 #include <iostream>
