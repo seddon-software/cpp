@@ -1,18 +1,3 @@
-//////////////////////////////////////////////////////////////////////
-//
-//		Placement new
-//
-//////////////////////////////////////////////////////////////////////
-
-#include <new>
-#include <string>
-#include <iostream>
-using namespace std;
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/mman.h>
-
 /*
  *  This example is very similar to the last one, except this time we use mmap and the Linux API to 
  *  write our objects to memory mapped files:
@@ -27,6 +12,17 @@ using namespace std;
  *  After the program finishes you can check the contents of the two binary files using the "hexdump"
  *  utility.
  */
+
+#include <new>
+#include <string>
+#include <iostream>
+using namespace std;
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
+
 
 template <typename T>
 T* memoryAllocator(int fd, int size)

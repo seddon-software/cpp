@@ -1,18 +1,14 @@
-////////////////////////////////////////////////////////////
-//
-//      Default Parameters
-//
-////////////////////////////////////////////////////////////
+/*
+ *  Functions can have default parameters.  The only restriction is that defaults must all be defined 
+ *  from the right hand side of the function.  Furthermore, the defaults must be specified in the function 
+ *  prototype and not in the function itself.  
+ * 
+ *  Note that the compiler allows you to omit parameter names in the prototype because the names are ignored.
+ *  This is common practice.
+ */
 
 #include <iostream>
 using namespace std;
-
-/*
- *  Functions can have default parameters.  The only restrictions is that defaults must all be defined 
- *  from the right hand side of the function.  The defaults must be specified in the function prototype
- *  and not in the function itself.  Note that the compiler allows you to omit parameter names in the
- *  prototype.
- */
 
 // defaults should be declared in the prototype
 void f(int, int = 99, int = 999);  // prototype doesn't need to specify 

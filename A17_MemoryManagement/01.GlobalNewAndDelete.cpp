@@ -1,15 +1,3 @@
-//////////////////////////////////////////////////////////////////////
-//
-//		Global new and delete
-//
-//////////////////////////////////////////////////////////////////////
-
-
-#include <cstddef>
-#include <cstdlib>
-#include <iostream>
-using namespace std;
-
 /*
  *  Allocating objects on the heap is achieved by using the "new" operator.  If you wish to customise
  *  allocation you can overload this operator.  It turns out you can overload "new" globally or on a
@@ -44,6 +32,13 @@ using namespace std;
  *          delete[] --> DTOR * N
  *                   └-> operator delete() --> free()
  */
+
+
+#include <cstddef>
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+
 
 class A 
 {

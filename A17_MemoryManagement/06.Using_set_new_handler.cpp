@@ -1,8 +1,7 @@
-//////////////////////////////////////////////////////////////////////
-//
-//		Using set_new_handler
-//
-//////////////////////////////////////////////////////////////////////
+/*
+ *  The set_new_handler function allows you to install a handler that is called whenever a memory 
+ *  allocation attempt fails. 
+ */ 
 
 #include <new>
 #include <cstdlib>
@@ -10,10 +9,6 @@
 #include <string>
 using namespace std;
 
-/*
- *  The set_new_handler function allows you to install a handler that is called whenever a memory 
- *  allocation attempt fails.
- */ 
 
 enum { MByte = 1024 * 1024 };  
 
@@ -32,12 +27,12 @@ int main()
     cout << "This program will grab a huge amount of memory" << endl
          << "your system may slow to a snails pace if you continue" << endl;
     string dummy;
-    cout << "Hit return to continue of Ctrl-C to quit" << endl; 
+    cout << "Hit return to continue or Ctrl-C to quit" << endl; 
     getline(cin, dummy);
 	while(true)
 	{
-		new char[500 * MByte];
-		MBytes += 500;
+		new char[1000 * MByte];
+		MBytes += 1000;
 		cout << MBytes << " MBytes allocated" << endl;
 	}
 }

@@ -1,14 +1,3 @@
-//////////////////////////////////////////////////////////////////////
-//
-//		Placement new
-//
-//////////////////////////////////////////////////////////////////////
-
-
-#include <new>
-#include <iostream>
-using namespace std;
-
 /*
  *  A much more practical use of these additional overloads is "placement new".  The idea here is
  *  to tell the allocation routines where to place the object in memory.  With placement new, we
@@ -27,6 +16,12 @@ using namespace std;
  *          points[i].~Point();
  *          dates[i].~Date(); 
  */
+
+
+#include <new>
+#include <iostream>
+using namespace std;
+
 
 #if defined(WIN32)
 #include <windows.h>

@@ -1,6 +1,6 @@
 /*
  *  Inlining a function is just a suggestion to the compiler. The Compiler may or may not inline the functions
- *  you marked as inline.  Further, the compiler may adecide to inline functions NOT marked as inline at 
+ *  you marked as inline.  Further, the compiler may decide to inline functions NOT marked as inline at 
  *  compilation or linking time.
  * 
  *  Because if the above, it is best to avoid inlining functions altogether and let the compiler decide what

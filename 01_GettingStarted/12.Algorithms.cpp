@@ -1,8 +1,9 @@
 /*
  *  The algorithms in the STL apply to many different types of containers.  It was decided that the best way
  *  of handling consistency across these containers was to use iterators.  Each container can produce its own
- *  type of iterator for taking part in various algorithms.  Here we look at a small samall of algorithms from
- *  the <algorithms> and <numeric> libraries. 
+ *  type of iterator for taking part in various algorithms.  Here we look at a small sample of algorithms from
+ *  the <algorithms> and <numeric> libraries.  Note that in C++20 an equivalent set of algorithms have been 
+ *  defined that use ranges instead of iterators. 
  */
 
 #include <iostream>

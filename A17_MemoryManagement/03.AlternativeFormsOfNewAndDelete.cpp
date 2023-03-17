@@ -1,16 +1,3 @@
-//////////////////////////////////////////////////////////////////////
-//
-//      Alternative Forms of new and delete
-//
-//////////////////////////////////////////////////////////////////////
-
-#include <cstdlib>
-#include <cstring>
-#include <stdexcept>
-#include <string>
-#include <iostream>
-using namespace std;
-
 /*
  *  If the previous 8 overloads are not enough you can define a number of additional oveloads.  Basically
  *  operator new and operator delete can have as many additional parameters as you like and you can use
@@ -42,6 +29,14 @@ using namespace std;
  * 
  *  Question: why is it necessary for operator new to return a void* ?
  */
+
+#include <cstdlib>
+#include <cstring>
+#include <stdexcept>
+#include <string>
+#include <iostream>
+using namespace std;
+
 
 class Point
 {

@@ -1,20 +1,15 @@
-//////////////////////////////////////////////////////////////////////
-//
-//		Class Specific new and delete
-//
-//////////////////////////////////////////////////////////////////////
-
-#include <new>
-#include <cstdlib>
-#include <iostream>
-using namespace std;
-
 /*
  *  Overloading global new and delete is a bit drastic, because it effects not just your code, 
  *  but library code as well.  It's much more common to overload these operators on a class by
  *  class basis.  Consider the code below, the scheme is similar to global new and delete, with
  *  additional forms for arrays of objects.
  */
+
+#include <new>
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+
 
 class Point
 {

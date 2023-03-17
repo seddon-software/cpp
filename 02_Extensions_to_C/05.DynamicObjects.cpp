@@ -1,12 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Dynamic objects: new and delete
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-using namespace std;
-
 /*
  *  Local objects are stored on the stack and their lifetimes are therefore restricted to the lifetime of
  *  the function in which they are declared.  If you want a long lived object that persists across function 
@@ -15,6 +6,10 @@ using namespace std;
  * 
  *  new and delete should be called in pairs to avoid memory leakage.
  */
+
+#include <iostream>
+using namespace std;
+
 
 class Point
 {
