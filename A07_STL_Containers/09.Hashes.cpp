@@ -1,15 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Hashes
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <string>
-#include <unordered_map>
-#include <algorithm>
-using namespace std;
-
 /*  
  *  When the container classes were introduced with C++11, the only key-value pair container class
  *  was map.  As stated earlier, this is based around a binary tree and provides ordering of the 
@@ -17,6 +5,13 @@ using namespace std;
  *  container is slightly more efficient for searches, O(1) compared to the binary tree, O(logN) 
  *  at the expense of not maintaining an order of the constituents.
  */
+
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+
 
 using PAIR = pair<string, int>;
 using HASH = unordered_map<string, int>;

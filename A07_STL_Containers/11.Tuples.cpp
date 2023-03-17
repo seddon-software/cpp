@@ -1,14 +1,15 @@
+/*  
+ *  The tuple template was introduced in C++11 and is a fixed-size collection of heterogeneous values,
+ *  with the types thereof specified as template parameters.
+ * 
+ *  This example focuses on some of the common methods of the tuple template.
+ */
+
 #include <tuple>
 #include <string>
 #include <iostream>
 using namespace std;
 
-/*  
- *  The tuple template was introduce in C++11 and is a fixed-size collection of heterogeneous values,
- *  with the types thereof specified as template parameters.
- * 
- *  This example focuses on some of the common methods of the tuple template.
- */
 
 int main()
 {

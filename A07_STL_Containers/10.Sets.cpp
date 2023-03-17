@@ -1,15 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Set - duplicate inserts
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <string>
-#include <set>
-
-using namespace std;
-
 /*  
  *  set is an associative container that contains a sorted set of unique objects called keys. Sorting is done 
  *  using a key comparison function.  Search, removal, and insertion operations have O(logN) complexity. Sets 
@@ -23,6 +11,11 @@ using namespace std;
  * This allows us to check if an insert works or fails because of a duplicate key
  */
 
+#include <iostream>
+#include <string>
+#include <set>
+
+using namespace std;
 
 // note: a set must define a comparator because elements are ordered
 using SET = set<string, less<string>>;

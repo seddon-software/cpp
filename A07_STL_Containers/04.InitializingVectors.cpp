@@ -1,15 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Vector - using iterators
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 /*  
  *  STL collections can be initialized like other C++ objects.  In this example we use {} intialization.
  *  However, if we want to use string objects in the collection as opposed to const char* arrays and
@@ -22,6 +10,13 @@ using namespace std;
  *      2. the range based loop iterates through the collection, but the compiler still calls begin() 
  *          and end() behind the scenes. 
  */
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 
 int main()
 {

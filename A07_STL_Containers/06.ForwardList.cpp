@@ -1,8 +1,7 @@
-////////////////////////////////////////////////////////////
-//
-//      Forward List
-//
-////////////////////////////////////////////////////////////
+/*
+ * The list class is an implementation of a doubly linked list; whereas the forward_list is an 
+ * implementation of a singly linked list (can only be traversed in one direction).
+ */
 
 #include <iostream>
 #include <string>
@@ -10,10 +9,6 @@
 #include <algorithm>
 using namespace std;
 
-/*
- *  The list class is implemented as a doubly linked list, the forward_list is the equivalent
- *  singly linked list that can only be traversed in one direction.
- */
 
 int main()
 {

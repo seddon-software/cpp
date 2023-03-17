@@ -1,15 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Hashes
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <string>
-#include <unordered_map>
-#include <algorithm>
-using namespace std;
-
 /*
  *  In older C++ code, before the advent of lamdas, functors were used to add state information
  *  to functions, since functions are not allowed to hold attributes.  Nowadays we can use lambdas
@@ -24,6 +12,13 @@ using namespace std;
  *  Finally, note that after defining the functor, we pass an instance as a parameter to the find_if 
  *  algorithm.  The STL will then call back on Query::operator().  Similarly with the lambda example. 
  */
+
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+
 
 using PAIR = pair<string, int>;
 using HASH = unordered_map<string, int>;

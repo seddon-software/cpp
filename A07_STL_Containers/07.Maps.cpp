@@ -1,14 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Map
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <string>
-#include <utility>
-#include <map>
-
 /*  
  *  The map class is used to store key-value pairs in a red-black binary tree.  The implementation
  *  includes an order which can be specified as an optional comparison template.  By default the
@@ -20,6 +9,12 @@
  *  <map> header file, but actually defined in <utility>.  The pair template defines two components:
  *  first and second.
  */
+
+#include <iostream>
+#include <string>
+#include <utility>
+#include <map>
+
 
 using namespace std;
 

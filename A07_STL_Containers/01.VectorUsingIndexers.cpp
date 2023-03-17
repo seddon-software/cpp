@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Vector  - using []
-//
-////////////////////////////////////////////////////////////
-
 /*  
  *  Vectors are templated sequence containers representing arrays that can change in size.  vectors 
  *  use contiguous storage locations for their elements, which means that their elements can also be 

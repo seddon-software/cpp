@@ -1,15 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Vector - using iterators
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 /*  
  *  The Standard Template Library (STL) provides several collection classes.  The vector class (already 
  *  discussed) supports random access and hence overloads the [] operator.  Other collection classes, such
@@ -36,6 +24,13 @@ using namespace std;
  *  Let's revisit the vector class example using iterators.  Note that since iterators are generalized
  *  pointers, they overload * ++ != to behave in a similar way to C pointers.
  */
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 
 int main()
 {

@@ -1,8 +1,8 @@
-////////////////////////////////////////////////////////////
-//
-//      Arrays
-//
-////////////////////////////////////////////////////////////
+/*
+ *  Now we a templated vector class it seems a natural extension to provide a fixed size vector
+ *  that doesn't dynamically resize (for effeciency).  Such a class is called array.  Note at the end 
+ *  of the example we show how to convert array to the equivalent C construct.
+ */
 
 #include <iostream>
 #include <array>
@@ -10,11 +10,6 @@
 #include <algorithm>
 using namespace std;
 
-/*
- *  Now we a templated vector class it seems a natural extension to provide a fixed size vector
- *  that doesn't dynamically resize (for effeciency).  Such a class is called array.  Note at the end 
- *  of the example we show how to convert array to the equivalent C construct.
- */
 
 int main()
 {
