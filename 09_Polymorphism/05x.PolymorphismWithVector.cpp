@@ -1,3 +1,8 @@
+/*
+ * smart pointers in next example
+ * mention virtual destructors
+ */
+
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -57,7 +62,9 @@ int main()
 	v.push_back(new Polygon());
 	v.push_back(new Ellipse());
 	v.push_back(new Rectangle());
+
 	show_all(v);
+
 	for(auto& ptr:v)
 	{
 		delete ptr;

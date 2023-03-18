@@ -1,12 +1,12 @@
 /*
- * This is the same example, but with heap based objects.  As with all heap base objects it is the programmers
- * responsibility to clean up the heap at the end of the program, hence:  
- *          for(auto& ptr : theList)
+ * This is a similar example where we use references instead of pointers:
+ *          void HideControl(Control& p)
  *          {
- *              delete ptr;   
+ *              p.hide();      // late binding
  *          }
  *
- *
+ * In this case late binding still works.
+ * 
  * Note: to view VTables in vscode you need to use the Debug Console:
  *      -exec info vtbl s1
  *      -exec info vtbl s2
@@ -26,7 +26,7 @@ public:
     Control() {}
     virtual void show() { cout << "Control::show()" << endl; }  // dummy implementation for demo
     virtual void hide() { cout << "Control::hide()" << endl; }
-    virtual void update() { cout << "Control::update()" << endl; }
+    virtual void draw() { cout << "Control::draw()" << endl; }
     virtual ~Control() { cout << "Control::DTOR" << endl; }
 };
 
@@ -36,7 +36,7 @@ public:
     ScrollBar() {}
     virtual void show() { cout << "ScrollBar::show()" << endl; }
     virtual void hide() { cout << "ScrollBar::hide()" << endl; }
-    virtual void update() { cout << "ScrollBar::update()" << endl; }
+    virtual void draw() { cout << "ScrollBar::draw()" << endl; }
     virtual ~ScrollBar() { cout << "ScrollBar::DTOR" << endl; }
 };
 
@@ -46,7 +46,7 @@ public:
     Button() {}
     virtual void show() { cout << "Button::show()" << endl; }
     virtual void hide() { cout << "Button::hide()" << endl; }
-    virtual void update() { cout << "Button::update()" << endl; }
+    virtual void draw() { cout << "Button::draw()" << endl; }
     virtual ~Button() { cout << "Button::DTOR" << endl; }
 };
 
@@ -56,37 +56,31 @@ public:
     Polygon() {}
     virtual void show() { cout << "TextBox::show()" << endl; }
     virtual void hide() { cout << "TextBox::hide()" << endl; }
-    virtual void update() { cout << "TextBox::update()" << endl; }
+    virtual void draw() { cout << "TextBox::draw()" << endl; }
     virtual ~Polygon() { cout << "TextBox::DTOR" << endl; }
 };
 
 //////
 
-void hideControl(Control* p)
+void HideControl(Control& p)
 {
-    p->hide();
+    p.hide();      // late binding
 }
 
 int main()
 {
-    // create all our controls on the heap
-    vector<Control*> theList;
-    theList.push_back(new ScrollBar());
-    theList.push_back(new ScrollBar());
-    theList.push_back(new Button());
-    theList.push_back(new Button());
-    theList.push_back(new Polygon());
-    theList.push_back(new Polygon());
+    ScrollBar s1;
+    ScrollBar s2;
+    Button    b1;
+    Button    b2;
+    Polygon   t1;
+    Polygon   t2;
 
-    for (unsigned i = 0; i < theList.size(); ++i)
-    {
-        hideControl(theList[i]);
-    }
-
-    // clean up the heap
-    for(auto& ptr : theList)
-    {
-        delete ptr;   
-    }
+    HideControl(s1);
+    HideControl(s2);
+    HideControl(b1);
+    HideControl(b2);
+    HideControl(t1);
+    HideControl(t2);
 }
 

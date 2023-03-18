@@ -1,3 +1,7 @@
+/*
+ * heap based object automatically cleaned up
+ */
+
 #include <iostream>
 #include <vector>
 #include <memory>

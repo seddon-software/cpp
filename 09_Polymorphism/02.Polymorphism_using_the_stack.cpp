@@ -1,10 +1,54 @@
-////////////////////////////////////////////////////////////
-//
-//      Polymorphism
-//
-////////////////////////////////////////////////////////////
+/*
+    In this example we examine late binding with a polymorphic group of objects created on the stack.  
+    Groups of objects from an inheritance hierrachy are called polymophic collections.
 
-/* 
+    C++ uses v-tables to implement late binding.  If a method is marked as virtual in the base class, the 
+    compiler creates one V-Table per class and places a pointer to the V-Table in every object:
+
+          s1                   ScrollBar V-Table
+     ┌──────────┐      ┌───────────────────────────────┐
+     │  _vptr   │----->│ ScrollBar::show() {...}       │
+     │   ...    │  │   │ ScrollBar::hide() {...}       │
+     └──────────┘  │   │ ScrollBar::draw() {...}       │
+          s2       │   │ ScrollBar::~ScrollBar() {...} │
+     ┌──────────┐  │   └───────────────────────────────┘
+     │  _vptr   │--┘
+     │   ...    │ 
+     └──────────┘
+
+          b1                   Button V-Table
+     ┌──────────┐      ┌───────────────────────────────┐
+     │  _vptr   │----->│ Button::show() {...}          │
+     │   ...    │  │   │ Button::hide() {...}          │
+     └──────────┘  │   │ Button::draw() {...}          │
+          b2       │   │ Button::~Button() {...}       │
+     ┌──────────┐  │   └───────────────────────────────┘
+     │  _vptr   │--┘
+     │   ...    │ 
+     └──────────┘
+
+          t1                   TextBox V-Table
+     ┌──────────┐      ┌───────────────────────────────┐
+     │  _vptr   │----->│ TextBox::show() {...}         │
+     │   ...    │  │   │ TextBox::hide() {...}         │
+     └──────────┘  │   │ TextBox::draw() {...}         │
+          t2       │   │ TextBox::~TextBox() {...}     │
+     ┌──────────┐  │   └───────────────────────────────┘
+     │  _vptr   │--┘
+     │   ...    │ 
+     └──────────┘
+ * 
+ * This effectively produces a dynamic switch statement and insures the approriate method is called
+ * at run time when late binding is used as in:
+ *          void HideControl(Control* p)
+ *          {
+ *              p->Hide();
+ *          }
+ * 
+ * STL classes do not allow you to add objects by reference.  If you wish to add objects to a vector (and not 
+ * copies thereof) you must declare the collection with a pointer:
+ *          vector<Control*> theList;
+ * 
  * Note: to view VTables in vscode you need to use the Debug Console:
  *      -exec info vtbl s1
  *      -exec info vtbl s2
@@ -16,7 +60,6 @@
 #include <vector>
 
 using namespace std;
-
 
 class Control
 {
@@ -60,43 +103,6 @@ void HideControl(Control* p)
 {
     p->Hide();
 }
-/*
-    If a method is marked as virtual in the base class, the compiler creates
-    one V-Table per class and places a pointer to the V-Table in every object:
-
-          s1                   ScrollBar V-Table
-     ┌──────────┐      ┌───────────────────────────────┐
-     │  _vptr   │----->│ ScrollBar::show() {...}       │
-     │   ...    │  │   │ ScrollBar::hide() {...}       │
-     └──────────┘  │   │ ScrollBar::draw() {...}       │
-          s2       │   │ ScrollBar::~ScrollBar() {...} │
-     ┌──────────┐  │   └───────────────────────────────┘
-     │  _vptr   │--┘
-     │   ...    │ 
-     └──────────┘
-
-          b1                   Button V-Table
-     ┌──────────┐      ┌───────────────────────────────┐
-     │  _vptr   │----->│ Button::show() {...}          │
-     │   ...    │  │   │ Button::hide() {...}          │
-     └──────────┘  │   │ Button::draw() {...}          │
-          b2       │   │ Button::~Button() {...}       │
-     ┌──────────┐  │   └───────────────────────────────┘
-     │  _vptr   │--┘
-     │   ...    │ 
-     └──────────┘
-
-          t1                   TextBox V-Table
-     ┌──────────┐      ┌───────────────────────────────┐
-     │  _vptr   │----->│ TextBox::show() {...}         │
-     │   ...    │  │   │ TextBox::hide() {...}         │
-     └──────────┘  │   │ TextBox::draw() {...}         │
-          t2       │   │ TextBox::~TextBox() {...}     │
-     ┌──────────┐  │   └───────────────────────────────┘
-     │  _vptr   │--┘
-     │   ...    │ 
-     └──────────┘
-*/
 
 int main()
 {
