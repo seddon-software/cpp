@@ -1,7 +1,3 @@
-#include <iostream>
-#include <exception>
-using namespace std;
-
 /*
  *  With exception handling, you can define several catch handlers.  When an exception is thrown
  *  only one handler will be called.  The compiler will ensure the handler matches the class of 
@@ -13,6 +9,11 @@ using namespace std;
  *  By using struct and public inheritance, we simplify our code while still supporting the substitution
  *  rule (which requires public inheritance).
  */
+
+#include <iostream>
+#include <exception>
+using namespace std;
+
 
 struct A : exception {};
 struct B : exception {};

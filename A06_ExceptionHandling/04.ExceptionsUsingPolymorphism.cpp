@@ -1,10 +1,5 @@
-////////////////////////////////////////////////////////////
-//
-//	Exceptions using Inheritance
-//
-////////////////////////////////////////////////////////////
-
-/*  An interesting method of catching exceptions is to use Polymorphism by creating
+/*  
+ *  An interesting method of catching exceptions is to use Polymorphism by creating
  *  multiple polymorphic handler methods.  In this example we define a base class with
  *  a pure virtual method called "diagnose".  All derived classes then implement this 
  *  method.  We can now catch base class objects by reference and use the V-Tables to 

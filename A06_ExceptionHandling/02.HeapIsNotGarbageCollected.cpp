@@ -1,16 +1,12 @@
-////////////////////////////////////////////////////////////
-//
-//		Heap is not garbage collected
-//
-////////////////////////////////////////////////////////////
 
-/* The biggest problem when using exception handling is that heap based objects
+/* 
+ * The biggest problem when using exception handling is that heap based objects
  * don't get cleaned up.  In this example we create 3 stack based Person objects
  * and one heap based object in functions calle from "main".  Finally we throw an 
  * exception to find that all the stack based objects get cleaned up (their DTORs
  * are called), but the heap based object is not cleaned up.
  * 
- * To overcome this problem we need to use smart pointers (see next example).
+ * To overcome this problem we need to use smart pointers (see a later example).
  */
 
 #include <iostream>

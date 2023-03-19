@@ -1,10 +1,5 @@
-////////////////////////////////////////////////////////////
-//
-//		Heap is garbage collected
-//
-////////////////////////////////////////////////////////////
-
-/*  As discussed in the previous example, heap based objects don't get cleaned up
+/*  
+ *  As discussed in the previous example, heap based objects don't get cleaned up
  *  if an exception is thrown.  However if we use a smart pointer to track every 
  *  heap based object we can remedy the situation.  This is because the smart pointer 
  *  is stack based and so it will be cleaned up by the compiler.  Its DTOR will call

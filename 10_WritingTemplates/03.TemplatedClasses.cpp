@@ -1,12 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Classes using templates
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-using namespace std;
-
 /*
  *  Templated classes are really just a group of templated functions wrapped up in a class.  Consider
  *  the Array class in this example.  It is templated on the typename T and an int N.  Interestingly
@@ -27,6 +18,10 @@ using namespace std;
  * 
  *  Parameterizing method names is reserved for specialization (see later examples).
  */
+
+#include <iostream>
+using namespace std;
+
 
 // define templated class definition
 template <typename T = int, int N = 3>

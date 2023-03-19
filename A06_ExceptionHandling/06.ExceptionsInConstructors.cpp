@@ -1,18 +1,14 @@
-////////////////////////////////////////////////////////////
-//
-//		Exceptions in Constructors
-//
-////////////////////////////////////////////////////////////
+/*  
+ *  CTORs may throw exceptions.  If a composite object throws, then DTORs are only called on the 
+ *  parts that were constructed without throwing.  In this example we have a Person object consisting
+ *  of two MyStrings and two Dates.  The example shows what happens when various CTORs throw.
+ */
 
 #include <iostream>
 #include <string>
 #include <stdexcept>
 using namespace std;
 
-/*  CTORs may throw exceptions.  If a composite object throws, then DTORs are only called on the 
- *  parts that were constructed without throwing.  In this example we have a Person object consisting
- *  of two MyStrings and two Dates.  The example shows what happens when various CTORs throw.
- */
 bool trace = false;   // used to inhib unnecessary output
 
 void print(const string& s)

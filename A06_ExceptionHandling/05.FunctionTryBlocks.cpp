@@ -1,20 +1,12 @@
-////////////////////////////////////////////////////////////
-//
-//		Function Try Blocks
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <stdexcept>
-using namespace std;
-
-/*  This example is adapted from cppreference.com
+/*  
+ *  This example is adapted from cppreference.com
  *  According to cppreference.com, the primary purpose of function-try-blocks is to respond to an 
  *  exception thrown from the member initializer list in a CTOR.  These try blocks are rarely used
  *  with other functions.
  */
 
 #include <iostream>
+#include <stdexcept>
 #include <exception>
 #include <string>
 using namespace std;

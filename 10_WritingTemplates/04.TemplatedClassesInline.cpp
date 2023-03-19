@@ -1,12 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Classes using templates
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-using namespace std;
-
 /*
  *  Here is the same example, but with the implementations of the template member functions written
  *  inline.  As you can see this is much more concise and is often the preferred approach.
@@ -18,6 +9,10 @@ using namespace std;
  *  and implementation code ends up in header files.  Suffice to say, this is now the recommended
  *  practice.
  */
+
+#include <iostream>
+using namespace std;
+
 
 // define generic template for Array<T,N>
 template <typename T = int, int N = 3>

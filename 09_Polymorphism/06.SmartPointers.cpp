@@ -1,5 +1,9 @@
 /*
- * heap based object automatically cleaned up
+ * 	We can use unique pointers to avoid having to clean up the heap manually:
+ *          vector<unique_ptr<Shape>> v;
+ * 
+ *  When the stack based vector is cleaned up by the compiler, the destructor for each unique_ptr is
+ *  called.  Each unique_ptr destructor calls the destructor for its associated heap based Shape.
  */
 
 #include <iostream>
