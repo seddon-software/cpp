@@ -1,17 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      manipulating in memory strings
-//
-////////////////////////////////////////////////////////////
-
-#include <iostream>
-#include <vector>
-#include <string>
-#include <sstream>
-
-#include <cstdio>
-#include <cstring>
-
 /*
  *  It's often the case that you want to manipulate strings in memory before output and it would
  *  be very convenient if you could use the same syntax as used with cout.  The stringstream 
@@ -23,6 +9,14 @@
  *              s >> word
  *  These words are then appended to a vector before outputting.
  */
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+
+#include <cstdio>
+#include <cstring>
 
 using namespace std;
 

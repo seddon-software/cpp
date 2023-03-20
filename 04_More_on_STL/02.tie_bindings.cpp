@@ -1,12 +1,17 @@
+/*
+ *  tie binding allow you to return multiple results from a function by utilising a tuple in the called
+ *  function.  The calling function uses std::tie to unpack the return values.
+ * 
+ *  Note: you must explicitly declare variable to be used in tie bindings.  As we will see in the next
+ *  example this restriction is not present with structure bindings, so that most people will use them
+ *  in preference to tie bindings.
+ */
+
 #include <iostream>
 #include <tuple>
 #include <string>
 
 using namespace std; 
-
-/*  
- */
-
 
 auto get_data()
 {

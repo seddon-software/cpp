@@ -1,10 +1,3 @@
-#include <string>
-#include <iostream>
-#include <cstdio>   // for printf 
-#include <cstring>  // for strcat, strcmp
-
-using namespace std;
-
 /*
  *  One of the biggest changes in C++ from C is the introduction of the string type.  In C we have to use 
  *  character arrays, or char*s.  In new projects it's best to avoid char*s, but many C++ projects were
@@ -15,6 +8,13 @@ using namespace std;
  *  
  *  The C++ strings store a char* internally and have a method c_str() to extract this char*. 
  */
+
+#include <string>
+#include <iostream>
+#include <cstdio>   // for printf 
+#include <cstring>  // for strcat, strcmp
+
+using namespace std;
 
 char c1[]="ABC";
 char c2[]="XYZ";

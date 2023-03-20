@@ -1,5 +1,3 @@
-#include <iostream>
-
 /*
  *  In C, all arguments to functions are passed by copy.  This makes it difficult to swap two variables (its 
  *  easy to swap copies).  To overcome this limitation, C uses pointers, but C++ has an alternative strategy.
@@ -22,6 +20,7 @@
  */
 
 
+#include <iostream>
 using namespace std;
 
 // the old C way of passing original values

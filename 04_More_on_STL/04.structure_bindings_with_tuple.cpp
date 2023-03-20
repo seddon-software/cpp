@@ -1,13 +1,14 @@
-#include <tuple> 
-#include <string> 
-#include <iostream> 
-using namespace std; 
-
 /*  
  *  Structured bindings can be used to unpack tuples.  You can unpack into references or into copies.
  *  When unpacking into references, any update in the reference will be reflected in the original
  *  tuple.  
  */
+
+#include <tuple> 
+#include <string> 
+#include <iostream> 
+
+using namespace std; 
 
 int main() 
 { 

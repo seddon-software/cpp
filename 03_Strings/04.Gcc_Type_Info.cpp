@@ -1,8 +1,3 @@
-#include <iostream>
-#include <functional>
-#include <typeinfo>
-#include <cxxabi.h>    // gcc specific header to demangle names
-
 /*  
  *  Here's a typical example of using the char* type.
  *   
@@ -15,8 +10,12 @@
  *  gcc routine to demangle names shown below.  This will not work with other compilers.
  */
 
-using namespace std;
+#include <iostream>
+#include <functional>
+#include <typeinfo>
+#include <cxxabi.h>    // gcc specific header to demangle names
 
+using namespace std;
 
 // this routine only works with gcc.  Note the extra include file <cxxabi.h> and changes to the Makefile.
 const char* demangle(auto p)

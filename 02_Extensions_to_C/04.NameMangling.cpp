@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Name Mangling
-//
-////////////////////////////////////////////////////////////
-
 /*
  *  Originally, C++ used the same linker as C and as the C linker doesn't allow multiple functions with the 
  *  same name, Stroustrup decided to get the compiler to append symbols to function names based on their 

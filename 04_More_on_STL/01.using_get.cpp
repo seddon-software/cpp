@@ -1,9 +1,3 @@
-#include <iostream>
-#include <tuple>
-#include <string>
-
-using namespace std; 
-
 /*
  *  When working with tuples you can use get<N> to extract the Nth element of the tuple.  Unfortunately, N has
  *  to be determined at compile time, so you can't write something like:
@@ -15,6 +9,12 @@ using namespace std;
  *  This is probably because the compiler won't know the return type of get<n>(t) at compile time and hence
  *  can't declare x.
  */
+
+#include <iostream>
+#include <tuple>
+#include <string>
+
+using namespace std; 
 
 int main() 
 {

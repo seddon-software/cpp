@@ -1,5 +1,8 @@
 /*
- *
+ *  Here, we use a hash map to create a collection of salaries defined as key-value pairs.  The function:
+ *              void increase_salary(auto& salaries)
+ * 
+ *  uses structure bindings to increment all the salaries by $250.
  */
 
 #include <iostream>
@@ -9,6 +12,7 @@ using namespace std;
 
 void increase_salary(auto& salaries)
 {
+    // use structure bindings to refer to the underlying collection
     for(auto& [name, salary] : salaries)
     {
         salary += 250;          // $250 rise

@@ -1,14 +1,16 @@
-#include <string> 
-#include <tuple> 
-#include <iostream> 
-using namespace std; 
-
 /*
  *  Structured bindings are very similar to tie bindings, but use a different syntax and can be used
  *  with auto to automatically declare vaiables in the calling program.  
  * 
  *  Note: you can't use std::ignore with structured bindings.
  */
+
+#include <string> 
+#include <tuple> 
+#include <iostream> 
+
+using namespace std; 
+
 auto get_data()
 {
     int a;

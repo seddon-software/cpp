@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 /*
  *  C++ introduced a templated String class to replace C's character arrays.  It is templated to allow for
  *  multiple String types, like ASCII strings and Unicode.  To simplify using ASCII strings the template defines
@@ -11,6 +9,9 @@
  *  The string class has numerous methods, some of which we use below:
  */
 
+
+#include <iostream>
+#include <string>
 
 using namespace std;
 
