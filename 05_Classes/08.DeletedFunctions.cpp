@@ -7,7 +7,7 @@
  *      move constructor:   X(X&& other)
  *      move assignment:    X& operator=(X&& other)
  *
- * If you don't want the compiler to generate some of hese function you can mark them as deleted:
+ * If you don't want the compiler to generate these function you can mark them as deleted:
  *      X() = delete
  *      X(const X&) = delete
  *      X& operator=(X const& other) = delete
@@ -17,7 +17,7 @@
  * 
  * One of the most common idioms is to delete the copy constructor to make sure objects of the 
  * class can't be copied.  A good example of this idiom would be removing the copy constructor
- * from a mutex lock class to avoid copying mutexs (the copy would be an entirely seperate 
+ * from a mutex lock class to avoid copying mutexes (the copy would be an entirely separate 
  * mutex - generally undesirable).  
  */
 

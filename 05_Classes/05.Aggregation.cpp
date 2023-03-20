@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Aggregation
-//
-////////////////////////////////////////////////////////////
-
 /*
  * Aggregation is where an object is made up of other child objects.
  * Unlike Composition, the child object can exist independently of the parent.
