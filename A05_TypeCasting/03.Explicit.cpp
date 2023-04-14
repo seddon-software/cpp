@@ -41,9 +41,9 @@ int main()
 
 	// implicit casts
 	t = x1;
-	int x2 = t;
+    [[maybe_unused]] int x2 = t;
 
 	// explicit casts
 	t = static_cast<Time>(x1);
-	int x3 = static_cast<int>(t);
+    [[maybe_unused]] int x3 = static_cast<int>(t);
 }

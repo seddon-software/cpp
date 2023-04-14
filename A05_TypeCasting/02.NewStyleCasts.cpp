@@ -19,7 +19,7 @@ using namespace std;
  *  The dynamic_cast only works on polymorphic types (classes with V-Tables).  If the cast is invalid
  *  (incompatible polymorphic types) then casting from a pointer returns a null pointer on failure and
  *  casting from a reference throws bad_cast on failure.  Note that because dynamic_casts are checked at
- *  run-time, the polymorphic classes must a least one virtual function (to generate the V-Tables).
+ *  run-time, the polymorphic classes must define at least one virtual function (to generate the V-Tables).
  * 
  *  The reinterpret_cast only works on pointers, and can also be applied to both polymorphic and non 
  *  polymorphic types.  If the cast is invalid then the code will fail to compile.  If this cast is used
@@ -28,8 +28,8 @@ using namespace std;
  
  *  The const_cast is used to remove the const nature of an object.  Note this should be used with caution;
  *  the constness of an object id there for a reason.  Overriding constness is usually only necessary when
- *  working with library code where the author has erroneously make something constant that shouldn't be
- *  and you don't have access to the library code.
+ *  working with library code where the author has erroneously made something constant that shouldn't be
+ *  and you don't wish to modify the library code.
  */
 
 struct X    // class must have a V-Table (for dynamic casts)
@@ -63,29 +63,35 @@ int main()
     // reinterpret_cast
     // reinterpret_cast only works on pointers ...
     // ... both polymorphic and non polymorphic types
-    X* p1 = reinterpret_cast<X*>(&y);   // polymorphic
-    X* p2 = reinterpret_cast<X*>(&z);   // non polymorphic
+    [[maybe_unused]]
+    X* p1 = reinterpret_cast<X*>(&y);   // polymorphic (p1 can only see the X part of y)
+    [[maybe_unused]]
+    X* p2 = reinterpret_cast<X*>(&z);   // non polymorphic (this is a hack and may produce strange results)
 
     // static_cast
     // static_cast only works on objects ...
     // ... both polymorphic and non polymorphic types
-    X x1 = static_cast<X>(y);       // polymorphic
-    X x2 = static_cast<X>(z);       // non polymorphic
+    [[maybe_unused]]
+    X x1 = static_cast<X>(y);       // polymorphic (x1 is a slice of y - bad!)
+    [[maybe_unused]]
+    X x2 = static_cast<X>(z);       // non polymorphic (should work: compatible types)
 
     // dynamic_casts
     // dynamic_cast only works on polymorphic types (classes with V-Tables)
     // pointer types: returns null pointer on failure
     // reference types: throws bad_cast on failure
-	X* p3 = dynamic_cast<X*>(&y);   // upcasting (p1 points at derived part of y)
-	y.y = 99;                       // p4 sees this change
-	Y* p4 = dynamic_cast<Y*>(&x);   // downcast  (fails)
-	cout << endl;                   // dummy line for the debugger
+    [[maybe_unused]]
+    X* p3 = dynamic_cast<X*>(&y);   // upcasting from Y to X (p3 points at base part of y)
+    [[maybe_unused]]
+    Y* p4 = dynamic_cast<Y*>(&x);   // downcasting from X to Y (fails: returns null pointer)
+    cout << endl;                   // dummy line for the debugger
 
     try
     {
-        X& ref1 = dynamic_cast<X&>(y);  // upcasting (p1 refers to derived part of y)
-        y.y = 99;                       // ref1 sees this change
-        Y& ref2 = dynamic_cast<Y&>(x);
+        [[maybe_unused]]
+        X& ref1 = dynamic_cast<X&>(y);  // upcasting from Y to X (ref1 refers to base part of y)
+        [[maybe_unused]]
+        Y& ref2 = dynamic_cast<Y&>(x);  // downcasting from X to Y (fails: throws bad_cast)
         cout << endl;                   // dummy line for the debugger
     }
     catch (const bad_cast&)

@@ -56,4 +56,7 @@ To install gcc11 and g++11:
 To install g++11:
     https://lindevs.com/install-g-on-ubuntu/
 
-Currently (Apr 2023), gcc11 ships with version 11.1 on Ubuntu 20.04(LTS) and 11.3.0 on Ubuntu 22.04
+Currently (Apr 2023), gcc11 ships with version 11.3.0 on Ubuntu 22.04
+
+Variables used by vscode:
+    https://code.visualstudio.com/docs/editor/variables-reference

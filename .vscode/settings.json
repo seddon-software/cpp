@@ -60,5 +60,6 @@
         "codecvt": "cpp",
         "map": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "terminal.integrated.cwd": "${relativeFileDirname}"
 }
