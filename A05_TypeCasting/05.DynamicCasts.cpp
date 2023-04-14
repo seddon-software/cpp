@@ -86,7 +86,7 @@ int main()
 	Component x;
 /*
 	How the x object is laid out in memory is compiler dependent.  However, most compilers
-	will lay ot this object as below.  Note the compiler creates 3 V-Table pointers inside
+	will lay out this object as below.  Note the compiler creates 3 V-Table pointers inside
 	the object:
 
                 Component           V-Tables
@@ -113,7 +113,7 @@ int main()
 */
 /// Casting Component objects using conventional casts
 	// note that the pa pb and pc will point at their respective v-tables ptrs (see above diagram)
-	// and hence will be all different
+	// and hence will have different values
 
 	pa = (AAA*) &x;
 	pb = (BBB*) &x;
@@ -123,7 +123,7 @@ int main()
 	pb->fb2();
 	pc->fc2();
 
-// Dynamic casting using pointers (behaves the same as convential casts)
+// Dynamic casting using pointers (behaves the same as conventional casts)
     pa = 0, pb = 0, pc = 0;
 	pa = dynamic_cast<AAA*> (&x);
 	pb = dynamic_cast<BBB*> (&x);
@@ -150,21 +150,22 @@ int main()
 */
 
 // Conventional casts
-	// pa pb and pc all point to the one and only v-table (the are all equal)
+	// pa pb and pc all point to the one and only v-table (hence all end up equal)
 	pa = (AAA*) &b;
 	pb = (BBB*) &b;
 	pc = (CCC*) &b;
 	cout << "pa=" << pa << ": pb=" << pb << ": pc=" << pc << endl;
 
-	// Dispatch is by the v-table pointer witch is incorrect for pa and pc
-	pa->fa2();		// calls fb2() by mistake
+	// Dispatch is by the v-table pointer and this gives incorrect results for pa and pc
+	pa->fa2();		// calls fb2() by mistake (would crash if parameters different)
 	pb->fb2();		// calls correct function
-	pc->fc2();		// calls fb2() by mistake
+	pc->fc2();		// calls fb2() by mistake (would crash if parameters different)
 
 // Dynamic casting BBB objects using pointers
-	pa = dynamic_cast<AAA*> (&b);
-	pb = dynamic_cast<BBB*> (&b);
-	pc = dynamic_cast<CCC*> (&b);
+	pa = dynamic_cast<AAA*> (&b);   // returns 0
+	pb = dynamic_cast<BBB*> (&b);   // succeeds
+	pc = dynamic_cast<CCC*> (&b);   // returns 0
+	cout << "pa=" << pa << ": pb=" << pb << ": pc=" << pc << endl;
 
 	if(pa) pa->fa2();	   // no call made
 	if(pb) pb->fb2();	   // calls correct function
@@ -174,10 +175,8 @@ int main()
 	try {
 		BBB& rb = dynamic_cast<BBB&> (b); // valid
 		rb.fb2();
-		AAA& ra = dynamic_cast<AAA&> (b); // this throws
+		AAA& ra = dynamic_cast<AAA&> (b); // bad cast, this throws
 		ra.fa2();
-		CCC& rc = dynamic_cast<CCC&> (b);
-		rc.fc2();
 	} catch(bad_cast& e) {
 		cout << "bad cast" << endl;
 	}
