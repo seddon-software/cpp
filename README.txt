@@ -1,4 +1,4 @@
-Last updated: 42 Mar 2023
+Last updated: 14 Apr 2023
 
 01494 483691
 Chris Seddon
@@ -14,7 +14,7 @@ Setup
 
 3. Install vscode
 
-4. Fire up vscode type:
+4. Fire up vscode type (the dot is important):
     code .
 
 At Diamond
@@ -29,10 +29,12 @@ To clone the repo use:
 If you are on a Diamond machine, setup vscode with:
     module load vscode/1.42.1
 
-then to fire up vscode type:
+then to fire up vscode type (the dot is important):
     code .
 
-
+If you prefer you can use a later version of vscode, but since vscode uses "electron" it is hungry
+on memory.  You probably need to start vscode with:
+    code --no-sandbox .
 
 
 You can email me on:	
@@ -54,4 +56,4 @@ To install gcc11 and g++11:
 To install g++11:
     https://lindevs.com/install-g-on-ubuntu/
 
-Currently, gcc11 ships with version 11.1 on Ubuntu 20.04(LTS) and 11.3.0 on Ubuntu 22.04
+Currently (Apr 2023), gcc11 ships with version 11.1 on Ubuntu 20.04(LTS) and 11.3.0 on Ubuntu 22.04
