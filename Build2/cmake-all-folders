@@ -11,7 +11,8 @@ do
     clear
     echo '***************' $dir' **************\n'
     cd $dir
-    make
+    cmake -S . -B build
+    cmake --build build
     cd ..
     sleep 3
 done
