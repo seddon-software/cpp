@@ -17,13 +17,16 @@ using namespace std;
  *          virtual void drive() = 0;
  *          virtual void stop() = 0;
  *
- *  Implementations for these metohds are provided in the 2 derived classes:
+ *  Implementations for these methods are provided in the 2 derived classes:
  *          class SportsCar
  *          class ElectricCar
  * 
  *   In the base class, doJourney() implements the template method; it controls which virtual methods
- *   are called and in what order.  This means that when doJourney is called for each type of car,
- *   although same virtual methods are called, they are customized for each derived class.   
+ *   are called and in what order.  Note that doJourney() is not virtual; this means calls to doJourney()
+ *   use early binding.
+ * 
+ *   However, doJourney() calls virtual methods, so late binding is used to dispatch the start(), drive() and 
+ *   stop() methods.  Hence these methods are customized for each derived class.   
  */
 
 class Car {
