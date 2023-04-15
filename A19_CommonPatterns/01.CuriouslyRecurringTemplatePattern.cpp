@@ -2,7 +2,7 @@
 using namespace std;
 
 /*
- *  This pattern has the facination name: Curiously Recurring Template Pattern.  This pattern uses
+ *  This pattern has the facinating name: Curiously Recurring Template Pattern.  This pattern uses
  *  a mixin Base class to provide static polymorphic behaviour in the derived classes, without recourse
  *  to virtual functions.
  * 
@@ -37,26 +37,31 @@ struct Base
 // struct uses private inheritance, but everything is public anyway
 struct Derived1 : public Base<Derived1>
 {
-    void f1_impl() { cout << "Derived1 f1 implementation" << endl; }
-    void f2_impl() { cout << "Derived1 f2 implementation" << endl; }
-    void f3_impl() { cout << "Derived1 f3 implementation" << endl; }
+    Derived1(int x):x(x){}
+    void f1_impl() { cout << "Derived1 f1 implementation: " << x << endl; }
+    void f2_impl() { cout << "Derived1 f2 implementation: " << 2*x << endl; }
+    void f3_impl() { cout << "Derived1 f3 implementation: " << 3*x << endl; }
+    int x;
 };
 
 // struct uses private inheritance, but everything is public anyway
 struct Derived2 : Base<Derived2>
 {
-    void f1_impl() { cout << "Derived2 f1 implementation" << endl; }
-    void f2_impl() { cout << "Derived2 f2 implementation" << endl; }
-    void f3_impl() { cout << "Derived2 f3 implementation" << endl; }
+    Derived2(int x, int y):x(x), y(y) {}
+    void f1_impl() { cout << "Derived2 f1 implementation: " << x + y << endl; }
+    void f2_impl() { cout << "Derived2 f2 implementation: " << 2*x << endl; }
+    void f3_impl() { cout << "Derived2 f3 implementation: " << 2*y << endl; }
+    int x;
+    int y;
 };
 
 int main()
 {
-    Derived1 d1;	// conforms to Base (mixin) contract
+    Derived1 d1(100);	// conforms to Base (mixin) contract
     d1.f1();
     d1.f2();
     d1.f3();
-    Derived2 d2;	// conforms to Base (mixin) contract
+    Derived2 d2(25, 75);	// conforms to Base (mixin) contract
     d2.f1();
     d2.f2();
     d2.f3();
