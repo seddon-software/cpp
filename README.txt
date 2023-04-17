@@ -7,7 +7,7 @@ seddon_software@btinternet.com
 Setup
 =====
 1. Setup your C/C++ compiler on a Linux machine (gcc/11?)
-
+C
 2. To clone the repo use:
     git clone https://github.com/seddon-software/cpp.git
     cd cpp
