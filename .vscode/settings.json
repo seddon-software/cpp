@@ -60,6 +60,10 @@
         "codecvt": "cpp",
         "map": "cpp"
     },
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#135564",
+        "editor.selectionHighlightBackground": "#135564"
+    },
     "C_Cpp.errorSquiggles": "Disabled",
     "terminal.integrated.cwd": "${relativeFileDirname}"
 }
