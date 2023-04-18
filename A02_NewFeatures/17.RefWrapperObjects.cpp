@@ -56,7 +56,7 @@ int main()
     c += 10;
     d += 10;
 
-    // the vector will be changed
+    // the vector will NOT be changed
     print(v);
 
     // pass reference_wrapper objects by value
