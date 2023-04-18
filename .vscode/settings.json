@@ -61,7 +61,7 @@
         "map": "cpp"
     },
     "workbench.colorCustomizations": {
-        "editor.selectionBackground": "#135564",
+        "editor.selectionBackground": "#B0B0B0",
         "editor.selectionHighlightBackground": "#135564"
     },
     "C_Cpp.errorSquiggles": "Disabled",
