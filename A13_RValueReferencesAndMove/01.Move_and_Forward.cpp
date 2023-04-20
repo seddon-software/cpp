@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
- *  In this example we examine the difference between std::move and std::forward<T>.
+ *  In this example we examine the difference between std::move<T> and std::forward<T>.
  *      std::move always returns an argument as an r-value reference
  *      std::forward returns either an l-value reference or an r-value reference dependent on how
  *        the argument was passed to the current function. 
