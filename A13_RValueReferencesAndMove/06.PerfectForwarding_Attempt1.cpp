@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//		Perfect Forwarding
-//
-////////////////////////////////////////////////////////////
-
 /*
  *  The problem we are trying to solve with perfect forwarding is: How can we write a function template
  *  that forwards calls to another function template without changing l-values into r-values.
@@ -14,17 +8,22 @@
  * 
  *  In this first attempt we make each parameter an l-value reference.  This doesn't work for constant 
  *  (r-value) parameters.
+ * 
+ *  I've used a macro to check types, but you can get gdb to check types in vscode by entering the following
+ *  in the debug console:
+ *              -exec ptype a1
+ *              -exec ptype a2
+ *              -exec ptype a3    
  */
+
+#include <type_traits>
+#include <iostream>
+using namespace std;
 
 
 template<class A1, class A2, class A3>
 void f(A1& a1, A2& a2, A3& a3)
 {
-	// put a breakpoint here and get gdb to check types
-    // enter the following in the debug console:
-    //    -exec ptype a1
-    //    -exec ptype a2
-    //    -exec ptype a3    
 }
 
 // this is a wrapper template that forwards all parameters

@@ -1,29 +1,29 @@
-////////////////////////////////////////////////////////////
-//
-//		Perfect Forwarding
-//
-////////////////////////////////////////////////////////////
-
-#include <utility>
-#include <algorithm>
-using namespace std;
-
 /*
  *  The problem we are trying to solve with perfect forwarding is: How can we write a function template
  *  that forwards calls to another function template without changing l-vaues into r-values.
  *
  *  In this final attempt we use r-value references and rely on the collapsing rules discussed earlier
- * to make sure l-value refs don't get changed to r-value refs.
+ *  to make sure l-values don't get changed to r-values.
  */
+
+#include <type_traits>
+#include <iostream>
+using namespace std;
+
+#define CHECK(object)                                \
+    if(is_lvalue_reference<decltype(object)>::value) \
+        cout << boolalpha << "l";                    \
+    else                                             \
+        cout << boolalpha << "r";
+
 
 template<class A1, class A2, class A3>
 void f(A1&& a1, A2&& a2, A3&& a3)
 {
-    // put a breakpoint here and get gdb to check types
-    // enter the following in the debug console:
-    //    -exec ptype a1
-    //    -exec ptype a2
-    //    -exec ptype a3    
+    CHECK(a1)
+    CHECK(a2)
+    CHECK(a3)
+    cout << endl;
 }
 
 
@@ -37,9 +37,9 @@ void fwd(A1 && a1, A2 && a2, A3 && a3)
 
 int main()
 {
-	// This achieves perfect forwarding:
-	//	l-vlues are forwarded as l-values
-	//	r-vlues are forwarded as r-values
+	// The above achieves perfect forwarding:
+	//	l-values are forwarded as l-values
+	//	r-values are forwarded as r-values
 	int x{1}, y{2}, z{3};
     fwd(x, y, z);
     fwd(x, y, 3);
