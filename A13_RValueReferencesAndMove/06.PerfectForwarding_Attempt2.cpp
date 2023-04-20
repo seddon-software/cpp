@@ -10,7 +10,7 @@ using namespace std;
 
 /*
  *  The problem we are trying to solve with perfect forwarding is: How can we write a function template
- *  that forwards calls to another function template without changing l-vaues into r-values.
+ *  that forwards calls to another function template without changing l-values into r-values.
  *
  *  In this next attempt we make each parameter const (r-value reference).  This time everything compiles,
  *  but l-value refs get changed to r-value refs (not perfect forwarding).

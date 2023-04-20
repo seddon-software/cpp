@@ -24,7 +24,7 @@ public:
     {
         for(auto i = list.begin(); i != list.end(); ++i)
         {
-        	array.push_back(*i);
+        	array.push_back(*i * 10.0);
         }
     }
 	auto begin() { return array.begin(); }

@@ -72,23 +72,31 @@ public:
 };
 
 template <typename T>
-void Swap(T& a, T& b)
+void SwapWithMove(T& a, T& b)
 {
-	//	T temp(a);
-	//	a = b;
-	//	b = temp;
+    // use move semantics (efficient)
 	T temp(std::move(a));
 	a = std::move(b);
 	b = std::move(temp);
+}
+
+template <typename T>
+void SwapWithCopy(T& a, T& b)
+{
+    // use copy semantics (inefficient)
+    T temp2(a);
+    a = b;
+    b = temp2;
 }
 
 int main()
 {
 	MyVector<int> v1{0, 1, 2, 3, 4};
 	MyVector<int> v2{9, 8, 7, 6, 5};
-	Swap(v1, v2);
+	SwapWithMove(v1, v2);
 	for (auto i : v1) cout << i << ",";
 	cout << endl;
 	for (auto i : v2) cout << i << ",";
 	cout << endl;
+	SwapWithCopy(v1, v2);
 }

@@ -11,7 +11,7 @@
  *  On Unix systems we use mmap to access shared memory, on Windows we use VirtualAlloc instead.
  * 
  *  Note that since objects are not allocated on the heap, we mustn't deallocate heap space.  This in 
- *  turn means it is not safe to delete objects; instead we call the objects DTOR directly just in
+ *  turn means it is not safe to use delete; instead we call the object's DTOR directly just in
  *  case it is important to do so:
  *          points[i].~Point();
  *          dates[i].~Date(); 

@@ -6,6 +6,13 @@ using namespace std;
 /*  
  *  In this example we create a vector of unique_ptrs and subsequently pass this vector to a function.
  *  This illustrates how to extend the lifetime of objects managed by a unique_ptr.
+ * 
+ *  The key part of this example is to pass the vector by reference and not by value:
+ *          void f(auto& v)
+ * 
+ *  When we pass by reference no copying is involved.  However. if we attempt to pass the vector by value 
+ *  it will use value semantics to attempt to copy its contents to the copy.  This will result in a compiler
+ *  error because you can't copy unique_ptr.
  */
 
 class Point
@@ -27,8 +34,8 @@ private:
 	int y;
 };
 
-// this is really a template
-void f(auto& v)
+// this is really a template (because of auto)
+void f(auto& v)     // must pass by reference not vale because of unique_ptr
 {
 	for (auto& ptr : v)
 	{

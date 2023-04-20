@@ -10,7 +10,7 @@ using namespace std;
 
 /*
  *  The problem we are trying to solve with perfect forwarding is: How can we write a function template
- *  that forwards calls to another function template without changing l-vaues into r-values.
+ *  that forwards calls to another function template without changing l-values into r-values.
  *
  *  In this third attempt we create every possible overload such that perfect forwarding occurs.  
  *  However this solution is not scalable and there has to be a better way!
