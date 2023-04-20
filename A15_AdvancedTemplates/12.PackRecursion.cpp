@@ -4,8 +4,8 @@
 using namespace std;
 
 /*
- *  You can use recursion with fold expressions.  Here we deine a generic template for our function
- *  "commaSeparatedList".  This function template only takes a sing parameter.  Contrast that with 
+ *  You can use recursion with fold expressions.  Here we define a generic template for our function
+ *  "commaSeparatedList".  This function template only takes a single parameter.  Contrast that with 
  *  the specialized template that has a single parameter followed by a parameter pack.  The 
  *  specialized template will be used whenever "commaSeparatedList" is called with more than 1
  *  parameter.  This specialized template is recursive and will call itself while the parameter 
@@ -23,7 +23,7 @@ T commaSeparatedList(T t)
 template<typename T, typename... P>
 T commaSeparatedList(T t, P... p)
 {
-    cout << t << ",";
+    cout << t << "," << flush;
     if (sizeof...(p) > 0)	// if size of parameter pack non zero
         return commaSeparatedList (p...);
         

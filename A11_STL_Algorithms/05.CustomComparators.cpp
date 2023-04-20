@@ -12,7 +12,7 @@
 using namespace std;
 
 /*
- *  We are using the sort algorithm with a templated comparator function.  The ide is to sort
+ *  We are using the sort algorithm with a templated comparator function.  The idea is to sort
  *  a group of Person objects.  Note the use of the (C++11) enum class in the comparator.
  */
 
@@ -49,6 +49,7 @@ template <typename T>
 void printList(vector<T> v)
 {
 	copy(v.begin(), v.end(), ostream_iterator<T>(cout));
+    cout << flush;
 }
 
 /*
