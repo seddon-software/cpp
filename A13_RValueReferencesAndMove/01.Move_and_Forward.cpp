@@ -4,16 +4,36 @@ using namespace std;
 
 /*
  *  In this example we examine the difference between std::move and std::forward<T>.
- *      std::move returns an argument as an r-value reference
+ *      std::move always returns an argument as an r-value reference
  *      std::forward returns either an l-value reference or an r-value reference dependent on how
- *        the argument was passed in to the current function. 
+ *        the argument was passed to the current function. 
  * 
- *  To illustrate the difference, we define a templated function f(T&& x) that takes a single parameter
- *  and subsequently calls the show() function (overloaded with l-value ref and r-value ref).  When 
- *  f(T&& x) is called std::move always converts x into an r-value ref.  However when f(T&& x) is called 
- *  with an r-value, std:forward passes an r-value reference to show(), but when called with an l-value
- *  std::forward passes an l-value reference to show().  Thus std::move always produces an r-value ref and
- *  std::forward always does perfect forwarding.
+ *  Note that there are 2 overloads of the show() function:
+ *              void show(int&&)
+ *              void show(int&)
+ * 
+ *  but only one overload of f()
+ *              void f(T&& x)
+ * 
+ *  When there are l-value and r-value reference overloads, the compiler will call the appropriate overload,
+ *  but when there is only a r-value reference version of a function, the compiler will allow both r-value and 
+ *  l-value entities to be passed as parameters.  In this later case the compiler deduces the type (l-value 
+ *  or r-value refs).
+ *  
+ *  When you run this example notice that f() is called with r and l value references, but by using std::move
+ *  the reference is always converted to an r-value reference and
+ *              void show(int&&)
+ *  is always called.
+ * 
+ *  Contrast that with what happens when you use std::forward.  If you pass an r-value reference to f() then
+ *  forward also calls
+ *              void show(int&&)
+ * 
+ *  but when you pass an l-value reference to f() forward calls
+ *              void show(int&)
+ * 
+ *  Thus std::forward doesn't change the reference qualification and does perfect forwarding, but std::move
+ *  always changes the reference qualification to r-value reference.
  */
 
 template <typename T>
@@ -27,23 +47,21 @@ void checkArg(T&& parameter, const string& name)
 
 void show(int&&)
 {
-    cout << "int&& called" << endl;
+    cout << "show(int&&) called" << endl;
 }
  
 void show(int&)
 {
-    cout << "int& called" << endl;
+    cout << "show(int&) called" << endl;
 }
- 
+
 template<typename T> 
-void f(T&& x)
+void f(T&& x)       // x can be either r or l value reference (universal reference)
 {
     checkArg(std::move(x), "std::move(x)");
-    cout << "std::move(x): ";
     show(std::move(x));
      
     checkArg(std::forward<T>(x), "std::forward(x)");
-    cout << "std::forward(x): ";
     show(std::forward<T>(x));
      
     cout << endl;
