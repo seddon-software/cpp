@@ -1,8 +1,10 @@
-////////////////////////////////////////////////////////////
-//
-//      List - algorithms
-//
-////////////////////////////////////////////////////////////
+/*
+ *  Here are a few more example of algorithms:
+ *              for_each(collection.begin(), collection.end(), Print);
+ *              find(collection.begin(), collection.end(), item4);
+ *              find_if(collection.begin(), collection.end(), LessThan21K);
+ *              replace(collection.begin(), collection.end(), item4, item2);
+ */
 
 #include <iostream>
 #include <list>

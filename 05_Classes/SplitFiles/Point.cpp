@@ -1,8 +1,8 @@
-////////////////////////////////////////////////////////////
-//
-//      Point implementation
-//
-////////////////////////////////////////////////////////////
+/*
+ *  This file contains the implementations of all the member functions of the Point class.
+ *  Note that each method needs to be declared prepended with the Point class name as in:
+ *          void Point::Initialise(int theX, int theY) { ... }
+ */
 
 #include "Point.h"
 

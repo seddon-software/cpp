@@ -1,8 +1,14 @@
-////////////////////////////////////////////////////////////
-//
-//      Test harness
-//
-////////////////////////////////////////////////////////////
+/*
+ *  In this folder you will find the following files:
+ *              Point.cpp       : the Point class implementation file
+ *              Test.cpp        : the Test harness
+ *              Point.h         : header file containing function prototypes for Point class
+ * 
+ *  This file is the test harness for the Point example.  Note the compiler requires the Point class
+ *  to be declared before it is used; hence the inclusion of "Point.h".  When including a file from
+ *  the current directory you should use " quotes; if it is a library include file you sould use <>
+ *  brackets.
+ */ 
 
 #include "Point.h"
 

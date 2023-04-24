@@ -1,11 +1,11 @@
-#include <iostream>
-#include <exception>
-using namespace std;
-
 /*  
  *  Good practice is to log errors and then rethrow.  This example just simulates logging.  For real 
  *  logging consult third party libraries.
  */
+
+#include <iostream>
+#include <exception>
+using namespace std;
 
 struct MyException : public exception
 {

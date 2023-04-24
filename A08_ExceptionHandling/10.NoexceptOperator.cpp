@@ -1,12 +1,12 @@
-#include <iostream>
-#include <string>
-#include <stdexcept>
-using namespace std;
-
 /* 
  *  The noexcept clause is important when it comes to exception safety.  But did you know it is
  *  possible to enquire if a function throws exceptions(see below):
  */
+
+#include <iostream>
+#include <string>
+#include <stdexcept>
+using namespace std;
 
 auto f1 = []() { throw exception(); };
 auto f2 = []() noexcept {};

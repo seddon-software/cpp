@@ -1,8 +1,14 @@
-////////////////////////////////////////////////////////////
-//
-//      List - find algorithm
-//
-////////////////////////////////////////////////////////////
+/*
+ *  As mentioned earlier, the STL classes work with the algorithms package.  A good example algorithm is
+ *  the find algorithm shown below.  The find algorithm takes 3 parameters:
+ *              collection.begin()      : start of search range
+ *              collection.end()        : end of search range
+ *              city                    : item to search for
+ *              return value            : iterator to item found in the collection
+ *  
+ *  If the find succeeds the it returns an iterator to the item in the collection.  If the call fails to find
+ *  the item then it returns and iterator to the end() of the collection.
+ */
 
 #include <iostream>
 #include <list>

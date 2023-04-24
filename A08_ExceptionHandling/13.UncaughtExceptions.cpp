@@ -1,16 +1,16 @@
-#include <iostream>
-#include <exception>
-#include <execinfo.h>  // for backtrace
-#include <cstdlib>
-using namespace std;
-
-
 /*  If you fail to catch an exception the program will terminate.  You can install a handler to
  *  catch this scenario.  This is useful on an older code base that doesn't catch all exceptions
  *  and it is difficult to pinpoint where the exception occurs.
  * 
  *  See https://panthema.net/2008/0901-stacktrace-demangled/ for info on stack traces with g++.
  */
+
+#include <iostream>
+#include <exception>
+#include <execinfo.h>  // for backtrace
+#include <cstdlib>
+using namespace std;
+
 
 struct MyException : public exception
 {

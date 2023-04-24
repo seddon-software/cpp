@@ -1,8 +1,3 @@
-#include <iostream>
-#include <memory>
-#include <stdexcept>
-using namespace std;
-
 /*  RAII (resourse acquisition is initialization) is a C++ programming technique using a class's CTOR and 
  *  DTOR which ensures resources such as lock, files, heap memory will be guaranteed to released even in
  *  the presence of exceptions.
@@ -14,6 +9,11 @@ using namespace std;
  *  Note that with a lock we must be careful to take a reference to the lock in the MyClass CTOR, 
  *  especially if we are writing multi-threaded code.
  */
+
+#include <iostream>
+#include <memory>
+#include <stdexcept>
+using namespace std;
 
 class Lock
 {

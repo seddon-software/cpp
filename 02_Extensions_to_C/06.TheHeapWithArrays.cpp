@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 /*  
  *  In addition to the new and delete operators, C++ provides new[] and delete[] to manage arrays on the heap.
  *  Nowadays, we tend to use vectors instead of raw arrays, but these two operators are still available.
@@ -20,6 +17,9 @@ using namespace std;
  *  problem with built in types like int and double because they don't have constructors and destructors, but 
  *  it may result in memory leaks for user defined types.
  */
+
+#include <iostream>
+using namespace std;
 
 class Point
 {
