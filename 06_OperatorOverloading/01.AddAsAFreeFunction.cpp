@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//      Operator Overloading with free functions
-//
-////////////////////////////////////////////////////////////
-
 /* 
  *  When overloading the + operator you have two choices: member function or free function.  In this example
  *  we show how to overload + as a free function (i.e. external to a class).  It is usually better to oveload 
