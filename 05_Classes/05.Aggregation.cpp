@@ -1,6 +1,11 @@
 /*
- * Aggregation is where an object is made up of other child objects.
- * Unlike Composition, the child object can exist independently of the parent.
+ *  Aggregation is where an object is made up of other child objects.
+ *  Unlike Composition, the child object can exist independently of the parent.
+ * 
+ *  When you step through this example, notice how the Rectangle constructors delegate to the Point
+ *  class to initialise the x and y components of the internal Point components rather than initialise
+ *  the components directly.  Indeed, because these components are declared private in the Point
+ *  class they are inaccessible from the Rectangle class.
  */
 
 #include <iostream>
@@ -20,11 +25,11 @@ private:
 	int y;
 };
 
-class Polygon
+class Rectangle
 {
 public:
-	Polygon(int x0, int y0, int x1, int y1): topLeft(x0, y0), bottomRight(x1, y1) {}
-	Polygon(const Point& p1, const Point& p2) : topLeft(p1), bottomRight(p2) {}
+	Rectangle(int x0, int y0, int x1, int y1): topLeft(x0, y0), bottomRight(x1, y1) {}
+	Rectangle(const Point& p1, const Point& p2) : topLeft(p1), bottomRight(p2) {}
 	void display()
 	{
 		topLeft.display();
@@ -39,10 +44,10 @@ private:
 
 int main()
 {
-	Polygon r(10, 20, 100, 110);
+	Rectangle r(10, 20, 100, 110);
 	Point tl(10, 20);
 	Point br(100, 110);
-	Polygon(tl, br);
+	Rectangle(tl, br);
 	r.display();
 }
 
