@@ -1,8 +1,20 @@
-////////////////////////////////////////////////////////////
-//
-//      Casts
-//
-////////////////////////////////////////////////////////////
+/*
+ *  Casts are used to convert one type of object into another.  C++ used a single parameter Time constructor
+ *  to create Time objects from an int (minutes):
+ *              Time(int m): hrs(0), min(m)
+ *              {
+ *                  // code ...
+ *              }
+ * 
+ *  and operator int to convert in the other direction:
+ *              operator int() const
+ *              {
+ *                  // code
+ *              }
+ * 
+ *  Note the odd placement of const in the cast method.  This implies *this is const in this function
+ *  (i.e. *this won't be modified in this method). 
+ */
 
 #include <iostream>
 using namespace std;
