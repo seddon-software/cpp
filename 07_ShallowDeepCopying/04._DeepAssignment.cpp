@@ -13,8 +13,8 @@ private:
 	 char* text;
 public:
 	 String(const char* = "");
-	 String(String&);    // Copy CTOR
-	 String& operator=(String&);
+	 String(const String&);    // Copy CTOR
+	 String& operator=(const String&);
 	 ~String();
 };
 
@@ -26,13 +26,13 @@ String::String(const char* theString)
     strcpy(text, theString);
 }
 
-String::String(String& theString)
+String::String(const String& theString)
 {
     text = new char [strlen(theString.text) + 1];
     strcpy(text, theString.text);
 }
 
-String& String::operator=(String& theString)
+String& String::operator=(const String& theString)
 {
     if (this == &theString) return *this;  // check if objects the same
 
@@ -56,6 +56,4 @@ int main()
 	 String s2("Red");
 
 	 s1 = s2;
-
-     return 0;
 }

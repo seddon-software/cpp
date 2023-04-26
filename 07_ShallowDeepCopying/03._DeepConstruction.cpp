@@ -13,7 +13,7 @@ private:
     char* text;
 public:
     String(const char* = "");
-    String(String&);    // Copy CTOR
+    String(const String&);    // Copy CTOR
     ~String();
 };
 
@@ -25,7 +25,7 @@ String::String(const char* theString)
     strcpy(text, theString);
 }
 
-String::String(String& theString)
+String::String(const String& theString)
 {
     (*this).text = new char [strlen(theString.text) + 1];
     strcpy(text, theString.text);
@@ -42,6 +42,4 @@ int main()
 {
     String s1("Blue");
     String s2(s1);
-
-    return 0;
 }

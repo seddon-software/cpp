@@ -15,7 +15,7 @@ public:
 	string& operator=(const string&);
 private:
 	class body;
-	body* self; // cheshire cat
+	body* self;
 };
 
 class string::body

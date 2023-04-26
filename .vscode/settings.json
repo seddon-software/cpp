@@ -5,6 +5,7 @@
         "**/*.o": true
     },
     "files.associations": {
+        "*.doc": "/usr/bin/libreoffice",
         "*.exe": "nm",
         "string": "cpp",
         "*.tcc": "cpp",
@@ -58,7 +59,22 @@
         "chrono": "cpp",
         "iomanip": "cpp",
         "codecvt": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "*.ipp": "cpp",
+        "strstream": "cpp",
+        "bitset": "cpp",
+        "fstream": "cpp",
+        "span": "cpp",
+        "thread": "cpp",
+        "regex": "cpp",
+        "ratio": "cpp",
+        "typeindex": "cpp",
+        "valarray": "cpp",
+        "variant": "cpp",
+        "forward_list": "cpp",
+        "coroutine": "cpp"
     },
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#B0B0B0",
