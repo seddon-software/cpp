@@ -6,13 +6,16 @@
  *  Objects of this string class are of variable size.  Notice that they have a single attribute:
  *              private:
  *                  char* text;
+ * 
  *  In the const char* constructor this pointer is set to point at the heap where the character data
  *  is stored:
  *              text = new char [strlen(theString) + 1];
  *              strcpy(text, theString);
  * 
  *  Note the +1 to allow for a null terminator when allocating space on the heap for the character array.
- *  TO BE COMPLETED
+ *  All this code is perfectly reasonable.  Problems arise in the main program when we call f().  We pass
+ *  s to this function, but the function parameter is passed by value and therefore a copy is produced.
+ *  This copy needs to be initialised by 
 
  * 
  *  In the main   
