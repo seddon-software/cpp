@@ -36,7 +36,8 @@
 
 #include <iostream>
 #include <algorithm>
-#include <map>
+#include <utility>
+#include <list>
 using namespace std;
 
 class Query
@@ -58,13 +59,14 @@ bool moreThan35K(const pair<string, int>& item)
 
 int main()
 {
-    map<string, int> salary;
-    
-    salary["Steven"] = 25000;
-    salary["Mary"] = 18000;
-    salary["John"] = 20000;
-    salary["Susan"] = 36500;
-    salary["Rose"] = 17500;
+    list<pair<string,int>> salary = {
+        {"Steven"s, 25000},
+        {"Mary"s,   28000},
+        {"John"s,   20000},
+        {"Susan"s,  36500},
+        {"Rose"s,   17500}
+    };
+
     {   // use a function pointer
         auto i = find_if(salary.begin(), salary.end(), moreThan35K);
         if(i != salary.end())

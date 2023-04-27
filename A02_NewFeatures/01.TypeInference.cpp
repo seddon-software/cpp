@@ -1,8 +1,3 @@
-#include <iostream>
-#include <functional>
-#include <typeinfo>
-#include <cxxabi.h>    // gcc specific header to demangle names
-
 /*  C++11 introduced many new featues to the language including type inference.  It is no
  *  longer necessary to explicitly declare variable if the compiler already knows about the type.
  *  You can use "auto" and "declspec" to get the compiler to work out your types.
@@ -11,6 +6,11 @@
  *  managles symbols.  However since we are exclusively using g++ we can make use of the specific
  *  gcc routine to demangle names shown below.  This will not work with other compilers.
  */
+
+#include <iostream>
+#include <functional>
+#include <typeinfo>
+#include <cxxabi.h>    // gcc specific header to demangle names
 
 using namespace std;
 

@@ -37,6 +37,7 @@
 
 #include <iostream>
 #include <list>
+#include <utility>      // for pair
 #include <string>
 #include <algorithm>
 
@@ -48,7 +49,6 @@ void Print(Pair& p)
 {
     cout << p.first << ", " << p.second << endl; 
 }
-
 
 bool LessThan21K(const Pair& p)
 {
@@ -62,23 +62,17 @@ bool LessThan21K(const Pair& p)
 
 int main()
 {
-    list<Pair> collection;
-    list<Pair>::iterator i;
+    // compiler needs help with type deduction
+    list<pair<string,int>> collection = {
+        {"Steven"s, 25000},
+        {"Mary"s,   28000},
+        {"John"s,   20000},
+        {"Susan"s,  36500},
+        {"Rose"s,   17500}
+    };
 
-    Pair item1 = make_pair("Steven", 25000);
-    Pair item2 = make_pair("Mary",   28000);
-    Pair item3 = make_pair("John",   20000);
-    Pair item4 = make_pair("Susan",  36500);
-    Pair item5 = make_pair("Rose",   17500);
-
-    collection.push_back(item1);
-    collection.push_back(item2);
-    collection.push_back(item3);
-    collection.push_back(item4);
-    collection.push_back(item5);
-    
     // search for first item that earns less than $21,000
     cout << endl << "Searching for first item that earns less than 21,000" << endl;
-    i = find_if(collection.begin(), collection.end(), LessThan21K);
+    auto i = find_if(collection.begin(), collection.end(), LessThan21K);
     Print(*i);
 }
