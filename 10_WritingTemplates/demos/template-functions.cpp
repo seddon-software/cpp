@@ -42,7 +42,5 @@ int main()
 	cout << Max(5, 8) << endl;
 	cout << Max(5.1, 8.3) << endl;
 	cout << Max("Red", "Blue") << endl;
-	 
-	return 0;
 }
 
