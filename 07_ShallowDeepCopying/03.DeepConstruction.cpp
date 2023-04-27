@@ -1,11 +1,13 @@
-////////////////////////////////////////////////////////////
-//
-//      Deep Copy Constructors
-//
-////////////////////////////////////////////////////////////
+/*
+ *  To overcome the problems with shallow construction we need to write a copy constructor.  This 
+ *  constructor must ensure the original and the copy object have separate heap storage.  By duplicating 
+ *  the heap storage we avoid double deallocation.
+ */
 
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
+
+using namespace std;
 
 class String
 {
