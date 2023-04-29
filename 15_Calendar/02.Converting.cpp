@@ -1,29 +1,31 @@
+/*
+ *  When you want to perform arithmetic on dates you need to convert dates to sys_days using casts.  We
+ *  have used "auto" instead of explicitly using sys_days in the code below.
+ * 
+ *  Once you have a sys_days object you can easily add 20 days to it:
+ *                  sd += C::days(20);
+ */
+
 #include <iostream>
 #include <chrono>
+#include <format>
+
 using namespace std;
 namespace C = std::chrono;
-
-void printDate(const C::year_month_day& date)
-{
-    cout << "day = " << static_cast<unsigned>(date.day())
-         << ", month = " << static_cast<unsigned>(date.month())
-         << ", year = " << static_cast<int>(date.year())
-         << endl;
-}
 
 void addTwentyDays(C::year_month_day& date)
 {
     // convert to and from sys_days and add 20 days
-    auto sd = static_cast<C::sys_days>(date);
+    C::sys_days sd = static_cast<C::sys_days>(date);
     sd += C::days(20);
     date = static_cast<C::sys_days>(sd);
-    printDate(date);
+    cout << format("{}\n", date);
 }
 
 int main()
 {
     C::year_month_day date{C::month(5)/C::day(8)/2024};
-    printDate(date);
+    cout << format("{}\n", date);
 
     // increment the date
     addTwentyDays(date);
