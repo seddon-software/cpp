@@ -23,7 +23,7 @@ string s2="XYZ";
 
 void compare()
 {
-    if(!strcmp(c1, c2))   // note !
+    if(!strcmp(c1, c2))   // note the ! for negation
         printf("same\n");
     else
         printf("different\n");

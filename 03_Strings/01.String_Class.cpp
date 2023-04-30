@@ -2,10 +2,9 @@
  *  C++ introduced a templated String class to replace C's character arrays.  It is templated to allow for
  *  multiple String types, like ASCII strings and Unicode.  To simplify using ASCII strings the template defines
  *  the following typedef:
- *              typedef basic_string<char>    string;   
+ *              typedef basic_string<char> string;   
  * 
- *  This typedef is commonly used in most code.
- * 
+ *  This typedef is commonly used in code.
  *  The string class has numerous methods, some of which we use below:
  */
 

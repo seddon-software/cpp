@@ -15,8 +15,6 @@
 #include <typeinfo>
 #include <cxxabi.h>    // gcc specific header to demangle names
 
-using namespace std;
-
 // this routine only works with gcc.  Note the extra include file <cxxabi.h> and changes to the Makefile.
 const char* demangle(auto p)
 {
@@ -24,6 +22,8 @@ const char* demangle(auto p)
 	const char* realname = abi::__cxa_demangle(typeid(p).name(),0,0,&status);  // gcc specific code (see Makefile)
 	return realname;
 }
+
+using namespace std;
 
 int f(int a, int b)
 {
