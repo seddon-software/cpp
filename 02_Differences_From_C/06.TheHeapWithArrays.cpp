@@ -16,6 +16,11 @@
  *  'delete' to clean up, then only the first array item will have its destructor called.  This is not a 
  *  problem with built in types like int and double because they don't have constructors and destructors, but 
  *  it may result in memory leaks for user defined types.
+ *
+ *  Note that we need to overload the << operator to be able to print our objects: 
+ *     friend ostream& operator<<(ostream& os, const Point& p)
+ *  
+ *  Operator overloading will be explained later in the course.
  */
 
 #include <iostream>
@@ -45,6 +50,11 @@ public:
         cout << "DTOR" << endl;
     }
 
+    friend ostream& operator<<(ostream& os, const Point& p)
+    {
+        os << "[" << p.x << "," << p.y << "] ";
+        return os;
+    }
 private:
     int x;
     int y;
@@ -52,11 +62,14 @@ private:
 
 //////
 
+void useTheArray(Point* p)
+{
+    cout << p[0] << ", " << p[1] << ", "<< p[2] << endl;
+}
+
 int main()
 {
     Point* ptr;
-
-    // do something
 
     ptr = new Point[3];
 
@@ -64,8 +77,7 @@ int main()
     ptr[1] = Point(20, 20);
     ptr[2] = Point(30, 30);
 
-    // ... now use the array ...
-
+    useTheArray(ptr);
     delete [] ptr;  // cleanup
 
     // invoke different CTOR(int, int) for each item in array

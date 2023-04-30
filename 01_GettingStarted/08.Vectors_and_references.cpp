@@ -25,7 +25,7 @@ int main()
 
     for(auto& i : v)
     {
-	    i *= 2;
+	    i *= 2;         // modify the vector
     }
 
     for(auto i : v)

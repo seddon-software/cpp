@@ -25,7 +25,7 @@
 // using namespace tells the compiler which namespaces to seach.  
 // The std:: is then not required.  You should know that the use
 // of this construct is not universally accepted.  There are lots of discussions
-// on the web about thepros and cons of the following line: 
+// on the web about the pros and cons of the following line: 
 using namespace std;
 
 int main()
