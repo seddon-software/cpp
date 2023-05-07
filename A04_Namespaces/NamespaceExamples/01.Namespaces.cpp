@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////
-//
-//		Namespaces
-//
-////////////////////////////////////////////////////////////
-
 /* 
  *  Namespaces are used to group entities like classes, objects and functions under a distinct name. 
  *  This allows the global scope to be divided in "sub-scopes", each one with its own name.  Namespaces
@@ -20,9 +14,7 @@
  *  Namespaces are scoped like other C++ entities.
  * 
  *  It is also possible to be explicit in which namespace to use when declaring an object.  This 
- *  overrides using namespace directives.
- 
- 
+ *  overrides "using namespace" directives.
  */ 
 
 // define 2 separate namespaces, both with Map and List classes.
