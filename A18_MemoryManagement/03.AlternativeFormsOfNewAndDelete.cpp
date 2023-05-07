@@ -43,6 +43,8 @@ class Point
 public:
 	Point()
 	{
+        #pragma GCC diagnostic ignored "-Wuninitialized"
+        // not normally a good idea, but just to prove initialisation can be performed in operator new
     	if(x == 5) throw runtime_error("throw in CTOR");
 	}
 	

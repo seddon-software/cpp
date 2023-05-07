@@ -1,3 +1,9 @@
+/*
+ *  You can store unique_ptrs in a vector, but because the vector uses value semantics it will try to
+ *  copy the unique_ptrs (which is not allowed).  You can get round this by using std::move to make the
+ *  unique_ptrs r-value references.
+ */
+
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -7,7 +13,10 @@ using namespace std;
 class Point
 {
 public:
-    Point(int x, int y):x(x), y(y) {}
+    Point(int x, int y):x(x), y(y)
+    {
+        cout << "CTOR called on: " << x << ", " << y << endl;
+    }
     ~Point() 
     {
         cout << "DTOR called on: " << x << ", " << y << endl;

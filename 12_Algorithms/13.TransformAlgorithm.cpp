@@ -1,4 +1,15 @@
-#include <map>
+/*
+ *  This example uses an inserter object to perform a transformation on all items stored in an
+ *  unordered map (hash table).
+ * 
+ *  The transform algorithm takes 4 parameters:
+ *              transform(salary.begin(),       // start of input range 
+ *                        salary.end(),         // end of input range  
+ *                        i,                    // inserter 
+ *                        addTenPercent);       // function pointer to perfor the transform
+ */
+
+#include <unordered_map>
 #include <algorithm>
 #include <iterator>
 #include <iostream>

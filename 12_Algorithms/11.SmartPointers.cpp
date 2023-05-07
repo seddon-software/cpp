@@ -1,3 +1,13 @@
+/*
+ *  When we allocate objects on the heap with "new" we must remember to clean them up later with "delete".
+ *  Alternatively, we can use smart pointers to automatically clean up the heap.  Note the smart pointer
+ *  has the same size as a raw pointer and therefore doesn't increase the memory footprint of the program
+ *  appreciably (just the extra code in the smart pointer class).
+ * 
+ *  The standard library uses "unique_ptr" to track heap based objects.  The smart pointers in this example
+ *  are all created on the stack, but this is not a requirement.
+ */
+
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -7,7 +17,10 @@ using namespace std;
 class Point
 {
 public:
-    Point(int x, int y):x(x), y(y) {}
+    Point(int x, int y):x(x), y(y) 
+    {
+        cout << "CTOR called on: " << x << ", " << y << endl;
+    }
     ~Point() 
     {
         cout << "DTOR called on: " << x << ", " << y << endl;

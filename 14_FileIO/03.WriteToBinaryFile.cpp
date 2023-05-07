@@ -1,8 +1,11 @@
-///////////////////////////////////////////////////////////////////////////////
-//
-//  Binary Files (write)
-//
-///////////////////////////////////////////////////////////////////////////////
+/*
+ *  When working with binary file we can use the flag:
+ *          ios::binary
+ *  but note this has no effect in Linux systems, because there is no difference between text and
+ *  binary files (it's provided for Windows platforms).  The flag:
+ *          ios::trunc
+ *  is used to empty (truncate to zero length) the output file, prior to writing to it.
+ */
 
 #include <fstream>
 #include <string>
@@ -14,14 +17,6 @@
 
 using namespace std;
 
-/*
- *  When working with binary file we can use the flag:
- *          ios::binary
- *  but note this has no effect in Linux systems, because there is no difference between text and
- *  binary files (it's provided for Windows platforms).  The flag:
- *          ios::trunc
- *  is used to empty (truncate to zero length) the output file, prior to writing to it.
- */
 
 int main()
 {

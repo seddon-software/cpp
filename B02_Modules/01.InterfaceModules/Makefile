@@ -1,7 +1,10 @@
+#  gcc still has limited support for modules.  You have to compile with:
+#				-fmodules-ts
+#
 # In this makefile we compile one file at a time.  This is because some files create modules
 # which need to be built before they are imported elsewhere.  
 #
-# Note that the std library modules, once built, are stored in the "gcm.cache" cache.
+# Note that the std library modules (system headers), once built, are stored in the "gcm.cache" cache.
 
 CC := g++
 CFLAGS :=-g -c -fPIE -std=c++20 -fmodules-ts

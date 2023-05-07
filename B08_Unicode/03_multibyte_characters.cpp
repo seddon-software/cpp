@@ -32,6 +32,7 @@ int main()
     const char* star2 = "\u2605";
     cout << star2 << endl;
     // note: multi-byte constants need to be unsigned, but won't print properly anyway
+    #pragma GCC diagnostic ignored "-Wmultichar"
     unsigned int star3 = '★';
     cout << star3 << endl;  // this doesn't work
 

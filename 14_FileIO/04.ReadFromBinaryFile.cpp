@@ -1,8 +1,9 @@
-///////////////////////////////////////////////////////////////////////////////
-//
-//  Binary Files (read)
-//
-///////////////////////////////////////////////////////////////////////////////
+/*
+ *  In this example we read from a binary file (we created earlier) using the ifstream class.  However,
+ *  it is convenient to use the stream buffer object associated with the stream to perform the reading and 
+ *  writing operations.
+ */
+
 
 #include <cstdlib>
 #include <fstream>
@@ -12,12 +13,6 @@
 #define FILENAME "myfile.dat"
 
 using namespace std;
-
-/*
- *  In this example we read from a binary file (we created earlier) using the ifstream class.  However,
- *  it is convenient to use the stream buffer object associated with the stream to perform the reading and 
- *  writing operations.
- */
 
 int main()
 {
