@@ -1,4 +1,13 @@
-#include <iostream>
+
+/*
+ *  Demo to show the equivalence of a functor and lambdas.  A functor is an object that behaves like a 
+ *  function (i.e. overloads the operator()), but being an object also has attributes (unlike a function).
+ * 
+ *  A functor requires defining a specialised class whereas with a lambda the compiler creates this class
+ *  implicitly. 
+ */
+
+ #include <iostream>
 #include <map>
 #include <string>
 #include <algorithm>
