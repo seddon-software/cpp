@@ -22,9 +22,9 @@ using namespace std;
  *  run-time, the polymorphic classes must define at least one virtual function (to generate the V-Tables).
  * 
  *  The reinterpret_cast only works on pointers, and can also be applied to both polymorphic and non 
- *  polymorphic types.  If the cast is invalid then the code will fail to compile.  If this cast is used
- *  between non polymorphic types then the compiler assumes you know what you doing; this often an indication
- *  of a hack or programming error.
+ *  polymorphic types.  If you try reinterpret_cast on non pointers or references the cast will fail to compile.  
+ *  If this cast is used between non polymorphic types then the compiler assumes you know what you doing; 
+ *  this often an indication of a hack or programming error.
  
  *  The const_cast is used to remove the const nature of an object.  Note this should be used with caution;
  *  the constness of an object id there for a reason.  Overriding constness is usually only necessary when
