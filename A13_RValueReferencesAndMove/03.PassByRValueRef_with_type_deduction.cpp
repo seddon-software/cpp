@@ -3,10 +3,10 @@
 using namespace std;
 
 /*  When passing by r-value reference, there is is a big difference between the case where 
- *  the references (l-value or r-value) are explicitly specified and the case where the 
- *  compiler deduces the reference type (as in a template or using auto).  
+ *  references (l-value or r-value) are explicitly specified in a function parameter list
+ *  and the case where the compiler deduces the reference type (as in a template or using auto).  
  * 
- *  Note that if a function specifies a parameter as an r-value reference and does not provide
+ *  When a templated function specifies a parameter as an r-value reference and does not provide
  *  an l-value ref overload, this does not imply the parameter passed is an r-value reference.
  *  This is counter intuitive, but the collapsing rules shown earlier mean the actual parameter
  *  passed can be either an l-value ref or r-value ref and the compiler has to deduce which is 
@@ -21,6 +21,7 @@ class X
 {
 public:
 	X() {}
+    ~X() { cout << "DTOR" << endl; }
 	void hello()
 	{
 		cout << "Hello from temporary X object" << endl;
@@ -58,7 +59,7 @@ void g(auto&& t)
 	}
 }
 
-X h() // returns an r-value
+X h()
 {
 	X x;
 	return x;
@@ -69,8 +70,8 @@ int main()
 	X x;
 	f(x);	  // argument is lvalue
 	f(X());   // argument is rvalue (temporary)
-	f(h());   // argument is rvalue (temporary)
+	f(h());   // argument is rvalue (return value not saved and thus temporary)
 	g(x);	  // argument is lvalue
 	g(X());   // argument is rvalue (temporary)
-	g(h());   // argument is rvalue (temporary)
+	g(h());   // argument is rvalue (return value not saved and thus temporary)
 }

@@ -1,11 +1,10 @@
 #include <iostream>
 using namespace std;
 
-/*  When passing by r-value reference, there is is a big difference between the case where 
- *  the references (l-value or r-value) are explicitly specified and the case where the 
- *  compiler deduces the types (as in a template or using auto).  
+/*  Here we concentrate on the case where we are not using universal references; no templates or
+ *  auto involved.  
  * 
- *  In this example we provide overload functions separately for l-value and r-value references.
+ *  In this example we provide separate overloaded functions for l-value and r-value references.
  *  This means the compiler does not need to deduce the reference types (no universal references 
  *  in this case).  Therefore long lived objects (l-value refs) will use the l-value ref overload
  *  and temporaries (r-value refs) will use the r-value ref overload.
@@ -16,6 +15,7 @@ class X
 {
 public:
 	X() {}
+    ~X() { cout << "DTOR" << endl; }
 };
 
 // f is overloaded for both l-value and r-value references
@@ -29,6 +29,7 @@ void f(X&& x)
 	cout << "r-value ref" << endl;
 }
 
+// g is overloaded for both l-value and r-value references
 void g(auto& x)
 {
 	cout << "l-value ref" << endl;
@@ -51,7 +52,7 @@ int main()
 	f(x);		 	// argument is lvalue: calls f(X&)
 	f(h());    		// argument is rvalue: calls f(X&&)
 	f(X());       	// argument is rvalue: calls f(X&&)
-	g(x);		 	// argument is lvalue: calls g(X&) // vscode incorrectly reporting an error
+	g(x);		 	// argument is lvalue: calls g(X&)
 	g(h());    		// argument is rvalue: calls g(X&&)
 	g(X());       	// argument is rvalue: calls g(X&&)
 }
