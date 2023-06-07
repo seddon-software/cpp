@@ -35,7 +35,7 @@ int main()
 {
 	X x;
 	const X cx;
-	auto& r = x;
+	X& r = x;
 	checkArg(r, "r");		// l-value ref
 
 	auto&& rr1 = x;			// looks like a r-value ref, but is it?
@@ -46,12 +46,11 @@ int main()
 
 	checkArg(X(), "X()");	// X() creates a temporary, so it is an r-value-ref
 	
-	// std::move(t) === static_cast<typename std::remove_reference<T>::type&&>(t) 
-	checkArg(std::move(r), "std::move(x)");  // move creates r-value
 	auto&& mv{std::move(r)};                 // mv is an l-value
 	checkArg(mv, "mv");
 
-	checkArg(std::forward<X>(r), "std::forward(x)");  // forward creates r-value
-	auto&& fwd{std::move(r)};                         // fwd is an l-value
-	checkArg(fwd, "fwd");
+	// std::move(t) === static_cast<typename std::remove_reference<T>::type&&>(t) 
+	checkArg(std::forward<X&>(r), "std::forward(r)");  // forward doesn't change l-value ref
+	checkArg(std::move<X&>(r), "std::move(r)");        // forward doesn't change l-value ref
+	checkArg(std::move(r), "std::move(r)");            // compiler deduces template type as X&
 }
