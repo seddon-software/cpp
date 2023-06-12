@@ -17,8 +17,8 @@ using namespace std;
  * 
  *  When there are l-value and r-value reference overloads, the compiler will call the appropriate overload,
  *  but when there is only a r-value reference version of a function, the compiler will allow both r-value and 
- *  l-value entities to be passed as parameters.  In this later case the compiler deduces the type (l-value 
- *  or r-value refs).
+ *  l-value entities to be passed as parameters.  In this later case the compiler deduces the type (universal
+ *  references).
  *  
  *  When you run this example notice that f() is called with r and l value references, but by using std::move
  *  the reference is always converted to an r-value reference and

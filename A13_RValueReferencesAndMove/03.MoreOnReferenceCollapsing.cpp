@@ -26,9 +26,9 @@ template <typename T>
 void checkArg(T&& parameter, const string& name)
 {
 	if (std::is_lvalue_reference<T&&>::value)
-		cout << name + " is an l-value ref" << endl;
+		cout << name + " is T&" << endl;
 	else
-		cout << name + " is an r-value ref" << endl;
+		cout << name + " is T&&" << endl;
 }
 
 int main()
@@ -38,6 +38,7 @@ int main()
 	X& r = x;
 	checkArg(r, "r");		// l-value ref
 
+    // universal references (type deduction)
 	auto&& rr1 = x;			// looks like a r-value ref, but is it?
 	checkArg(rr1, "rr1");	// has a name, so l-value ref
 
@@ -46,11 +47,11 @@ int main()
 
 	checkArg(X(), "X()");	// X() creates a temporary, so it is an r-value-ref
 	
-	auto&& mv{std::move(r)};                 // mv is an l-value
+	auto&& mv{std::move(r)};  // mv is initialized with an r-value ref, but is itself an l-value
 	checkArg(mv, "mv");
 
 	// std::move(t) === static_cast<typename std::remove_reference<T>::type&&>(t) 
 	checkArg(std::forward<X&>(r), "std::forward(r)");  // forward doesn't change l-value ref
-	checkArg(std::move<X&>(r), "std::move(r)");        // forward doesn't change l-value ref
+	checkArg(std::move<X&>(r), "std::move(r)");        // move creates an r-value ref
 	checkArg(std::move(r), "std::move(r)");            // compiler deduces template type as X&
 }
