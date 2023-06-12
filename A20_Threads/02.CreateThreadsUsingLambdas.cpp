@@ -4,7 +4,7 @@ using namespace std;
 
 /*  
  *  Specification of the thread function in the thread constructor can be achieved using a lambda
- *  as in this example.  Each thread maintains a private stack Iincluding the main thread), which means
+ *  as in this example.  Each thread maintains a private stack (including the main thread), which means
  *  a thread's local variables are private within a thread.  By using a lambda you can capture local 
  *  variables from the main thread (by value or by reference).
  * 
