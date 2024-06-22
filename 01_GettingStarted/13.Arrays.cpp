@@ -1,7 +1,7 @@
 /*
  *  C++ uses the vector class to replace C's array type.  However, because the vector is dynamic, it is not
  *  as efficient as a fixed size array.  C++11 introduced a fixed size template array class to remidy this as
- *  a drop in replacement for vectors.
+ *  a drop in replacement for fixed size vectors.
  */
 
 #include <iostream>

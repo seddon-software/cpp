@@ -4,7 +4,7 @@
  *  3. cout is an object representing the character output buffer
  *  4. endl is the new line object, but includes a flush of the output buffer
  *
- *  If you dont like writing:
+ *  If you don't like writing:
  *              std::
  * 
  *  in front of all your library calls you are not alone.  If you use:
