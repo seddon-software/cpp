@@ -1,0 +1,6 @@
+To run these examples:
+    python 01.pointers.py
+    python 02.double_pointers.py
+
+Don't try (it will mess up your terminal):
+    python simulator.py
