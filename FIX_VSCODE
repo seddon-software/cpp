@@ -1,0 +1,16 @@
+start a new terminal window (to reset the module loads)
+cd to your c++ demos directory
+type:
+    module load gcc
+    module load vscode
+
+    git pull                # we will now use c++11
+
+    cd Build
+    ./clean-all-folders
+    ./make-all-folders
+
+    cd ..
+    code .
+
+
