@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
- *  C++11 introduce a second way to create a alias for a type: "using".  A typedef declaration and a 
+ *  C++11 introduced a second way to create a alias for a type: "using".  A typedef declaration and a 
  *  using declaration have different syntax, but are entirely equivalent.  However the using declaration
  *  is usually easier to understand and is my personal preference.
  */
