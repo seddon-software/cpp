@@ -1,21 +1,19 @@
-Last updated: 14 Apr 2023
+Last updated: 25 Jun 2024
 
 Setup
 =====
-1. Setup your C/C++ compiler on a Linux machine (gcc/11.2.0)
+1. Setup your C/C++ compiler on a Linux machine (gcc)
+    module load gcc
 
 2. To clone the repo use:
     git clone https://github.com/seddon-software/cpp.git
     cd cpp
 
-3. Install VSCode and the Microsoft C++ extension
+3. Install vscode (and the Microsoft C++ extension when prompted)
+    module load vscode
 
-4. Fire up VSCode type (the dot is important):
+4. Fire up vscode type (the dot is important):
     code .
-
-If you prefer you can use a later version of vscode, but since VSCode uses "electron" it is hungry
-on memory.  You might need to start vscode with:
-    code --no-sandbox .
 
 You can email me on:	
     seddon_software@btinternet.com
