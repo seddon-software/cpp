@@ -27,7 +27,7 @@ using Map = map<string, int, less<string>>;
 
 int main()
 {
-    Map theList;
+    MAP theList;
     
     theList["Steven"] = 25000;
     theList["Mary"] = 18000;
@@ -37,5 +37,5 @@ int main()
 
 	string key("Susan");
 	auto i = theList.find(key);
-    cout << "key=" << (*i).first << ",value=" << (*i).second << endl; 
+    cout << "key=" << i->first << ",value=" << i->second << endl; 
 }

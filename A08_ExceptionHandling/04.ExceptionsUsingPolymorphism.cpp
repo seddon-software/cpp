@@ -14,12 +14,12 @@
 using namespace std;
 
 
-struct Error : exception   // using private inheritance is OK
+struct Error : exception   // using public inheritance is OK
 {
 	virtual void diagnose() const = 0;
 };
 
-struct MathError : Error  // using private inheritance is OK
+struct MathError : Error  // using public inheritance is OK
 {
 	virtual void diagnose() const { cout << "MathError" << endl; }
 };

@@ -57,8 +57,30 @@ bool LessThan21K(const Pair& p)
     else
         return false;
 }
+bool LessThan22K(const Pair& p)
+{
+    if (p.second < 22000)
+        return true;
+    else
+        return false;
+}
 
 /////
+
+class Query
+{
+public:
+    Query(int s): salary(s) {}
+    bool operator() (const Pair& p)
+    {
+        if (p.second < salary)
+            return true;
+        else
+            return false;
+    }
+private:
+    int salary;
+};
 
 int main()
 {
@@ -73,6 +95,17 @@ int main()
 
     // search for first item that earns less than $21,000
     cout << endl << "Searching for first item that earns less than 21,000" << endl;
-    auto i = find_if(collection.begin(), collection.end(), LessThan21K);
-    Print(*i);
+    int s = 21000;
+    auto i2 = find_if
+    (
+        collection.begin(), 
+        collection.end(), 
+        [s](const Pair& p)    
+        {
+            if (p.second < s)
+                return true;
+            else
+                return false;
+        }
+    );
 }
