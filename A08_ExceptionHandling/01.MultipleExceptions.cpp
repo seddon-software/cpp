@@ -14,34 +14,24 @@
 #include <exception>
 using namespace std;
 
-
-struct A : exception {};
-struct B : exception {};
-struct C : exception {};
+// define your own exceptions more relevent to your problem domain
+struct TooHot : exception {};
+struct TooCold : exception {};
+struct MilesTooHot : exception {};
 
 int main()
 {
+    int temp = 30;          // try different values
 	try
 	{
-	    throw A();
+	    if (temp < 0) throw TooCold();
+	    if (temp > 100) throw TooHot();
+	    if (temp > 300) throw MilesTooHot();
+        cout << "important stuff" << endl;      // never called if excepion thrown
 	}
-	catch(const A& e) { cout << "A" << endl; }  // this will catch A()
-	catch(const B& e) { cout << "B" << endl; }
-	catch(const C& e) { cout << "C" << endl; }
-
-	try
-	{
-	    throw B();
-	}
-	catch(const A& e) { cout << "A" << endl; }
-	catch(const B& e) { cout << "B" << endl; }  // this will catch B()
-	catch(const C& e) { cout << "C" << endl; }
-
-	try
-	{
-	    throw C();
-	}
-	catch(const A& e) { cout << "A" << endl; }
-	catch(const B& e) { cout << "B" << endl; }
-	catch(const C& e) { cout << "C" << endl; }  // this will catch C()
+	catch(const TooHot& e) { cout << "TooHot" << endl; }  // this will catch A()
+	catch(const TooCold& e) { cout << "TooCold" << endl; }
+	catch(const MilesTooHot& e) { cout << "MilesTooHot" << endl; }
+    catch(...) { cout << "unknown error" << endl;}
+    cout << "after catch handlers" << endl;
 }
