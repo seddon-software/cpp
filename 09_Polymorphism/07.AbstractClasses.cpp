@@ -8,9 +8,10 @@
  * do is set one or more virtual functions to 0 (call pure virtual functions).  When the compiler sees
  * a 0 (null pointer) in the V-Table it realises it is not safe to instantiate objects of this class.
  * Hence the line:
+ *          Shape s;
  * 
- * calls down through the hierarchy. 
- *  */
+ * doesn't compile.
+ */
 
 #include <iostream>
 #include <vector>
