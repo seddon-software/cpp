@@ -1,4 +1,4 @@
-module load gcc/10
-module load vscode/1.42.1
+module load gcc
+module load vscode
 code --install-extension ms-python.python
 code --install-extension ms-vscode.cpptools
